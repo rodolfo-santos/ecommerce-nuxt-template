@@ -1,0 +1,17 @@
+@import "./variaveis";
+
+.text-upper {
+  text-transform: uppercase;
+}
+
+.hr-base {
+  max-width: 300px;
+  border: $primary 2px solid;
+  margin: 20px 0;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

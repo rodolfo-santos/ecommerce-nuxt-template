@@ -5,6 +5,9 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    tituloApp: 'Trade Center',
+    carrinho: 10,
+    usuario: 'Rodolfo Santos',
   },
   mutations: {
   },
