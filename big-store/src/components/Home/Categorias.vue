@@ -34,7 +34,6 @@ export default class Categorias extends Vue {
 @import '@/sass/custom.scss';
   .categoria {
     min-height: 250px;
-    max-width: 250px;
     background-position: center!important;
     background-repeat: no-repeat!important;
     background-size: cover!important;
