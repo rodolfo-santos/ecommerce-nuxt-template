@@ -5,6 +5,10 @@
   text-transform: uppercase;
 }
 
+.text-capitalize {
+  text-transform: capitalize;
+}
+
 .hr-base {
   max-width: 300px;
   border: $primary 2px solid;
@@ -24,3 +28,17 @@
 .p-relative {
   position: relative;
 }
+
+.list-inline {
+  list-style-type: none;
+  padding-left: 0px!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  li {
+    padding: 0;
+    margin: 0;
+  }
+}
+

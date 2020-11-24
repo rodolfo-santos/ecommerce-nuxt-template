@@ -116,49 +116,156 @@
   ],
   "produto": [
     {
-      "id": "notebook",
-      "nome": "Notebook",
-      "usuario_id": "rodolfo@gmail.com",
-      "preco": "4999",
-      "vendido": "false",
-      "descricao": "Esse é um novo notebook.",
-      "fotos": null
+      "id": "moletom-ninja-1",
+      "nome": "Moletom Ninja",
+      "preco": "299.99",
+      "descricao": "Esse é um novo Moletom.",
+      "estoque": 10,
+      "fotos": [
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg"
+      ],
+      "categorias": ["masculino", "feminino", "moletom"],
+      "peso_kg": 0.8,
+      "altura_cm": 100,
+      "largura_cm": 70,
+      "comprimento_cm": 5,
+      "promocao": false,
+      "preco_promocao": "",
+      "publicado": true
     },
     {
-      "id": "smartphone",
-      "nome": "Smartphone",
-      "usuario_id": "rodolfo@gmail.com",
-      "preco": "1999",
-      "vendido": "false",
-      "descricao": "Esse é um novo smartphone.",
-      "fotos": null
+      "id": "moletom-ninja-2",
+      "nome": "Moletom Ninja",
+      "preco": "299.99",
+      "descricao": "Esse é um novo Moletom.",
+      "estoque": 10,
+      "fotos": [
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg"
+      ],
+      "categorias": ["masculino", "feminino", "moletom"],
+      "peso_kg": 0.8,
+      "altura_cm": 100,
+      "largura_cm": 70,
+      "comprimento_cm": 5,
+      "promocao": false,
+      "preco_promocao": "",
+      "publicado": true
     },
     {
-      "id": "tablet",
-      "nome": "Tablet",
-      "usuario_id": "rodolfo@gmail.com",
-      "preco": "1399",
-      "vendido": "false",
-      "descricao": "Esse é um novo tablet.",
-      "fotos": null
+      "id": "moletom-ninja-3",
+      "nome": "Moletom Ninja",
+      "preco": "299.99",
+      "descricao": "Esse é um novo Moletom.",
+      "estoque": 10,
+      "fotos": [
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg"
+      ],
+      "categorias": ["masculino", "feminino", "moletom"],
+      "peso_kg": 0.8,
+      "altura_cm": 100,
+      "largura_cm": 70,
+      "comprimento_cm": 5,
+      "promocao": false,
+      "preco_promocao": "",
+      "publicado": true
     },
     {
-      "nome": "tablet",
-      "preco": "50",
-      "descricao": "Produto bom e barato",
-      "fotos": null,
-      "usuario_id": "rodolfo2@gmail.com",
-      "vendido": "false",
-      "id": "gqZZrAs"
+      "id": "moletom-ninja-4",
+      "nome": "Moletom Ninja",
+      "preco": "299.99",
+      "descricao": "Esse é um novo Moletom.",
+      "estoque": 10,
+      "fotos": [
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg"
+      ],
+      "categorias": ["masculino", "feminino", "moletom"],
+      "peso_kg": 0.8,
+      "altura_cm": 100,
+      "largura_cm": 70,
+      "comprimento_cm": 5,
+      "promocao": false,
+      "preco_promocao": "",
+      "publicado": true
     },
     {
-      "nome": "monitor",
-      "preco": "50",
-      "descricao": "Produto bom e barato",
-      "fotos": null,
-      "usuario_id": "rodolfo2@gmail.com",
-      "vendido": "false",
-      "id": "0_v0Y_5"
+      "id": "moletom-ninja-5",
+      "nome": "Moletom Ninja",
+      "preco": "299.99",
+      "descricao": "Esse é um novo Moletom.",
+      "estoque": 10,
+      "fotos": [
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg"
+      ],
+      "categorias": ["masculino", "feminino", "moletom"],
+      "peso_kg": 0.8,
+      "altura_cm": 100,
+      "largura_cm": 70,
+      "comprimento_cm": 5,
+      "promocao": false,
+      "preco_promocao": "",
+      "publicado": true
+    },
+    {
+      "id": "moletom-ninja-6",
+      "nome": "Moletom Ninja",
+      "preco": "299.99",
+      "descricao": "Esse é um novo Moletom.",
+      "estoque": 10,
+      "fotos": [
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg"
+      ],
+      "categorias": ["masculino", "feminino", "moletom"],
+      "peso_kg": 0.8,
+      "altura_cm": 100,
+      "largura_cm": 70,
+      "comprimento_cm": 5,
+      "promocao": false,
+      "preco_promocao": "",
+      "publicado": true
+    },
+    {
+      "id": "moletom-ninja-7",
+      "nome": "Moletom Ninja",
+      "preco": "299.99",
+      "descricao": "Esse é um novo Moletom.",
+      "estoque": 10,
+      "fotos": [
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg"
+      ],
+      "categorias": ["masculino", "feminino", "moletom"],
+      "peso_kg": 0.8,
+      "altura_cm": 100,
+      "largura_cm": 70,
+      "comprimento_cm": 5,
+      "promocao": false,
+      "preco_promocao": "",
+      "publicado": true
+    },
+    {
+      "id": "moletom-ninja-8",
+      "nome": "Moletom Ninja",
+      "preco": "299.99",
+      "descricao": "Esse é um novo Moletom.",
+      "estoque": 10,
+      "fotos": [
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg"
+      ],
+      "categorias": ["masculino", "feminino", "moletom"],
+      "peso_kg": 0.8,
+      "altura_cm": 100,
+      "largura_cm": 70,
+      "comprimento_cm": 5,
+      "promocao": false,
+      "preco_promocao": "",
+      "publicado": true
     }
   ],
   "categoria": [

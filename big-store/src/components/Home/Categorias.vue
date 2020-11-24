@@ -1,11 +1,34 @@
 <template>
   <v-container class="mt-10">
-      <v-row>
-        <v-col class="m-auto col-3" v-for="categoria in categorias" :key="categoria.id">
-          <v-card class="categoria" :style="`background: url(${categoria.imagem})`">
-          </v-card>
-        </v-col>
-      </v-row>
+    <v-row>
+      <v-col 
+        class="m-auto col-3" 
+        v-for="categoria in categorias" 
+        :key="categoria.id"
+        >
+        <v-hover>
+          <template v-slot:default="{ hover }">
+            <v-card 
+              class="categoria" 
+              :style="`background: url(${categoria.imagem})`"
+              hover>
+              <v-card-text class="texto">{{ categoria.name}}</v-card-text>
+
+              <v-fade-transition>
+                <v-overlay
+                  v-if="hover"
+                  absolute
+                  color="#16D17E"
+                  class="overlay-texto"
+                >
+                  {{ categoria.name }}
+                </v-overlay>
+              </v-fade-transition>
+            </v-card>
+          </template>
+        </v-hover>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -16,6 +39,7 @@ import CategoriaServ from '@/services/categorias';
 @Component
 export default class Categorias extends Vue {
   private categorias: object[] = [];
+  private overlay: boolean = false;
 
   private getCategorias() {
     CategoriaServ.listar(8).then((response) => {
@@ -32,10 +56,28 @@ export default class Categorias extends Vue {
 <style lang="scss" scoped>
 
 @import '@/sass/custom.scss';
+  .container {
+    max-width: 1000px;
+  }
+
   .categoria {
-    min-height: 250px;
+    border: $primary 2px solid;
+    min-height: 200px;
     background-position: center!important;
     background-repeat: no-repeat!important;
     background-size: cover!important;
+    transition: .25s!important;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    .texto, .overlay-texto {
+      font-size: 1.5em!important;
+    }
   }
 </style>
