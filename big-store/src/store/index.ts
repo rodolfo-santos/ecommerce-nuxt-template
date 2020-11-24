@@ -7,7 +7,8 @@ export default new Vuex.Store({
   state: {
     tituloApp: 'Trade Center',
     carrinho: 10,
-    usuario: 'Rodolfo Santos',
+    usuario: 'Entrar / Cadastrar',
+    logado: false,
   },
   mutations: {
   },

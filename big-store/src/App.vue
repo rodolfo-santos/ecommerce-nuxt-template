@@ -7,15 +7,18 @@
   </v-app>
 </template>
 
-<script>
+<script lang="ts">
+import {Component, Vue} from 'vue-property-decorator';
 import Header from '@/components/Header.vue';
 
-export default {
-  name: 'App',
+@Component({
   components: {
     Header,
   },
-};
+})
+export default class App extends Vue {
+
+}
 </script>
 
 <style lang="scss">

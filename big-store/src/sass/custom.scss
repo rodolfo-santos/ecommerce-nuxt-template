@@ -1,4 +1,5 @@
 @import "./variaveis";
+@import "./animations";
 
 .text-upper {
   text-transform: uppercase;
@@ -14,4 +15,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.p-absolute {
+  position: absolute;
+}
+
+.p-relative {
+  position: relative;
 }

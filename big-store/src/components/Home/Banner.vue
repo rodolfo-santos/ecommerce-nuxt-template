@@ -18,13 +18,14 @@
   </v-carousel>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      items: [
+<script lang="ts">
+import {Component, Vue} from 'vue-property-decorator';
+
+@Component
+export default class Banner extends Vue {
+private items: any = [
         {
-          src: require('../assets/imagens/banner_loja.jpg'),
+          src: require('@/assets/imagens/banner_loja.jpg'),
           content: {
             texto01: 'Desapegou!',
             texto02: 'Roupas Sociais a',
@@ -32,17 +33,15 @@ export default {
           },
         },
         {
-          src: require('../assets/imagens/banner_loja.jpg'),
+          src: require('@/assets/imagens/banner_loja.jpg'),
           content: {
             texto01: 'Confira as Novidades',
             texto02: 'fique ligado nos',
             texto03: 'Últimos Anúncios',
           },
         },
-      ],
-    };
-  },
-};
+      ];
+}
 </script>
 
 <style lang="scss" scoped>
