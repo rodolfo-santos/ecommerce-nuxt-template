@@ -4,6 +4,7 @@
     <Categorias />
     <Lancamentos />
     <DivImage />
+    <MelhoresProdutos />
   </v-main>
 </template>
 
@@ -13,6 +14,7 @@ import Banner from '@/components/Home/Banner.vue';
 import Categorias from '@/components/Home/Categorias.vue';
 import Lancamentos from '@/components/Home/Lancamentos.vue';
 import DivImage from '@/components/DivImage.vue';
+import MelhoresProdutos from '@/components/Home/MelhoresProdutos.vue';
 
 @Component({
   components: {
@@ -20,9 +22,12 @@ import DivImage from '@/components/DivImage.vue';
     Categorias,
     Lancamentos,
     DivImage,
+    MelhoresProdutos,
   },
 })
 export default class Home extends Vue {}
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+
+</style>

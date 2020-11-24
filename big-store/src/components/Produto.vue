@@ -1,7 +1,5 @@
 <template>
-  <v-card
-  class="mx-auto my-4"
->
+  <v-card class="mx-auto my-4" :width="width" :height="height">
     <v-img
       :src="dados.fotos[0]"
     ></v-img>
@@ -46,6 +44,8 @@ import {Component, Prop, Vue} from 'vue-property-decorator';
 @Component
 export default class Produto extends Vue {
   @Prop() private readonly dados!: object;
+  @Prop() private readonly width!: number;
+  @Prop() private readonly height!: number;
   private selection: number = 1;
 }
 </script>
