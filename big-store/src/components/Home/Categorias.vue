@@ -3,7 +3,6 @@
       <v-row>
         <v-col class="m-auto col-3" v-for="categoria in categorias" :key="categoria.id">
           <v-card class="categoria" :style="`background: url(${categoria.imagem})`">
-            {{categoria.imagem}}
           </v-card>
         </v-col>
       </v-row>
