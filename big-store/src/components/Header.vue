@@ -11,6 +11,27 @@
         </v-toolbar-title>
         <v-spacer></v-spacer>
         
+        <transition name="fade">
+          <div v-show="!searchActive">
+            <div  class="menu d-none d-md-flex">
+              <ul>
+              <router-link 
+                      tag="li"
+                      class="px-2" 
+                      role="button" 
+                      v-for="item in items" 
+                      :key="item.text" 
+                      :to="item.path">{{ item.text}}</router-link>
+              </ul>
+            </div>
+            <div class="carrinho flex-center ml-10 hidden-md-and-up">
+              <v-icon left>mdi-cart</v-icon>
+              {{ $store.state.carrinho }}
+            </div>
+          </div>
+        </transition>
+
+        <div class="p-relative">
           <transition name="fade">
             <div v-show="searchActive" class="div-search">
               <v-text-field 
@@ -20,43 +41,22 @@
                 @blur="searchActive = false"></v-text-field>
             </div>
           </transition>
+           <v-icon @click="searchShow" class="mx-5">mdi-magnify</v-icon>
+        </div>
 
-          <transition name="fade">
-            <div v-show="!searchActive">
-              <div  class="menu d-none d-md-flex">
-                <ul>
-                <router-link 
-                        tag="li"
-                        class="px-2" 
-                        role="button" 
-                        v-for="item in items" 
-                        :key="item.text" 
-                        :to="item.path">{{ item.text}}</router-link>
-                </ul>
+        <div class="carrinho flex-center">
+          <v-btn>
+            <v-icon left>mdi-cart</v-icon>
+            {{ $store.state.carrinho }}
+          </v-btn>
+        </div>
 
-                <div class="carrinho flex-center ml-10">
-                  <v-btn>
-                    <v-icon left>mdi-cart</v-icon>
-                    {{ $store.state.carrinho }}
-                  </v-btn>
-                </div>
-
-                <div class="usuario ">
-                  <v-btn>
-                    <v-icon left>mdi-account</v-icon>
-                    {{ $store.state.usuario }}
-                  </v-btn>
-                </div>
-
-              </div>
-              <div class="carrinho flex-center ml-10 hidden-md-and-up">
-                <v-icon left>mdi-cart</v-icon>
-                {{ $store.state.carrinho }}
-              </div>
-            </div>
-          </transition>
-
-        <v-icon @click="searchShow">mdi-magnify</v-icon>
+        <div class="usuario ">
+          <v-btn>
+            <v-icon left>mdi-account</v-icon>
+            {{ $store.state.usuario }}
+          </v-btn>
+        </div>
       </v-app-bar>
 
       <v-navigation-drawer v-model="drawer" absolute temporary app>
@@ -144,18 +144,17 @@ export default class Header extends Vue {
 
 
 <style lang="scss" scoped>
-@import '@/sass/variaveis.scss';
 @import '@/sass/custom.scss';
 
 .div-search {
   position: absolute;
   right: 75px;
-  top: 10px;
+  top: -10px;
 }
 
 .input-search {
   color: #fff;
-  min-width: 300px;
+  min-width: 500px;
 }
 
 .search-form {

@@ -1,0 +1,214 @@
+{
+  "transacao": [
+    {
+      "comprador_id": "rodolfo@gmai.com",
+      "vendedor_id": "rodolfo2@gmail.com",
+      "produto": {
+        "nome": "monitor",
+        "preco": "50",
+        "descricao": "Produto bom e barato",
+        "fotos": null,
+        "usuario_id": "rodolfo2@gmail.com",
+        "vendido": "false",
+        "id": "0_v0Y_5"
+      },
+      "endereco": {
+        "cep": "12241421",
+        "rua": "Rua Oswaldo de Pinto",
+        "numero": "1160",
+        "bairro": "",
+        "cidade": "São José dos Campos",
+        "estado": "SP"
+      },
+      "id": 1
+    },
+    {
+      "comprador_id": "rodolfo2@gmail.com",
+      "vendedor_id": "rodolfo@gmail.com",
+      "produto": {
+        "id": "notebook",
+        "nome": "Notebook",
+        "usuario_id": "rodolfo@gmail.com",
+        "preco": "4999",
+        "vendido": "false",
+        "descricao": "Esse é um novo notebook.",
+        "fotos": null
+      },
+      "endereco": {
+        "cep": "12241-040",
+        "rua": "Rua Corifeu de Azevedo Marques",
+        "numero": "89",
+        "bairro": "Jardim das Indústrias",
+        "cidade": "São José dos Campos",
+        "estado": "SP"
+      },
+      "id": 2
+    },
+    {
+      "comprador_id": "rodolfo@gmai.com",
+      "vendedor_id": "rodolfo2@gmail.com",
+      "produto": {
+        "nome": "monitor",
+        "preco": "50",
+        "descricao": "Produto bom e barato",
+        "fotos": null,
+        "usuario_id": "rodolfo2@gmail.com",
+        "vendido": "false",
+        "id": "0_v0Y_5"
+      },
+      "endereco": {
+        "cep": "12241421",
+        "rua": "Rua Oswaldo de Pinto",
+        "numero": "1160",
+        "bairro": "Jardim LIMOEIRO",
+        "cidade": "São José dos Campos",
+        "estado": "SP"
+      },
+      "id": 3
+    },
+    {
+      "comprador_id": "rodolfo@gmail.com",
+      "vendedor_id": "rodolfo2@gmail.com",
+      "produto": {
+        "nome": "monitor",
+        "preco": "50",
+        "descricao": "Produto bom e barato",
+        "fotos": null,
+        "usuario_id": "rodolfo2@gmail.com",
+        "vendido": "false",
+        "id": "0_v0Y_5"
+      },
+      "endereco": {
+        "cep": "12241421",
+        "rua": "Rua Oswaldo de Pinto",
+        "numero": "1160",
+        "bairro": "Jardim LIMOEIRO",
+        "cidade": "São José dos Campos",
+        "estado": "SP"
+      },
+      "id": 4
+    }
+  ],
+  "usuario": [
+    {
+      "id": "rodolfo@gmail.com",
+      "email": "rodolfo@gmail.com",
+      "nome": "Rodolfo Santos",
+      "senha": "123",
+      "rua": "Rua Oswaldo de Pinto",
+      "numero": "1160",
+      "cep": "12241421",
+      "estado": "SP",
+      "cidade": "São José dos Campos"
+    },
+    {
+      "id": "rodolfo2@gmail.com",
+      "nome": "Rodolfo dos santos",
+      "email": "rodolfo2@gmail.com",
+      "senha": "123",
+      "cep": "12241-040",
+      "rua": "Rua Corifeu de Azevedo Marques",
+      "numero": "89",
+      "bairro": "Jardim das Indústrias",
+      "cidade": "São José dos Campos",
+      "estado": "SP"
+    }
+  ],
+  "produto": [
+    {
+      "id": "notebook",
+      "nome": "Notebook",
+      "usuario_id": "rodolfo@gmail.com",
+      "preco": "4999",
+      "vendido": "false",
+      "descricao": "Esse é um novo notebook.",
+      "fotos": null
+    },
+    {
+      "id": "smartphone",
+      "nome": "Smartphone",
+      "usuario_id": "rodolfo@gmail.com",
+      "preco": "1999",
+      "vendido": "false",
+      "descricao": "Esse é um novo smartphone.",
+      "fotos": null
+    },
+    {
+      "id": "tablet",
+      "nome": "Tablet",
+      "usuario_id": "rodolfo@gmail.com",
+      "preco": "1399",
+      "vendido": "false",
+      "descricao": "Esse é um novo tablet.",
+      "fotos": null
+    },
+    {
+      "nome": "tablet",
+      "preco": "50",
+      "descricao": "Produto bom e barato",
+      "fotos": null,
+      "usuario_id": "rodolfo2@gmail.com",
+      "vendido": "false",
+      "id": "gqZZrAs"
+    },
+    {
+      "nome": "monitor",
+      "preco": "50",
+      "descricao": "Produto bom e barato",
+      "fotos": null,
+      "usuario_id": "rodolfo2@gmail.com",
+      "vendido": "false",
+      "id": "0_v0Y_5"
+    }
+  ],
+  "categoria": [
+    {
+      "id": "feminino",
+      "name": "Feminino",
+      "imagem": "https://i.pinimg.com/originals/8b/da/ca/8bdaca81d5ddbaeb92b61d6b5787d866.jpg",
+      "descricao": "Routpas Femininas"
+    },
+    {
+      "id": "masculino",
+      "name": "Masculino",
+      "imagem": "@/assets/api-imagens/categorias/categoria_homem.jpg",
+      "descricao": ""
+    },
+    {
+      "id": "menina",
+      "name": "Menina",
+      "imagem": "",
+      "descricao": ""
+    },
+    {
+      "id": "menino",
+      "name": "Menino",
+      "imagem": "",
+      "descricao": ""
+    },
+    {
+      "id": "jeans",
+      "name": "Jeans",
+      "imagem": "",
+      "descricao": ""
+    },
+    {
+      "id": "basico",
+      "name": "Básico",
+      "imagem": "",
+      "descricao": ""
+    },
+    {
+      "id": "regatas",
+      "name": "Regatas",
+      "imagem": "",
+      "descricao": ""
+    },
+    {
+      "id": "bolsas",
+      "name": "Bolsas",
+      "imagem": "",
+      "descricao": ""
+    }
+  ]
+}

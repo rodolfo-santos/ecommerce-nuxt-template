@@ -46,12 +46,9 @@ private items: any = [
 
 <style lang="scss" scoped>
 .banner {
-  // background-image: url("../assets/imagens/banner_loja.jpg");
   background-repeat: no-repeat;
   background-position: 0 -200px;
   background-size: cover;
-  // height: 100vh;
-  // max-height: 400px;
   
   @media (max-width: 600px) {
       background-position: -300px 0px;
