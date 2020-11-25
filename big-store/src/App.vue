@@ -26,6 +26,7 @@ export default class App extends Vue {
 @import '@/sass/variaveis.scss';
 @import '@/sass/custom.scss';
 
+
 .conteudo-view {
   min-height: 110vh;
 }

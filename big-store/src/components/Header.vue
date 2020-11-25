@@ -1,112 +1,127 @@
 <template>
-    <nav>
-      <v-app-bar fixed>
-        <v-app-bar-nav-icon 
-        @click.stop="drawer = !drawer" 
-        class="hidden-md-and-up"></v-app-bar-nav-icon>
-        <v-toolbar-title>
-          <router-link to="/">
-            <v-img :src="logo" class="logo"></v-img>
-          </router-link>
-        </v-toolbar-title>
-        <v-spacer></v-spacer>
-        
-        <transition name="fade">
-          <div v-show="!searchActive">
-            <div  class="menu d-none d-md-flex">
-              <ul>
-              <router-link 
-                      tag="li"
-                      class="px-2" 
-                      role="button" 
-                      v-for="item in items" 
-                      :key="item.text" 
-                      :to="item.path">{{ item.text}}</router-link>
-              </ul>
-            </div>
-            <div class="carrinho flex-center ml-10 hidden-md-and-up">
-              <v-icon left>mdi-cart</v-icon>
-              {{ $store.state.carrinho }}
-            </div>
+  <nav>
+    <v-app-bar fixed class="app-bar">
+      <v-app-bar-nav-icon 
+      @click.stop="drawer = !drawer" 
+      class="hidden-md-and-up"></v-app-bar-nav-icon>
+      <v-toolbar-title>
+        <router-link to="/">
+          <v-img :src="logo" class="logo"></v-img>
+        </router-link>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      
+      <transition name="fade">
+        <div v-show="!searchActive">
+          <div  class="menu d-none d-md-flex">
+            <ul>
+            <router-link 
+                    tag="li"
+                    class="px-2" 
+                    role="button" 
+                    v-for="item in items" 
+                    :key="item.text" 
+                    :to="item.path">{{ item.text}}</router-link>
+            </ul>
           </div>
-        </transition>
-
-        <div class="p-relative">
-          <transition name="fade">
-            <div v-show="searchActive" class="div-search">
-              <v-text-field 
-                placeholder="Pesquisar" 
-                class="input-search" 
-                ref="inpSearch"
-                @blur="searchActive = false"></v-text-field>
-            </div>
-          </transition>
-           <v-icon @click="searchShow" class="mx-5">mdi-magnify</v-icon>
-        </div>
-
-        <div class="carrinho flex-center">
-          <v-btn @click="abrirCarrinho">
+          <div class="carrinho flex-center ml-10 hidden-md-and-up">
             <v-icon left>mdi-cart</v-icon>
             {{ $store.state.carrinho }}
-          </v-btn>
+          </div>
         </div>
+      </transition>
 
-        <div class="usuario ">
-          <v-btn>
-            <v-icon left>mdi-account</v-icon>
-            {{ $store.state.usuario }}
-          </v-btn>
-        </div>
-      </v-app-bar>
+      <div class="p-relative">
+        <transition name="fade">
+          <div v-show="searchActive" class="div-search">
+            <v-text-field 
+              placeholder="Pesquisar" 
+              class="input-search" 
+              ref="inpSearch"
+              @blur="searchActive = false"></v-text-field>
+          </div>
+        </transition>
+          <v-icon @click="searchShow" class="mx-5">mdi-magnify</v-icon>
+      </div>
 
-      <v-navigation-drawer v-model="drawer" absolute temporary app>
-        <v-list-item two-line>
-          <v-list-item-avatar>
-            <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
-          </v-list-item-avatar>
+      <div class="carrinho flex-center">
+        <v-btn @click.stop="carrinho = !carrinho">
+          <v-icon left>mdi-cart</v-icon>
+          {{ $store.state.carrinho.length }}
+        </v-btn>
+      </div>
 
+      <div class="usuario ">
+        <v-btn>
+          <v-icon left>mdi-account</v-icon>
+          {{ $store.state.usuario }}
+        </v-btn>
+      </div>
+    </v-app-bar>
+
+    <v-navigation-drawer v-model="menuMobile" 
+      absolute temporary app>
+      <v-list-item two-line>
+        <v-list-item-avatar>
+          <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
+        </v-list-item-avatar>
+
+        <v-list-item-content>
+          <v-list-item-title>{{ $store.state.usuario}}</v-list-item-title>
+          <v-list-item-subtitle>Logado</v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider></v-divider>
+
+      <v-list>
+        <v-list-item link to="/">
           <v-list-item-content>
-            <v-list-item-title>{{ $store.state.usuario}}</v-list-item-title>
-            <v-list-item-subtitle>Logado</v-list-item-subtitle>
+            <v-list-item-title>Home</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+        <v-list-item v-for="item in items" :key="item.text" link :to="item.path">
+          <v-list-item-content>
+            <v-list-item-title>{{ item.text}}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
 
-        <v-divider></v-divider>
+    </v-navigation-drawer>
 
-        <v-list>
-          <v-list-item link to="/">
-            <v-list-item-content>
-              <v-list-item-title>Home</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item v-for="item in items" :key="item.text" link :to="item.path">
-            <v-list-item-content>
-              <v-list-item-title>{{ item.text}}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
+    <v-navigation-drawer v-model="carrinho"
+      fixed
+      bottom
+      right
+      temporary
+      width="400"
+      class="pa-2"
+    >
+      <div>Carrinho</div>
+      <CarrinhoItem v-for="(produto, index) in $store.state.carrinho" 
+        :key="index" 
+        :produto="produto"
+        class="mb-3" />
+    </v-navigation-drawer>
 
-      </v-navigation-drawer>
-
-      <Carrinho :drawer="carrinho"/>
-    </nav>
+  </nav>
 </template>
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
-import Carrinho from './Header/Carrinho.vue';
+import CarrinhoItem from './Header/CarrinhoItem.vue';
 
 @Component({
   components: {
-    Carrinho,
+    CarrinhoItem,
   },
 })
 export default class Header extends Vue {
+  private searchActive: boolean = false;
   private carrinho: boolean = false;
-  private drawer: boolean = false;
+  private menuMobile: boolean = false;
   private usuario: string = 'Rodolfo dos Santos';
   private logo: string = require('../assets/logo/logo.svg');
-  private searchActive: boolean = false;
   private items: object[] = [
         {
           path: '/moletons',
@@ -140,16 +155,12 @@ export default class Header extends Vue {
         },
       ];
 
-  private abrirCarrinho(): void {
-    this.carrinho = false;
-    this.carrinho = true;
-  }
-
   private searchShow(): void {
     this.searchActive = true;
     const theField = this.$refs.inpSearch as HTMLInputElement;
     this.$nextTick(() => theField.focus());
   }
+
 }
 </script>
 
@@ -157,6 +168,10 @@ export default class Header extends Vue {
 
 <style lang="scss" scoped>
 @import '@/sass/custom.scss';
+
+.app-bar {
+  background-color: darken($secondary, 10%);
+}
 
 .div-search {
   position: absolute;

@@ -25,6 +25,7 @@
         <v-chip>GX</v-chip>
 
       </v-chip-group>
+      <div class="preco mt-4"> {{ dados.preco }}</div>
     </v-card-text>
 
     <v-card-actions class="flex-center">

@@ -183,7 +183,7 @@ footer {
 }
 
 .notas-site {
-  background: #000;
+  background: darken($secondary, 10%);
 
   .bloco-notas {
     min-width: 300px;
@@ -199,12 +199,12 @@ footer {
 
 
 .rodape-principal {
-  background-color: darken($primary, 10%);
+  background-color: darken($secondary, 10%);
   padding: 40px 0;
 }
 
 .rodape-inferior {
-  background: $primary;
+  background: darken($secondary, 10%);
 }
 
 .column-border {

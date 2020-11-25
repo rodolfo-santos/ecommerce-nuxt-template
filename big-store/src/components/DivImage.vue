@@ -26,8 +26,9 @@ export default class DivImage extends Vue {
 @import '@/sass/custom.scss';
 
 .bloco {
-  border-top: $primary solid 2px;
-  border-bottom: $primary solid 2px;
+  margin-top: 50px;
+  border-top: $primary solid 5px;
+  border-bottom: $primary solid 5px;
 }
 
 span {
