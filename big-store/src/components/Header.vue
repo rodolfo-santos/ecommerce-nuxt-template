@@ -45,7 +45,7 @@
         </div>
 
         <div class="carrinho flex-center">
-          <v-btn>
+          <v-btn @click="abrirCarrinho">
             <v-icon left>mdi-cart</v-icon>
             {{ $store.state.carrinho }}
           </v-btn>
@@ -87,17 +87,26 @@
         </v-list>
 
       </v-navigation-drawer>
+
+      <Carrinho :drawer="carrinho"/>
     </nav>
 </template>
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
+import Carrinho from './Header/Carrinho.vue';
 
-@Component
+@Component({
+  components: {
+    Carrinho,
+  },
+})
 export default class Header extends Vue {
+  private carrinho: boolean = false;
   private drawer: boolean = false;
   private usuario: string = 'Rodolfo dos Santos';
   private logo: string = require('../assets/logo/logo.svg');
+  private searchActive: boolean = false;
   private items: object[] = [
         {
           path: '/moletons',
@@ -131,7 +140,10 @@ export default class Header extends Vue {
         },
       ];
 
-  private searchActive: boolean = false;
+  private abrirCarrinho(): void {
+    this.carrinho = false;
+    this.carrinho = true;
+  }
 
   private searchShow(): void {
     this.searchActive = true;
