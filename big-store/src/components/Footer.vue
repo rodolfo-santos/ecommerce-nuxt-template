@@ -78,7 +78,7 @@
           <a href="https://www.linkedin.com/in/rodolfosantos29/" target="_blank"><v-icon class="icon mr-4">mdi-linkedin</v-icon></a>
         </div>
         <div class="copyright">Copyright 2020 - Todos os Direitos Reservados</div>
-        <div class="desenvolvedor">Powered by Rodolfo Santos</div>
+        <div class="desenvolvedor"><a href="https://rodolfo-santos.com/" target="_blank">Powered by Rodolfo Santos</a></div>
       </v-container>
     </div>
   </footer>
@@ -93,12 +93,15 @@ export default {
 <style lang="scss" scoped>
 @import '@/sass/variaveis';
 
-.icon {
-  transition: .25s;
-  &:hover {
-    color: #000;
+.redes-sociais {
+  .icon {
+    transition: .25s;
+    &:hover {
+      color: $primary;
+    }
   }
 }
+
 
 
 
@@ -204,11 +207,20 @@ footer {
 }
 
 .rodape-inferior {
+  border-top: $primary 1px solid;
   background: darken($secondary, 10%);
 }
 
 .column-border {
   border-left: solid #fff 1px;
+}
+
+.desenvolvedor a {
+  color: #fff;
+  transition: .25s;
+  &:hover {
+    color: $primary;
+  }
 }
 
 </style>

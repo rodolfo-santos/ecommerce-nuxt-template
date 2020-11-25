@@ -8,16 +8,13 @@
       </v-col>
       <v-col class="col-8">
           <p>{{ produto.nome}}</p>
-          <p>{{ produto.descricao}}</p>
-          <v-card-actions class="d-flex justify-end">
-
-          <v-btn
-              color="primary"
-              text
-            >
-              Remover
+          <p>{{ produto.preco | numeroPreco }}</p>
+          
+          <div class="d-flex justify-end">
+            <v-btn color="primary" text>
+                Remover
             </v-btn>
-          </v-card-actions>
+          </div>
       </v-col>
     </v-row>
   </v-card>
@@ -33,6 +30,15 @@ export default class CarrinhoItem extends Vue {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import '@/sass/variaveis';
 
+.v-card {
+  transition: 1s;
+  border: solid $secondary 1px;
+  
+  &:hover {
+    border: solid $primary 1px;
+  }
+}
 </style>

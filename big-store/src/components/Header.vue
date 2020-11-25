@@ -95,13 +95,33 @@
       right
       temporary
       width="400"
-      class="pa-2"
+      class=""
     >
-      <div>Carrinho</div>
-      <CarrinhoItem v-for="(produto, index) in $store.state.carrinho" 
-        :key="index" 
-        :produto="produto"
-        class="mb-3" />
+
+      <v-container
+        id="scroll-target"
+        style="height: 80%"
+        class="overflow-y-auto"
+      >
+          <CarrinhoItem v-for="(produto, index) in $store.state.carrinho" 
+            :key="index" 
+            :produto="produto"
+            class="mb-1" />
+      </v-container>
+
+      <v-card class="pa-5 carrinho-rodape" height="20%">
+        <div class="text-center carrinho-total"> {{ TotalCarrinho | numeroPreco }} </div>
+        <v-divider color="#444" class="my-2"></v-divider>
+        <v-row>
+          <v-col class="col-6 p-2">
+            <v-btn color="success" width="100%"> Finalizar </v-btn>
+          </v-col>
+          <v-col class="col-6 p-2">
+            <v-btn color="error" width="100%">Limpar</v-btn>
+          </v-col>
+        </v-row>
+
+      </v-card>
     </v-navigation-drawer>
 
   </nav>
@@ -155,6 +175,14 @@ export default class Header extends Vue {
         },
       ];
 
+  get TotalCarrinho(): number {
+    let total = 0;
+    this.$store.state.carrinho.forEach((el: any) => {
+      total = total + Number(el.preco);
+    });
+    return total;
+  }
+
   private searchShow(): void {
     this.searchActive = true;
     const theField = this.$refs.inpSearch as HTMLInputElement;
@@ -168,6 +196,22 @@ export default class Header extends Vue {
 
 <style lang="scss" scoped>
 @import '@/sass/custom.scss';
+
+.carrinho-total {
+  color: lighten($primary, 30%);
+}
+
+.carrinho-rodape {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: darken($secondary, 10%);
+  border-top: $primary solid 1px;
+
+  .row {
+    align-items: flex-end;
+  }
+}
 
 .app-bar {
   background-color: darken($secondary, 10%);

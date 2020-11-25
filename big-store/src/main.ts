@@ -7,6 +7,16 @@ import vuetify from './plugins/vuetify';
 
 Vue.config.productionTip = false;
 
+Vue.filter('numeroPreco', (valor: any) => {
+  valor = Number(valor);
+  if (!isNaN(valor)) {
+    return valor.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    });
+  }
+});
+
 new Vue({
   router,
   store,

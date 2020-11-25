@@ -25,7 +25,7 @@
         <v-chip>GX</v-chip>
 
       </v-chip-group>
-      <div class="preco mt-4"> {{ dados.preco }}</div>
+      <div class="preco mt-4"> {{ dados.preco | numeroPreco }}</div>
     </v-card-text>
 
     <v-card-actions class="flex-center">
@@ -53,6 +53,9 @@ export default class Produto extends Vue {
 
 <style lang="scss" scoped>
 @import '@/sass/custom.scss';
+.preco {
+  color: #fff;
+}
 
 .v-card {
   transition: 1s;
