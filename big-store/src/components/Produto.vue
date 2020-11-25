@@ -59,7 +59,6 @@ export default class Produto extends Vue {
   
   &:hover {
     border: solid $primary 1px;
-    transform: scale(1.05);
   }
 }
 </style>

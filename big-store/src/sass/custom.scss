@@ -1,6 +1,10 @@
 @import "./variaveis";
 @import "./animations";
 
+.bg-transparent {
+  background-color: transparent!important;
+}
+
 .text-upper {
   text-transform: uppercase;
 }
