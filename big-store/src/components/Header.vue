@@ -163,7 +163,7 @@ export default class Header extends Vue {
 }
 
 .logo {
-  max-width: 50px;
+  max-width: 100px;
 }
 
 .router-link-exact-active {
