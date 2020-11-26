@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <Header />
-    <router-view class="conteudo-view mt-12"></router-view>
+    <transition name="fade" mode="out-in" appear>
+      <router-view class="conteudo-view mt-12"></router-view>
+    </transition>
     <Footer />
   </v-app>
 </template>

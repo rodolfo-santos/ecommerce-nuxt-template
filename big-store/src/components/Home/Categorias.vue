@@ -1,6 +1,11 @@
 <template>
   <v-container class="mt-10">
-    <v-row>
+    <v-row v-if="categorias.length === 0">
+      <v-col>
+        <Loading />
+      </v-col>
+    </v-row>
+    <v-row v-else>
       <v-col 
         class="m-auto col-6 col-md-3" 
         v-for="categoria in categorias" 
@@ -35,8 +40,13 @@
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
 import CategoriaServ from '@/services/categorias';
+import Loading from '@/components/Loading.vue';
 
-@Component
+@Component({
+  components: {
+    Loading,
+  },
+})
 export default class Categorias extends Vue {
   private categorias: object[] = [];
   private overlay: boolean = false;

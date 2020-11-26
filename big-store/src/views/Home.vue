@@ -5,6 +5,9 @@
     <Lancamentos />
     <DivImage />
     <MelhoresProdutos />
+    <v-container class="flex-center">
+      <v-btn large color="primary"><v-icon left>mdi-instagram</v-icon> Visite nosso Instagram</v-btn>
+    </v-container>
   </v-main>
 </template>
 

@@ -30,7 +30,7 @@
         </div>
       </transition>
 
-      <div class="p-relative">
+      <div class="p-relative d-none d-md-block">
         <transition name="fade">
           <div v-show="searchActive" class="div-search">
             <v-text-field 
@@ -40,7 +40,11 @@
               @blur="searchActive = false"></v-text-field>
           </div>
         </transition>
-          <v-icon @click="searchShow" class="mx-5">mdi-magnify</v-icon>
+
+        <transition name="fade" mode="out-in">
+          <v-icon @click="searchShow" v-if="!searchActive" class="mx-5" key="icon-search">mdi-magnify</v-icon>
+          <v-icon @click="searchActive = false" v-else class="mx-5" key="icon-close">mdi-close</v-icon>
+        </transition>
       </div>
 
       <div class="carrinho flex-center">
@@ -50,7 +54,7 @@
         </v-btn>
       </div>
 
-      <div class="usuario ">
+      <div class="usuario d-none d-md-block">
         <v-btn>
           <v-icon left>mdi-account</v-icon>
           {{ $store.state.usuario }}
@@ -94,13 +98,12 @@
       right
       temporary
       width="400"
-      class=""
+      class="carrinho-menu"
     >
 
       <v-container
         id="scroll-target"
-        style="height: 80%"
-        class="overflow-y-auto"
+        class="overflow-y-auto carrinho-lista-itens"
       >
           <CarrinhoItem v-for="(produto, index) in $store.state.carrinho" 
             :key="index" 
@@ -108,7 +111,7 @@
             class="mb-1" />
       </v-container>
 
-      <v-card class="pa-5 carrinho-rodape" height="20%">
+      <v-card class="pa-5 carrinho-rodape">
         <div class="text-center carrinho-total"> {{ TotalCarrinho | numeroPreco }} </div>
         <v-divider color="#444" class="my-2"></v-divider>
         <v-row>
@@ -196,6 +199,20 @@ export default class Header extends Vue {
 <style lang="scss" scoped>
 @import '@/sass/custom.scss';
 
+.carrinho-lista-itens {
+  height: 80%;
+  @media(max-width: $bk-md) {
+    max-height: 70%;
+  }
+}
+
+.carrinho-menu {
+  min-height: 500px;
+  @media(max-width: $bk-md) {
+    border-top: $primary 5px solid
+  }
+}
+
 .carrinho-total {
   color: lighten($primary, 30%);
 }
@@ -206,6 +223,11 @@ export default class Header extends Vue {
   justify-content: space-between;
   background-color: darken($secondary, 5%);
   border-top: $primary solid 5px;
+  height: 20%;
+
+  @media(max-width: $bk-md) {
+    max-height: 30%;
+  }
 
   .row {
     align-items: flex-end;

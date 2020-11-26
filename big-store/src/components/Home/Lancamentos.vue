@@ -1,7 +1,12 @@
 <template>
   <v-container>
     <Titulo titulo="Lançamentos que você vai Amar" subtitulo="Confira abaixo as últimas novidades da loja!" />
-    <v-row>
+    <v-row v-if="produtos.length === 0">
+      <v-col>
+          <Loading />
+      </v-col>
+    </v-row>
+    <v-row v-else>
       <v-col v-for="produto in produtos" :key="produto.id" class="col-12 col-md-3">
         <Produto :dados="produto" />
       </v-col>
@@ -15,11 +20,13 @@ import ProdutosServ from '@/services/produtos';
 
 import Produto from '@/components/Produto.vue';
 import Titulo from '@/components/Titulo.vue';
+import Loading from '@/components/Loading.vue';
 
 @Component({
   components: {
     Produto,
     Titulo,
+    Loading,
   },
 })
 export default class Lancamentos extends Vue {

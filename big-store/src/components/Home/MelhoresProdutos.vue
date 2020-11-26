@@ -1,7 +1,11 @@
 <template>
   <v-container>
     <Titulo titulo="Produtos com Preços Incríveis" subtitulo="Produtos separados especialmente para você" />
-
+    <v-row v-if="produtos.length === 0">
+      <v-col>
+          <Loading />
+      </v-col>
+    </v-row>
     <v-sheet class="bg-transparent">
       <v-slide-group>
         <v-slide-item
@@ -25,11 +29,13 @@ import Titulo from '@/components/Titulo.vue';
 import {Component, Vue} from 'vue-property-decorator';
 import ProdutosServ from '@/services/produtos';
 import Produto from '@/components/Produto.vue';
+import Loading from '@/components/Loading.vue';
 
 @Component({
   components: {
     Produto,
     Titulo,
+    Loading,
   },
 })
 export default class MelhoresProdutos extends Vue {
