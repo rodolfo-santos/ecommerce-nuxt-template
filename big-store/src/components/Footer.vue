@@ -1,7 +1,7 @@
 <template>
   <footer class="mt-15">
     <div class="notas-site">
-      <v-container class="d-flex justify-space-between">
+      <v-container class="d-none d-md-flex justify-space-between">
         <div class="bloco-notas localizacao justify-start">
           <img src="@/assets/icons/localizacao.svg" alt="Icone Localização">
           <span> São José dos Campos - SP</span>
@@ -26,48 +26,50 @@
     </div>
     <div class="rodape-principal">
       <v-container>
-      <v-row>
-        <v-col class="col-6 pr-10">
-           <v-row class="logo">
-             <img src="@/assets/logo/logo.svg" alt="Logotipo Big Store">
-             <div class="bar-div"></div>
-           </v-row>
-           <v-row class="contato mt-4 flex-column">
-             <div><span class="rotulo"> Endereço: </span> Av. Adhemar de Barros, 000, Vila Adyana, São José dos Campos/SP - 12241-040 </div>
-             <div><span class="rotulo">Contato: </span> (12) 98227-9588 / (12) 982050-5060</div>
-             <div><span class="rotulo">E-mail: </span> contato@bigstore.com.br</div>
-           </v-row>
-           <v-row class="newsletter mt-3">
-             <div class="campo">
-                <input type="text" placeholder="Assine nossa Newsletter, digite seu melhor e-mail.">
-                <v-btn>Assinar</v-btn>
-             </div>
-           </v-row>
-        </v-col>
-        <v-col class="col-3 column-border px-10">
-          <h4>Principais Produtos</h4>
-          <ul>
-            <li>Masculino</li>
-            <li>Masculino</li>
-            <li>Masculino</li>
-            <li>Masculino</li>
-            <li>Masculino</li>
-            <li>Masculino</li>
-            <li>Masculino</li>          </ul>
-        </v-col>
-        <v-col class="col-3 column-border px-10">
-          <h4>Categorias</h4>
-          <ul>
-            <li>Masculino</li>
-            <li>Masculino</li>
-            <li>Masculino</li>
-            <li>Masculino</li>
-            <li>Masculino</li>
-            <li>Masculino</li>
-            <li>Masculino</li>
-          </ul>
-        </v-col>
-      </v-row>
+        <v-row class="px-3">
+          <v-col class="col-12 col-md-6 pr-md-10">
+            <v-row class="logo">
+              <div>
+                <img src="@/assets/logo/logo.svg" alt="Logotipo Big Store">
+                <div class="bar-div"></div>
+              </div>
+            </v-row>
+            <v-row class="contato mt-4">
+              <div><span class="rotulo"> Endereço: </span> Av. Adhemar de Barros, 000, Vila Adyana, São José dos Campos/SP - 12241-040 </div>
+              <div><span class="rotulo">Contato: </span> (12) 98227-9588 / (12) 982050-5060</div>
+              <div><span class="rotulo">E-mail: </span> contato@bigstore.com.br</div>
+            </v-row>
+            <v-row class="newsletter mt-3 d-none d-md-block">
+              <div class="campo">
+                  <input type="text" placeholder="Assine nossa Newsletter, digite seu melhor e-mail.">
+                  <v-btn>Assinar</v-btn>
+              </div>
+            </v-row>
+          </v-col>
+          <v-col class="col-md-3 d-none d-md-block column-border px-10">
+            <h4>Principais Produtos</h4>
+            <ul>
+              <li>Masculino</li>
+              <li>Masculino</li>
+              <li>Masculino</li>
+              <li>Masculino</li>
+              <li>Masculino</li>
+              <li>Masculino</li>
+              <li>Masculino</li>          </ul>
+          </v-col>
+          <v-col class="col-md-3 d-none d-md-block column-border px-10">
+            <h4>Categorias</h4>
+            <ul>
+              <li>Masculino</li>
+              <li>Masculino</li>
+              <li>Masculino</li>
+              <li>Masculino</li>
+              <li>Masculino</li>
+              <li>Masculino</li>
+              <li>Masculino</li>
+            </ul>
+          </v-col>
+        </v-row>
       </v-container>
     </div>
     <div class="rodape-inferior">
@@ -93,89 +95,112 @@ export default {
 <style lang="scss" scoped>
 @import '@/sass/variaveis';
 
-.redes-sociais {
-  .icon {
-    transition: .25s;
-    &:hover {
-      color: $primary;
-    }
-  }
-}
-
-
-
-
 h4 {
   font-size: 1.1em;
   margin-bottom: 10px;
 }
 
-
 footer {
   font-size: .9em;
 }
 
-.newsletter {
-
-  .campo {
-    width: 100%;
-    background: $primary;
-    border-radius: 50px;
-
+.logo {
+  >div {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 40px;
+    align-items: flex-start;
+    flex-direction: column;
 
-    input {
-      width: 80%;
-      height: 100%;
-      padding-left: 25px;
+    @media (max-width: $bk-md) {
+      align-items: center;
+    }
+  }
 
-      &:focus{
-        outline: none;
-      }
+  @media (max-width: $bk-md) {
+    display: flex!important;
+    justify-content: center;
+  }
+}
 
-      &::-webkit-input-placeholder {
-        color: #fff;
-      }
+.contato {
+  @media (max-width: $bk-md) {
+    text-align: center;
+    justify-content: center;
+  }
+}
 
-      &:-moz-placeholder { /* Firefox 18- */
-        color: #fff;  
-      }
+.campo {
+  width: 100%;
+  background: $primary;
+  border-radius: 50px;
 
-      &::-moz-placeholder {  /* Firefox 19+ */
-        color: #fff;  
-      }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 40px;
 
-      &:-ms-input-placeholder {  
-        color: #fff;  
-      }
+  input {
+    width: 80%;
+    height: 100%;
+    padding-left: 25px;
+    color: #fff;
+
+    &:focus{
+      outline: none;
     }
 
-    button {
-      width: 20%;
-      height: 100%;
-      border-radius: 50px;
-      background-color: lighten($primary, 10%)!important;
+    &::-webkit-input-placeholder {
+      color: rgba(#fff, 0.7);
+    }
 
-      &:focus{
-        outline: none;
-      }
+    &:-moz-placeholder { /* Firefox 18- */
+      color: rgba(#fff, 0.7);  
+    }
 
+    &::-moz-placeholder {  /* Firefox 19+ */
+      color: rgba(#fff, 0.7);  
+    }
+
+    &:-ms-input-placeholder {  
+      color: rgba(#fff, 0.7);  
+    }
+  }
+
+  button {
+    width: 20%;
+    height: 100%;
+    border-radius: 50px;
+    background-color: lighten($primary, 10%)!important;
+
+    &:focus{
+      outline: none;
     }
   }
 }
 
-.rotulo {
-  font-weight: bold;
+.rodape-principal {
+  background-color: darken($secondary, 10%);
+  padding: 40px 0;
 }
 
+.rodape-inferior {
+  border-top: $primary 1px solid;
+  background: darken($secondary, 10%);
 
-.logo {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
+  .container {
+    @media (max-width: $bk-md) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    };
+  }
+}
+
+.column-border {
+  border-left: solid #fff 1px;
+}
+
+.rotulo {
+  font-weight: bold;
 }
 
 .bar-div {
@@ -200,21 +225,6 @@ footer {
   }
 }
 
-
-.rodape-principal {
-  background-color: darken($secondary, 10%);
-  padding: 40px 0;
-}
-
-.rodape-inferior {
-  border-top: $primary 1px solid;
-  background: darken($secondary, 10%);
-}
-
-.column-border {
-  border-left: solid #fff 1px;
-}
-
 .desenvolvedor a {
   color: #fff;
   transition: .25s;
@@ -223,4 +233,12 @@ footer {
   }
 }
 
+.redes-sociais {
+  .icon {
+    transition: .25s;
+    &:hover {
+      color: $primary;
+    }
+  }
+}
 </style>

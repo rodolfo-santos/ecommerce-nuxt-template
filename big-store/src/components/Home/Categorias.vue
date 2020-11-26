@@ -2,7 +2,7 @@
   <v-container class="mt-10">
     <v-row>
       <v-col 
-        class="m-auto col-3" 
+        class="m-auto col-6 col-md-3" 
         v-for="categoria in categorias" 
         :key="categoria.id"
         >

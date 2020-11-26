@@ -2,13 +2,15 @@
   <nav>
     <v-app-bar fixed class="app-bar">
       <v-app-bar-nav-icon 
-      @click.stop="drawer = !drawer" 
+      @click.stop="menuMobile = !menuMobile" 
       class="hidden-md-and-up"></v-app-bar-nav-icon>
+      
       <v-toolbar-title>
         <router-link to="/">
           <v-img :src="logo" class="logo"></v-img>
         </router-link>
       </v-toolbar-title>
+
       <v-spacer></v-spacer>
       
       <transition name="fade">
@@ -24,10 +26,7 @@
                     :to="item.path">{{ item.text}}</router-link>
             </ul>
           </div>
-          <div class="carrinho flex-center ml-10 hidden-md-and-up">
-            <v-icon left>mdi-cart</v-icon>
-            {{ $store.state.carrinho }}
-          </div>
+
         </div>
       </transition>
 
@@ -205,8 +204,8 @@ export default class Header extends Vue {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: darken($secondary, 10%);
-  border-top: $primary solid 1px;
+  background-color: darken($secondary, 5%);
+  border-top: $primary solid 5px;
 
   .row {
     align-items: flex-end;

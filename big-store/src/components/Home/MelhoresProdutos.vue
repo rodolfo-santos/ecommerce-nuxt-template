@@ -3,9 +3,7 @@
     <Titulo titulo="Produtos com Preços Incríveis" subtitulo="Produtos separados especialmente para você" />
 
     <v-sheet class="bg-transparent">
-      <v-slide-group
-        show-arrows
-      >
+      <v-slide-group>
         <v-slide-item
           v-for="n in produtos.length"
           :key="n"

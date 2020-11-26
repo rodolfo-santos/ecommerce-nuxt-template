@@ -2,7 +2,7 @@
   <v-container>
     <Titulo titulo="Lançamentos que você vai Amar" subtitulo="Confira abaixo as últimas novidades da loja!" />
     <v-row>
-      <v-col v-for="produto in produtos" :key="produto.id" class="col-3">
+      <v-col v-for="produto in produtos" :key="produto.id" class="col-12 col-md-3">
         <Produto :dados="produto" />
       </v-col>
     </v-row>

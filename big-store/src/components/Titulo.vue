@@ -1,6 +1,6 @@
 <template>
   <div class="flex-center flex-column mt-12 mb-6">
-    <h2 class="text-upper">{{titulo}}</h2>
+    <h2 class="text-upper text-center">{{titulo}}</h2>
     <p v-if="subtitulo">{{subtitulo}}</p>
     <div class="divider my-3"></div>
   </div>

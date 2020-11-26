@@ -1,10 +1,10 @@
 <template>
-  <v-carousel>
+  <v-carousel height="93vh">
     <v-carousel-item class="banner"
       v-for="(item,i) in items"
       :key="i"
     >
-    <v-parallax :src="item.src">
+    <v-parallax :src="item.src" height="100%">
       <v-container class="content" >
         <h5 class="display-1 text-upper">{{ item.content.texto01 }}</h5>
         <h4 class="display-2 text-upper">{{ item.content.texto02 }}</h4>
@@ -45,9 +45,17 @@ private items: any = [
 </script>
 
 <style lang="scss" scoped>
+.v-parallax {
+  height: 100%;
+}
+
+.v-parallax__image {
+  transform: none !important;
+  width: 100% !important;
+}
+
 .banner {
   background-repeat: no-repeat;
-  background-position: 0 -200px;
   background-size: cover;
   
   @media (max-width: 600px) {
