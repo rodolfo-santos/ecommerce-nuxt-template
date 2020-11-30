@@ -23,10 +23,9 @@
                     role="button" 
                     v-for="item in items" 
                     :key="item.text" 
-                    :to="item.path">{{ item.text}}</router-link>
+                    :to="{ name: 'Categoria', params: { id: item.id } }">{{ item.text}}</router-link>
             </ul>
           </div>
-
         </div>
       </transition>
 
@@ -55,7 +54,7 @@
       </div>
 
       <div class="usuario d-none d-md-block">
-        <v-btn>
+        <v-btn :to="{name: 'Login'}">
           <v-icon left>mdi-account</v-icon>
           {{ $store.state.usuario }}
         </v-btn>
@@ -146,32 +145,32 @@ export default class Header extends Vue {
   private logo: string = require('../assets/logo/logo.svg');
   private items: object[] = [
         {
-          path: '/moletons',
+          id: 'moletons',
           text: 'Moletons',
           icon: 'mdi-tshirt-crew',
         },
         {
-          path: '/bones',
+          id: 'bones',
           text: 'Bonés',
           icon: 'mdi-tshirt-crew',
         },
         {
-          path: '/jeans',
+          id: 'jeans',
           text: 'Jeans',
           icon: 'mdi-tshirt-crew',
         },
         {
-          path: '/camisetas',
+          id: 'camisetas',
           text: 'Camisetas',
           icon: 'mdi-tshirt-crew',
         },
         {
-          path: '/Shorts',
+          id: 'shorts',
           text: 'Shorts',
           icon: 'mdi-tshirt-crew',
         },
         {
-          path: '/Acessorios',
+          id: 'acessorios',
           text: 'Acessórios',
           icon: 'mdi-tshirt-crew',
         },

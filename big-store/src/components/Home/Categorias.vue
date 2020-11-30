@@ -14,7 +14,8 @@
         <v-hover>
           <template v-slot:default="{ hover }">
             <v-card 
-              class="categoria" 
+              class="categoria"
+              :to="{name: 'Categoria', params: { id: categoria.id } }"
               :style="`background: url(${categoria.imagem})`"
               hover>
               <v-card-text class="texto">{{ categoria.name}}</v-card-text>
