@@ -116,7 +116,7 @@
         <v-divider color="#444" class="my-2"></v-divider>
         <v-row>
           <v-col class="col-6 p-2">
-            <v-btn color="success" width="100%"> Finalizar </v-btn>
+            <v-btn color="primary" width="100%"> Finalizar </v-btn>
           </v-col>
           <v-col class="col-6 p-2">
             <v-btn color="error" width="100%">Limpar</v-btn>

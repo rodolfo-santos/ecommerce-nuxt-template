@@ -1,5 +1,5 @@
 <template>
-  <v-carousel height="93vh">
+  <v-carousel height="90vh">
     <v-carousel-item class="banner"
       v-for="(item,i) in items"
       :key="i"
@@ -45,6 +45,7 @@ private items: any = [
 </script>
 
 <style lang="scss" scoped>
+
 .v-parallax {
   height: 100%;
 }

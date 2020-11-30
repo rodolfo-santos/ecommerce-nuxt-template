@@ -2,7 +2,7 @@
   <v-app>
     <Header />
     <transition name="fade" mode="out-in" appear>
-      <router-view class="conteudo-view mt-12"></router-view>
+      <router-view class="conteudo-view"></router-view>
     </transition>
     <Footer />
   </v-app>
@@ -34,6 +34,7 @@ a {
 }
 
 .conteudo-view {
+  margin-top: $header-margin;
   min-height: 110vh;
 }
 
