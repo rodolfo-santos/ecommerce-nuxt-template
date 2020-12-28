@@ -31,7 +31,15 @@ export default class App extends Vue {
 
 a {
   text-decoration: none;
+  transition: .25s;
+  &:hover {
+    color: lighten( $primary, 10%)!important;
+  }
 }
+
+.v-slide-group__content {
+  justify-content: center;
+} 
 
 .conteudo-view {
   margin-top: $header-margin;

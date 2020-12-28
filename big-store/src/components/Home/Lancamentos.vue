@@ -11,6 +11,11 @@
         <Produto :dados="produto" />
       </v-col>
     </v-row>
+    <v-row class="flex-center mt-4">
+      <v-btn to="/">
+        Ver Catálogo Completo
+      </v-btn>
+    </v-row>
   </v-container>
 </template>
 

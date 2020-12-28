@@ -91,35 +91,21 @@
 
     </v-navigation-drawer>
 
-    <v-navigation-drawer v-model="carrinho"
-      fixed
-      bottom
-      right
-      temporary
-      width="400"
-      class="carrinho-menu"
-    >
-
-      <v-container
-        id="scroll-target"
-        class="overflow-y-auto carrinho-lista-itens"
-      >
-          <CarrinhoItem v-for="(produto, index) in $store.state.carrinho" 
-            :key="index" 
-            :produto="produto"
-            class="mb-1" />
+    <v-navigation-drawer v-model="carrinho" fixed bottom right temporary width="400" class="carrinho-menu">
+      <v-container id="scroll-target" class="overflow-y-auto carrinho-lista-itens" >
+          <CarrinhoItem v-for="(produto, index) in $store.state.carrinho" :key="index" :produto="produto" class="mb-1" />
       </v-container>
 
       <v-card class="pa-5 carrinho-rodape">
-        <div class="text-center carrinho-total"> {{ TotalCarrinho | numeroPreco }} </div>
-        <v-divider color="#444" class="my-2"></v-divider>
+        <div class="text-center carrinho-total"> <strong>Total:</strong> {{ TotalCarrinho | numeroPreco }} </div>
         <v-row>
           <v-col class="col-6 p-2">
-            <v-btn color="primary" width="100%"> Finalizar </v-btn>
+            <v-btn color="" width="100%"> Finalizar </v-btn>
           </v-col>
           <v-col class="col-6 p-2">
-            <v-btn color="error" width="100%">Limpar</v-btn>
+            <v-btn color="error" width="100%">Esvaziar</v-btn>
           </v-col>
+    
         </v-row>
 
       </v-card>
@@ -199,7 +185,8 @@ export default class Header extends Vue {
 @import '@/sass/custom.scss';
 
 .carrinho-lista-itens {
-  height: 80%;
+  background: darken($secondary, 10%);
+  height: 85%;
   @media(max-width: $bk-md) {
     max-height: 70%;
   }
@@ -212,17 +199,14 @@ export default class Header extends Vue {
   }
 }
 
-.carrinho-total {
-  color: lighten($primary, 30%);
-}
+
 
 .carrinho-rodape {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   background-color: darken($secondary, 5%);
   border-top: $primary solid 5px;
-  height: 20%;
+  height: 15%;
 
   @media(max-width: $bk-md) {
     max-height: 30%;

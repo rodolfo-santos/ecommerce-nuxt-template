@@ -128,6 +128,10 @@ footer {
   }
 }
 
+.newsletter {
+  max-width: 700px;
+}
+
 .campo {
   width: 100%;
   background: darken($primary, 10%);
@@ -178,13 +182,13 @@ footer {
 }
 
 .rodape-principal {
-  background-color: darken($secondary, 10%);
+  background-color: darken($secondary, 2%);
   padding: 40px 0;
 }
 
 .rodape-inferior {
   border-top: $primary 1px solid;
-  background: darken($secondary, 10%);
+  background: darken($secondary, 2%);
 
   .container {
     @media (max-width: $bk-md) {

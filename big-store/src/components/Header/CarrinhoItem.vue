@@ -38,7 +38,7 @@ export default class CarrinhoItem extends Vue {
   border: solid $secondary 1px;
   
   &:hover {
-    border: solid $primary 1px;
+    background-color: lighten($secondary, 2%)!important;
   }
 }
 </style>

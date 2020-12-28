@@ -16,7 +16,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import Banner from '@/components/Home/Banner.vue';
 import Categorias from '@/components/Home/Categorias.vue';
 import Lancamentos from '@/components/Home/Lancamentos.vue';
-import DivImage from '@/components/DivImage.vue';
+import DivImage from '@/components/Home/DivImage.vue';
 import MelhoresProdutos from '@/components/Home/MelhoresProdutos.vue';
 
 @Component({
