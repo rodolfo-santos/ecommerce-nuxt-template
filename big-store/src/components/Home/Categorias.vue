@@ -7,7 +7,7 @@
     </v-row>
     <v-row v-else>
       <v-col 
-        class="m-auto col-6 col-md-3" 
+        class="m-auto col-6 col-md-3 col-lg-2" 
         v-for="categoria in categorias" 
         :key="categoria.id"
         >
@@ -53,7 +53,7 @@ export default class Categorias extends Vue {
   private overlay: boolean = false;
 
   private getCategorias() {
-    CategoriaServ.listar(8).then((response) => {
+    CategoriaServ.listar(6).then((response) => {
       this.categorias = response.data;
     });
   }
@@ -67,9 +67,6 @@ export default class Categorias extends Vue {
 <style lang="scss" scoped>
 
 @import '@/sass/custom.scss';
-  .container {
-    max-width: 1000px;
-  }
 
   .categoria {
     border: $primary 2px solid;

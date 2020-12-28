@@ -1,5 +1,5 @@
 <template>
-  <v-carousel height="90vh">
+  <v-carousel height="50vh">
     <v-carousel-item class="banner"
       v-for="(item,i) in items"
       :key="i"

@@ -7,7 +7,7 @@
       </v-col>
     </v-row>
     <v-row v-else>
-      <v-col v-for="produto in produtos" :key="produto.id" class="col-12 col-md-3">
+      <v-col v-for="produto in produtos" :key="produto.id" class="col-12 col-md-3 col-xl-2">
         <Produto :dados="produto" />
       </v-col>
     </v-row>
@@ -33,7 +33,7 @@ export default class Lancamentos extends Vue {
   private produtos: object[] = [];
 
   private getProdutos(): void {
-    ProdutosServ.listar(8).then((response) => {
+    ProdutosServ.listar(12).then((response) => {
       this.produtos = response.data;
     });
   }

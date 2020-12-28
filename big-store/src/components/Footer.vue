@@ -130,7 +130,7 @@ footer {
 
 .campo {
   width: 100%;
-  background: $primary;
+  background: darken($primary, 10%);
   border-radius: 50px;
 
   display: flex;
@@ -144,7 +144,7 @@ footer {
     padding-left: 25px;
     color: #fff;
 
-    &:focus{
+    &:focus {
       outline: none;
     }
 

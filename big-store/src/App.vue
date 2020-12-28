@@ -3,7 +3,6 @@
     <Header />
     <transition name="fade" mode="out-in" appear>
       <router-view class="conteudo-view"></router-view>
-      a
     </transition>
     <Footer />
   </v-app>
