@@ -14,7 +14,7 @@
         <router-link :to="{ name: 'Produto', params: { id: dados.id } }">{{ dados.nome}}</router-link>
       </h2>
 
-      <v-chip-group v-model="selection" active-class="primary">
+      <v-chip-group v-model="selection" active-class="primary" center-active>
         <v-chip v-for="variacao in dados.variacoes" :key="variacao">{{variacao}}</v-chip>
       </v-chip-group>
       <div class="preco mt-4"> {{ dados.preco | numeroPreco }}</div>
@@ -40,6 +40,8 @@ export default class Produto extends Vue {
   @Prop() private readonly width!: number;
   @Prop() private readonly height!: number;
   private selection: number = 1;
+
+ 
 }
 </script>
 

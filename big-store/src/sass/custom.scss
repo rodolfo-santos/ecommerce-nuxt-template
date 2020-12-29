@@ -13,6 +13,10 @@
   text-transform: capitalize;
 }
 
+.text-muted {
+  color: rgba( #fff, .5);
+}
+
 .hr-base {
   max-width: 300px;
   border: $primary 2px solid;

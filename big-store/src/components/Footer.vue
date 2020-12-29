@@ -187,7 +187,7 @@ footer {
 }
 
 .rodape-inferior {
-  border-top: $primary 1px solid;
+  border-top: $secondary 1px solid;
   background: darken($secondary, 2%);
 
   .container {
@@ -215,7 +215,7 @@ footer {
 }
 
 .notas-site {
-  background: darken($secondary, 10%);
+  background: darken($secondary, 4%);
 
   .bloco-notas {
     min-width: 300px;

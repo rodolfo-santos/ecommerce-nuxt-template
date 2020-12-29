@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 import Home from '../views/Home.vue';
-import Produto from '../views/Produto.vue';
+import Produto from '../views/PaginaProduto.vue';
 import Categoria from '../views/Categoria.vue';
 import Login from '../views/Login.vue';
 

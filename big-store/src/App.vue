@@ -37,10 +37,6 @@ a {
   }
 }
 
-.v-slide-group__content {
-  justify-content: center;
-} 
-
 .conteudo-view {
   margin-top: $header-margin;
   min-height: 110vh;
