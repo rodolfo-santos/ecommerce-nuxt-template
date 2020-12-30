@@ -40,8 +40,6 @@ export default class Produto extends Vue {
   @Prop() private readonly width!: number;
   @Prop() private readonly height!: number;
   private selection: number = 1;
-
- 
 }
 </script>
 

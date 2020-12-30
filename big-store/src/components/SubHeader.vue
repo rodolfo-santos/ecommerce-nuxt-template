@@ -14,7 +14,7 @@ import {Component, Prop, Vue} from 'vue-property-decorator';
 
 @Component
 export default class SubHeader extends Vue {
-@Prop() private readonly titulo!: string; 
+@Prop() private readonly titulo!: string;
 
 private items: object[] = [
         {
