@@ -18,7 +18,7 @@
               :to="{name: 'Categoria', params: { id: categoria.id } }"
               :style="`background: url(${categoria.imagem})`"
               hover>
-              <v-card-text class="texto">{{ categoria.name}}</v-card-text>
+              <v-card-text class="texto">{{ categoria.nome}}</v-card-text>
 
               <v-fade-transition>
                 <v-overlay
@@ -27,7 +27,7 @@
                   color="#16D17E"
                   class="overlay-texto"
                 >
-                  {{ categoria.name }}
+                  {{ categoria.nome }}
                 </v-overlay>
               </v-fade-transition>
             </v-card>

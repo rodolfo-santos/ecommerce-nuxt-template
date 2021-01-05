@@ -22,8 +22,8 @@
                     class="px-2" 
                     role="button" 
                     v-for="item in items" 
-                    :key="item.text" 
-                    :to="{ name: 'Categoria', params: { id: item.id } }">{{ item.text}}</router-link>
+                    :key="item.nome" 
+                    :to="{ name: 'Categoria', params: { id: item.id } }">{{ item.nome}}</router-link>
             </ul>
           </div>
         </div>
@@ -82,9 +82,9 @@
             <v-list-item-title>Home</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item v-for="item in items" :key="item.text" link :to="item.path">
+        <v-list-item v-for="item in items" :key="item.nome" link :to="item.path">
           <v-list-item-content>
-            <v-list-item-title>{{ item.text}}</v-list-item-title>
+            <v-list-item-title>{{ item.nome}}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -117,6 +117,8 @@
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
 import CarrinhoItem from './Header/CarrinhoItem.vue';
+import CategoriasServ from '@/services/categorias';
+import Categoria from '@/models/Categoria';
 
 @Component({
   components: {
@@ -129,38 +131,7 @@ export default class Header extends Vue {
   private menuMobile: boolean = false;
   private usuario: string = 'Rodolfo dos Santos';
   private logo: string = require('../assets/logo/logo.svg');
-  private items: object[] = [
-        {
-          id: 'moletons',
-          text: 'Moletons',
-          icon: 'mdi-tshirt-crew',
-        },
-        {
-          id: 'bones',
-          text: 'Bonés',
-          icon: 'mdi-tshirt-crew',
-        },
-        {
-          id: 'jeans',
-          text: 'Jeans',
-          icon: 'mdi-tshirt-crew',
-        },
-        {
-          id: 'camisetas',
-          text: 'Camisetas',
-          icon: 'mdi-tshirt-crew',
-        },
-        {
-          id: 'shorts',
-          text: 'Shorts',
-          icon: 'mdi-tshirt-crew',
-        },
-        {
-          id: 'acessorios',
-          text: 'Acessórios',
-          icon: 'mdi-tshirt-crew',
-        },
-      ];
+  private items: Categoria[] = [];
 
   get TotalCarrinho(): number {
     let total = 0;
@@ -176,6 +147,15 @@ export default class Header extends Vue {
     this.$nextTick(() => theField.focus());
   }
 
+  private getCategorias(): void {
+    CategoriasServ.listar(8).then((response) => {
+      this.items = response.data;
+    });
+  }
+
+  private created() {
+    this.getCategorias();
+  }
 }
 </script>
 
