@@ -17,13 +17,8 @@
         <div v-show="!searchActive">
           <div  class="menu d-none d-md-flex">
             <ul>
-            <router-link 
-                    tag="li"
-                    class="px-2" 
-                    role="button" 
-                    v-for="item in items" 
-                    :key="item.nome" 
-                    :to="{ name: 'Categoria', params: { id: item.id } }">{{ item.nome}}</router-link>
+            <router-link tag="li" class="px-2" role="button" v-for="item in items" :key="item.nome" 
+            :to="{ name: 'Categoria', params: { id: item.id } }">{{ item.nome}}</router-link>
             </ul>
           </div>
         </div>
@@ -93,7 +88,9 @@
 
     <v-navigation-drawer v-model="carrinho" fixed bottom right temporary width="400" class="carrinho-menu">
       <v-container id="scroll-target" class="overflow-y-auto carrinho-lista-itens" >
-          <CarrinhoItem v-for="(produto, index) in $store.state.carrinho" :key="index" :produto="produto" class="mb-1" />
+          <transition-group name="fade" mode="out-in">
+            <CarrinhoItem v-for="(produto, index) in $store.state.carrinho" :key="index" :produto="produto" :index="index" class="mb-1" />
+          </transition-group>
       </v-container>
 
       <v-card class="pa-5 carrinho-rodape">
@@ -148,7 +145,7 @@ export default class Header extends Vue {
   }
 
   private getCategorias(): void {
-    CategoriasServ.listar(8).then((response) => {
+    CategoriasServ.listar(10).then((response) => {
       this.items = response.data;
     });
   }

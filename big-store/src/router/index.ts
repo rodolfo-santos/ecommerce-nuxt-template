@@ -26,6 +26,12 @@ const routes: RouteConfig[] = [
     props: true,
   },
   {
+    path: '/loja',
+    name: 'Loja',
+    component: Categoria,
+    props: true,
+  },
+  {
     path: '/login',
     name: 'Login',
     component: Login,

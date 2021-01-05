@@ -9,15 +9,9 @@
 
           <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
             <div class="opcao-titulo mb-2">Categoria</div>
-              <v-chip-group v-model="selection" active-class="primary" column multiple>
+              <v-chip-group v-model="categoriasSelecionadas" active-class="primary" column multiple>
                 <v-chip v-for="( categoria, index) in categoriasNome" :key="index">{{ categoria }}</v-chip>
               </v-chip-group>
-              <div class="pl-2">
-
-                <div class="d-flex justify-end">
-                  <v-btn>Aplicar</v-btn>
-                </div>
-              </div>
           </v-card>
 
           <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
@@ -49,22 +43,15 @@
 
           <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
             <div class="opcao-titulo mb-2">Cor</div>
-              <v-chip-group v-model="selection" active-class="primary" column multiple>
+              <v-chip-group v-model="coresSelecionadas" active-class="primary" column multiple>
                 <v-chip v-for="cor in cores" :key="cor">{{cor}}</v-chip>
               </v-chip-group>
-              <div class="pl-2">
-
-                <div class="d-flex justify-end">
-                  <v-btn>Aplicar</v-btn>
-                </div>
-              </div>
           </v-card>
         </v-card>
 
         <div class="col-9 pa-5">
           <v-row v-if="produtos.length === 0">
             <v-col>
-                <Loading />
             </v-col>
           </v-row>
           <v-row v-else>
@@ -103,6 +90,7 @@ export default class PaginaCategoria extends Vue {
   private categoria: Categoria = {};
   private categorias: Categoria[] = [];
   private categoriasNome: string[] = [];
+  private categoriasSelecionadas: number[] = [];
   private produtos: Produto[] = [];
   private breadCrumbs: object[] = [];
   private valorMinimo: number = 0;
@@ -118,6 +106,7 @@ export default class PaginaCategoria extends Vue {
     'Amarelo',
     'Outras',
   ];
+  private coresSelecionadas!: number[] = [];
 
   @Watch('id')
   private async mudarCategoria() {
@@ -145,9 +134,16 @@ export default class PaginaCategoria extends Vue {
   }
 
   private async getProdutos() {
-    await ProdutosServ.filtrar(this.id).then((response) => {
-      this.produtos = response.data;
-    });
+    if(!!this.id) {
+      await ProdutosServ.filtrar(this.id).then((response) => {
+        this.produtos = response.data;
+      });
+    } else {
+      await ProdutosServ.listar(200).then((response) => {
+        this.produtos = response.data;
+      });
+    }
+
   }
 
   private setBreadCrumb() {
@@ -177,9 +173,7 @@ export default class PaginaCategoria extends Vue {
     this.sortItems();
     this.setBreadCrumb();
   }
-
 }
-
 
 </script>
 

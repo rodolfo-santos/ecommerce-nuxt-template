@@ -5,6 +5,12 @@
       <router-view class="conteudo-view"></router-view>
     </transition>
     <Footer />
+    <transition name="fade" mode="out-in" appear>
+      <v-alert type="success" class="carrinho-alert" v-show="$store.state.carrinhoAlert">
+          Item adicionado ao carrinho!
+      </v-alert>
+    </transition>
+
   </v-app>
 </template>
 
@@ -56,6 +62,14 @@ a {
     background-color: $primary;
     border-radius: 4px;
     box-shadow: inset 0 0 4px #000;
+}
+
+.carrinho-alert {
+  position: fixed!important;
+  z-index: 99999;
+  top: 92vh;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 </style>

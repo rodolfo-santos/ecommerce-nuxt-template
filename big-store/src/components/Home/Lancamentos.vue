@@ -12,7 +12,7 @@
       </v-col>
     </v-row>
     <v-row class="flex-center mt-4">
-      <v-btn to="/">
+      <v-btn to="/loja">
         Ver Catálogo Completo
       </v-btn>
     </v-row>

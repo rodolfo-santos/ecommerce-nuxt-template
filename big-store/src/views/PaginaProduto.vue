@@ -104,6 +104,12 @@ export default class PaginaProduto extends Vue {
   private selection: string = '';
   private cep: string = '';
 
+  @Watch('id')
+  private async mudarProduto() {
+    await this.getProduto();
+    this.setBreadCrumb();
+  }
+
   private async getProduto() {
     await ProdutosServ.produto_unico(this.id).then((response) => {
       this.produto = response.data;

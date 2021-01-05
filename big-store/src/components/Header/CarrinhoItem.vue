@@ -7,11 +7,13 @@
         ></v-img>
       </v-col>
       <v-col class="col-8">
-          <p>{{ produto.nome}}</p>
-          <p>{{ produto.preco | numeroPreco }}</p>
+            <h3 class="my-3 white--text">
+              <router-link :to="{ name: 'Produto', params: { id: produto.id } }">{{ produto.nome}}</router-link>
+            </h3>
+            <p>{{ produto.preco | numeroPreco }}</p>
           
           <div class="d-flex justify-end">
-            <v-btn color="primary" text>
+            <v-btn color="primary" text @click="removerCarrinho(index)">
                 Remover
             </v-btn>
           </div>
@@ -26,6 +28,11 @@ import { Component, Prop, Vue} from 'vue-property-decorator';
 @Component
 export default class CarrinhoItem extends Vue {
 @Prop() private readonly produto !: object;
+@Prop() private readonly index !: number;
+
+private removerCarrinho(index) {
+  this.$store.commit('removerCarrinho', index)
+}
 
 }
 </script>

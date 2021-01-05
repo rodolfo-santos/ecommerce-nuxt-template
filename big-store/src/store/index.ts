@@ -6,164 +6,31 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     tituloApp: 'Trade Center',
-    carrinho: [
-      {
-        id: 'moletom-ninja-1',
-        nome: 'Moletom Ninja',
-        preco: '299.99',
-        descricao: 'Esse é um novo Moletom.',
-        estoque: 10,
-        fotos: [
-          'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg',
-          'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg',
-        ],
-        categorias: ['masculino', 'feminino', 'moletom'],
-        peso_kg: 0.8,
-        altura_cm: 100,
-        largura_cm: 70,
-        comprimento_cm: 5,
-        promocao: false,
-        preco_promocao: '',
-        publicado: true,
-      },
-      {
-        id: 'moletom-ninja-2',
-        nome: 'Moletom Ninja',
-        preco: '299.99',
-        descricao: 'Esse é um novo Moletom.',
-        estoque: 10,
-        fotos: [
-          'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg',
-          'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg',
-        ],
-        categorias: ['masculino', 'feminino', 'moletom'],
-        peso_kg: 0.8,
-        altura_cm: 100,
-        largura_cm: 70,
-        comprimento_cm: 5,
-        promocao: false,
-        preco_promocao: '',
-        publicado: true,
-      },
-      {
-        id: 'moletom-ninja-3',
-        nome: 'Moletom Ninja',
-        preco: '299.99',
-        descricao: 'Esse é um novo Moletom.',
-        estoque: 10,
-        fotos: [
-          'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg',
-          'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg',
-        ],
-        categorias: ['masculino', 'feminino', 'moletom'],
-        peso_kg: 0.8,
-        altura_cm: 100,
-        largura_cm: 70,
-        comprimento_cm: 5,
-        promocao: false,
-        preco_promocao: '',
-        publicado: true,
-      },
-      {
-        id: 'moletom-ninja-4',
-        nome: 'Moletom Ninja',
-        preco: '299.99',
-        descricao: 'Esse é um novo Moletom.',
-        estoque: 10,
-        fotos: [
-          'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg',
-          'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg',
-        ],
-        categorias: ['masculino', 'feminino', 'moletom'],
-        peso_kg: 0.8,
-        altura_cm: 100,
-        largura_cm: 70,
-        comprimento_cm: 5,
-        promocao: false,
-        preco_promocao: '',
-        publicado: true,
-      },
-      {
-        id: 'moletom-ninja-5',
-        nome: 'Moletom Ninja',
-        preco: '299.99',
-        descricao: 'Esse é um novo Moletom.',
-        estoque: 10,
-        fotos: [
-          'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg',
-          'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg',
-        ],
-        categorias: ['masculino', 'feminino', 'moletom'],
-        peso_kg: 0.8,
-        altura_cm: 100,
-        largura_cm: 70,
-        comprimento_cm: 5,
-        promocao: false,
-        preco_promocao: '',
-        publicado: true,
-      },
-      {
-        id: 'moletom-ninja-6',
-        nome: 'Moletom Ninja',
-        preco: '299.99',
-        descricao: 'Esse é um novo Moletom.',
-        estoque: 10,
-        fotos: [
-          'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg',
-          'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg',
-        ],
-        categorias: ['masculino', 'feminino', 'moletom'],
-        peso_kg: 0.8,
-        altura_cm: 100,
-        largura_cm: 70,
-        comprimento_cm: 5,
-        promocao: false,
-        preco_promocao: '',
-        publicado: true,
-      },
-      {
-        id: 'moletom-ninja-7',
-        nome: 'Moletom Ninja',
-        preco: '299.99',
-        descricao: 'Esse é um novo Moletom.',
-        estoque: 10,
-        fotos: [
-          'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg',
-          'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg',
-        ],
-        categorias: ['masculino', 'feminino', 'moletom'],
-        peso_kg: 0.8,
-        altura_cm: 100,
-        largura_cm: 70,
-        comprimento_cm: 5,
-        promocao: false,
-        preco_promocao: '',
-        publicado: true,
-      },
-      {
-        id: 'moletom-ninja-8',
-        nome: 'Moletom Ninja',
-        preco: '299.99',
-        descricao: 'Esse é um novo Moletom.',
-        estoque: 10,
-        fotos: [
-          'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg',
-          'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg',
-        ],
-        categorias: ['masculino', 'feminino', 'moletom'],
-        peso_kg: 0.8,
-        altura_cm: 100,
-        largura_cm: 70,
-        comprimento_cm: 5,
-        promocao: false,
-        preco_promocao: '',
-        publicado: true,
-      },
-    ],
+    carrinhoAlert: false,
+    carrinho: [],
     usuario: 'Entrar / Cadastrar',
     logado: false,
   },
   mutations: {
+    consultarLocalStorage(state) {
+      if (localStorage.getItem('carrinho')) {
+        state.carrinho = JSON.parse(localStorage.getItem('carrinho'));
+      }
+    },
+
+    addCarrinho(state, produto) {
+      state.carrinho.push(produto);
+      state.carrinhoAlert = true;
+      localStorage.setItem('carrinho', JSON.stringify(state.carrinho));
+      setTimeout(() => {
+        state.carrinhoAlert = false;
+      }, 3000);
+    },
+
+    removerCarrinho(state, index) {
+      state.carrinho.splice(index, 1);
+      localStorage.setItem('carrinho', JSON.stringify(state.carrinho));
+    },
   },
   actions: {
   },

@@ -123,10 +123,10 @@
       "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "estoque": 10,
       "fotos": [
-        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg",
-        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg"
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_1_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_1_back.jpg"
       ],
-      "categorias": ["masculino", "feminino"],
+      "categorias": ["masculino", "feminino", "menino", "menina"],
       "variacoes": ["PP", "P", "M", "G", "GG", "GX"],
       "peso_kg": 0.8,
       "altura_cm": 100,
@@ -144,10 +144,10 @@
       "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "estoque": 10,
       "fotos": [
-        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg",
-        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg"
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_2_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_2_back.jpg"
       ],
-      "categorias": ["masculino", "feminino"],
+      "categorias": ["masculino", "feminino", "menino", "menina"],
       "variacoes": ["P", "M", "G", "GG"],
       "peso_kg": 0.8,
       "altura_cm": 100,
@@ -165,8 +165,8 @@
       "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "estoque": 10,
       "fotos": [
-        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg",
-        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg"
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_3_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_3_back.jpg"
       ],
       "categorias": ["masculino", "feminino"],
       "variacoes": ["P", "GG", "GX"],
@@ -186,8 +186,8 @@
       "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "estoque": 10,
       "fotos": [
-        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg",
-        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg"
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_4_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_4_back.jpg"
       ],
       "categorias": ["masculino", "feminino"],
       "variacoes": ["P", "M", "G"],
@@ -228,8 +228,8 @@
       "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "estoque": 10,
       "fotos": [
-        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg",
-        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg"
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_6_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_6_back.jpg"
       ],
       "categorias": ["masculino", "feminino"],
       "variacoes": ["P", "M", "G", "GG"],
@@ -249,8 +249,8 @@
       "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "estoque": 10,
       "fotos": [
-        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg",
-        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg"
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_7_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_7_back.jpg"
       ],
       "categorias": ["masculino", "feminino"],
       "variacoes": ["P", "M", "G", "GG", "GX"],
@@ -291,8 +291,8 @@
       "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "estoque": 10,
       "fotos": [
-        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg",
-        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg"
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_1_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_1_back.jpg"
       ],
       "categorias": ["masculino", "feminino"],
       "variacoes": ["PP", "P", "M", "G", "GG", "GX"],
@@ -312,8 +312,8 @@
       "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "estoque": 10,
       "fotos": [
-        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg",
-        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg"
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_2_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_2_back.jpg"
       ],
       "categorias": ["masculino", "feminino"],
       "variacoes": ["PP", "P", "M", "G", "GG", "GX"],
@@ -354,10 +354,157 @@
       "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "estoque": 10,
       "fotos": [
-        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg",
-        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg"
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_6_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_6_back.jpg"
       ],
       "categorias": ["masculino", "feminino"],
+      "variacoes": ["P", "M", "G", "GG", "GX"],
+      "peso_kg": 0.8,
+      "altura_cm": 100,
+      "largura_cm": 70,
+      "comprimento_cm": 5,
+      "promocao": false,
+      "preco_promocao": "",
+      "publicado": true
+    },
+    {
+      "id": "t-shirt-1",
+      "nome": "Moletom Ninja",
+      "preco": "299.99",
+      "descricao_breve": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
+      "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "estoque": 10,
+      "fotos": [
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_1_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_1_back.jpg"
+      ],
+      "categorias": ["masculino", "feminino", "regatas", "camisetas"],
+      "variacoes": ["P", "M", "G", "GG", "GX"],
+      "peso_kg": 0.8,
+      "altura_cm": 100,
+      "largura_cm": 70,
+      "comprimento_cm": 5,
+      "promocao": false,
+      "preco_promocao": "",
+      "publicado": true
+    },
+    {
+      "id": "t-shirt-2",
+      "nome": "Moletom Ninja",
+      "preco": "299.99",
+      "descricao_breve": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
+      "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "estoque": 10,
+      "fotos": [
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_back.jpg"
+      ],
+      "categorias": ["masculino", "feminino", "regatas", "camisetas"],
+      "variacoes": ["P", "M", "G", "GG", "GX"],
+      "peso_kg": 0.8,
+      "altura_cm": 100,
+      "largura_cm": 70,
+      "comprimento_cm": 5,
+      "promocao": false,
+      "preco_promocao": "",
+      "publicado": true
+    },
+    {
+      "id": "t-shirt-3",
+      "nome": "Moletom Ninja",
+      "preco": "299.99",
+      "descricao_breve": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
+      "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "estoque": 10,
+      "fotos": [
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_3_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_3_back.jpg"
+      ],
+      "categorias": ["masculino", "feminino", "regatas", "camisetas"],
+      "variacoes": ["P", "M", "G", "GG", "GX"],
+      "peso_kg": 0.8,
+      "altura_cm": 100,
+      "largura_cm": 70,
+      "comprimento_cm": 5,
+      "promocao": false,
+      "preco_promocao": "",
+      "publicado": true
+    },
+    {
+      "id": "t-shirt-4",
+      "nome": "Moletom Ninja",
+      "preco": "299.99",
+      "descricao_breve": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
+      "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "estoque": 10,
+      "fotos": [
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_4_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_4_back.jpg"
+      ],
+      "categorias": ["masculino", "feminino", "regatas", "camisetas"],
+      "variacoes": ["P", "M", "G", "GG", "GX"],
+      "peso_kg": 0.8,
+      "altura_cm": 100,
+      "largura_cm": 70,
+      "comprimento_cm": 5,
+      "promocao": false,
+      "preco_promocao": "",
+      "publicado": true
+    },
+    {
+      "id": "t-shirt-5",
+      "nome": "Moletom Ninja",
+      "preco": "299.99",
+      "descricao_breve": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
+      "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "estoque": 10,
+      "fotos": [
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_5_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_5_back.jpg"
+      ],
+      "categorias": ["masculino", "feminino", "regatas", "camisetas"],
+      "variacoes": ["P", "M", "G", "GG", "GX"],
+      "peso_kg": 0.8,
+      "altura_cm": 100,
+      "largura_cm": 70,
+      "comprimento_cm": 5,
+      "promocao": false,
+      "preco_promocao": "",
+      "publicado": true
+    },
+    {
+      "id": "t-shirt-6",
+      "nome": "Moletom Ninja",
+      "preco": "299.99",
+      "descricao_breve": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
+      "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "estoque": 10,
+      "fotos": [
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_6_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_6_back.jpg"
+      ],
+      "categorias": ["masculino", "feminino", "regatas", "camisetas"],
+      "variacoes": ["P", "M", "G", "GG", "GX"],
+      "peso_kg": 0.8,
+      "altura_cm": 100,
+      "largura_cm": 70,
+      "comprimento_cm": 5,
+      "promocao": false,
+      "preco_promocao": "",
+      "publicado": true
+    },
+    {
+      "id": "t-shirt-7",
+      "nome": "Moletom Ninja",
+      "preco": "299.99",
+      "descricao_breve": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
+      "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "estoque": 10,
+      "fotos": [
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_7_front.jpg",
+        "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_7_back.jpg"
+      ],
+      "categorias": ["masculino", "feminino", "regatas", "camisetas"],
       "variacoes": ["P", "M", "G", "GG", "GX"],
       "peso_kg": 0.8,
       "altura_cm": 100,
@@ -418,33 +565,9 @@
       "descricao": ""
     },
     {
-      "id": "feminino",
-      "nome": "Feminino",
-      "imagem": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/big-store/src/assets/api-imagens/categorias/categoria_mulher.jpg",
-      "descricao": "Routpas Femininas"
-    },
-    {
-      "id": "masculino2",
-      "nome": "Masculino",
-      "imagem": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/big-store/src/assets/api-imagens/categorias/categoria_homem.jpg",
-      "descricao": ""
-    },
-    {
-      "id": "menina2",
-      "nome": "Menina",
-      "imagem": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/big-store/src/assets/api-imagens/categorias/categoria_menina.jpg",
-      "descricao": ""
-    },
-    {
-      "id": "menino2",
-      "nome": "Menino",
-      "imagem": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/big-store/src/assets/api-imagens/categorias/categoria_menino.jpg",
-      "descricao": ""
-    },
-    {
-      "id": "jeans2",
-      "nome": "Jeans",
-      "imagem": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/big-store/src/assets/api-imagens/categorias/categoria_jeans.jpg",
+      "id": "camisetas",
+      "nome": "Camisetas",
+      "imagem": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/big-store/src/assets/api-imagens/categorias/categoria_bolsas.jpg",
       "descricao": ""
     }
   ]

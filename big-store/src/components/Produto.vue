@@ -22,6 +22,7 @@
 
     <v-card-actions class="flex-center">
       <v-btn
+        @click="adicionarCarrinho(dados)"
         color="primary"
         text
       >
@@ -40,6 +41,10 @@ export default class Produto extends Vue {
   @Prop() private readonly width!: number;
   @Prop() private readonly height!: number;
   private selection: number = 1;
+
+  private adicionarCarrinho(produto: object) {
+    this.$store.commit('addCarrinho', produto)
+  }
 }
 </script>
 
