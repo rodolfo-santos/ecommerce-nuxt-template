@@ -3,7 +3,7 @@
     <SubHeader :titulo="categoria.nome" :breadCrumbs="breadCrumbs" />
     <v-container>
       <v-row>
-        <v-card class="col-3 lista-categorias">
+        <v-card class="d-none d-md-block col-md-3 lista-categorias">
           <div class="filtro-titulo mb-4">Filtrar por</div>
 
           <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
@@ -78,7 +78,7 @@
           </v-card>
         </v-card>
 
-        <div class="col-9 pa-5">
+        <div class="col-12 col-md-9 pa-5">
           <v-row v-if="produtos.length === 0">
             <v-col> </v-col>
           </v-row>
@@ -93,6 +93,95 @@
           </v-row>
         </div>
       </v-row>
+
+      <v-navigation-drawer
+        v-model="filtro"
+        fixed
+        bottom
+        temporary
+        class="filtro-mobile"
+      >
+        <v-container id="scroll-target" class="overflow-y-auto">
+          <v-card class="lista-categorias">
+            <div class="filtro-titulo mb-4">Filtrar por</div>
+
+            <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
+              <div class="opcao-titulo mb-2">Categoria</div>
+              <v-chip-group
+                v-model="categoriasSelecionadas"
+                active-class="primary"
+                column
+                multiple
+              >
+                <v-chip
+                  v-for="(categoria, index) in categoriasNome"
+                  :key="index"
+                  >{{ categoria }}</v-chip
+                >
+              </v-chip-group>
+            </v-card>
+
+            <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
+              <div class="opcao-titulo mb-2">Faixa de Preço</div>
+              <div class="pl-2">
+                <div class="d-flex justify-space-between">
+                  <div class="align-end">Valor Máximo</div>
+                  <div>
+                    <input
+                      v-model="valorMaximo"
+                      class="input-preco"
+                      type="number"
+                    />
+                  </div>
+                </div>
+                <v-slider
+                  v-model="valorMaximo"
+                  :min="valorMinimo"
+                  :max="1000"
+                  class="align-center"
+                ></v-slider>
+
+                <div class="d-flex justify-space-between">
+                  <div>Valor Mínimo</div>
+                  <div>
+                    <input
+                      v-model="valorMinimo"
+                      class="input-preco"
+                      type="number"
+                    />
+                  </div>
+                </div>
+                <v-slider
+                  v-model="valorMinimo"
+                  :max="valorMaximo"
+                  :min="0"
+                  class="align-center"
+                ></v-slider>
+
+                <div class="d-flex justify-end">
+                  <v-btn>Aplicar</v-btn>
+                </div>
+              </div>
+            </v-card>
+
+            <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
+              <div class="opcao-titulo mb-2">Cor</div>
+              <v-chip-group
+                v-model="coresSelecionadas"
+                active-class="primary"
+                column
+                multiple
+              >
+                <v-chip v-for="cor in cores" :key="cor">{{ cor }}</v-chip>
+              </v-chip-group>
+            </v-card>
+          </v-card>
+        </v-container>
+      </v-navigation-drawer>
+
+      <v-btn class="d-md-none filtro-btn" fab x-large dark @click="abrirFiltro">
+        <v-icon>mdi-filter</v-icon>
+      </v-btn>
     </v-container>
   </v-main>
 </template>
@@ -139,6 +228,7 @@ export default class PaginaCategoria extends Vue {
     'Outras',
   ];
   private coresSelecionadas: number[] = [];
+  private filtro: boolean = false;
 
   @Watch('id')
   private async mudarCategoria() {
@@ -198,6 +288,10 @@ export default class PaginaCategoria extends Vue {
       };
       this.breadCrumbs.push(categoria);
     }
+  }
+
+  private abrirFiltro() {
+    this.filtro = true;
   }
 
   private async created() {
@@ -260,5 +354,19 @@ label {
     outline: none;
     color: $primary;
   }
+}
+
+.filtro-btn {
+  z-index: 1;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background: darken($primary, 10%) !important;
+}
+
+.filtro-mobile {
+  background-color: $secondary;
+  padding-top: 15px;
+  border-top: $primary solid 5px;
 }
 </style>

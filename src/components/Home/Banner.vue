@@ -7,7 +7,13 @@
           <h4 class="display-2 text-upper">{{ item.content.texto02 }}</h4>
           <h4 class="display-2 text-upper">{{ item.content.texto03 }}</h4>
           <hr class="hr-base" />
-          <v-btn outlined color="white" class="btn-banner">
+          <v-btn
+            outlined
+            color="white"
+            class="btn-banner"
+            link
+            :to="{ name: 'Loja' }"
+          >
             Confira Agora</v-btn
           >
         </v-container>
@@ -49,7 +55,7 @@ export default class Banner extends Vue {
   height: 100vh;
 
   @media (max-width: 600px) {
-    height: 85vh!important;
+    height: 85vh !important;
   }
 
   .content {
@@ -67,13 +73,14 @@ export default class Banner extends Vue {
   .btn-banner {
     max-width: 250px;
     @media (max-width: 600px) {
-      padding: 30px!important;
-      background-color: rgba($secondary, .8);
+      padding: 30px !important;
+      background-color: rgba($secondary, 0.8);
     }
   }
 
-  .v-carousel__item, .v-parallax {
-    height: 100%!important;
+  .v-carousel__item,
+  .v-parallax {
+    height: 100% !important;
   }
 }
 </style>

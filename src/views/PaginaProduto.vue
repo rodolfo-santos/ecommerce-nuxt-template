@@ -6,8 +6,8 @@
 
       <template v-else>
         <v-row>
-          <v-row class="col-8">
-            <div class="col-2">
+          <v-row class="col-12 col-md-8">
+            <div class="d-none d-md-block col-2">
               <v-img
                 :src="foto"
                 v-for="(foto, index) in produto.fotos"
@@ -17,8 +17,21 @@
                 @click="mudarImagem(foto)"
               ></v-img>
             </div>
-            <div class="col-10">
+            <div class="col-12 col-md-10">
               <InnerImageZoom :src="imagemAtiva" :zoomSrc="imagemAtiva" />
+            </div>
+            <div class="d-md-none col-12 row">
+              <div
+                class="col-4"
+                v-for="(foto, index) in produto.fotos"
+                :key="index"
+              >
+                <v-img
+                  :src="foto"
+                  :class="{ imagem_ativa: foto === imagemAtiva }"
+                  @click="mudarImagem(foto)"
+                ></v-img>
+              </div>
             </div>
           </v-row>
           <v-col>

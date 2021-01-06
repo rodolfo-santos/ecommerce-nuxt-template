@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-sheet class="bg-transparent">
-      <v-slide-group center-active show-arrows>
+      <v-slide-group center-active>
         <v-slide-item v-for="n in produtos.length" :key="n" v-slot="{ toggle }">
           <div @click="toggle">
             <Produto
