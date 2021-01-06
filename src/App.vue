@@ -70,9 +70,15 @@ a {
   top: 92vh;
   left: 50%;
   transform: translateX(-50%);
+
+  @media (max-width: 600px ) {
+      top: 85vh;
+  }
 }
 
 .chip-produto .v-slide-group__content {
   justify-content: center;
 }
+
+
 </style>

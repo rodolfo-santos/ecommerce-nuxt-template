@@ -1,9 +1,9 @@
 <template>
-  <v-carousel height="50vh">
+  <v-carousel class="banner-home">
     <v-carousel-item class="banner" v-for="(item, i) in items" :key="i">
       <v-parallax :src="item.src">
         <v-container class="content">
-          <h5 class="display-1 text-upper">{{ item.content.texto01 }}</h5>
+          <h5 class="display-1 text-upper pb-2">{{ item.content.texto01 }}</h5>
           <h4 class="display-2 text-upper">{{ item.content.texto02 }}</h4>
           <h4 class="display-2 text-upper">{{ item.content.texto03 }}</h4>
           <hr class="hr-base" />
@@ -42,38 +42,38 @@ export default class Banner extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
-.v-parallax {
-  height: 100%;
-}
+<style lang="scss">
+@import '@/sass/custom.scss';
 
-.v-parallax__image {
-  transform: none !important;
-  width: 100% !important;
-}
-
-.banner {
-  background-repeat: no-repeat;
-  background-size: cover;
+.banner-home {
+  height: 100vh;
 
   @media (max-width: 600px) {
-    background-position: -300px 0px;
+    height: 85vh!important;
   }
-}
 
-.content {
-  display: flex;
-  flex-flow: column;
-  height: 100%;
-  justify-content: center;
-  padding-bottom: 100px;
+  .content {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    justify-content: center;
+    padding-bottom: 100px;
 
-  h4 {
-    font-weight: bold;
+    h4 {
+      font-weight: bold;
+    }
   }
-}
 
-.btn-banner {
-  max-width: 250px;
+  .btn-banner {
+    max-width: 250px;
+    @media (max-width: 600px) {
+      padding: 30px!important;
+      background-color: rgba($secondary, .8);
+    }
+  }
+
+  .v-carousel__item, .v-parallax {
+    height: 100%!important;
+  }
 }
 </style>

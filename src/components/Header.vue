@@ -17,7 +17,17 @@
       <transition name="fade">
         <div v-show="!searchActive">
           <div class="menu d-none d-md-flex">
-            <ul></ul>
+            <ul>
+              <router-link
+                tag="li"
+                class="px-2"
+                role="button"
+                v-for="item in items"
+                :key="item.nome"
+                :to="{ name: 'Categoria', params: { id: item.id } }"
+                >{{ item.nome }}</router-link
+              >
+            </ul>
           </div>
         </div>
       </transition>
@@ -67,7 +77,7 @@
       </div>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="menuMobile" absolute temporary app>
+    <v-navigation-drawer v-model="menuMobile" fixed temporary app>
       <v-list-item two-line>
         <v-list-item-avatar>
           <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
@@ -82,7 +92,7 @@
       <v-divider></v-divider>
 
       <v-list>
-        <v-list-item link to="/">
+        <v-list-item link :to="{ name: 'Home'}">
           <v-list-item-content>
             <v-list-item-title>Home</v-list-item-title>
           </v-list-item-content>
@@ -91,10 +101,10 @@
           v-for="item in items"
           :key="item.nome"
           link
-          :to="item.path"
+          :to="{ name: 'Categoria', params: { id: item.id } }"
         >
           <v-list-item-content>
-            <v-list-item-title>{{ item.nome }}</v-list-item-title>
+            <v-list-item-title> {{ item.nome }} </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -227,7 +237,8 @@ export default class Header extends Vue {
   flex-direction: column;
   background-color: darken($secondary, 5%);
   border-top: $primary solid 5px;
-  height: 15%;
+  height: 100%;
+  max-height: 15%;
 
   @media (max-width: $bk-md) {
     max-height: 30%;
