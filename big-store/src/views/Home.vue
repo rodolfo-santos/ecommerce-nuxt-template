@@ -6,7 +6,9 @@
     <DivImage />
     <MelhoresProdutos />
     <v-container class="flex-center">
-      <v-btn large color="primary"><v-icon left>mdi-instagram</v-icon> Visite nosso Instagram</v-btn>
+      <v-btn large color="primary"
+        ><v-icon left>mdi-instagram</v-icon> Visite nosso Instagram</v-btn
+      >
     </v-container>
   </v-main>
 </template>
@@ -31,6 +33,4 @@ import MelhoresProdutos from '@/components/Home/MelhoresProdutos.vue';
 export default class Home extends Vue {}
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

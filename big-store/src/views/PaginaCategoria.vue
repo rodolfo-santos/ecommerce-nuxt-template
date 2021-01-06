@@ -3,71 +3,102 @@
     <SubHeader :titulo="categoria.nome" :breadCrumbs="breadCrumbs" />
     <v-container>
       <v-row>
-        
         <v-card class="col-3 lista-categorias">
           <div class="filtro-titulo mb-4">Filtrar por</div>
 
           <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
             <div class="opcao-titulo mb-2">Categoria</div>
-              <v-chip-group v-model="categoriasSelecionadas" active-class="primary" column multiple>
-                <v-chip v-for="( categoria, index) in categoriasNome" :key="index">{{ categoria }}</v-chip>
-              </v-chip-group>
+            <v-chip-group
+              v-model="categoriasSelecionadas"
+              active-class="primary"
+              column
+              multiple
+            >
+              <v-chip
+                v-for="(categoria, index) in categoriasNome"
+                :key="index"
+                >{{ categoria }}</v-chip
+              >
+            </v-chip-group>
           </v-card>
 
           <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
             <div class="opcao-titulo mb-2">Faixa de Preço</div>
-              <div class="pl-2">
-
-                <div class="d-flex justify-space-between">
-                  <div class="align-end">Valor Máximo </div>
-                  <div>
-                    <input v-model="valorMaximo" class="input-preco" type="number">
-                  </div>
-                </div>
-                <v-slider v-model="valorMaximo" :min="valorMinimo" :max="1000" class="align-center"></v-slider>
-
-
-                <div class="d-flex justify-space-between">
-                  <div>Valor Mínimo </div>
-                  <div>
-                    <input v-model="valorMinimo" class="input-preco" type="number">
-                  </div>
-                </div>
-                <v-slider v-model="valorMinimo" :max="valorMaximo" :min="0" class="align-center"></v-slider>
-
-                <div class="d-flex justify-end">
-                  <v-btn>Aplicar</v-btn>
+            <div class="pl-2">
+              <div class="d-flex justify-space-between">
+                <div class="align-end">Valor Máximo</div>
+                <div>
+                  <input
+                    v-model="valorMaximo"
+                    class="input-preco"
+                    type="number"
+                  />
                 </div>
               </div>
+              <v-slider
+                v-model="valorMaximo"
+                :min="valorMinimo"
+                :max="1000"
+                class="align-center"
+              ></v-slider>
+
+              <div class="d-flex justify-space-between">
+                <div>Valor Mínimo</div>
+                <div>
+                  <input
+                    v-model="valorMinimo"
+                    class="input-preco"
+                    type="number"
+                  />
+                </div>
+              </div>
+              <v-slider
+                v-model="valorMinimo"
+                :max="valorMaximo"
+                :min="0"
+                class="align-center"
+              ></v-slider>
+
+              <div class="d-flex justify-end">
+                <v-btn>Aplicar</v-btn>
+              </div>
+            </div>
           </v-card>
 
           <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
             <div class="opcao-titulo mb-2">Cor</div>
-              <v-chip-group v-model="coresSelecionadas" active-class="primary" column multiple>
-                <v-chip v-for="cor in cores" :key="cor">{{cor}}</v-chip>
-              </v-chip-group>
+            <v-chip-group
+              v-model="coresSelecionadas"
+              active-class="primary"
+              column
+              multiple
+            >
+              <v-chip v-for="cor in cores" :key="cor">{{ cor }}</v-chip>
+            </v-chip-group>
           </v-card>
         </v-card>
 
         <div class="col-9 pa-5">
           <v-row v-if="produtos.length === 0">
-            <v-col>
-            </v-col>
+            <v-col> </v-col>
           </v-row>
           <v-row v-else>
-            <v-col v-for="produto in produtos" :key="produto.id" class="col-12 col-md-4 col-xl-3">
+            <v-col
+              v-for="produto in produtos"
+              :key="produto.id"
+              class="col-12 col-md-4 col-xl-3"
+            >
               <Produto :dados="produto" />
             </v-col>
           </v-row>
         </div>
-
       </v-row>
     </v-container>
   </v-main>
 </template>
 
 <script lang="ts">
-import {Component, Prop, Vue, Watch} from 'vue-property-decorator';
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 
 import SubHeader from '@/components/SubHeader.vue';
 import Produto from '@/components/Produto.vue';
@@ -84,10 +115,11 @@ import Categoria from '@/models/Categoria';
     Produto,
   },
 })
-
 export default class PaginaCategoria extends Vue {
   @Prop() private readonly id!: string;
-  private categoria: Categoria = {};
+  private categoria: Categoria = {
+    nome: 'Loja',
+  };
   private categorias: Categoria[] = [];
   private categoriasNome: string[] = [];
   private categoriasSelecionadas: number[] = [];
@@ -106,7 +138,7 @@ export default class PaginaCategoria extends Vue {
     'Amarelo',
     'Outras',
   ];
-  private coresSelecionadas!: number[] = [];
+  private coresSelecionadas: number[] = [];
 
   @Watch('id')
   private async mudarCategoria() {
@@ -134,7 +166,7 @@ export default class PaginaCategoria extends Vue {
   }
 
   private async getProdutos() {
-    if(!!this.id) {
+    if (!!this.id) {
       await ProdutosServ.filtrar(this.id).then((response) => {
         this.produtos = response.data;
       });
@@ -143,48 +175,50 @@ export default class PaginaCategoria extends Vue {
         this.produtos = response.data;
       });
     }
-
   }
 
   private setBreadCrumb() {
     this.breadCrumbs = [
-        {
-          text: 'Home',
-          disabled: false,
-          href: '/',
-        },
-        {
-          text: 'Loja',
-          disabled: false,
-          href: '/loja',
-        },
-        {
-          text: this.categoria.nome,
-          disabled: true,
-          href: `/categoria/${this.id}`,
-        },
+      {
+        text: 'Home',
+        disabled: false,
+        href: '/',
+      },
+      {
+        text: 'Loja',
+        disabled: false,
+        href: '/loja',
+      },
     ];
+    if (!!this.id) {
+      const categoria: object = {
+        text: this.categoria.nome,
+        disabled: true,
+        href: `/categoria/${this.categoria.id}`,
+      };
+      this.breadCrumbs.push(categoria);
+    }
   }
 
   private async created() {
     await this.getProdutos();
-    await this.getCategoria();
+    if (!!this.id) {
+      await this.getCategoria();
+    }
     await this.getCategorias();
     this.sortItems();
     this.setBreadCrumb();
   }
 }
-
 </script>
 
 <style lang="scss" scoped>
 @import '@/sass/custom.scss';
 .lista-categorias {
   background-color: $secondary;
-
 }
 
-.filtro-titulo{
+.filtro-titulo {
   font-size: 0.9em;
   text-transform: uppercase;
   border-left: $primary solid 3px;
@@ -211,22 +245,20 @@ label {
   top: 10px;
   color: #ffffff;
   text-align: right;
-  transition: .5s;
-  -moz-appearance:textfield;
+  transition: 0.5s;
+  -moz-appearance: textfield;
 
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
-      /* display: none; <- Crashes Chrome on hover */
-      -webkit-appearance: none;
-      margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
   }
 
-  &:focus, &:hover {
+  &:focus,
+  &:hover {
     outline: none;
     color: $primary;
   }
 }
-
-
-
 </style>

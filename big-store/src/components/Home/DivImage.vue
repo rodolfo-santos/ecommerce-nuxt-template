@@ -4,7 +4,6 @@
     height="350"
     class="flex-center bloco"
   >
-    
     <div class="text-center">
       <span class="text-upper">Nova Coleção</span>
       <h2 class="text-upper">Moda Jeans Premium</h2>
@@ -15,11 +14,10 @@
 </template>
 
 <script lang="ts">
-import {Component, Prop, Vue} from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
-export default class DivImage extends Vue {
-}
+export default class DivImage extends Vue {}
 </script>
 
 <style lang="scss" scoped>

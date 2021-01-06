@@ -6,16 +6,19 @@
     </transition>
     <Footer />
     <transition name="fade" mode="out-in" appear>
-      <v-alert type="success" class="carrinho-alert" v-show="$store.state.carrinhoAlert">
-          Item adicionado ao carrinho!
+      <v-alert
+        type="success"
+        class="carrinho-alert"
+        v-show="$store.state.carrinhoAlert"
+      >
+        Item adicionado ao carrinho!
       </v-alert>
     </transition>
-
   </v-app>
 </template>
 
 <script lang="ts">
-import {Component, Vue} from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
 
@@ -25,21 +28,18 @@ import Footer from '@/components/Footer.vue';
     Footer,
   },
 })
-export default class App extends Vue {
-
-}
+export default class App extends Vue {}
 </script>
 
 <style lang="scss">
 @import '@/sass/variaveis.scss';
 @import '@/sass/custom.scss';
 
-
 a {
   text-decoration: none;
-  transition: .25s;
+  transition: 0.25s;
   &:hover {
-    color: lighten( $primary, 10%)!important;
+    color: lighten($primary, 10%) !important;
   }
 }
 
@@ -49,27 +49,26 @@ a {
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
-    background-color: $secondary;
+  width: 10px;
+  background-color: $secondary;
 }
 
 ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    border-radius: 0px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: $primary;
-    border-radius: 4px;
-    box-shadow: inset 0 0 4px #000;
+  background-color: $primary;
+  border-radius: 4px;
+  box-shadow: inset 0 0 4px #000;
 }
 
 .carrinho-alert {
-  position: fixed!important;
+  position: fixed !important;
   z-index: 99999;
   top: 92vh;
   left: 50%;
   transform: translateX(-50%);
 }
-
 </style>

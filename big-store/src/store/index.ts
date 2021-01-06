@@ -24,11 +24,16 @@ export default new Vuex.Store({
       localStorage.setItem('carrinho', JSON.stringify(state.carrinho));
       setTimeout(() => {
         state.carrinhoAlert = false;
-      }, 3000);
+      }, 2000);
     },
 
     removerCarrinho(state, index) {
       state.carrinho.splice(index, 1);
+      localStorage.setItem('carrinho', JSON.stringify(state.carrinho));
+    },
+
+    esvaziarCarrinho(state) {
+      state.carrinho = [];
       localStorage.setItem('carrinho', JSON.stringify(state.carrinho));
     },
   },

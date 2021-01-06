@@ -6,19 +6,20 @@
       </v-col>
     </v-row>
     <v-row v-else>
-      <v-col 
-        class="m-auto col-6 col-md-3 col-lg-2" 
-        v-for="categoria in categorias" 
+      <v-col
+        class="m-auto col-6 col-md-3 col-lg-2"
+        v-for="categoria in categorias"
         :key="categoria.id"
-        >
+      >
         <v-hover>
           <template v-slot:default="{ hover }">
-            <v-card 
+            <v-card
               class="categoria"
-              :to="{name: 'Categoria', params: { id: categoria.id } }"
+              :to="{ name: 'Categoria', params: { id: categoria.id } }"
               :style="`background: url(${categoria.imagem})`"
-              hover>
-              <v-card-text class="texto">{{ categoria.nome}}</v-card-text>
+              hover
+            >
+              <v-card-text class="texto">{{ categoria.nome }}</v-card-text>
 
               <v-fade-transition>
                 <v-overlay
@@ -39,7 +40,7 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue} from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 import CategoriaServ from '@/services/categorias';
 import Loading from '@/components/Loading.vue';
 
@@ -65,27 +66,27 @@ export default class Categorias extends Vue {
 </script>
 
 <style lang="scss" scoped>
-
 @import '@/sass/custom.scss';
 
-  .categoria {
-    border: $primary 2px solid;
-    min-height: 200px;
-    background-position: center!important;
-    background-repeat: no-repeat!important;
-    background-size: cover!important;
-    transition: .25s!important;
+.categoria {
+  border: $primary 2px solid;
+  min-height: 200px;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  transition: 0.25s !important;
 
-    display: flex;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  align-items: center;
+  text-align: center;
 
-    &:hover {
-      transform: scale(1.05);
-    }
-
-    .texto, .overlay-texto {
-      font-size: 1.5em!important;
-    }
+  &:hover {
+    transform: scale(1.05);
   }
+
+  .texto,
+  .overlay-texto {
+    font-size: 1.5em !important;
+  }
+}
 </style>
