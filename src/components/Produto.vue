@@ -4,15 +4,16 @@
 
     <v-card-text align="center">
       <div class="">
-        <ul class="list-inline">
-          <li
-            class="ml-2 text-capitalize"
-            v-for="(categoria, index) in dados.categorias"
-            :key="index"
+        <div class="d-flex justify-center">
+          <router-link
+            :to="`/categoria/${dados.categorias[n]}`"
+            class="ml-2 text-capitalize link-categoria text-muted"
+            v-for="n in 3"
+            :key="n"
           >
-            {{ categoria }}
-          </li>
-        </ul>
+            {{ dados.categorias[n] }}
+          </router-link>
+        </div>
       </div>
       <h2 class="my-3 white--text">
         <router-link :to="{ name: 'Produto', params: { id: dados.id } }">{{
@@ -20,7 +21,12 @@
         }}</router-link>
       </h2>
 
-      <v-chip-group v-model="selection" active-class="primary" center-active>
+      <v-chip-group
+        v-model="selection"
+        active-class="primary"
+        center-active
+        class="chip-produto"
+      >
         <v-chip v-for="variacao in dados.variacoes" :key="variacao">{{
           variacao
         }}</v-chip>

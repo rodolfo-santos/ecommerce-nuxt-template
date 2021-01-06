@@ -71,4 +71,8 @@ a {
   left: 50%;
   transform: translateX(-50%);
 }
+
+.chip-produto .v-slide-group__content {
+  justify-content: center;
+}
 </style>
