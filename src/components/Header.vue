@@ -251,6 +251,7 @@ export default class Header extends Vue {
 
 .app-bar {
   background-color: darken($secondary, 10%);
+  z-index: 2 !important;
 }
 
 .div-search {

@@ -6,11 +6,7 @@
     </transition>
     <Footer />
     <transition name="fade" mode="out-in" appear>
-      <v-alert
-        type="success"
-        class="carrinho-alert"
-        v-show="$store.state.carrinhoAlert"
-      >
+      <v-alert type="success" class="carrinho-alert" v-show="$store.state.carrinhoAlert">
         Item adicionado ao carrinho!
       </v-alert>
     </transition>
@@ -32,7 +28,6 @@ export default class App extends Vue {}
 </script>
 
 <style lang="scss">
-@import '@/sass/variaveis.scss';
 @import '@/sass/custom.scss';
 
 a {
@@ -45,7 +40,7 @@ a {
 
 .conteudo-view {
   margin-top: $header-margin;
-  min-height: 110vh;
+  min-height: 88vh;
 }
 
 ::-webkit-scrollbar {
@@ -62,6 +57,16 @@ a {
   background-color: $primary;
   border-radius: 4px;
   box-shadow: inset 0 0 4px #000;
+}
+
+/* Cor de fundo do autocomplete */
+input:-webkit-autofill {
+  box-shadow: 0 0 0 30px #000 inset;
+}
+
+/* Cor do texto do autocomplete */
+input:-webkit-autofill {
+  -webkit-text-fill-color: $primary !important;
 }
 
 .carrinho-alert {
