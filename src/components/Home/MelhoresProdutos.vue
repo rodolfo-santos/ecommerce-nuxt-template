@@ -35,7 +35,7 @@ import Loading from '@/components/Loading.vue';
 export default class MelhoresProdutos extends Vue {
   private produtos: object[] = [];
   private getProdutos(): void {
-    ProdutosServ.listar(8).then((response) => {
+    ProdutosServ.listar(8, '', '').then((response) => {
       this.produtos = response.data;
     });
   }

@@ -38,7 +38,7 @@ export default class Lancamentos extends Vue {
   private produtos: object[] = [];
 
   private getProdutos(): void {
-    ProdutosServ.listar(12).then((response) => {
+    ProdutosServ.listar(12, '', '').then((response) => {
       this.produtos = response.data;
     });
   }

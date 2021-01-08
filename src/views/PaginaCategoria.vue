@@ -58,6 +58,8 @@
         </div>
       </v-row>
 
+      <Paginacao :limit="10" :total="200" />
+
       <v-navigation-drawer v-model="filtro" fixed bottom temporary class="filtro-mobile">
         <v-container id="scroll-target" class="overflow-y-auto">
           <v-card class="lista-categorias">
@@ -114,9 +116,11 @@
 
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
+import { serialize } from '@/helpers';
 
 import SubHeader from '@/components/SubHeader.vue';
 import Produto from '@/components/Produto.vue';
+import Paginacao from '@/components/Paginacao.vue';
 
 import ProdutosServ from '@/services/produtos';
 import CategoriasServ from '@/services/categorias';
@@ -128,6 +132,7 @@ import Categoria from '@/models/Categoria';
   components: {
     SubHeader,
     Produto,
+    Paginacao,
   },
 })
 export default class PaginaCategoria extends Vue {
@@ -146,6 +151,11 @@ export default class PaginaCategoria extends Vue {
   private cores: string[] = ['Branco', 'Preto', 'Verde', 'Azul', 'Rosa', 'Roxo', 'Amarelo', 'Outras'];
   private coresSelecionadas: number[] = [];
   private filtro: boolean = false;
+
+  get url(): string {
+    let query: string = serialize(this.$route.query);
+    return query;
+  }
 
   @Watch('id')
   private async mudarCategoria(): Promise<void> {
@@ -174,11 +184,11 @@ export default class PaginaCategoria extends Vue {
 
   private async getProdutos(): Promise<void> {
     if (!!this.id) {
-      await ProdutosServ.filtrar(this.id).then((response) => {
+      await ProdutosServ.listar(12, this.url, this.id).then((response) => {
         this.produtos = response.data;
       });
     } else {
-      await ProdutosServ.listar(200).then((response) => {
+      await ProdutosServ.listar(12, this.url, '').then((response) => {
         this.produtos = response.data;
       });
     }
