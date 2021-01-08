@@ -257,14 +257,6 @@ label {
   color: #ffffff;
   text-align: right;
   transition: 0.5s;
-  -moz-appearance: textfield;
-
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-  }
 
   &:focus,
   &:hover {

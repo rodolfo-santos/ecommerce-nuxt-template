@@ -69,6 +69,17 @@ input:-webkit-autofill {
   -webkit-text-fill-color: $primary !important;
 }
 
+/* Remover botoes do InputNumber */
+input[type='number'] {
+  -moz-appearance: textfield;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
 .carrinho-alert {
   position: fixed !important;
   z-index: 99999;

@@ -7,9 +7,10 @@ export default {
 
   state: {
     usuario: {
-      id: 'aa',
+      id: '',
       nome: '',
       email: '',
+      cpf: '',
       senha: '',
       cep: '',
       rua: '',
@@ -46,6 +47,7 @@ export default {
       context.commit('UPDATE_USUARIO', {
         id: '',
         nome: '',
+        cpf: '',
         email: '',
         senha: '',
         cep: '',
