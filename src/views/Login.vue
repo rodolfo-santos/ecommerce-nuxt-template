@@ -9,22 +9,10 @@
           <span @click="criarConta = true" :class="{ active: criarConta }"> Cadastrar </span>
         </h1>
         <div v-show="!criarConta">
-          <v-form @submit.prevent="submit" v-model="validLogin">
-            <v-text-field v-model="login.email" label="E-mail" ref="campoDeFoco" :rules="rules.required" required></v-text-field>
-            <v-text-field v-model="login.senha" label="Senha" :rules="rules.required" type="password" required></v-text-field>
-            <v-checkbox v-model="login.manterConectado" value="true" label="Mantenha Conectado" type="checkbox"></v-checkbox>
-
-            <div class="flex-center mt-4">
-              <v-btn class="btn-login pa-6" type="submit" :disabled="!validLogin"> Login </v-btn>
-            </div>
-            <p class="text-center mt-4">Perdeu a senha? <router-link to="/">Clique aqui para recuperar.</router-link></p>
-          </v-form>
+          <LoginForm />
         </div>
         <div v-show="criarConta">
           <UsuarioForm>
-            <!-- <v-btn class="btn-login pa-6" type="submit" @click.prevent="criarUsuario" :disabled="!valido">
-                Cadastrar
-              </v-btn> -->
             Cadastrar
           </UsuarioForm>
         </div>
@@ -40,24 +28,16 @@ import { mapState } from 'vuex';
 
 import SubHeader from '@/components/SubHeader.vue';
 import UsuarioForm from '@/components/Usuario/UsuarioForm.vue';
-
-import LoginModel from '@/models/Login';
+import LoginForm from '@/components/Usuario/LoginForm.vue';
 
 @Component({
   components: {
     SubHeader,
     UsuarioForm,
+    LoginForm,
   },
-  computed: mapState(['rules']),
 })
 export default class Login extends Vue {
-  private validLogin: boolean = false;
-  private login: LoginModel = {
-    email: '',
-    senha: '',
-    manterConectado: false,
-  };
-
   private breadCrumbs: object = [
     {
       text: 'Home',
@@ -72,11 +52,6 @@ export default class Login extends Vue {
   ];
 
   private criarConta: boolean = false;
-
-  private logar(): void {
-    this.$store.dispatch('getUsuario', this.login.email);
-    // this.$router.push({ name: 'usuario' });
-  }
 }
 </script>
 

@@ -158,7 +158,7 @@ export default class Header extends Vue {
     this.$store.dispatch('carrinho/esvaziarCarrinho');
   }
 
-  private created() {
+  private created(): void {
     this.getCategorias();
   }
 }

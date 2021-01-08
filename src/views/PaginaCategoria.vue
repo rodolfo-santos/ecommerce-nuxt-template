@@ -8,17 +8,8 @@
 
           <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
             <div class="opcao-titulo mb-2">Categoria</div>
-            <v-chip-group
-              v-model="categoriasSelecionadas"
-              active-class="primary"
-              column
-              multiple
-            >
-              <v-chip
-                v-for="(categoria, index) in categoriasNome"
-                :key="index"
-                >{{ categoria }}</v-chip
-              >
+            <v-chip-group v-model="categoriasSelecionadas" active-class="primary" column multiple>
+              <v-chip v-for="(categoria, index) in categoriasNome" :key="index">{{ categoria }}</v-chip>
             </v-chip-group>
           </v-card>
 
@@ -28,36 +19,18 @@
               <div class="d-flex justify-space-between">
                 <div class="align-end">Valor Máximo</div>
                 <div>
-                  <input
-                    v-model="valorMaximo"
-                    class="input-preco"
-                    type="number"
-                  />
+                  <input v-model="valorMaximo" class="input-preco" type="number" />
                 </div>
               </div>
-              <v-slider
-                v-model="valorMaximo"
-                :min="valorMinimo"
-                :max="1000"
-                class="align-center"
-              ></v-slider>
+              <v-slider v-model="valorMaximo" :min="valorMinimo" :max="1000" class="align-center"></v-slider>
 
               <div class="d-flex justify-space-between">
                 <div>Valor Mínimo</div>
                 <div>
-                  <input
-                    v-model="valorMinimo"
-                    class="input-preco"
-                    type="number"
-                  />
+                  <input v-model="valorMinimo" class="input-preco" type="number" />
                 </div>
               </div>
-              <v-slider
-                v-model="valorMinimo"
-                :max="valorMaximo"
-                :min="0"
-                class="align-center"
-              ></v-slider>
+              <v-slider v-model="valorMinimo" :max="valorMaximo" :min="0" class="align-center"></v-slider>
 
               <div class="d-flex justify-end">
                 <v-btn>Aplicar</v-btn>
@@ -67,12 +40,7 @@
 
           <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
             <div class="opcao-titulo mb-2">Cor</div>
-            <v-chip-group
-              v-model="coresSelecionadas"
-              active-class="primary"
-              column
-              multiple
-            >
+            <v-chip-group v-model="coresSelecionadas" active-class="primary" column multiple>
               <v-chip v-for="cor in cores" :key="cor">{{ cor }}</v-chip>
             </v-chip-group>
           </v-card>
@@ -83,41 +51,22 @@
             <v-col> </v-col>
           </v-row>
           <v-row v-else>
-            <v-col
-              v-for="produto in produtos"
-              :key="produto.id"
-              class="col-12 col-md-4 col-xl-3"
-            >
+            <v-col v-for="produto in produtos" :key="produto.id" class="col-12 col-md-4 col-xl-3">
               <Produto :dados="produto" />
             </v-col>
           </v-row>
         </div>
       </v-row>
 
-      <v-navigation-drawer
-        v-model="filtro"
-        fixed
-        bottom
-        temporary
-        class="filtro-mobile"
-      >
+      <v-navigation-drawer v-model="filtro" fixed bottom temporary class="filtro-mobile">
         <v-container id="scroll-target" class="overflow-y-auto">
           <v-card class="lista-categorias">
             <div class="filtro-titulo mb-4">Filtrar por</div>
 
             <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
               <div class="opcao-titulo mb-2">Categoria</div>
-              <v-chip-group
-                v-model="categoriasSelecionadas"
-                active-class="primary"
-                column
-                multiple
-              >
-                <v-chip
-                  v-for="(categoria, index) in categoriasNome"
-                  :key="index"
-                  >{{ categoria }}</v-chip
-                >
+              <v-chip-group v-model="categoriasSelecionadas" active-class="primary" column multiple>
+                <v-chip v-for="(categoria, index) in categoriasNome" :key="index">{{ categoria }}</v-chip>
               </v-chip-group>
             </v-card>
 
@@ -127,36 +76,18 @@
                 <div class="d-flex justify-space-between">
                   <div class="align-end">Valor Máximo</div>
                   <div>
-                    <input
-                      v-model="valorMaximo"
-                      class="input-preco"
-                      type="number"
-                    />
+                    <input v-model="valorMaximo" class="input-preco" type="number" />
                   </div>
                 </div>
-                <v-slider
-                  v-model="valorMaximo"
-                  :min="valorMinimo"
-                  :max="1000"
-                  class="align-center"
-                ></v-slider>
+                <v-slider v-model="valorMaximo" :min="valorMinimo" :max="1000" class="align-center"></v-slider>
 
                 <div class="d-flex justify-space-between">
                   <div>Valor Mínimo</div>
                   <div>
-                    <input
-                      v-model="valorMinimo"
-                      class="input-preco"
-                      type="number"
-                    />
+                    <input v-model="valorMinimo" class="input-preco" type="number" />
                   </div>
                 </div>
-                <v-slider
-                  v-model="valorMinimo"
-                  :max="valorMaximo"
-                  :min="0"
-                  class="align-center"
-                ></v-slider>
+                <v-slider v-model="valorMinimo" :max="valorMaximo" :min="0" class="align-center"></v-slider>
 
                 <div class="d-flex justify-end">
                   <v-btn>Aplicar</v-btn>
@@ -166,12 +97,7 @@
 
             <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
               <div class="opcao-titulo mb-2">Cor</div>
-              <v-chip-group
-                v-model="coresSelecionadas"
-                active-class="primary"
-                column
-                multiple
-              >
+              <v-chip-group v-model="coresSelecionadas" active-class="primary" column multiple>
                 <v-chip v-for="cor in cores" :key="cor">{{ cor }}</v-chip>
               </v-chip-group>
             </v-card>
@@ -217,45 +143,36 @@ export default class PaginaCategoria extends Vue {
   private valorMinimo: number = 0;
   private valorMaximo: number = 1000;
   private selection: string = '';
-  private cores: string[] = [
-    'Branco',
-    'Preto',
-    'Verde',
-    'Azul',
-    'Rosa',
-    'Roxo',
-    'Amarelo',
-    'Outras',
-  ];
+  private cores: string[] = ['Branco', 'Preto', 'Verde', 'Azul', 'Rosa', 'Roxo', 'Amarelo', 'Outras'];
   private coresSelecionadas: number[] = [];
   private filtro: boolean = false;
 
   @Watch('id')
-  private async mudarCategoria() {
+  private async mudarCategoria(): Promise<void> {
     await this.getProdutos();
     await this.getCategoria();
     this.setBreadCrumb();
   }
 
-  private async getCategoria() {
+  private async getCategoria(): Promise<void> {
     await CategoriasServ.categoria_unica(this.id).then((response) => {
       this.categoria = response.data;
     });
   }
 
-  private async getCategorias() {
+  private async getCategorias(): Promise<void> {
     await CategoriasServ.listar(35).then((response) => {
       this.categorias = response.data;
       this.categoriasNome = this.categorias.map((categoria) => categoria.nome);
     });
   }
 
-  private sortItems() {
+  private sortItems(): void {
     this.cores = this.cores.sort();
     this.categoriasNome = this.categoriasNome.sort();
   }
 
-  private async getProdutos() {
+  private async getProdutos(): Promise<void> {
     if (!!this.id) {
       await ProdutosServ.filtrar(this.id).then((response) => {
         this.produtos = response.data;
@@ -267,7 +184,7 @@ export default class PaginaCategoria extends Vue {
     }
   }
 
-  private setBreadCrumb() {
+  private setBreadCrumb(): void {
     this.breadCrumbs = [
       {
         text: 'Home',
@@ -290,11 +207,11 @@ export default class PaginaCategoria extends Vue {
     }
   }
 
-  private abrirFiltro() {
+  private abrirFiltro(): void {
     this.filtro = true;
   }
 
-  private async created() {
+  private async created(): Promise<void> {
     await this.getProdutos();
     if (!!this.id) {
       await this.getCategoria();

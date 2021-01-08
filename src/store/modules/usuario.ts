@@ -1,4 +1,4 @@
-import Usuario from '@/services/usuario';
+import UsuarioServ from '@/services/usuario';
 
 export default {
   namespaced: true,
@@ -29,7 +29,7 @@ export default {
   },
   actions: {
     getUsuario(context, payload) {
-      return Usuario.getUsuario(payload).then((response) => {
+      return UsuarioServ.getUsuario(payload).then((response) => {
         context.commit('UPDATE_USUARIO', response.data);
         context.commit('UPDATE_LOGIN', true);
       });
@@ -37,7 +37,7 @@ export default {
 
     criarUsuario(context, payload) {
       context.commit('UPDATE_USUARIO', { id: payload.email });
-      return Usuario.criar(payload);
+      return UsuarioServ.criar(payload);
     },
 
     deslogarUsuario(context) {

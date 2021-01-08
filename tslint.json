@@ -6,7 +6,10 @@
   ],
   "linterOptions": {
     "exclude": [
-      "node_modules/**"
+      "node_modules/**",
+      "src/services/**",
+      "src/store/**",
+      "src/registerServiceWorker.ts"
     ]
   },
   "rules": {
@@ -15,6 +18,8 @@
     "no-consecutive-blank-lines": false,
     "object-literal-sort-keys": false,
     "ordered-imports": false,
-    "quotemark": [true, "single"]
-  }
+    "quotemark": [true, "single"],
+    "no-empty-interface": true,
+    "promise-function-async": true,
+    "typedef": [true, "call-signature"]  }
 }

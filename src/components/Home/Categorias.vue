@@ -6,28 +6,14 @@
       </v-col>
     </v-row>
     <v-row v-else>
-      <v-col
-        class="m-auto col-6 col-md-3 col-lg-2"
-        v-for="categoria in categorias"
-        :key="categoria.id"
-      >
+      <v-col class="m-auto col-6 col-md-3 col-lg-2" v-for="categoria in categorias" :key="categoria.id">
         <v-hover>
           <template v-slot:default="{ hover }">
-            <v-card
-              class="categoria"
-              :to="{ name: 'Categoria', params: { id: categoria.id } }"
-              :style="`background: url(${categoria.imagem})`"
-              hover
-            >
+            <v-card class="categoria" :to="{ name: 'Categoria', params: { id: categoria.id } }" :style="`background: url(${categoria.imagem})`" hover>
               <v-card-text class="texto">{{ categoria.nome }}</v-card-text>
 
               <v-fade-transition>
-                <v-overlay
-                  v-if="hover"
-                  absolute
-                  color="#16D17E"
-                  class="overlay-texto"
-                >
+                <v-overlay v-if="hover" absolute color="#16D17E" class="overlay-texto">
                   {{ categoria.nome }}
                 </v-overlay>
               </v-fade-transition>
@@ -53,13 +39,13 @@ export default class Categorias extends Vue {
   private categorias: object[] = [];
   private overlay: boolean = false;
 
-  private getCategorias() {
+  private getCategorias(): void {
     CategoriaServ.listar(6).then((response) => {
       this.categorias = response.data;
     });
   }
 
-  private created() {
+  private created(): void {
     this.getCategorias();
   }
 }

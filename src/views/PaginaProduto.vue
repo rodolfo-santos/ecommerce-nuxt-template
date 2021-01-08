@@ -127,12 +127,12 @@ export default class PaginaProduto extends Vue {
   private btnAddCarrinho = true;
 
   @Watch('id')
-  private async mudarProduto() {
+  private async mudarProduto(): Promise<void> {
     await this.getProduto();
     this.setBreadCrumb();
   }
 
-  private async getProduto() {
+  private async getProduto(): Promise<void> {
     await ProdutosServ.produto_unico(this.id).then((response) => {
       this.produto = response.data;
       this.imagemAtiva = this.produto.fotos[0];
@@ -144,7 +144,7 @@ export default class PaginaProduto extends Vue {
     this.imagemAtiva = imagem;
   }
 
-  private setBreadCrumb() {
+  private setBreadCrumb(): void {
     this.breadCrumbs = [
       {
         text: 'Home',
@@ -164,7 +164,7 @@ export default class PaginaProduto extends Vue {
     ];
   }
 
-  private adicionarCarrinho(produto: object) {
+  private adicionarCarrinho(produto: object): void {
     this.$store.dispatch('addCarrinho', produto);
     this.btnAddCarrinho = false;
     setTimeout(() => {
@@ -172,7 +172,7 @@ export default class PaginaProduto extends Vue {
     }, 2000);
   }
 
-  private async created() {
+  private async created(): Promise<void> {
     await this.getProduto();
     this.loading = false;
   }

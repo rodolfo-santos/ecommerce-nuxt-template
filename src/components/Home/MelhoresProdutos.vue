@@ -1,24 +1,16 @@
 <template>
   <v-container>
-    <Titulo
-      titulo="Produtos com Preços Incríveis"
-      subtitulo="Produtos separados especialmente para você"
-    />
+    <Titulo titulo="Produtos com Preços Incríveis" subtitulo="Produtos separados especialmente para você" />
     <v-row v-if="produtos.length === 0">
       <v-col>
         <Loading />
       </v-col>
     </v-row>
     <v-sheet class="bg-transparent">
-      <v-slide-group center-active >
+      <v-slide-group center-active>
         <v-slide-item v-for="n in produtos.length" :key="n" v-slot="{ toggle }">
           <div @click="toggle">
-            <Produto
-              :dados="produtos[n - 1]"
-              width="250"
-              class="mr-2 ml-2"
-              v-if="produtos[n - 1]"
-            />
+            <Produto :dados="produtos[n - 1]" width="250" class="mr-2 ml-2" v-if="produtos[n - 1]" />
           </div>
         </v-slide-item>
       </v-slide-group>
@@ -48,7 +40,7 @@ export default class MelhoresProdutos extends Vue {
     });
   }
 
-  private created() {
+  private created(): void {
     this.getProdutos();
   }
 }

@@ -4,12 +4,7 @@
       <v-slide-group center-active>
         <v-slide-item v-for="n in produtos.length" :key="n" v-slot="{ toggle }">
           <div @click="toggle">
-            <Produto
-              :dados="produtos[n - 1]"
-              width="300"
-              class="mr-3 ml-3"
-              v-if="produtos[n - 1]"
-            />
+            <Produto :dados="produtos[n - 1]" width="300" class="mr-3 ml-3" v-if="produtos[n - 1]" />
           </div>
         </v-slide-item>
       </v-slide-group>
@@ -39,7 +34,7 @@ export default class ProdutosRelacionados extends Vue {
     });
   }
 
-  private created() {
+  private created(): void {
     this.getProdutos();
   }
 }

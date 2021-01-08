@@ -39,7 +39,7 @@ export default class Produto extends Vue {
   private selection: number = 1;
   private btnAddCarrinho = true;
 
-  private adicionarCarrinho(produto: object) {
+  private adicionarCarrinho(produto: object): void {
     this.$store.dispatch('carrinho/addCarrinho', produto);
     this.btnAddCarrinho = false;
     setTimeout(() => {

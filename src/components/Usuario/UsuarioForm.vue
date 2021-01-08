@@ -46,7 +46,7 @@ import Usuario from '@/models/Usuario';
 import { mapState } from 'vuex';
 
 @Component({
-  computed: mapState(['rules']),
+  computed: mapState('geral', ['rules']),
 })
 export default class UsuarioForm extends Vue {
   private valido: boolean = false;
@@ -75,7 +75,7 @@ export default class UsuarioForm extends Vue {
     }
   }
 
-  private submeter() {
+  private submeter(): void {
     if (!this.$store.state.logado) {
       this.$store.dispatch('criarUsuario', this.user);
     } else {

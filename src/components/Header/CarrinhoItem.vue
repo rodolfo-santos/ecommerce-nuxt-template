@@ -28,7 +28,7 @@ export default class CarrinhoItem extends Vue {
   @Prop() private readonly produto!: object;
   @Prop() private readonly index!: number;
 
-  private removerCarrinho(index) {
+  private removerCarrinho(index): void {
     this.$store.dispatch('carrinho/removerCarrinho', index);
   }
 }
