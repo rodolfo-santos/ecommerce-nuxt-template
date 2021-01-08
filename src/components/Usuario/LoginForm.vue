@@ -1,5 +1,5 @@
 <template>
-  <v-form @submit.prevent="submit" v-model="valid">
+  <v-form @submit.prevent="logar" v-model="valid">
     <v-text-field v-model="login.email" label="E-mail" ref="campoDeFoco" :rules="rules.required" required></v-text-field>
     <v-text-field v-model="login.senha" label="Senha" :rules="rules.required" type="password" required></v-text-field>
     <v-checkbox v-model="login.manterConectado" value="true" label="Mantenha Conectado" type="checkbox"></v-checkbox>
@@ -28,8 +28,8 @@ export default class LoginForm extends Vue {
   };
 
   private logar(): void {
-    this.$store.dispatch('getUsuario', this.login.email);
-    this.$router.push({ name: 'Home' });
+    this.$store.dispatch('usuario/getUsuario', this.login);
+    // this.$router.push({ name: 'Home' });
   }
 }
 </script>

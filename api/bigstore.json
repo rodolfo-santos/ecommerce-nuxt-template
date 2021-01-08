@@ -91,17 +91,30 @@
   ],
   "usuario": [
     {
-      "nome": "Rodolfo dos Santos",
-      "email": "rodolfodossantos29@gmail.com",
+      "nome": "rodolfo",
+      "email": "rodolfo@gmail.com",
       "senha": "123",
       "cep": "12241421",
       "rua": "Rua Carlos Marcondes",
-      "numero": "1160",
+      "numero": "122",
       "bairro": "Jardim Limoeiro",
       "cidade": "São José dos Campos",
       "estado": "SP",
-      "telefone": "12982279588",
-      "id": "48Q2I-p"
+      "telefone": "151155",
+      "id": "rodolfo@gmail.com"
+    },
+    {
+      "nome": "Rodolfos",
+      "email": "222@gmail.com",
+      "senha": "2131",
+      "cep": "12241421",
+      "rua": "Rua Carlos Marcondes",
+      "numero": "1111",
+      "bairro": "Jardim Limoeiro",
+      "cidade": "São José dos Campos",
+      "estado": "SP",
+      "telefone": "1544444",
+      "id": "222@gmail.com"
     }
   ],
   "produto": [

@@ -1,3 +1,5 @@
+import Login from '@/models/Login';
+import Usuario from '@/models/Usuario';
 import UsuarioServ from '@/services/usuario';
 
 export default {
@@ -5,7 +7,7 @@ export default {
 
   state: {
     usuario: {
-      id: '',
+      id: 'aa',
       nome: '',
       email: '',
       senha: '',
@@ -19,25 +21,25 @@ export default {
     logado: false,
   },
   mutations: {
-    UPDATE_LOGIN(state, payload) {
-      state.logado = payload;
+    UPDATE_LOGIN(state, bol) {
+      state.logado = bol;
     },
 
-    UPDATE_USUARIO(state, payload) {
-      state.usuario = Object.assign(state.usuario, payload);
+    UPDATE_USUARIO(state, dados) {
+      state.usuario = Object.assign(state.usuario, dados);
     },
   },
   actions: {
-    getUsuario(context, payload) {
-      return UsuarioServ.getUsuario(payload).then((response) => {
+    getUsuario(context, dados: Login) {
+      return UsuarioServ.getUsuario(dados.email).then((response) => {
         context.commit('UPDATE_USUARIO', response.data);
         context.commit('UPDATE_LOGIN', true);
       });
     },
 
-    criarUsuario(context, payload) {
-      context.commit('UPDATE_USUARIO', { id: payload.email });
-      return UsuarioServ.criar(payload);
+    criarUsuario(context, usuario) {
+      usuario = Object.assign(usuario, { id: usuario.email })
+      return UsuarioServ.criar(usuario);
     },
 
     deslogarUsuario(context) {

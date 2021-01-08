@@ -75,11 +75,18 @@ export default class UsuarioForm extends Vue {
     }
   }
 
-  private submeter(): void {
+  private async submeter(): Promise<void> {
     if (!this.$store.state.logado) {
-      this.$store.dispatch('criarUsuario', this.user);
+      try {
+        const response = await this.$store.dispatch('usuario/criarUsuario', this.user);
+        const usuario = response.data;
+        this.$store.dispatch('usuario/getUsuario', { email: usuario.email, senha: usuario.senha });
+        this.$router.push({ name: 'Home' });
+      } catch {
+        alert('Erro ao criar o Usuário');
+      }
     } else {
-      this.$store.dispatch('atualizarUsuario', this.user);
+      this.$store.dispatch('usuario/atualizarUsuario', this.user);
     }
   }
 }
