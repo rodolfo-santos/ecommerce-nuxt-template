@@ -21,16 +21,8 @@
               <InnerImageZoom :src="imagemAtiva" :zoomSrc="imagemAtiva" />
             </div>
             <div class="d-md-none col-12 row">
-              <div
-                class="col-4"
-                v-for="(foto, index) in produto.fotos"
-                :key="index"
-              >
-                <v-img
-                  :src="foto"
-                  :class="{ imagem_ativa: foto === imagemAtiva }"
-                  @click="mudarImagem(foto)"
-                ></v-img>
+              <div class="col-4" v-for="(foto, index) in produto.fotos" :key="index">
+                <v-img :src="foto" :class="{ imagem_ativa: foto === imagemAtiva }" @click="mudarImagem(foto)"></v-img>
               </div>
             </div>
           </v-row>
@@ -41,14 +33,8 @@
             <v-divider class="mb-4"></v-divider>
             <div class="variacoes">
               <strong>Escolha a variação</strong>
-              <v-chip-group
-                v-model="selection"
-                active-class="primary"
-                mandatory
-              >
-                <v-chip v-for="variacao in produto.variacoes" :key="variacao">{{
-                  variacao
-                }}</v-chip>
+              <v-chip-group v-model="selection" active-class="primary" mandatory>
+                <v-chip v-for="variacao in produto.variacoes" :key="variacao">{{ variacao }}</v-chip>
               </v-chip-group>
             </div>
             <v-divider class="my-4"></v-divider>
@@ -64,22 +50,10 @@
                   {{ categoria }}
                 </router-link>
               </p>
-              <v-text-field
-                :counter="8"
-                maxlength="6"
-                label="Calcular Frete"
-              ></v-text-field>
+              <v-text-field :counter="8" maxlength="6" label="Calcular Frete"></v-text-field>
               <v-row class="mt-5 pa-2">
-                <v-btn class="col-12 mb-2 pa-7" color="primary"
-                  >Comprar Agora</v-btn
-                >
-                <v-btn
-                  class="col-12 mb-2 pa-7"
-                  color="warning"
-                  :disabled="!btnAddCarrinho"
-                  @click="adicionarCarrinho(produto)"
-                  >Adicionar ao Carrinho +</v-btn
-                >
+                <v-btn class="col-12 mb-2 pa-7" color="primary">Comprar Agora</v-btn>
+                <v-btn class="col-12 mb-2 pa-7" color="warning" :disabled="!btnAddCarrinho" @click="adicionarCarrinho(produto)">Adicionar ao Carrinho +</v-btn>
               </v-row>
             </div>
           </v-col>
@@ -191,7 +165,7 @@ export default class PaginaProduto extends Vue {
   }
 
   private adicionarCarrinho(produto: object) {
-    this.$store.commit('addCarrinho', produto);
+    this.$store.dispatch('addCarrinho', produto);
     this.btnAddCarrinho = false;
     setTimeout(() => {
       this.btnAddCarrinho = true;

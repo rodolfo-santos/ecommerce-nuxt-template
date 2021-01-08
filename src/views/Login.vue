@@ -5,44 +5,29 @@
       <div max-width="1000px" class="bloco-login mx-auto mt-16">
         <h1 class="mb-5 text-muted">
           <span @click="criarConta = false" :class="{ active: !criarConta }"> Entrar </span>
-          <span> | </span>
+          <div class="mx-5">|</div>
           <span @click="criarConta = true" :class="{ active: criarConta }"> Cadastrar </span>
         </h1>
-        <transition name="fade" mode="out-in">
-          <div v-if="!criarConta">
-            <v-form @submit.prevent="submit" v-model="validLogin">
-              <v-text-field v-model="login.email" label="E-mail" ref="campoDeFoco" :rules="regras.obrigatorio" required></v-text-field>
-              <v-text-field v-model="login.senha" label="Senha" :rules="regras.obrigatorio" type="password" required></v-text-field>
-              <v-checkbox v-model="login.manterConectado" value="true" label="Mantenha Conectado" type="checkbox"></v-checkbox>
+        <div v-show="!criarConta">
+          <v-form @submit.prevent="submit" v-model="validLogin">
+            <v-text-field v-model="login.email" label="E-mail" ref="campoDeFoco" :rules="rules.required" required></v-text-field>
+            <v-text-field v-model="login.senha" label="Senha" :rules="rules.required" type="password" required></v-text-field>
+            <v-checkbox v-model="login.manterConectado" value="true" label="Mantenha Conectado" type="checkbox"></v-checkbox>
 
-              <div class="flex-center mt-4">
-                <v-btn class="btn-login pa-6" type="submit" :disabled="!validLogin"> Login </v-btn>
-              </div>
-              <p class="text-center mt-4">Perdeu a senha? <router-link to="/">Clique aqui para recuperar.</router-link></p>
-            </v-form>
-          </div>
-          <div v-else>
-            <v-form @submit.prevent="submit" v-model="validCadastro">
-              <v-text-field
-                v-model="cadastro.nome"
-                :rules="regras.obrigatorio"
-                ref="campoDeFoco"
-                label="Nome Completo"
-                type="text"
-                required
-              ></v-text-field>
-              <v-text-field v-model="cadastro.email" :rules="regras.obrigatorio" label="E-mail" type="email" required></v-text-field>
-              <v-text-field v-model="cadastro.senha" :rules="regras.obrigatorio" label="Senha" type="password" required></v-text-field>
-              <v-text-field v-model="cadastro.confirmarSenha" label="Confirmar Senha" type="password" required></v-text-field>
-
-              <div class="flex-center mt-4">
-                <v-btn class="btn-login pa-6" type="submit" :disabled="!validCadastro">
-                  Cadastrar
-                </v-btn>
-              </div>
-            </v-form>
-          </div>
-        </transition>
+            <div class="flex-center mt-4">
+              <v-btn class="btn-login pa-6" type="submit" :disabled="!validLogin"> Login </v-btn>
+            </div>
+            <p class="text-center mt-4">Perdeu a senha? <router-link to="/">Clique aqui para recuperar.</router-link></p>
+          </v-form>
+        </div>
+        <div v-show="criarConta">
+          <UsuarioForm>
+            <!-- <v-btn class="btn-login pa-6" type="submit" @click.prevent="criarUsuario" :disabled="!valido">
+                Cadastrar
+              </v-btn> -->
+            Cadastrar
+          </UsuarioForm>
+        </div>
       </div>
     </v-container>
   </v-main>
@@ -51,39 +36,26 @@
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator';
 import { required, digits, email, max, regex } from 'vee-validate/dist/rules';
-import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate';
+import { mapState } from 'vuex';
+
 import SubHeader from '@/components/SubHeader.vue';
+import UsuarioForm from '@/components/Usuario/UsuarioForm.vue';
 
-setInteractionMode('eager');
-
-extend('required', { ...required, message: '{_field_} não pode ser vazio!' });
-
-extend('email', { ...email, message: 'Insira um E-mail válido.' });
+import LoginModel from '@/models/Login';
 
 @Component({
   components: {
-    ValidationProvider,
-    ValidationObserver,
     SubHeader,
+    UsuarioForm,
   },
+  computed: mapState(['rules']),
 })
 export default class Login extends Vue {
-  private regras: object = {
-    obrigatorio: [(v) => !!v || 'Este campo obrigatório'],
-  };
   private validLogin: boolean = false;
-  private validCadastro: boolean = false;
-  private login: object = {
+  private login: LoginModel = {
     email: '',
     senha: '',
     manterConectado: false,
-  };
-
-  private cadastro: object = {
-    name: '',
-    email: '',
-    senha: '',
-    confirmarSenha: '',
   };
 
   private breadCrumbs: object = [
@@ -101,12 +73,9 @@ export default class Login extends Vue {
 
   private criarConta: boolean = false;
 
-  @Watch('criarConta')
-  private alerarGuia() {
-    setTimeout(() => {
-      const campo = this.$refs.campoDeFoco as HTMLInputElement;
-      this.$nextTick(() => campo.focus());
-    });
+  private logar(): void {
+    this.$store.dispatch('getUsuario', this.login.email);
+    // this.$router.push({ name: 'usuario' });
   }
 }
 </script>
@@ -133,7 +102,7 @@ form {
 
 h1 {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   max-width: 400px;
   margin: auto;
 

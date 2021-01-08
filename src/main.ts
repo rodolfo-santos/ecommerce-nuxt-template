@@ -22,5 +22,5 @@ new Vue({
   store,
   vuetify,
   render: (h) => h(App),
-  beforeCreate() { this.$store.commit('consultarLocalStorage'); },
+  beforeCreate() { this.$store.dispatch('carrinho/carrinhoLocalStorage'); },
 }).$mount('#app');

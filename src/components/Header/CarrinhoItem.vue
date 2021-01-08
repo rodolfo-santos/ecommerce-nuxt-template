@@ -6,9 +6,7 @@
       </v-col>
       <v-col class="col-8">
         <h3 class="my-3 white--text">
-          <router-link :to="{ name: 'Produto', params: { id: produto.id } }">{{
-            produto.nome
-          }}</router-link>
+          <router-link :to="{ name: 'Produto', params: { id: produto.id } }">{{ produto.nome }}</router-link>
         </h3>
         <p>{{ produto.preco | numeroPreco }}</p>
 
@@ -31,7 +29,7 @@ export default class CarrinhoItem extends Vue {
   @Prop() private readonly index!: number;
 
   private removerCarrinho(index) {
-    this.$store.commit('removerCarrinho', index);
+    this.$store.dispatch('carrinho/removerCarrinho', index);
   }
 }
 </script>
