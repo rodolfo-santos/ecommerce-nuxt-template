@@ -11,7 +11,6 @@
           <template v-slot:default="{ hover }">
             <v-card class="categoria" :to="{ name: 'Categoria', params: { id: categoria.id } }" :style="`background: url(${categoria.imagem})`" hover>
               <v-card-text class="texto">{{ categoria.nome }}</v-card-text>
-
               <v-fade-transition>
                 <v-overlay v-if="hover" absolute color="#16D17E" class="overlay-texto">
                   {{ categoria.nome }}

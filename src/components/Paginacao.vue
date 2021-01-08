@@ -8,6 +8,7 @@
 </template>
 
 <script lang="ts">
+import { serialize } from '@/helpers';
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 
 @Component
@@ -27,7 +28,7 @@ export default class Paginacao extends Vue {
   }
 
   private novaQuery(pageNum: number) {
-    console.log(this.$route.query);
+    this.$router.push(`?_page=${pageNum}`);
   }
 }
 </script>

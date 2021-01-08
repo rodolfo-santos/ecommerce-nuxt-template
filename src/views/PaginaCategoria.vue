@@ -47,18 +47,20 @@
         </v-card>
 
         <div class="col-12 col-md-9 pa-5">
-          <v-row v-if="produtos.length === 0">
-            <v-col> </v-col>
-          </v-row>
-          <v-row v-else>
-            <v-col v-for="produto in produtos" :key="produto.id" class="col-12 col-md-4 col-xl-3">
-              <Produto :dados="produto" />
-            </v-col>
-          </v-row>
+          <transition name="fade" mode="out-in">
+            <v-row v-if="produtos.length === 0">
+              <v-col> Nenhum Produto Encontrado </v-col>
+            </v-row>
+            <v-row v-else>
+              <v-col v-for="produto in produtos" :key="produto.id" class="col-12 col-md-4 col-xl-3">
+                <Produto :dados="produto" />
+              </v-col>
+            </v-row>
+          </transition>
         </div>
       </v-row>
 
-      <Paginacao :limit="10" :total="200" />
+      <Paginacao :limit="10" :total="totalProdutos" />
 
       <v-navigation-drawer v-model="filtro" fixed bottom temporary class="filtro-mobile">
         <v-container id="scroll-target" class="overflow-y-auto">
@@ -151,10 +153,18 @@ export default class PaginaCategoria extends Vue {
   private cores: string[] = ['Branco', 'Preto', 'Verde', 'Azul', 'Rosa', 'Roxo', 'Amarelo', 'Outras'];
   private coresSelecionadas: number[] = [];
   private filtro: boolean = false;
+  private totalProdutos: number = 0;
 
   get url(): string {
     let query: string = serialize(this.$route.query);
     return query;
+  }
+
+  @Watch('$route', { immediate: true, deep: true })
+  private teste(): void {
+    setTimeout(() => {
+      this.getProdutos();
+    }, 500);
   }
 
   @Watch('id')
@@ -185,6 +195,7 @@ export default class PaginaCategoria extends Vue {
   private async getProdutos(): Promise<void> {
     if (!!this.id) {
       await ProdutosServ.listar(12, this.url, this.id).then((response) => {
+        this.totalProdutos = Number(response.headers['x-total-count']);
         this.produtos = response.data;
       });
     } else {
