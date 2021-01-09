@@ -1,12 +1,8 @@
 <template>
   <v-container>
     <Titulo titulo="Produtos com Preços Incríveis" subtitulo="Produtos separados especialmente para você" />
-    <v-row v-if="produtos.length === 0">
-      <v-col>
-        <Loading />
-      </v-col>
-    </v-row>
-    <v-sheet class="bg-transparent">
+    <Skeleton :rows="1" :cols="6" v-if="loading" />
+    <v-sheet class="bg-transparent" v-else>
       <v-slide-group center-active>
         <v-slide-item v-for="n in produtos.length" :key="n" v-slot="{ toggle }">
           <div @click="toggle">
@@ -23,16 +19,17 @@ import Titulo from '@/components/Titulo.vue';
 import { Component, Vue } from 'vue-property-decorator';
 import ProdutosServ from '@/services/produtos';
 import Produto from '@/components/Produto.vue';
-import Loading from '@/components/Loading.vue';
+import Skeleton from '@/components/Skeleton/SkeletonProdutoList.vue';
 
 @Component({
   components: {
     Produto,
     Titulo,
-    Loading,
+    Skeleton,
   },
 })
 export default class MelhoresProdutos extends Vue {
+  private loading: boolean = true;
   private produtos: object[] = [];
   private getProdutos(): void {
     ProdutosServ.listar(8, '', '').then((response) => {
@@ -40,8 +37,9 @@ export default class MelhoresProdutos extends Vue {
     });
   }
 
-  private created(): void {
-    this.getProdutos();
+  private async created(): Promise<void> {
+    await this.getProdutos();
+    this.loading = false;
   }
 }
 </script>

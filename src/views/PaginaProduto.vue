@@ -2,7 +2,7 @@
   <v-main>
     <SubHeader :titulo="produto.nome" :breadCrumbs="breadCrumbs" />
     <v-container class="produto-container">
-      <SkeletonProduto v-if="loading && produto.id" />
+      <SkeletonProduto v-if="loading" />
 
       <template v-else>
         <v-row>
@@ -72,10 +72,7 @@
         </section>
         <v-divider></v-divider>
       </template>
-      <section>
-        <h2>Produtos Relacionados</h2>
-        <ProdutosRelacionados />
-      </section>
+      <ProdutosRelacionados />
     </v-container>
   </v-main>
 </template>

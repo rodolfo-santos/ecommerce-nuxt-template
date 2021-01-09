@@ -1,9 +1,9 @@
 <template>
   <v-container>
     <Titulo titulo="Lançamentos que você vai Amar" subtitulo="Confira abaixo as últimas novidades da loja!" />
-    <v-row v-if="produtos.length === 0">
+    <v-row v-if="loading">
       <v-col>
-        <Loading />
+        <Skeleton :cols="6" :rows="2" />
       </v-col>
     </v-row>
     <v-row v-else>
@@ -25,17 +25,18 @@ import ProdutosServ from '@/services/produtos';
 
 import Produto from '@/components/Produto.vue';
 import Titulo from '@/components/Titulo.vue';
-import Loading from '@/components/Loading.vue';
+import Skeleton from '@/components/Skeleton/SkeletonProdutoList.vue';
 
 @Component({
   components: {
     Produto,
     Titulo,
-    Loading,
+    Skeleton,
   },
 })
 export default class Lancamentos extends Vue {
   private produtos: object[] = [];
+  private loading: boolean = true;
 
   private getProdutos(): void {
     ProdutosServ.listar(12, '', '').then((response) => {
@@ -43,8 +44,9 @@ export default class Lancamentos extends Vue {
     });
   }
 
-  private created(): void {
+  private async created(): Promise<void> {
     this.getProdutos();
+    this.loading = false;
   }
 }
 </script>
