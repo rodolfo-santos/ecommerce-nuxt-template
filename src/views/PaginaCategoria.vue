@@ -1,6 +1,6 @@
 <template>
   <v-main>
-    <SubHeader :titulo="categoria.nome" :breadCrumbs="breadCrumbs" />
+    <SubHeader :titulo="titulo" :breadCrumbs="breadCrumbs" />
     <v-container>
       <v-row>
         <v-card class="d-none d-md-block col-md-3 lista-categorias">
@@ -47,16 +47,14 @@
         </v-card>
 
         <div class="col-12 col-md-9 pa-5">
-          <transition name="fade" mode="out-in">
-            <v-row v-if="produtos.length === 0">
-              <v-col> Nenhum Produto Encontrado </v-col>
-            </v-row>
-            <v-row v-else>
-              <v-col v-for="produto in produtos" :key="produto.id" class="col-12 col-md-4 col-xl-3">
-                <Produto :dados="produto" />
-              </v-col>
-            </v-row>
-          </transition>
+          <v-row v-if="produtos.length === 0">
+            <v-col class="text-center"> Nenhum produto encontrado. </v-col>
+          </v-row>
+          <v-row v-else>
+            <v-col v-for="produto in produtos" :key="produto.id" class="col-12 col-md-4 col-xl-3">
+              <Produto :dados="produto" />
+            </v-col>
+          </v-row>
         </div>
       </v-row>
 
@@ -155,6 +153,13 @@ export default class PaginaCategoria extends Vue {
   private filtro: boolean = false;
   private totalProdutos: number = 0;
 
+  get titulo(): string {
+    if (!!this.id) {
+      return this.id;
+    }
+    return 'Loja';
+  }
+
   get url(): string {
     const query: string = serialize(this.$route.query);
     return query;
@@ -170,14 +175,7 @@ export default class PaginaCategoria extends Vue {
   @Watch('id')
   private async mudarCategoria(): Promise<void> {
     await this.getProdutos();
-    await this.getCategoria();
     this.setBreadCrumb();
-  }
-
-  private async getCategoria(): Promise<void> {
-    await CategoriasServ.categoria_unica(this.id).then((response) => {
-      this.categoria = response.data;
-    });
   }
 
   private async getCategorias(): Promise<void> {
@@ -200,6 +198,7 @@ export default class PaginaCategoria extends Vue {
       });
     } else {
       await ProdutosServ.listar(12, this.url, '').then((response) => {
+        this.totalProdutos = Number(response.headers['x-total-count']);
         this.produtos = response.data;
       });
     }
@@ -210,12 +209,12 @@ export default class PaginaCategoria extends Vue {
       {
         text: 'Home',
         disabled: false,
-        href: '/',
+        to: '/',
       },
       {
         text: 'Loja',
         disabled: false,
-        href: '/loja',
+        to: '/loja',
       },
     ];
     if (!!this.id) {
@@ -234,9 +233,6 @@ export default class PaginaCategoria extends Vue {
 
   private async created(): Promise<void> {
     await this.getProdutos();
-    if (!!this.id) {
-      await this.getCategoria();
-    }
     await this.getCategorias();
     this.sortItems();
     this.setBreadCrumb();

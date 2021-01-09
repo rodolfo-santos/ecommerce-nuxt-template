@@ -149,17 +149,17 @@ export default class PaginaProduto extends Vue {
       {
         text: 'Home',
         disabled: false,
-        href: '/',
+        to: '/',
       },
       {
         text: this.produto.categorias[0],
         disabled: false,
-        href: `/categoria/${this.produto.categorias[0]}`,
+        to: `/categoria/${this.produto.categorias[0]}`,
       },
       {
         text: this.produto.nome,
         disabled: true,
-        href: `/categoria/${this.produto.id}`,
+        to: `/categoria/${this.produto.id}`,
       },
     ];
   }

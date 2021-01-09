@@ -19,12 +19,20 @@ export default class Paginacao extends Vue {
 
   @Watch('page')
   private alteraPagina(): void {
-    this.$router.push(`?_page=${this.page}`);
+    if (Number(this.$route.query._page) !== this.page) {
+      this.$router.push(`?_page=${this.page}`);
+    }
   }
 
   get totalPages(): number {
     const total = this.total / this.limit;
     return total !== Infinity ? Math.ceil(total) : 0;
+  }
+
+  private created(): void {
+    if (!!this.$route.query._page) {
+      this.page = Number(this.$route.query._page);
+    }
   }
 }
 </script>

@@ -1,12 +1,8 @@
 <template>
   <v-parallax src="@/assets/imagens/banner-subheader.jpg" height="150">
     <div class="subheader">
-      <h1>{{ titulo }}</h1>
-      <v-breadcrumbs
-        :items="breadCrumbs"
-        divider=">"
-        class="pl-0"
-      ></v-breadcrumbs>
+      <h1 class="text-capitalize">{{ titulo }}</h1>
+      <v-breadcrumbs :items="breadCrumbs" divider=">" class="pl-0"></v-breadcrumbs>
     </div>
   </v-parallax>
 </template>

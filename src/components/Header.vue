@@ -26,7 +26,14 @@
       <div class="p-relative d-none d-md-block">
         <transition name="fade">
           <div v-show="searchActive" class="div-search">
-            <v-text-field placeholder="Pesquisar" class="input-search" ref="inpSearch" @blur="searchActive = false"></v-text-field>
+            <v-text-field
+              placeholder="Pesquisar"
+              class="input-search"
+              ref="inpSearch"
+              v-model="pesquisa"
+              @blur="searchActive = false"
+              @keypress.enter="pesquisar"
+            ></v-text-field>
           </div>
         </transition>
 
@@ -136,6 +143,7 @@ export default class Header extends Vue {
   private logo: string = require('../assets/logo/logo.svg');
   private menu: Categoria[] = [];
   private itens!: Produto[];
+  private pesquisa: string = '';
 
   get TotalCarrinho(): number {
     let total: number = 0;
@@ -151,14 +159,20 @@ export default class Header extends Vue {
     this.$nextTick(() => theField.focus());
   }
 
-  private getCategorias(): void {
+  private async getCategorias(): Promise<void> {
     CategoriasServ.listar(10).then((response) => {
       this.menu = response.data;
     });
   }
 
-  private created(): void {
-    this.getCategorias();
+  private pesquisar(): void {
+    if ('/categoria/' + this.pesquisa !== this.$route.path) {
+      this.$router.push({ name: 'Categoria', params: { id: this.pesquisa } });
+    }
+  }
+
+  private async created(): Promise<void> {
+    await this.getCategorias();
   }
 }
 </script>
