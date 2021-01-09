@@ -53,7 +53,7 @@
               <v-text-field :counter="8" maxlength="6" label="Calcular Frete"></v-text-field>
               <v-row class="mt-5 pa-2">
                 <v-btn class="col-12 mb-2 pa-7" color="primary">Comprar Agora</v-btn>
-                <v-btn class="col-12 mb-2 pa-7" color="warning" :disabled="!btnAddCarrinho" @click="adicionarCarrinho(produto)">Adicionar ao Carrinho +</v-btn>
+                <v-btn class="col-12 mb-2 pa-7" color="warning" :disabled="!btnAdd" @click="adicionarCarrinho(produto)">Adicionar ao Carrinho +</v-btn>
               </v-row>
             </div>
           </v-col>
@@ -92,6 +92,7 @@ import ProdutosServ from '@/services/produtos';
 import FreteServ from '@/services/calcularFrete';
 
 import Produto from '@/models/Produto';
+import { mapActions } from 'vuex';
 
 @Component({
   components: {
@@ -100,6 +101,7 @@ import Produto from '@/models/Produto';
     ProdutosRelacionados,
     SkeletonProduto,
   },
+  methods: mapActions('carrinho', ['addCarrinho']),
 })
 export default class PaginaProduto extends Vue {
   @Prop() private readonly id!: string;
@@ -124,7 +126,8 @@ export default class PaginaProduto extends Vue {
   private loading: boolean = true;
   private selection: string = '';
   private cep: string = '';
-  private btnAddCarrinho = true;
+  private btnAdd = true;
+  private addCarrinho!: (produto: Produto) => void;
 
   @Watch('id')
   private async mudarProduto(): Promise<void> {
@@ -165,10 +168,10 @@ export default class PaginaProduto extends Vue {
   }
 
   private adicionarCarrinho(produto: object): void {
-    this.$store.dispatch('addCarrinho', produto);
-    this.btnAddCarrinho = false;
+    this.addCarrinho(produto);
+    this.btnAdd = false;
     setTimeout(() => {
-      this.btnAddCarrinho = true;
+      this.btnAdd = true;
     }, 2000);
   }
 

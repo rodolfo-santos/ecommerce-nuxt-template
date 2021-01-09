@@ -52,10 +52,15 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 import { getCep } from '@/services/cep';
 
 import Usuario from '@/models/Usuario';
-import { mapState } from 'vuex';
+import Login from '@/models/Login';
+import { mapActions, mapState } from 'vuex';
 
 @Component({
-  computed: mapState('geral', ['rules']),
+  computed: {
+    ...mapState('geral', ['rules']),
+    ...mapState('usuario', ['logado']),
+  },
+  methods: mapActions('usuario', ['criarUsuario', 'getUsuario', 'atualizarUsuario']),
 })
 export default class UsuarioForm extends Vue {
   private valido: boolean = false;
@@ -73,6 +78,10 @@ export default class UsuarioForm extends Vue {
     estado: '',
     telefone: '',
   };
+  private logado!: boolean;
+  private criarUsuario!: (user: Usuario) => any;
+  private getUsuario!: (login: Login) => void;
+  private atualizarUsuario!: (user: Usuario) => void;
 
   private cep(): void {
     const cep = this.user.cep.replace(/\D/g, '');
@@ -87,17 +96,21 @@ export default class UsuarioForm extends Vue {
   }
 
   private async submeter(): Promise<void> {
-    if (!this.$store.state.logado) {
+    if (!this.logado) {
       try {
-        const response = await this.$store.dispatch('usuario/criarUsuario', this.user);
+        const response = await this.criarUsuario(this.user);
         const usuario = response.data;
-        this.$store.dispatch('usuario/getUsuario', { email: usuario.email, senha: usuario.senha });
+        this.getUsuario({ email: usuario.email, senha: usuario.senha });
         this.$router.push({ name: 'Home' });
       } catch {
         alert('Erro ao criar o Usuário');
       }
     } else {
-      this.$store.dispatch('usuario/atualizarUsuario', this.user);
+      try {
+        this.atualizarUsuario(this.user);
+      } catch {
+        alert('Não foi Possível Atualizar o Usuário');
+      }
     }
   }
 }

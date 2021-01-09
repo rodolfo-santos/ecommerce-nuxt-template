@@ -22,15 +22,15 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import { mapActions } from 'vuex';
 
-@Component
+@Component({
+  methods: mapActions('carrinho', ['removerCarrinho']),
+})
 export default class CarrinhoItem extends Vue {
   @Prop() private readonly produto!: object;
   @Prop() private readonly index!: number;
-
-  private removerCarrinho(index): void {
-    this.$store.dispatch('carrinho/removerCarrinho', index);
-  }
+  private removerCarrinho!: (index: number) => void;
 }
 </script>
 

@@ -115,6 +115,20 @@
       "estado": "SP",
       "telefone": "1544444",
       "id": "222@gmail.com"
+    },
+    {
+      "nome": "Rodolfo dos Santos",
+      "email": "rodolfodossantos29@gmail.com",
+      "senha": "rodolfo1A",
+      "cpf": "46509444810",
+      "cep": "12241380",
+      "rua": "Rua Oswaldo de Pinto Guimarães",
+      "numero": "1160",
+      "bairro": "Jardim Limoeiro",
+      "cidade": "São José dos Campos",
+      "estado": "SP",
+      "telefone": "12982279588",
+      "id": "rodolfodossantos29@gmail.com"
     }
   ],
   "produto": [

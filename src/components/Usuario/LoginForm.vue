@@ -22,24 +22,25 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import LoginModel from '@/models/Login';
-import { mapState } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 @Component({
   computed: mapState('geral', ['rules']),
+  methods: mapActions('usuario', ['getUsuario']),
 })
 export default class LoginForm extends Vue {
   private valido: boolean = false;
   private viewPass: boolean = false;
-
   private login: LoginModel = {
     email: '',
     senha: '',
     manterConectado: false,
   };
+  private getUsuario!: (login: LoginModel) => void;
 
   private logar(): void {
-    this.$store.dispatch('usuario/getUsuario', this.login);
-    // this.$router.push({ name: 'Home' });
+    this.getUsuario(this.login);
+    this.$router.push({ name: 'Home' });
   }
 }
 </script>

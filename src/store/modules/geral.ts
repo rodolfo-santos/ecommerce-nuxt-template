@@ -24,7 +24,7 @@ export default {
       ],
       cpf: [
         (v: string) => !!v || 'Este campo obrigatório.',
-        (v: string) => (v.length === 10) || 'CPF deve possuir no mínimo 10 caracteres.',
+        (v: string) => (v.length >= 10) || 'CPF deve possuir no mínimo 10 caracteres.',
       ]
      },
     },

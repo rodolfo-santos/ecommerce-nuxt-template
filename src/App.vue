@@ -6,7 +6,7 @@
     </transition>
     <Footer />
     <transition name="fade" mode="out-in" appear>
-      <v-alert type="success" class="carrinho-alert" v-show="$store.state.carrinhoAlert">
+      <v-alert type="success" class="carrinho-alert" v-show="alert">
         Item adicionado ao carrinho!
       </v-alert>
     </transition>
@@ -17,12 +17,14 @@
 import { Component, Vue } from 'vue-property-decorator';
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
+import { mapState } from 'vuex';
 
 @Component({
   components: {
     Header,
     Footer,
   },
+  computed: mapState('carrinho', ['alert']),
 })
 export default class App extends Vue {}
 </script>

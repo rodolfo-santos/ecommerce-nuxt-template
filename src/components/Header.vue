@@ -115,7 +115,7 @@ import CarrinhoItem from './Header/CarrinhoItem.vue';
 import CategoriasServ from '@/services/categorias';
 import Categoria from '@/models/Categoria';
 import Produto from '@/models/Produto';
-import { mapState } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 @Component({
   components: {
@@ -124,6 +124,9 @@ import { mapState } from 'vuex';
   computed: {
     ...mapState('carrinho', ['itens']),
     ...mapState('usuario', ['usuario', 'logado']),
+  },
+  methods: {
+    ...mapActions('carrinho', ['esvaziarCarrinho']),
   },
 })
 export default class Header extends Vue {
@@ -152,10 +155,6 @@ export default class Header extends Vue {
     CategoriasServ.listar(10).then((response) => {
       this.menu = response.data;
     });
-  }
-
-  private esvaziarCarrinho(): void {
-    this.$store.dispatch('carrinho/esvaziarCarrinho');
   }
 
   private created(): void {

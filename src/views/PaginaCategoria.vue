@@ -156,7 +156,7 @@ export default class PaginaCategoria extends Vue {
   private totalProdutos: number = 0;
 
   get url(): string {
-    let query: string = serialize(this.$route.query);
+    const query: string = serialize(this.$route.query);
     return query;
   }
 

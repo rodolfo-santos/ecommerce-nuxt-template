@@ -30,17 +30,21 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import { mapActions } from 'vuex';
 
-@Component
+@Component({
+  methods: mapActions('carrinho', ['addCarrinho']),
+})
 export default class Produto extends Vue {
   @Prop() private readonly dados!: object;
   @Prop() private readonly width!: number;
   @Prop() private readonly height!: number;
   private selection: number = 1;
   private btnAddCarrinho = true;
+  private addCarrinho!: (produto: Produto) => void;
 
-  private adicionarCarrinho(produto: object): void {
-    this.$store.dispatch('carrinho/addCarrinho', produto);
+  private adicionarCarrinho(produto: Produto): void {
+    this.addCarrinho(produto);
     this.btnAddCarrinho = false;
     setTimeout(() => {
       this.btnAddCarrinho = true;
