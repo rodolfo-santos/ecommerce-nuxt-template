@@ -129,6 +129,20 @@
       "estado": "SP",
       "telefone": "12982279588",
       "id": "rodolfodossantos29@gmail.com"
+    },
+    {
+      "id": "teste@gmail.com",
+      "nome": "Teste",
+      "email": "teste@gmail.com",
+      "cpf": "46509444810",
+      "senha": "rodolfo1A",
+      "cep": "12241421",
+      "rua": "Rua Carlos Marcondes",
+      "numero": "1160",
+      "bairro": "Jardim Limoeiro",
+      "cidade": "São José dos Campos",
+      "estado": "SP",
+      "telefone": "12982279588"
     }
   ],
   "produto": [

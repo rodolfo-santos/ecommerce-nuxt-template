@@ -15,16 +15,23 @@
     <div class="flex-center mt-4">
       <v-btn class="btn-login pa-6" type="submit" :disabled="!valido"> Login </v-btn>
     </div>
-    <p class="text-center mt-4">Perdeu a senha? <router-link to="/">Clique aqui para recuperar.</router-link></p>
+    <p class="text-center mt-4">Perdeu a senha? <a @click="recuperar = !recuperar">Clique aqui para recuperar.</a></p>
+    <transition name="fade" mode="out-in">
+      <RecuperarSenha v-show="recuperar" />
+    </transition>
   </v-form>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import LoginModel from '@/models/Login';
+import RecuperarSenha from '@/components/Usuario/RecuperarSenha.vue';
 import { mapActions, mapState } from 'vuex';
 
 @Component({
+  components: {
+    RecuperarSenha,
+  },
   computed: mapState('geral', ['rules']),
   methods: mapActions('usuario', ['getUsuario']),
 })
@@ -36,11 +43,18 @@ export default class LoginForm extends Vue {
     senha: '',
     manterConectado: false,
   };
+  private recuperar: boolean = false;
   private getUsuario!: (login: LoginModel) => void;
 
-  private logar(): void {
-    this.getUsuario(this.login);
-    this.$router.push({ name: 'Home' });
+  private async logar(): Promise<void> {
+    try {
+      const response: any = await this.getUsuario(this.login);
+      if (response.status === 200) {
+        this.$router.push({ name: 'Usuario' });
+      }
+    } catch {
+      alert('Não foi possível logar!');
+    }
   }
 }
 </script>

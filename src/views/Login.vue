@@ -42,12 +42,12 @@ export default class Login extends Vue {
     {
       text: 'Home',
       disabled: false,
-      href: '/',
+      to: '/',
     },
     {
       text: 'Login',
       disabled: true,
-      href: '/login',
+      to: '/login',
     },
   ];
 

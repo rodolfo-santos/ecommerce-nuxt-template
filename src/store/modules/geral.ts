@@ -19,7 +19,6 @@ export default {
       ],
       phone: [
         (v: string) => !!v || 'Este campo obrigatório.',
-        (v: string) => (v.length >= 10) || 'Insira um telefone válido com DDD',
         (v: string) => /^[0-9]/.test(v) || 'Digite apenas números', 
       ],
       cpf: [

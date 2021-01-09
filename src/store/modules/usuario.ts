@@ -1,6 +1,7 @@
 import Login from '@/models/Login';
 import Usuario from '@/models/Usuario';
 import UsuarioServ from '@/services/usuario';
+import { AxiosResponse } from 'axios';
 
 export default {
   namespaced: true,
@@ -29,12 +30,33 @@ export default {
     UPDATE_USUARIO(state, dados) {
       state.usuario = Object.assign(state.usuario, dados);
     },
+
+    ADD_LOCAL_STORAGE(state) {
+      localStorage.setItem('usuario', JSON.stringify(state.usuario));
+      localStorage.setItem('logado', JSON.stringify(state.logado));
+    },
+
+    REMOVE_LOCAL_STORAGE(){
+      localStorage.removeItem('usuario');
+      localStorage.removeItem('logado');
+    }
+
   },
   actions: {
+    usuarioLocalStorage(context) {
+      if (localStorage.getItem('usuario')) {
+        context.commit('UPDATE_USUARIO', JSON.parse(localStorage.getItem('usuario')));
+        context.commit('UPDATE_LOGIN', JSON.parse(localStorage.getItem('logado')));
+      }
+    },
+
+
     getUsuario(context, dados: Login) {
       return UsuarioServ.getUsuario(dados.email).then((response) => {
         context.commit('UPDATE_USUARIO', response.data);
         context.commit('UPDATE_LOGIN', true);
+        context.commit('ADD_LOCAL_STORAGE');
+        return response;
       });
     },
 
@@ -56,8 +78,10 @@ export default {
         bairro: '',
         cidade: '',
         estado: '',
+        telefone: '',
       });
       context.commit('UPDATE_LOGIN', false);
+      context.commit('REMOVE_LOCAL_STORAGE');
     },
   },
 };

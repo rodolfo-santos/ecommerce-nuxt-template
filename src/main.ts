@@ -22,5 +22,8 @@ new Vue({
   store,
   vuetify,
   render: (h) => h(App),
-  beforeCreate(): void { this.$store.dispatch('carrinho/carrinhoLocalStorage'); },
+  beforeCreate(): void {
+    this.$store.dispatch('carrinho/carrinhoLocalStorage');
+    this.$store.dispatch('usuario/usuarioLocalStorage');
+  },
 }).$mount('#app');

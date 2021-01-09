@@ -1,13 +1,20 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
+import Page404 from '../views/Page404.vue';
 import Home from '../views/Home.vue';
 import Produto from '../views/PaginaProduto.vue';
 import Categoria from '../views/PaginaCategoria.vue';
 import Login from '../views/Login.vue';
+import Usuario from '../views/Usuario.vue';
 
 Vue.use(VueRouter);
 
 const routes: RouteConfig[] = [
+  {
+    path: '*',
+    component: Page404,
+  },
+
   {
     path: '/',
     name: 'Home',
@@ -35,6 +42,11 @@ const routes: RouteConfig[] = [
     path: '/login',
     name: 'Login',
     component: Login,
+  },
+  {
+    path: '/usuario',
+    name: 'Usuario',
+    component: Usuario,
   },
 ];
 
