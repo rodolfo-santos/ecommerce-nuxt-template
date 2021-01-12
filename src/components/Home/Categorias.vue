@@ -2,7 +2,7 @@
   <v-container class="mt-10">
     <v-row v-if="categorias.length === 0">
       <v-col>
-        <Loading />
+        <Skeleton :cols="6" :rows="1" :size="1" />
       </v-col>
     </v-row>
     <v-row v-else>
@@ -27,11 +27,11 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import CategoriaServ from '@/services/categorias';
-import Loading from '@/components/Loading.vue';
+import Skeleton from '@/components/Skeleton/SkeletonProdutoList.vue';
 
 @Component({
   components: {
-    Loading,
+    Skeleton,
   },
 })
 export default class Categorias extends Vue {

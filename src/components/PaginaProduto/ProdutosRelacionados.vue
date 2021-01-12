@@ -1,7 +1,7 @@
 <template>
   <section>
     <Skeleton v-if="loading" :heading="true" :cols="4" :rows="1" />
-    <v-container v-else class="pa-0 py-4">
+    <div v-else class="pa-0 py-4">
       <h2>Produtos Relacionados</h2>
       <v-sheet class="bg-transparent">
         <v-slide-group center-active>
@@ -12,7 +12,7 @@
           </v-slide-item>
         </v-slide-group>
       </v-sheet>
-    </v-container>
+    </div>
   </section>
 </template>
 
@@ -36,12 +36,12 @@ export default class ProdutosRelacionados extends Vue {
   private getProdutos(): void {
     ProdutosServ.listar(6, '', '').then((response) => {
       this.produtos = response.data;
+      this.loading = false;
     });
   }
 
   private async created(): Promise<void> {
     await this.getProdutos();
-    this.loading = false;
   }
 }
 </script>

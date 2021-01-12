@@ -1,10 +1,10 @@
 <template>
   <v-form @submit.prevent="submit" v-model="valido">
-    <v-text-field v-model="usuario.nome" :rules="rules.required" label="Nome Completo" type="text" maxlength="80" required></v-text-field>
-    <v-text-field v-model="usuario.cpf" :rules="rules.cpf" label="CPF" type="text" maxlength="11" required></v-text-field>
-    <v-text-field v-model="usuario.email" :rules="rules.required" label="E-mail" type="email" maxlength="80" required></v-text-field>
+    <v-text-field v-model="usuarioForm.nome" :rules="rules.required" label="Nome Completo" type="text" maxlength="80" required></v-text-field>
+    <v-text-field v-model="usuarioForm.cpf" :rules="rules.cpf" label="CPF" type="text" maxlength="11" required></v-text-field>
+    <v-text-field v-model="usuarioForm.email" :rules="rules.required" label="E-mail" type="email" maxlength="80" required></v-text-field>
     <v-text-field
-      v-model="usuario.senha"
+      v-model="usuarioForm.senha"
       :rules="rules.password"
       label="Senha"
       :append-icon="viewPass ? 'mdi-eye-off-outline' : 'mdi-eye'"
@@ -15,29 +15,29 @@
     <v-divider class="mt-4"></v-divider>
     <v-row>
       <v-col class="col-12 col-md-3">
-        <v-text-field v-model="usuario.cep" :rules="rules.required" label="CEP" type="text" @keyup="cep" maxlength="8" required></v-text-field>
+        <v-text-field v-model="usuarioForm.cep" :rules="rules.required" label="CEP" type="text" @keyup="cep" maxlength="8" required></v-text-field>
       </v-col>
       <v-col class="col-12 col-md-9">
-        <v-text-field v-model="usuario.rua" :rules="rules.required" label="Rua" type="text" required></v-text-field>
+        <v-text-field v-model="usuarioForm.rua" :rules="rules.required" label="Rua" type="text" required></v-text-field>
       </v-col>
     </v-row>
     <v-row>
       <v-col class="col-12 col-md-3">
-        <v-text-field v-model="usuario.numero" :rules="rules.required" label="Numero" type="text" maxlength="6" required></v-text-field>
+        <v-text-field v-model="usuarioForm.numero" :rules="rules.required" label="Numero" type="text" maxlength="6" required></v-text-field>
       </v-col>
       <v-col class="col-12 col-md-9">
-        <v-text-field v-model="usuario.bairro" :rules="rules.required" label="Bairro" type="text" maxlength="6" required></v-text-field>
+        <v-text-field v-model="usuarioForm.bairro" :rules="rules.required" label="Bairro" type="text" maxlength="6" required></v-text-field>
       </v-col>
     </v-row>
     <v-row>
       <v-col class="col-12 col-md-9">
-        <v-text-field v-model="usuario.cidade" :rules="rules.required" label="Cidade" type="text" required></v-text-field>
+        <v-text-field v-model="usuarioForm.cidade" :rules="rules.required" label="Cidade" type="text" required></v-text-field>
       </v-col>
       <v-col class="col-12 col-md-3">
-        <v-text-field v-model="usuario.estado" :rules="rules.required" label="Estado" type="text" required></v-text-field>
+        <v-text-field v-model="usuarioForm.estado" :rules="rules.required" label="Estado" type="text" required></v-text-field>
       </v-col>
     </v-row>
-    <v-text-field v-model="usuario.telefone" :rules="rules.phone" label="Telefone" type="number" required></v-text-field>
+    <v-text-field v-model="usuarioForm.telefone" :rules="rules.phone" label="Telefone" type="number" required></v-text-field>
 
     <div class="flex-center mt-4">
       <v-btn class="btn-login pa-6" type="submit" @click.prevent="submeter" :disabled="!valido">
@@ -66,6 +66,7 @@ export default class UsuarioForm extends Vue {
   private valido: boolean = false;
   private viewPass: boolean = false;
   private usuario: Usuario;
+  private usuarioForm: Usuario;
   private logado!: boolean;
   private criarUsuario!: (usuario: Usuario) => any;
   private getUsuario!: (login: Login) => void;
@@ -95,11 +96,15 @@ export default class UsuarioForm extends Vue {
       }
     } else {
       try {
-        this.atualizarUsuario(this.usuario);
+        this.atualizarUsuario(this.usuarioForm);
       } catch {
         alert('Não foi Possível Atualizar o Usuário');
       }
     }
+  }
+
+  private created() {
+    this.usuarioForm = { ...this.usuario };
   }
 }
 </script>

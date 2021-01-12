@@ -35,18 +35,17 @@ import Skeleton from '@/components/Skeleton/SkeletonProdutoList.vue';
   },
 })
 export default class Lancamentos extends Vue {
-  private produtos: object[] = [];
   private loading: boolean = true;
-
+  private produtos: object[] = [];
   private getProdutos(): void {
     ProdutosServ.listar(12, '', '').then((response) => {
       this.produtos = response.data;
+      this.loading = false;
     });
   }
 
   private async created(): Promise<void> {
-    this.getProdutos();
-    this.loading = false;
+    await this.getProdutos();
   }
 }
 </script>

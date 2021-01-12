@@ -34,12 +34,12 @@ export default class MelhoresProdutos extends Vue {
   private getProdutos(): void {
     ProdutosServ.listar(8, '', '').then((response) => {
       this.produtos = response.data;
+      this.loading = false;
     });
   }
 
   private async created(): Promise<void> {
     await this.getProdutos();
-    this.loading = false;
   }
 }
 </script>

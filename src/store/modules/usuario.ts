@@ -65,6 +65,11 @@ export default {
       return UsuarioServ.criar(usuario);
     },
 
+    atualizarUsuario(context, usuario) {
+      UsuarioServ.atualizar(usuario.id, usuario);
+      context.commit('UPDATE_USUARIO', usuario) 
+    },
+
     deslogarUsuario(context) {
       context.commit('UPDATE_USUARIO', {
         id: '',
