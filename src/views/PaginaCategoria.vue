@@ -7,9 +7,9 @@
           <div class="filtro-titulo mb-4">Filtrar por</div>
 
           <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
-            <div class="opcao-titulo mb-2">Categoria</div>
+            <div class="opcao-titulo mb-2">Sub-Categoria</div>
             <v-chip-group v-model="categoriasSelecionadas" active-class="primary" column multiple>
-              <v-chip v-for="(categoria, index) in categoriasNome" :key="index">{{ categoria }}</v-chip>
+              <v-chip v-for="(categoria, index) in categorias" :key="index" @input="filtrarCategoria">{{ categoria.nome }}</v-chip>
             </v-chip-group>
           </v-card>
 
@@ -19,22 +19,18 @@
               <div class="d-flex justify-space-between">
                 <div class="align-end">Valor Máximo</div>
                 <div>
-                  <input v-model="valorMaximo" class="input-preco" type="number" />
+                  <input v-model="valorMaximo" class="input-preco" type="number" @change="filtrarPreco" />
                 </div>
               </div>
-              <v-slider v-model="valorMaximo" :min="valorMinimo" :max="1000" class="align-center"></v-slider>
+              <v-slider v-model="valorMaximo" :min="valorMinimo" :max="1000" class="align-center" @change="filtrarPreco"></v-slider>
 
               <div class="d-flex justify-space-between">
                 <div>Valor Mínimo</div>
                 <div>
-                  <input v-model="valorMinimo" class="input-preco" type="number" />
+                  <input v-model="valorMinimo" class="input-preco" type="number" @change="filtrarPreco" />
                 </div>
               </div>
-              <v-slider v-model="valorMinimo" :max="valorMaximo" :min="0" class="align-center"></v-slider>
-
-              <div class="d-flex justify-end">
-                <v-btn>Aplicar</v-btn>
-              </div>
+              <v-slider v-model="valorMinimo" :max="valorMaximo" :min="0" class="align-center" @change="filtrarPreco"></v-slider>
             </div>
           </v-card>
 
@@ -47,6 +43,19 @@
         </v-card>
 
         <div class="col-12 col-md-9 pa-5">
+          <div class="d-flex justify-space-between align-center">
+            <div>Sua pesquisa retornou {{ totalProdutos }} resultados.</div>
+            <div class="d-flex align-center">
+              <div>
+                <v-icon class="mr-4">mdi-view-grid-outline</v-icon>
+                <v-icon>mdi-format-list-bulleted</v-icon>
+              </div>
+              <div>
+                <v-select :items="['Crescente', 'Descrescente']" label="Ordenação" solo></v-select>
+              </div>
+            </div>
+          </div>
+          <v-divider></v-divider>
           <v-row v-if="produtos.length === 0">
             <v-col class="text-center"> Nenhum produto encontrado. </v-col>
           </v-row>
@@ -68,7 +77,7 @@
             <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
               <div class="opcao-titulo mb-2">Categoria</div>
               <v-chip-group v-model="categoriasSelecionadas" active-class="primary" column multiple>
-                <v-chip v-for="(categoria, index) in categoriasNome" :key="index">{{ categoria }}</v-chip>
+                <v-chip v-for="(categoria, index) in categorias" :key="index">{{ categoria.nome }}</v-chip>
               </v-chip-group>
             </v-card>
 
@@ -92,7 +101,7 @@
                 <v-slider v-model="valorMinimo" :max="valorMaximo" :min="0" class="align-center"></v-slider>
 
                 <div class="d-flex justify-end">
-                  <v-btn>Aplicar</v-btn>
+                  <v-btn @click="filtrarPreco">Aplicar</v-btn>
                 </div>
               </div>
             </v-card>
@@ -141,7 +150,6 @@ export default class PaginaCategoria extends Vue {
     nome: 'Loja',
   };
   private categorias: Categoria[] = [];
-  private categoriasNome: string[] = [];
   private categoriasSelecionadas: number[] = [];
   private produtos: Produto[] = [];
   private breadCrumbs: object[] = [];
@@ -166,7 +174,7 @@ export default class PaginaCategoria extends Vue {
   }
 
   @Watch('$route', { immediate: true, deep: true })
-  private teste(): void {
+  private recarregar(): void {
     setTimeout(() => {
       this.getProdutos();
     }, 500);
@@ -178,16 +186,36 @@ export default class PaginaCategoria extends Vue {
     this.setBreadCrumb();
   }
 
+  private filtrarCategoria(): void {
+    const categorias = this.categoriasSelecionadas.map((i) => this.categorias[i].id);
+    const params = { categorias_like: categorias };
+    this.filtrar(params, true);
+  }
+
+  private filtrarPreco(): void {
+    const params = { preco_gte: this.valorMinimo, preco_lte: this.valorMaximo };
+    this.filtrar(params, true);
+  }
+
+  private filtrar(filtro, primeiraPagina: boolean): void {
+    const query = { ...this.$route.query };
+    if (primeiraPagina) {
+      filtro = Object.assign(filtro, { _page: 1 });
+    }
+    const novaQuery = Object.assign(query, filtro);
+    const url: string = serialize(novaQuery);
+    this.$router.push('?' + url).catch(() => {});
+  }
+
   private async getCategorias(): Promise<void> {
     await CategoriasServ.listar(35).then((response) => {
       this.categorias = response.data;
-      this.categoriasNome = this.categorias.map((categoria) => categoria.nome);
     });
   }
 
   private sortItems(): void {
     this.cores = this.cores.sort();
-    this.categoriasNome = this.categoriasNome.sort();
+    this.categorias = this.categorias.sort((a, b) => (a.nome > b.nome ? 1 : -1));
   }
 
   private async getProdutos(): Promise<void> {

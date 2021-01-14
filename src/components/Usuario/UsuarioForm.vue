@@ -103,7 +103,7 @@ export default class UsuarioForm extends Vue {
     }
   }
 
-  private created() {
+  private created(): void {
     this.usuarioForm = { ...this.usuario };
   }
 }

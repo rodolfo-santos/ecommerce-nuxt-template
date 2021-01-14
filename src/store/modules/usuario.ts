@@ -1,7 +1,5 @@
 import Login from '@/models/Login';
-import Usuario from '@/models/Usuario';
 import UsuarioServ from '@/services/usuario';
-import { AxiosResponse } from 'axios';
 
 export default {
   namespaced: true,

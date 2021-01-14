@@ -19,7 +19,7 @@ export default class SkeletonProdutoList extends Vue {
   @Prop() private cols: number;
   @Prop({ default: 2 }) private size: number;
 
-  get rowsResponsive() {
+  get rowsResponsive(): number {
     switch (this.$vuetify.breakpoint.name) {
       case 'xs':
         return this.cols;
@@ -34,7 +34,7 @@ export default class SkeletonProdutoList extends Vue {
     }
   }
 
-  get colsResponsive() {
+  get colsResponsive(): number {
     switch (this.$vuetify.breakpoint.name) {
       case 'xs':
         return 1;

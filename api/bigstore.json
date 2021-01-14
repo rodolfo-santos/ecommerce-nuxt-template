@@ -91,53 +91,13 @@
   ],
   "usuario": [
     {
-      "nome": "rodolfo",
-      "email": "rodolfo@gmail.com",
-      "senha": "123",
-      "cep": "12241421",
-      "rua": "Rua Carlos Marcondes",
-      "numero": "122",
-      "bairro": "Jardim Limoeiro",
-      "cidade": "São José dos Campos",
-      "estado": "SP",
-      "telefone": "151155",
-      "id": "rodolfo@gmail.com"
-    },
-    {
-      "nome": "Rodolfos",
-      "email": "222@gmail.com",
-      "senha": "2131",
-      "cep": "12241421",
-      "rua": "Rua Carlos Marcondes",
-      "numero": "1111",
-      "bairro": "Jardim Limoeiro",
-      "cidade": "São José dos Campos",
-      "estado": "SP",
-      "telefone": "1544444",
-      "id": "222@gmail.com"
-    },
-    {
       "id": "rodolfodossantos29@gmail.com",
-      "nome": "Rodolfo",
+      "nome": "Rodolfo dos Santos",
       "email": "rodolfodossantos29@gmail.com",
       "cpf": "46509444810",
       "senha": "rodolfo1A",
       "cep": "12241380",
       "rua": "Rua Oswaldo de Pinto Guimarães",
-      "numero": "1160",
-      "bairro": "Jardim Limoeiro",
-      "cidade": "São José dos Campos",
-      "estado": "SP",
-      "telefone": "12982279588"
-    },
-    {
-      "id": "teste@gmail.com",
-      "nome": "Teste",
-      "email": "teste@gmail.com",
-      "cpf": "46509444810",
-      "senha": "rodolfo1A",
-      "cep": "12241421",
-      "rua": "Rua Carlos Marcondes",
       "numero": "1160",
       "bairro": "Jardim Limoeiro",
       "cidade": "São José dos Campos",
@@ -158,10 +118,9 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_1_back.jpg"
       ],
       "categorias": [
+        "bolsas",
         "masculino",
-        "feminino",
-        "menino",
-        "menina"
+        "blusas"
       ],
       "variacoes": [
         "PP",
@@ -191,10 +150,9 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_2_back.jpg"
       ],
       "categorias": [
-        "masculino",
+        "bolsas",
         "feminino",
-        "menino",
-        "menina"
+        "blusas"
       ],
       "variacoes": [
         "P",
@@ -222,8 +180,9 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_3_back.jpg"
       ],
       "categorias": [
+        "feminino",
         "masculino",
-        "feminino"
+        "blusas"
       ],
       "variacoes": [
         "P",
@@ -250,8 +209,9 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_4_back.jpg"
       ],
       "categorias": [
+        "feminino",
         "masculino",
-        "feminino"
+        "blusas"
       ],
       "variacoes": [
         "P",
@@ -278,8 +238,9 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg"
       ],
       "categorias": [
+        "feminino",
         "masculino",
-        "feminino"
+        "blusas"
       ],
       "variacoes": [
         "PP",
@@ -309,8 +270,9 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_6_back.jpg"
       ],
       "categorias": [
+        "feminino",
         "masculino",
-        "feminino"
+        "blusas"
       ],
       "variacoes": [
         "P",
@@ -338,8 +300,9 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_7_back.jpg"
       ],
       "categorias": [
+        "feminino",
         "masculino",
-        "feminino"
+        "blusas"
       ],
       "variacoes": [
         "P",
@@ -368,8 +331,9 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg"
       ],
       "categorias": [
+        "feminino",
         "masculino",
-        "feminino"
+        "blusas"
       ],
       "variacoes": [
         "P",
@@ -398,8 +362,9 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_1_back.jpg"
       ],
       "categorias": [
+        "feminino",
         "masculino",
-        "feminino"
+        "blusas"
       ],
       "variacoes": [
         "PP",
@@ -429,8 +394,9 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_2_back.jpg"
       ],
       "categorias": [
+        "feminino",
         "masculino",
-        "feminino"
+        "blusas"
       ],
       "variacoes": [
         "PP",
@@ -460,8 +426,9 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg"
       ],
       "categorias": [
+        "feminino",
         "masculino",
-        "feminino"
+        "blusas"
       ],
       "variacoes": [
         "P",
@@ -490,8 +457,9 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_6_back.jpg"
       ],
       "categorias": [
+        "feminino",
         "masculino",
-        "feminino"
+        "blusas"
       ],
       "variacoes": [
         "P",
@@ -520,10 +488,10 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_1_back.jpg"
       ],
       "categorias": [
-        "masculino",
+        "camisetas",
         "feminino",
-        "regatas",
-        "camisetas"
+        "masculino",
+        "regatas"
       ],
       "variacoes": [
         "P",
@@ -543,7 +511,7 @@
     {
       "id": "t-shirt-2",
       "nome": "Moletom Ninja",
-      "preco": 299.99,
+      "preco": 20,
       "descricao_breve": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
       "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "estoque": 10,
@@ -552,10 +520,10 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_back.jpg"
       ],
       "categorias": [
-        "masculino",
+        "camisetas",
         "feminino",
-        "regatas",
-        "camisetas"
+        "masculino",
+        "regatas"
       ],
       "variacoes": [
         "P",
@@ -575,7 +543,7 @@
     {
       "id": "t-shirt-3",
       "nome": "Moletom Ninja",
-      "preco": 299.99,
+      "preco": 50,
       "descricao_breve": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
       "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "estoque": 10,
@@ -584,10 +552,10 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_3_back.jpg"
       ],
       "categorias": [
-        "masculino",
+        "camisetas",
         "feminino",
-        "regatas",
-        "camisetas"
+        "masculino",
+        "regatas"
       ],
       "variacoes": [
         "P",
@@ -607,7 +575,7 @@
     {
       "id": "t-shirt-4",
       "nome": "Moletom Ninja",
-      "preco": 299.99,
+      "preco":100,
       "descricao_breve": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
       "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "estoque": 10,
@@ -616,10 +584,10 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_4_back.jpg"
       ],
       "categorias": [
-        "masculino",
+        "camisetas",
         "feminino",
-        "regatas",
-        "camisetas"
+        "masculino",
+        "regatas"
       ],
       "variacoes": [
         "P",
@@ -639,7 +607,7 @@
     {
       "id": "t-shirt-5",
       "nome": "Moletom Ninja",
-      "preco": 299.99,
+      "preco": 200,
       "descricao_breve": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
       "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "estoque": 10,
@@ -648,10 +616,11 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_5_back.jpg"
       ],
       "categorias": [
-        "masculino",
+        "camisetas",
         "feminino",
+        "masculino",
         "regatas",
-        "camisetas"
+        "menino"
       ],
       "variacoes": [
         "P",
@@ -671,7 +640,7 @@
     {
       "id": "t-shirt-6",
       "nome": "Moletom Ninja",
-      "preco": 299.99,
+      "preco": 300.50,
       "descricao_breve": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
       "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "estoque": 10,
@@ -680,10 +649,11 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_6_back.jpg"
       ],
       "categorias": [
-        "masculino",
+        "camisetas",
         "feminino",
+        "masculino",
         "regatas",
-        "camisetas"
+        "menina"
       ],
       "variacoes": [
         "P",
@@ -703,7 +673,7 @@
     {
       "id": "t-shirt-7",
       "nome": "Moletom Ninja",
-      "preco": 299.99,
+      "preco": 400,
       "descricao_breve": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
       "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "estoque": 10,
@@ -712,10 +682,10 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_7_back.jpg"
       ],
       "categorias": [
-        "masculino",
+        "camisetas",
         "feminino",
-        "regatas",
-        "camisetas"
+        "masculino",
+        "regatas"
       ],
       "variacoes": [
         "P",
@@ -733,6 +703,8 @@
       "publicado": true
     }
   ],
+
+
   "categoria": [
     {
       "id": "feminino",
@@ -773,6 +745,12 @@
     {
       "id": "regatas",
       "nome": "Regatas",
+      "imagem": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-imagens/categorias/categoria_regatas.jpg",
+      "descricao": ""
+    },
+    {
+      "id": "blusas",
+      "nome": "Blusas",
       "imagem": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-imagens/categorias/categoria_regatas.jpg",
       "descricao": ""
     },
