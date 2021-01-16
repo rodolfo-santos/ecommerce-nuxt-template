@@ -7,9 +7,7 @@
     <MelhoresProdutos />
     <v-container class="flex-center">
       <a href="https://www.instagram.com/rodolfo.d.santos/" target="_blank">
-        <v-btn large color="primary">
-          <v-icon left>mdi-instagram</v-icon> Visite nosso Instagram
-        </v-btn>
+        <v-btn large color="primary"> <v-icon left>mdi-instagram</v-icon> Visite nosso Instagram </v-btn>
       </a>
     </v-container>
   </v-main>
