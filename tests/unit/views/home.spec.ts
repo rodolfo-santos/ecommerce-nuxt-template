@@ -4,27 +4,23 @@ Vue.use(Vuetify);
 
 import { shallowMount } from '@vue/test-utils';
 import Home from '@/views/Home.vue';
+import Banner from '@/components/Home/Banner.vue';
+import Categorias from '@/components/Home/Categorias.vue';
+import DivImage from '@/components/Home/DivImage.vue';
+import Lancamentos from '@/components/Home/Lancamentos.vue';
+import MelhoresProdutos from '@/components/Home/MelhoresProdutos.vue';
 
 describe('Home = Verificando se existem os componentes', () => {
   const wrapper = shallowMount(Home);
-  it('Deveria retornar o Banner', () => {
-    expect(wrapper.html().includes('<banner-stub>')).toBeTruthy();
-  });
+  const banner = wrapper.findComponent(Banner);
+  const categorias = wrapper.findComponent(Categorias);
+  const divImage = wrapper.findComponent(DivImage);
+  const lancamentos = wrapper.findComponent(Lancamentos);
+  const melhoresProdutos = wrapper.findComponent(MelhoresProdutos)
 
-  it('Deveria retornar a lista de Categorias', () => {
-    expect(wrapper.html().includes('<categorias-stub>')).toBeTruthy();
-  });
-
-  it('Deveria retornar a lista de Lancamentos', () => {
-    expect(wrapper.html().includes('<lancamentos-stub>')).toBeTruthy();
-  });
-
-  it('Deveria retornar a imagem promocional', () => {
-    expect(wrapper.html().includes('<divimage-stub>')).toBeTruthy();
-  });
-
-  it('Deveria retornar a lista de melhores produtos', () => {
-    expect(wrapper.html().includes('<melhoresprodutos-stub>')).toBeTruthy();
-  });
-
+  it('Deveria retornar o Banner', () => expect(banner.exists()).toBeTruthy());
+  it('Deveria retornar a lista de Categorias', () => expect(categorias.exists()).toBeTruthy());
+  it('Deveria retornar a lista de Lançamentos', () => expect(lancamentos.exists()).toBeTruthy());
+  it('Deveria retornar a a imagem promocional', () => expect(divImage.exists()).toBeTruthy());
+  it('Deveria retornar a lista de melhores produtos', () => expect(melhoresProdutos.exists()).toBeTruthy());
 });
