@@ -23,7 +23,6 @@
 
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator';
-import { required, digits, email, max, regex } from 'vee-validate/dist/rules';
 import { mapState } from 'vuex';
 
 import SubHeader from '@/components/SubHeader.vue';

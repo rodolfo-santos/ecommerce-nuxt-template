@@ -21,6 +21,6 @@
     "quotemark": [true, "single"],
     "no-empty": false,
     "promise-function-async": true,
-    "typedef": [true, "call-signature"]  }
-
+    "typedef": [true, "call-signature"]  
+  }
 }
