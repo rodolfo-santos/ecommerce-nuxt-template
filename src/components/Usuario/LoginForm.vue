@@ -1,16 +1,17 @@
 <template>
   <v-form @submit.prevent="logar" v-model="valido">
-    <v-text-field v-model="login.email" label="E-mail" ref="campoDeFoco" :rules="rules.email" required></v-text-field>
+    <v-text-field id="email" v-model="login.email" label="E-mail" ref="campoDeFoco" :rules="rules.email" required></v-text-field>
     <v-text-field
+      id="senha"
       v-model="login.senha"
-      :rules="rules.required"
       label="Senha"
+      :rules="rules.required"
       :append-icon="viewPass ? 'mdi-eye-off-outline' : 'mdi-eye'"
-      @click:append="() => (viewPass = !viewPass)"
       :type="viewPass ? 'text' : 'password'"
+      @click:append="() => (viewPass = !viewPass)"
       required
     ></v-text-field>
-    <v-checkbox v-model="login.manterConectado" value="true" label="Mantenha Conectado" type="checkbox"></v-checkbox>
+    <v-checkbox id="manter-conectado" v-model="login.manterConectado" value="true" label="Mantenha Conectado" type="checkbox"></v-checkbox>
 
     <div class="flex-center mt-4">
       <v-btn class="btn-login pa-6" type="submit" :disabled="!valido"> Login </v-btn>

@@ -1,10 +1,11 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify';
+Vue.use(Vuetify);
+
 import Login from '@/views/Login.vue';
 import SubHeader from '@/components/SubHeader.vue';
 import LoginForm from '@/components/Usuario/LoginForm.vue';
 import UsuarioForm from '@/components/Usuario/UsuarioForm.vue';
-Vue.use(Vuetify);
 
 import { shallowMount } from '@vue/test-utils';
 

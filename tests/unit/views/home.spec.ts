@@ -16,7 +16,7 @@ describe('Home = Verificando se existem os componentes', () => {
   const categorias = wrapper.findComponent(Categorias);
   const divImage = wrapper.findComponent(DivImage);
   const lancamentos = wrapper.findComponent(Lancamentos);
-  const melhoresProdutos = wrapper.findComponent(MelhoresProdutos)
+  const melhoresProdutos = wrapper.findComponent(MelhoresProdutos);
 
   it('Deveria retornar o Banner', () => expect(banner.exists()).toBeTruthy());
   it('Deveria retornar a lista de Categorias', () => expect(categorias.exists()).toBeTruthy());

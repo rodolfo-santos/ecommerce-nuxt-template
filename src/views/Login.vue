@@ -37,6 +37,7 @@ import LoginForm from '@/components/Usuario/LoginForm.vue';
   },
 })
 export default class Login extends Vue {
+  private criarConta: boolean = false;
   private breadCrumbs: object = [
     {
       text: 'Home',
@@ -49,8 +50,6 @@ export default class Login extends Vue {
       to: '/login',
     },
   ];
-
-  private criarConta: boolean = false;
 }
 </script>
 
