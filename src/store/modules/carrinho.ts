@@ -3,19 +3,28 @@ export default {
 
   state: {
     alert: false,
+    alert_error: false,
     itens: [],
   },
 
   mutations: {
+    SHOW_ALERT(state) {
+      state.alert = true;
+      setTimeout(() => { state.alert = false; }, 3000);      
+    },
+
+    SHOW_ALERT_ERROR(state) {
+      state.alert_error = true;
+      setTimeout(() => { state.alert = false; }, 3000);      
+    },
+
     UPDATE_CARRINHO(state, carrinho) {
       state.itens = carrinho;
     },
 
     INSERT_CARRINHO(state, produto) {
       state.itens.push(produto);
-      state.alert = true;
       localStorage.setItem('carrinho', JSON.stringify(state.itens));
-      setTimeout(() => { state.alert = false; }, 2000);
     },
 
     DELETE_CARRINHO(state, index) {
@@ -46,6 +55,7 @@ export default {
 
     addCarrinho(context, produto) {
       context.commit('INSERT_CARRINHO', produto);
+      context.commit('SHOW_ALERT');
     },
   },
 };

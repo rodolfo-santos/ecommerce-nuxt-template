@@ -1,6 +1,6 @@
 <template>
   <v-main>
-    <SubHeader titulo="Login" :breadCrumbs="breadCrumbs" />
+    <SubHeader titulo="Login" class="mb-8" :breadCrumbs="breadCrumbs" />
     <v-container>
       <v-row>
         <v-col class="col-12 col-md-4 col-lg-3 ">

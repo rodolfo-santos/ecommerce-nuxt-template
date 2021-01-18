@@ -2,6 +2,7 @@ export default {
   namespaced: true,
 
   state: {
+    saving: false,
     tituloApp: 'Trade Center',
     rules: {
       required: [
@@ -28,7 +29,13 @@ export default {
      },
     },
   mutations: {
+    SHOW_SAVING(state){
+      state.saving = true;
+    },
 
+    HIDE_SAVING(state){
+      state.saving = false;
+    }
   },
   actions: {
 

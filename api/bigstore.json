@@ -103,6 +103,146 @@
       "cidade": "São José dos Campos",
       "estado": "SP",
       "telefone": "12982279588"
+    },
+    {
+      "id": "joao@gmail.com",
+      "nome": "João Roberto",
+      "email": "joao@gmail.com",
+      "cpf": "78/77777774",
+      "senha": "rodolfo1a",
+      "cep": "12241421",
+      "rua": "Rua Carlos Marcondes",
+      "numero": "1160",
+      "bairro": "Jardim Limoeiro",
+      "cidade": "São José dos Campos",
+      "estado": "SP",
+      "telefone": "12982279588"
+    },
+    {
+      "id": "bruno@gmail.com",
+      "nome": "bruno",
+      "email": "bruno@gmail.com",
+      "cpf": "12345484848",
+      "senha": "bruno1A2BB",
+      "cep": "12241421",
+      "rua": "Rua Carlos Marcondes",
+      "numero": "1160",
+      "bairro": "Jardim Limoeiro",
+      "cidade": "São José dos Campos",
+      "estado": "SP",
+      "telefone": "12982279588"
+    },
+    {
+      "id": "ricardo@gmail.com",
+      "nome": "ricardo",
+      "email": "ricardo@gmail.com",
+      "cpf": "44444444444",
+      "senha": "123456789aa",
+      "cep": "12241421",
+      "rua": "Rua Carlos Marcondes",
+      "numero": "112",
+      "bairro": "Jardim Limoeiro",
+      "cidade": "São José dos Campos",
+      "estado": "SP",
+      "telefone": "121545484777"
+    },
+    {
+      "id": "alecrim@gmail.com",
+      "nome": "Alecrim",
+      "email": "alecrim@gmail.com",
+      "cpf": "11111111111",
+      "senha": "44545484a84a8444",
+      "cep": "12241380",
+      "rua": "Rua Oswaldo de Pinto Guimarães",
+      "numero": "115",
+      "bairro": "Jardim Limoeiro",
+      "cidade": "São José dos Campos",
+      "estado": "SP",
+      "telefone": "129822795588"
+    },
+    {
+      "id": "alecrim2@gmail.com",
+      "nome": "Alecrim",
+      "email": "alecrim2@gmail.com",
+      "cpf": "11111111111",
+      "senha": "44545484a84a8444",
+      "cep": "12241380",
+      "rua": "Rua Oswaldo de Pinto Guimarães",
+      "numero": "115",
+      "bairro": "Jardim Limoeiro",
+      "cidade": "São José dos Campos",
+      "estado": "SP",
+      "telefone": "129822795588"
+    },
+    {
+      "id": "bob@gmail.com",
+      "nome": "bob",
+      "email": "bob@gmail.com",
+      "cpf": "44444444444",
+      "senha": "bob123213214",
+      "cep": "12241421",
+      "rua": "Rua Carlos Marcondes",
+      "numero": "1111",
+      "bairro": "Jardim Limoeiro",
+      "cidade": "São José dos Campos",
+      "estado": "SP",
+      "telefone": "11111111111111"
+    },
+    {
+      "id": "aaaa@gmail.com",
+      "nome": "aaaaa",
+      "email": "aaaa@gmail.com",
+      "cpf": "44444444444",
+      "senha": "454848aaaa",
+      "cep": "12241421",
+      "rua": "Rua Carlos Marcondes",
+      "numero": "1245",
+      "bairro": "Jardim Limoeiro",
+      "cidade": "São José dos Campos",
+      "estado": "SP",
+      "telefone": "1111111111"
+    },
+    {
+      "id": "aaaaaa@gmail.com",
+      "nome": "aaaaa",
+      "email": "aaaaaa@gmail.com",
+      "cpf": "44444444444",
+      "senha": "454848aaaa",
+      "cep": "12241421",
+      "rua": "Rua Carlos Marcondes",
+      "numero": "1245",
+      "bairro": "Jardim Limoeiro",
+      "cidade": "São José dos Campos",
+      "estado": "SP",
+      "telefone": "1111111111"
+    },
+    {
+      "id": "bbb@gmail.com",
+      "nome": "bbbb",
+      "email": "bbb@gmail.com",
+      "cpf": "45564848489",
+      "senha": "12345as4d54a4f",
+      "cep": "12241421",
+      "rua": "Rua Carlos Marcondes",
+      "numero": "12554",
+      "bairro": "Jardim Limoeiro",
+      "cidade": "São José dos Campos",
+      "estado": "SP",
+      "telefone": "12241421"
+    },
+    {
+      "id": "brendon@gmail.com",
+      "nome": "brendon",
+      "email": "brendon@gmail.com",
+      "cpf": "45678474787",
+      "senha": "132aaaaaa1",
+      "cep": "12241421",
+      "rua": "Rua Carlos Marcondes",
+      "numero": "1111",
+      "bairro": "Jardim Limoeiro",
+      "cidade": "São José dos Campos",
+      "estado": "SP",
+      "telefone": "1244444444444444"
     }
   ],
   "produto": [
@@ -575,7 +715,7 @@
     {
       "id": "t-shirt-4",
       "nome": "Moletom Ninja",
-      "preco":100,
+      "preco": 100,
       "descricao_breve": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
       "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "estoque": 10,
@@ -640,7 +780,7 @@
     {
       "id": "t-shirt-6",
       "nome": "Moletom Ninja",
-      "preco": 300.50,
+      "preco": 300.5,
       "descricao_breve": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
       "descricao_completa": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "estoque": 10,
@@ -703,8 +843,6 @@
       "publicado": true
     }
   ],
-
-
   "categoria": [
     {
       "id": "feminino",

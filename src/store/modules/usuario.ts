@@ -5,6 +5,9 @@ export default {
   namespaced: true,
 
   state: {
+    alert: false,
+    alert_error: false,
+    disabled: false,
     usuario: {
       id: '',
       nome: '',
@@ -21,6 +24,20 @@ export default {
     logado: false,
   },
   mutations: {
+    SHOW_ALERT(state) {
+      state.alert = true;
+      setTimeout(() => { state.alert = false; }, 3000);
+    },
+
+    SHOW_ALERT_ERROR(state) {
+      state.alert_error = true;
+      setTimeout(() => { state.alert_error = false; }, 3000);
+    },
+
+    DISABLED_FORM(state) {
+      state.disabled = !state.disabled;
+    },
+
     UPDATE_LOGIN(state, bol) {
       state.logado = bol;
     },
@@ -48,7 +65,6 @@ export default {
       }
     },
 
-
     getUsuario(context, dados: Login) {
       return UsuarioServ.getUsuario(dados.email).then((response) => {
         context.commit('UPDATE_USUARIO', response.data);
@@ -58,14 +74,38 @@ export default {
       });
     },
 
-    criarUsuario(context, usuario) {
+    async criarUsuario(context, usuario) {
+      let check = false;
+      context.commit('geral/SHOW_SAVING', null, { root: true });
+      context.commit('DISABLED_FORM');
       usuario = Object.assign(usuario, { id: usuario.email })
-      return UsuarioServ.criar(usuario);
+      await UsuarioServ.criar(usuario).then(() => {
+        context.commit('geral/HIDE_SAVING', null, { root: true })
+        context.commit('DISABLED_FORM');
+        check = true
+      }).catch(() => {
+        context.commit('geral/HIDE_SAVING', null, { root: true })
+        context.commit('DISABLED_FORM');
+        context.commit('SHOW_ALERT_ERROR');
+      });
+      return check;
     },
 
     atualizarUsuario(context, usuario) {
-      UsuarioServ.atualizar(usuario.id, usuario);
-      context.commit('UPDATE_USUARIO', usuario) 
+      context.commit('geral/SHOW_SAVING', null, { root: true });
+      context.commit('DISABLED_FORM')
+      setTimeout(() => {
+        UsuarioServ.atualizar(usuario.id, usuario).then(() => {
+          context.commit('geral/HIDE_SAVING', null, { root: true })
+          context.commit('DISABLED_FORM');
+          context.commit('UPDATE_USUARIO', usuario); 
+          context.commit('SHOW_ALERT');
+        }).catch(() => {
+          context.commit('geral/HIDE_SAVING', null, { root: true })
+          context.commit('DISABLED_FORM');
+          context.commit('SHOW_ALERT_ERROR');
+        })
+      }, 2000);
     },
 
     deslogarUsuario(context) {

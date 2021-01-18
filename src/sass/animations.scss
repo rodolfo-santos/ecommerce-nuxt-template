@@ -1,11 +1,11 @@
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
-  transform: translate3d(0, -20px, 0);
+  // transform: translate3d(0, -20px, 0);
 }
 
 .fade-leave-to {
-  transform: translate3d(0, 20px, 0);
+  // transform: translate3d(0, 20px, 0);
 }
 
 .fade-enter-active,

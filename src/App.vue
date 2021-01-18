@@ -5,11 +5,7 @@
       <router-view class="conteudo-view"></router-view>
     </transition>
     <Footer />
-    <transition name="fade" mode="out-in" appear>
-      <v-alert type="success" class="carrinho-alert" v-show="alert">
-        Item adicionado ao carrinho!
-      </v-alert>
-    </transition>
+    <Alerts />
   </v-app>
 </template>
 
@@ -17,14 +13,15 @@
 import { Component, Vue } from 'vue-property-decorator';
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
+import Alerts from '@/components/Alerts.vue';
 import { mapState } from 'vuex';
 
 @Component({
   components: {
     Header,
     Footer,
+    Alerts,
   },
-  computed: mapState('carrinho', ['alert']),
 })
 export default class App extends Vue {}
 </script>
@@ -79,18 +76,6 @@ input[type='number'] {
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
-  }
-}
-
-.carrinho-alert {
-  position: fixed !important;
-  z-index: 99999;
-  top: 92vh;
-  left: 50%;
-  transform: translateX(-50%);
-
-  @media (max-width: 600px) {
-    top: 80vh;
   }
 }
 
