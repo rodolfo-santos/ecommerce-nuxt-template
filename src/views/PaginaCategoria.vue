@@ -216,7 +216,6 @@ export default class PaginaCategoria extends Vue {
 
   @Watch('id')
   private async mudarCategoria(): Promise<void> {
-    await this.getProdutos();
     this.setBreadCrumb();
   }
 
