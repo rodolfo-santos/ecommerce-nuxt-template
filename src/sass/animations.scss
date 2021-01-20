@@ -1,14 +1,22 @@
+
+// Animação Simples
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
-  // transform: translate3d(0, -20px, 0);
-}
-
-.fade-leave-to {
-  // transform: translate3d(0, 20px, 0);
 }
 
 .fade-enter-active,
 .fade-leave-active {
   transition: all .5s;
+}
+
+// Animação Simples Rápida
+.slow-enter,
+.slow-leave-to {
+  opacity: 0;
+}
+
+.slow-enter-active,
+.slow-leave-active {
+  transition: all 1s;
 }

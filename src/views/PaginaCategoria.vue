@@ -44,26 +44,44 @@
 
         <div class="col-12 col-md-9 pa-5">
           <div class="d-flex justify-space-between align-center">
-            <div>Sua pesquisa retornou {{ totalProdutos }} resultados.</div>
-            <div class="d-flex align-center">
-              <div>
+            <transition name="fade" mode="out-in" appear>
+              <div v-if="loading"><v-progress-circular indeterminate color="primary"></v-progress-circular></div>
+              <div v-else>Sua pesquisa retornou {{ totalProdutos }} resultados.</div>
+            </transition>
+            <div class="d-flex align-center justify-center">
+              <div class="d-flex align-center justify-center">
                 <v-icon class="mr-4">mdi-view-grid-outline</v-icon>
                 <v-icon>mdi-format-list-bulleted</v-icon>
               </div>
-              <div>
-                <v-select :items="['Crescente', 'Descrescente']" label="Ordenação" solo></v-select>
+              <div class="ml-4">
+                <v-select :items="itemsOrdenacao" v-model="ordenacao" class="order-select"></v-select>
               </div>
             </div>
           </div>
           <v-divider></v-divider>
-          <v-row v-if="produtos.length === 0">
-            <v-col class="text-center"> Nenhum produto encontrado. </v-col>
-          </v-row>
-          <v-row v-else>
-            <v-col v-for="produto in produtos" :key="produto.id" class="col-12 col-md-4 col-xl-3">
-              <Produto :dados="produto" />
-            </v-col>
-          </v-row>
+          <div v-if="loading" class="mt-5">
+            <transition name="slow" mode="out-in" appear>
+              <Skeleton :rows="5" :cols="4" />
+            </transition>
+          </div>
+          <div v-else>
+            <transition name="slow" mode="out-in" appear>
+              <v-row v-if="produtos.length === 0">
+                <v-col class="not-found">
+                  <img :src="imgNotFound" class="not-found-img mb-4" />
+                  <strong>
+                    Infelizmente não encontramos o que você procura.
+                  </strong>
+                  <p>Tente mudar um pouco os parâmetros de pesquisa</p>
+                </v-col>
+              </v-row>
+              <v-row v-else>
+                <v-col v-for="produto in produtos" :key="produto.id" class="col-12 col-md-4 col-xl-3">
+                  <Produto :dados="produto" />
+                </v-col>
+              </v-row>
+            </transition>
+          </div>
         </div>
       </v-row>
 
@@ -130,11 +148,11 @@ import { serialize } from '@/helpers';
 import SubHeader from '@/components/SubHeader.vue';
 import Produto from '@/components/Produto.vue';
 import Paginacao from '@/components/Paginacao.vue';
+import Skeleton from '@/components/Skeleton/SkeletonProdutoList.vue';
 
 import ProdutosServ from '@/services/produtos';
 import CategoriasServ from '@/services/categorias';
 import Categorias from '@/services/categorias';
-
 import Categoria from '@/models/Categoria';
 
 @Component({
@@ -142,6 +160,7 @@ import Categoria from '@/models/Categoria';
     SubHeader,
     Produto,
     Paginacao,
+    Skeleton,
   },
 })
 export default class PaginaCategoria extends Vue {
@@ -149,6 +168,7 @@ export default class PaginaCategoria extends Vue {
   private categoria: Categoria = {
     nome: 'Loja',
   };
+  private loading: boolean = true;
   private categorias: Categoria[] = [];
   private categoriasSelecionadas: number[] = [];
   private produtos: Produto[] = [];
@@ -160,6 +180,9 @@ export default class PaginaCategoria extends Vue {
   private coresSelecionadas: number[] = [];
   private filtro: boolean = false;
   private totalProdutos: number = 0;
+  private itemsOrdenacao: string[] = ['Crescente', 'Decrescente'];
+  private ordenacao: string = 'Crescente';
+  private imgNotFound: string = require('../assets/imagens/not_found.svg');
 
   get titulo(): string {
     if (!!this.id) {
@@ -171,6 +194,17 @@ export default class PaginaCategoria extends Vue {
   get url(): string {
     const query: string = serialize(this.$route.query);
     return query;
+  }
+
+  @Watch('ordenacao')
+  private ordenar(): void {
+    let params: { _sort: string; _order: string } = null;
+    if (this.ordenacao === 'Crescente') {
+      params = { _sort: 'nome', _order: 'asc' };
+    } else {
+      params = { _sort: 'nome', _order: 'desc' };
+    }
+    this.filtrar(params, true);
   }
 
   @Watch('$route', { immediate: true, deep: true })
@@ -219,15 +253,18 @@ export default class PaginaCategoria extends Vue {
   }
 
   private async getProdutos(): Promise<void> {
+    this.loading = true;
     if (!!this.id) {
       await ProdutosServ.listar(12, this.url, this.id).then((response) => {
         this.totalProdutos = Number(response.headers['x-total-count']);
         this.produtos = response.data;
+        this.loading = false;
       });
     } else {
       await ProdutosServ.listar(12, this.url, '').then((response) => {
         this.totalProdutos = Number(response.headers['x-total-count']);
         this.produtos = response.data;
+        this.loading = false;
       });
     }
   }
@@ -260,7 +297,6 @@ export default class PaginaCategoria extends Vue {
   }
 
   private async created(): Promise<void> {
-    await this.getProdutos();
     await this.getCategorias();
     this.sortItems();
     this.setBreadCrumb();
@@ -322,5 +358,28 @@ label {
   background-color: $secondary;
   padding-top: 15px;
   border-top: $primary solid 5px;
+}
+
+.order-select {
+  width: 250px;
+}
+
+.not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 700px;
+
+  .not-found-img {
+    width: 400px;
+    height: auto;
+  }
+  strong {
+    font-size: 1.5em;
+  }
+  p {
+    font-size: 1.2em;
+  }
 }
 </style>

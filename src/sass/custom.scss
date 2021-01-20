@@ -2,6 +2,14 @@
 @import "./animations";
 @import "./border_animation";
 
+.bg-dark {
+  background-color: #444;
+}
+
+.bg-light {
+  background-color: #fff;
+}
+
 .bg-transparent {
   background-color: transparent!important;
 }
