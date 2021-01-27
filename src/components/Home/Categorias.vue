@@ -35,16 +35,16 @@ import Skeleton from '@/components/Skeleton/SkeletonProdutoList.vue';
   },
 })
 export default class Categorias extends Vue {
-  private categorias: object[] = [];
-  private overlay: boolean = false;
+  public categorias: object[] = [];
+  public overlay: boolean = false;
 
-  private getCategorias(): void {
+  public getCategorias(): void {
     CategoriaServ.listar(6).then((response) => {
       this.categorias = response.data;
     });
   }
 
-  private created(): void {
+  public created(): void {
     this.getCategorias();
   }
 }

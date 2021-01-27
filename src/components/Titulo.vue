@@ -11,8 +11,8 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class Titulo extends Vue {
-  @Prop({ required: true }) private readonly titulo!: string;
-  @Prop() private readonly subtitulo!: string;
+  @Prop({ required: true }) public readonly titulo!: string;
+  @Prop() public readonly subtitulo!: string;
 }
 </script>
 

@@ -37,8 +37,8 @@ import LoginForm from '@/components/Usuario/LoginForm.vue';
   },
 })
 export default class Login extends Vue {
-  private criarConta: boolean = false;
-  private breadCrumbs: object = [
+  public criarConta: boolean = false;
+  public breadCrumbs: object = [
     {
       text: 'Home',
       disabled: false,

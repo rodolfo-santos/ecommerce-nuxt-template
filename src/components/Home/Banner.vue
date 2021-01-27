@@ -7,15 +7,7 @@
           <h4 class="display-2 text-upper">{{ item.content.texto02 }}</h4>
           <h4 class="display-2 text-upper">{{ item.content.texto03 }}</h4>
           <hr class="hr-base" />
-          <v-btn
-            outlined
-            color="white"
-            class="btn-banner"
-            link
-            :to="{ name: 'Loja' }"
-          >
-            Confira Agora</v-btn
-          >
+          <v-btn outlined color="white" class="btn-banner" link :to="{ name: 'Loja' }"> Confira Agora</v-btn>
         </v-container>
       </v-parallax>
     </v-carousel-item>
@@ -27,7 +19,7 @@ import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class Banner extends Vue {
-  private items: any = [
+  public items: any = [
     {
       src: require('@/assets/imagens/banner_loja.jpg'),
       content: {

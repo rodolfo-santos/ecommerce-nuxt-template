@@ -15,8 +15,8 @@ import { mapActions, mapState } from 'vuex';
   computed: mapState('geral', ['rules']),
 })
 export default class RecuperarSenha extends Vue {
-  private valido: boolean = false;
-  private email: string = '';
+  public valido: boolean = false;
+  public email: string = '';
 }
 </script>
 

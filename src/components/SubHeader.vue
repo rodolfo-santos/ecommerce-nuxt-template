@@ -18,8 +18,8 @@ import { mapState } from 'vuex';
   computed: mapState('geral', ['saving']),
 })
 export default class SubHeader extends Vue {
-  @Prop() private readonly titulo!: string;
-  @Prop() private readonly breadCrumbs!: object[];
+  @Prop() public readonly titulo!: string;
+  @Prop() public readonly breadCrumbs!: object[];
 }
 </script>
 

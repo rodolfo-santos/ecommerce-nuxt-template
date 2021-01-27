@@ -52,16 +52,16 @@ import { mapActions } from 'vuex';
   methods: mapActions('usuario', ['deslogarUsuario']),
 })
 export default class Usuario extends Vue {
-  private menu: string[] = ['', '', '', '', ''];
-  private items: object[] = [
+  public menu: string[] = ['', '', '', '', ''];
+  public items: object[] = [
     { text: 'Dados de Usuário', icon: 'mdi-account', select: 'dados' },
     { text: 'Formas de Pagamento', icon: 'mdi-credit-card', select: 'formas-de-pagamento' },
     { text: 'Pedidos em Andamento', icon: 'mdi-truck-delivery', select: 'meus-pedidos' },
     { text: 'Histórico de Compras', icon: 'mdi-shopping', select: 'historico-de-compras' },
     { text: 'Falar com um Vendedor', icon: 'mdi-account-voice', select: 'falar-com-vendedor' },
   ];
-  private opcaoSelecionada: number = 0;
-  private breadCrumbs: object = [
+  public opcaoSelecionada: number = 0;
+  public breadCrumbs: object = [
     {
       text: 'Home',
       disabled: false,
@@ -73,13 +73,13 @@ export default class Usuario extends Vue {
       to: '/usuario',
     },
   ];
-  private deslogarUsuario: () => void;
+  public deslogarUsuario: () => void;
 
   get selecionado(): object {
     return this.items[this.opcaoSelecionada];
   }
 
-  private sair(): void {
+  public sair(): void {
     this.deslogarUsuario();
     this.$router.push({ name: 'Login' });
   }

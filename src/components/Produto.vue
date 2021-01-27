@@ -36,14 +36,14 @@ import { mapActions } from 'vuex';
   methods: mapActions('carrinho', ['addCarrinho']),
 })
 export default class Produto extends Vue {
-  @Prop() private readonly dados!: object;
-  @Prop() private readonly width!: number;
-  @Prop() private readonly height!: number;
-  private selection: number = 1;
-  private btnAddCarrinho = true;
-  private addCarrinho!: (produto: Produto) => void;
+  @Prop() public readonly dados!: object;
+  @Prop() public readonly width!: number;
+  @Prop() public readonly height!: number;
+  public selection: number = 1;
+  public btnAddCarrinho = true;
+  public addCarrinho!: (produto: Produto) => void;
 
-  private adicionarCarrinho(produto: Produto): void {
+  public adicionarCarrinho(produto: Produto): void {
     this.addCarrinho(produto);
     this.btnAddCarrinho = false;
     setTimeout(() => {

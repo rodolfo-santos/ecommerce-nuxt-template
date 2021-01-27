@@ -3,51 +3,18 @@
     <SubHeader :titulo="titulo" :breadCrumbs="breadCrumbs" />
     <v-container>
       <v-row>
-        <v-card class="d-none d-md-block col-md-3 lista-categorias">
-          <div class="filtro-titulo mb-4">Filtrar por</div>
-
-          <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
-            <div class="opcao-titulo mb-2">Sub-Categoria</div>
-            <v-chip-group v-model="categoriasSelecionadas" active-class="primary" column multiple>
-              <v-chip v-for="(categoria, index) in categorias" :key="index" @input="filtrarCategoria">{{ categoria.nome }}</v-chip>
-            </v-chip-group>
-          </v-card>
-
-          <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
-            <div class="opcao-titulo mb-2">Faixa de Preço</div>
-            <div class="pl-2">
-              <div class="d-flex justify-space-between">
-                <div class="align-end">Valor Máximo</div>
-                <div>
-                  <input v-model="valorMaximo" class="input-preco" type="number" @change="filtrarPreco" />
-                </div>
-              </div>
-              <v-slider v-model="valorMaximo" :min="valorMinimo" :max="1000" class="align-center" @change="filtrarPreco"></v-slider>
-
-              <div class="d-flex justify-space-between">
-                <div>Valor Mínimo</div>
-                <div>
-                  <input v-model="valorMinimo" class="input-preco" type="number" @change="filtrarPreco" />
-                </div>
-              </div>
-              <v-slider v-model="valorMinimo" :max="valorMaximo" :min="0" class="align-center" @change="filtrarPreco"></v-slider>
-            </div>
-          </v-card>
-
-          <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
-            <div class="opcao-titulo mb-2">Cor</div>
-            <v-chip-group v-model="coresSelecionadas" active-class="primary" column multiple>
-              <v-chip v-for="cor in cores" :key="cor">{{ cor }}</v-chip>
-            </v-chip-group>
-          </v-card>
-        </v-card>
-
+        <FiltrosCategoria class="d-none d-md-block col-md-3 mt-8" />
         <div class="col-12 col-md-9 pa-5">
-          <div class="d-flex justify-space-between align-center">
+          <div class="d-block d-md-flex justify-space-between align-center">
             <transition name="fade" mode="out-in" appear>
               <div v-if="loading"><v-progress-circular indeterminate color="primary"></v-progress-circular></div>
-              <div v-else>Sua pesquisa retornou {{ totalProdutos }} resultados.</div>
+              <div v-else class="text-primary">
+                <div v-if="totalProdutos === 0" class="text-center text-md-left">Sua pesquina não encontrou resultados.</div>
+                <div v-else-if="totalProdutos === 1">Sua pesquina encontrou 1 resultado.</div>
+                <div v-else>Sua pesquina encontrou {{ totalProdutos }} resultados.</div>
+              </div>
             </transition>
+
             <div class="d-flex align-center justify-center">
               <div class="d-flex align-center justify-center">
                 <v-icon class="mr-4">mdi-view-grid-outline</v-icon>
@@ -68,11 +35,11 @@
             <transition name="slow" mode="out-in" appear>
               <v-row v-if="produtos.length === 0">
                 <v-col class="not-found">
-                  <img :src="imgNotFound" class="not-found-img mb-4" />
-                  <strong>
-                    Infelizmente não encontramos o que você procura.
-                  </strong>
-                  <p>Tente mudar um pouco os parâmetros de pesquisa</p>
+                  <img :src="imgNotFound" class="not-found-img mb-8 " />
+                  <div class="text-center">
+                    <strong>Infelizmente não encontramos o que você procura. </strong>
+                    <p class="d-none d-md-block">Tente mudar um pouco os parâmetros de pesquisa</p>
+                  </div>
                 </v-col>
               </v-row>
               <v-row v-else>
@@ -85,52 +52,11 @@
         </div>
       </v-row>
 
-      <Paginacao :limit="10" :total="totalProdutos" />
+      <Paginacao v-if="produtos.length !== 0" :limit="10" :total="totalProdutos" />
 
       <v-navigation-drawer v-model="filtro" fixed bottom temporary class="filtro-mobile">
         <v-container id="scroll-target" class="overflow-y-auto">
-          <v-card class="lista-categorias">
-            <div class="filtro-titulo mb-4">Filtrar por</div>
-
-            <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
-              <div class="opcao-titulo mb-2">Categoria</div>
-              <v-chip-group v-model="categoriasSelecionadas" active-class="primary" column multiple>
-                <v-chip v-for="(categoria, index) in categorias" :key="index">{{ categoria.nome }}</v-chip>
-              </v-chip-group>
-            </v-card>
-
-            <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
-              <div class="opcao-titulo mb-2">Faixa de Preço</div>
-              <div class="pl-2">
-                <div class="d-flex justify-space-between">
-                  <div class="align-end">Valor Máximo</div>
-                  <div>
-                    <input v-model="valorMaximo" class="input-preco" type="number" />
-                  </div>
-                </div>
-                <v-slider v-model="valorMaximo" :min="valorMinimo" :max="1000" class="align-center"></v-slider>
-
-                <div class="d-flex justify-space-between">
-                  <div>Valor Mínimo</div>
-                  <div>
-                    <input v-model="valorMinimo" class="input-preco" type="number" />
-                  </div>
-                </div>
-                <v-slider v-model="valorMinimo" :max="valorMaximo" :min="0" class="align-center"></v-slider>
-
-                <div class="d-flex justify-end">
-                  <v-btn @click="filtrarPreco">Aplicar</v-btn>
-                </div>
-              </div>
-            </v-card>
-
-            <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
-              <div class="opcao-titulo mb-2">Cor</div>
-              <v-chip-group v-model="coresSelecionadas" active-class="primary" column multiple>
-                <v-chip v-for="cor in cores" :key="cor">{{ cor }}</v-chip>
-              </v-chip-group>
-            </v-card>
-          </v-card>
+          <FiltrosCategoria class="pa-3" />
         </v-container>
       </v-navigation-drawer>
 
@@ -149,10 +75,11 @@ import SubHeader from '@/components/SubHeader.vue';
 import Produto from '@/components/Produto.vue';
 import Paginacao from '@/components/Paginacao.vue';
 import Skeleton from '@/components/Skeleton/SkeletonProdutoList.vue';
+import FiltrosCategoria from '@/components/PaginaCategoria/FiltrosCategoria.vue';
 
-import ProdutosServ from '@/services/produtos';
 import CategoriasServ from '@/services/categorias';
-import Categorias from '@/services/categorias';
+import ProdutosServ from '@/services/produtos';
+
 import Categoria from '@/models/Categoria';
 
 @Component({
@@ -161,28 +88,23 @@ import Categoria from '@/models/Categoria';
     Produto,
     Paginacao,
     Skeleton,
+    FiltrosCategoria,
   },
 })
 export default class PaginaCategoria extends Vue {
-  @Prop() private readonly id!: string;
-  private categoria: Categoria = {
+  @Prop() public readonly id!: string;
+  public categoria: Categoria = {
     nome: 'Loja',
   };
-  private loading: boolean = true;
-  private categorias: Categoria[] = [];
-  private categoriasSelecionadas: number[] = [];
-  private produtos: Produto[] = [];
-  private breadCrumbs: object[] = [];
-  private valorMinimo: number = 0;
-  private valorMaximo: number = 1000;
-  private selection: string = '';
-  private cores: string[] = ['Branco', 'Preto', 'Verde', 'Azul', 'Rosa', 'Roxo', 'Amarelo', 'Outras'];
-  private coresSelecionadas: number[] = [];
-  private filtro: boolean = false;
-  private totalProdutos: number = 0;
-  private itemsOrdenacao: string[] = ['Crescente', 'Decrescente'];
-  private ordenacao: string = 'Crescente';
-  private imgNotFound: string = require('../assets/imagens/not_found.svg');
+  public loading: boolean = true;
+  public produtos: Produto[] = [];
+  public breadCrumbs: object[] = [];
+  public filtro: boolean = false;
+
+  public totalProdutos: number = 0;
+  public itemsOrdenacao: string[] = ['Crescente', 'Decrescente'];
+  public ordenacao: string = 'Crescente';
+  public imgNotFound: string = require('../assets/imagens/not_found.svg');
 
   get titulo(): string {
     if (!!this.id) {
@@ -197,7 +119,7 @@ export default class PaginaCategoria extends Vue {
   }
 
   @Watch('ordenacao')
-  private ordenar(): void {
+  public ordenar(): void {
     let params: { _sort: string; _order: string } = null;
     if (this.ordenacao === 'Crescente') {
       params = { _sort: 'nome', _order: 'asc' };
@@ -208,29 +130,18 @@ export default class PaginaCategoria extends Vue {
   }
 
   @Watch('$route', { immediate: true, deep: true })
-  private recarregar(): void {
+  public recarregar(): void {
     setTimeout(() => {
       this.getProdutos();
     }, 500);
   }
 
   @Watch('id')
-  private async mudarCategoria(): Promise<void> {
+  public async mudarCategoria(): Promise<void> {
     this.setBreadCrumb();
   }
 
-  private filtrarCategoria(): void {
-    const categorias = this.categoriasSelecionadas.map((i) => this.categorias[i].id);
-    const params = { categorias_like: categorias };
-    this.filtrar(params, true);
-  }
-
-  private filtrarPreco(): void {
-    const params = { preco_gte: this.valorMinimo, preco_lte: this.valorMaximo };
-    this.filtrar(params, true);
-  }
-
-  private filtrar(filtro, primeiraPagina: boolean): void {
+  public filtrar(filtro, primeiraPagina: boolean): void {
     const query = { ...this.$route.query };
     if (primeiraPagina) {
       filtro = Object.assign(filtro, { _page: 1 });
@@ -240,18 +151,7 @@ export default class PaginaCategoria extends Vue {
     this.$router.push('?' + url).catch(() => {});
   }
 
-  private async getCategorias(): Promise<void> {
-    await CategoriasServ.listar(35).then((response) => {
-      this.categorias = response.data;
-    });
-  }
-
-  private sortItems(): void {
-    this.cores = this.cores.sort();
-    this.categorias = this.categorias.sort((a, b) => (a.nome > b.nome ? 1 : -1));
-  }
-
-  private async getProdutos(): Promise<void> {
+  public async getProdutos(): Promise<void> {
     this.loading = true;
     if (!!this.id) {
       await ProdutosServ.listar(12, this.url, this.id).then((response) => {
@@ -268,7 +168,7 @@ export default class PaginaCategoria extends Vue {
     }
   }
 
-  private setBreadCrumb(): void {
+  public setBreadCrumb(): void {
     this.breadCrumbs = [
       {
         text: 'Home',
@@ -291,13 +191,14 @@ export default class PaginaCategoria extends Vue {
     }
   }
 
-  private abrirFiltro(): void {
+  public abrirFiltro(): void {
     this.filtro = true;
   }
 
-  private async created(): Promise<void> {
-    await this.getCategorias();
-    this.sortItems();
+  public async created(): Promise<void> {
+    await CategoriasServ.categoria_unica(this.id).then((response) => {
+      this.categoria = response.data;
+    });
     this.setBreadCrumb();
   }
 }
@@ -305,59 +206,6 @@ export default class PaginaCategoria extends Vue {
 
 <style lang="scss" scoped>
 @import '@/sass/custom.scss';
-.lista-categorias {
-  background-color: $secondary;
-}
-
-.filtro-titulo {
-  font-size: 0.9em;
-  text-transform: uppercase;
-  border-left: $primary solid 3px;
-  padding-left: 10px;
-}
-
-.filtro-opcao {
-  background-color: darken($secondary, 1%);
-}
-
-.opcao-titulo {
-  font-weight: bold;
-}
-
-label {
-  font-size: 0.9em;
-}
-
-.input-preco {
-  max-width: 80px;
-  margin: 0;
-  padding: 0;
-  font-size: 0.9em;
-  top: 10px;
-  color: #ffffff;
-  text-align: right;
-  transition: 0.5s;
-
-  &:focus,
-  &:hover {
-    outline: none;
-    color: $primary;
-  }
-}
-
-.filtro-btn {
-  z-index: 1;
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  background: darken($primary, 10%) !important;
-}
-
-.filtro-mobile {
-  background-color: $secondary;
-  padding-top: 15px;
-  border-top: $primary solid 5px;
-}
 
 .order-select {
   width: 250px;
@@ -369,16 +217,37 @@ label {
   justify-content: center;
   flex-direction: column;
   min-height: 700px;
+  @media (max-width: 800px) {
+    min-height: 500px;
+  }
 
   .not-found-img {
-    width: 400px;
+    width: 100%;
+    max-width: 600px;
     height: auto;
   }
   strong {
     font-size: 1.5em;
+    @media (max-width: 800px) {
+      font-size: 1em;
+    }
   }
   p {
     font-size: 1.2em;
   }
+}
+
+.filtro-mobile {
+  background-color: $secondary;
+  padding-top: 15px;
+  border-top: $primary solid 5px;
+}
+
+.filtro-btn {
+  z-index: 1;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background: darken($primary, 10%) !important;
 }
 </style>

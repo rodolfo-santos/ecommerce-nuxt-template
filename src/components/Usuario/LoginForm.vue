@@ -37,17 +37,17 @@ import { mapActions, mapState } from 'vuex';
   methods: mapActions('usuario', ['getUsuario']),
 })
 export default class LoginForm extends Vue {
-  private valido: boolean = false;
-  private viewPass: boolean = false;
-  private login: LoginModel = {
+  public valido: boolean = false;
+  public viewPass: boolean = false;
+  public login: LoginModel = {
     email: '',
     senha: '',
     manterConectado: false,
   };
-  private recuperar: boolean = false;
-  private getUsuario!: (login: LoginModel) => void;
+  public recuperar: boolean = false;
+  public getUsuario!: (login: LoginModel) => void;
 
-  private async logar(): Promise<void> {
+  public async logar(): Promise<void> {
     try {
       const response: any = await this.getUsuario(this.login);
       if (response.status === 200) {

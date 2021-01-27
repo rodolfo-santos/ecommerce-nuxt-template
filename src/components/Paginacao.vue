@@ -13,19 +13,19 @@ import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 
 @Component
 export default class Paginacao extends Vue {
-  @Prop() private readonly limit!: number;
-  @Prop() private readonly total!: number;
-  private page: number = 1;
+  @Prop() public readonly limit!: number;
+  @Prop() public readonly total!: number;
+  public page: number = 1;
 
   @Watch('$route', { immediate: true, deep: true })
-  private atualizarNumeroPagina(): void {
+  public atualizarNumeroPagina(): void {
     if (this.$route.query._page) {
       this.page = Number(this.$route.query._page);
     }
   }
 
   @Watch('page')
-  private alteraPagina(): void {
+  public alteraPagina(): void {
     if (Number(this.$route.query._page) !== this.page) {
       const params = { _page: this.page };
       this.filtrar(params, false);
@@ -37,7 +37,7 @@ export default class Paginacao extends Vue {
     return total !== Infinity ? Math.ceil(total) : 0;
   }
 
-  private filtrar(filtro, primeiraPagina: boolean): void {
+  public filtrar(filtro, primeiraPagina: boolean): void {
     const query = { ...this.$route.query };
     if (primeiraPagina) {
       filtro = Object.assign(filtro, { _page: 1 });
@@ -47,7 +47,7 @@ export default class Paginacao extends Vue {
     this.$router.push('?' + url).catch(() => {});
   }
 
-  private created(): void {
+  public created(): void {
     if (!!this.$route.query._page) {
       this.page = Number(this.$route.query._page);
     }

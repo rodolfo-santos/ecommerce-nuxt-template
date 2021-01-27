@@ -101,9 +101,9 @@ import { mapActions } from 'vuex';
   methods: mapActions('carrinho', ['addCarrinho']),
 })
 export default class PaginaProduto extends Vue {
-  @Prop() private readonly id!: string;
-  private breadCrumbs: object[] = [];
-  private produto: Produto = {
+  @Prop() public readonly id!: string;
+  public breadCrumbs: object[] = [];
+  public produto: Produto = {
     id: '',
     nome: '',
     preco: 0,
@@ -119,20 +119,20 @@ export default class PaginaProduto extends Vue {
     comprimento_cm: 0,
   };
 
-  private imagemAtiva: string = '';
-  private loading: boolean = true;
-  private selection: string = '';
-  private cep: string = '';
-  private btnAdd = true;
-  private addCarrinho!: (produto: Produto) => void;
+  public imagemAtiva: string = '';
+  public loading: boolean = true;
+  public selection: string = '';
+  public cep: string = '';
+  public btnAdd = true;
+  public addCarrinho!: (produto: Produto) => void;
 
   @Watch('id')
-  private async mudarProduto(): Promise<void> {
+  public async mudarProduto(): Promise<void> {
     await this.getProduto();
     this.setBreadCrumb();
   }
 
-  private async getProduto(): Promise<void> {
+  public async getProduto(): Promise<void> {
     await ProdutosServ.produto_unico(this.id).then((response) => {
       this.produto = response.data;
       this.imagemAtiva = this.produto.fotos[0];
@@ -140,11 +140,11 @@ export default class PaginaProduto extends Vue {
     this.setBreadCrumb();
   }
 
-  private mudarImagem(imagem): void {
+  public mudarImagem(imagem): void {
     this.imagemAtiva = imagem;
   }
 
-  private setBreadCrumb(): void {
+  public setBreadCrumb(): void {
     this.breadCrumbs = [
       {
         text: 'Home',
@@ -164,7 +164,7 @@ export default class PaginaProduto extends Vue {
     ];
   }
 
-  private adicionarCarrinho(produto: object): void {
+  public adicionarCarrinho(produto: object): void {
     this.addCarrinho(produto);
     this.btnAdd = false;
     setTimeout(() => {
@@ -172,7 +172,7 @@ export default class PaginaProduto extends Vue {
     }, 2000);
   }
 
-  private async created(): Promise<void> {
+  public async created(): Promise<void> {
     await this.getProduto();
     this.loading = false;
   }

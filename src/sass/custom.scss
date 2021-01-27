@@ -26,6 +26,22 @@
   color: rgba( #fff, .5);
 }
 
+.text-primary {
+  color: $primary;
+}
+
+.text-secondary {
+  color: $secondary;
+}
+
+.text-black {
+  color: #000;
+}
+
+.text-white {
+  color: #fff;
+}
+
 .hr-base {
   max-width: 300px;
   border: $primary 2px solid;

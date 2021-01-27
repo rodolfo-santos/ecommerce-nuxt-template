@@ -14,10 +14,10 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class SkeletonProdutoList extends Vue {
-  @Prop() private heading: boolean;
-  @Prop() private rows: number;
-  @Prop() private cols: number;
-  @Prop({ default: 2 }) private size: number;
+  @Prop() public heading: boolean;
+  @Prop() public rows: number;
+  @Prop() public cols: number;
+  @Prop({ default: 2 }) public size: number;
 
   get rowsResponsive(): number {
     switch (this.$vuetify.breakpoint.name) {

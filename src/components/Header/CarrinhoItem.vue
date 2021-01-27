@@ -28,9 +28,9 @@ import { mapActions } from 'vuex';
   methods: mapActions('carrinho', ['removerCarrinho']),
 })
 export default class CarrinhoItem extends Vue {
-  @Prop() private readonly produto!: object;
-  @Prop() private readonly index!: number;
-  private removerCarrinho!: (index: number) => void;
+  @Prop() public readonly produto!: object;
+  @Prop() public readonly index!: number;
+  public removerCarrinho!: (index: number) => void;
 }
 </script>
 

@@ -16,7 +16,7 @@ import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class Page404 extends Vue {
-  private img404: string = require('../assets/imagens/404.svg');
+  public img404: string = require('../assets/imagens/404.svg');
 }
 </script>
 

@@ -137,13 +137,13 @@ import { mapActions, mapState } from 'vuex';
   },
 })
 export default class Header extends Vue {
-  private searchActive: boolean = false;
-  private carrinho: boolean = false;
-  private menuMobile: boolean = false;
-  private logo: string = require('../assets/logo/logo.svg');
-  private menu: Categoria[] = [];
-  private itens!: Produto[];
-  private pesquisa: string = '';
+  public searchActive: boolean = false;
+  public carrinho: boolean = false;
+  public menuMobile: boolean = false;
+  public logo: string = require('../assets/logo/logo.svg');
+  public menu: Categoria[] = [];
+  public itens!: Produto[];
+  public pesquisa: string = '';
 
   get TotalCarrinho(): number {
     let total: number = 0;
@@ -153,25 +153,25 @@ export default class Header extends Vue {
     return total;
   }
 
-  private searchShow(): void {
+  public searchShow(): void {
     this.searchActive = true;
     const theField = this.$refs.inpSearch as HTMLInputElement;
     this.$nextTick(() => theField.focus());
   }
 
-  private async getCategorias(): Promise<void> {
+  public async getCategorias(): Promise<void> {
     CategoriasServ.listar(10).then((response) => {
       this.menu = response.data;
     });
   }
 
-  private pesquisar(): void {
+  public pesquisar(): void {
     if ('/categoria/' + this.pesquisa !== this.$route.path) {
       this.$router.push({ name: 'Categoria', params: { id: this.pesquisa } });
     }
   }
 
-  private async created(): Promise<void> {
+  public async created(): Promise<void> {
     await this.getCategorias();
   }
 }

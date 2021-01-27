@@ -31,16 +31,16 @@ import Skeleton from '@/components/Skeleton/SkeletonProdutoList.vue';
   },
 })
 export default class ProdutosRelacionados extends Vue {
-  private loading: boolean = true;
-  private produtos: object[] = [];
-  private getProdutos(): void {
+  public loading: boolean = true;
+  public produtos: object[] = [];
+  public getProdutos(): void {
     ProdutosServ.listar(6, '', '').then((response) => {
       this.produtos = response.data;
       this.loading = false;
     });
   }
 
-  private async created(): Promise<void> {
+  public async created(): Promise<void> {
     await this.getProdutos();
   }
 }

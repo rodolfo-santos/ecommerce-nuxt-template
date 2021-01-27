@@ -97,16 +97,16 @@ import { mapActions, mapState } from 'vuex';
   methods: mapActions('usuario', ['criarUsuario', 'getUsuario', 'atualizarUsuario']),
 })
 export default class UsuarioForm extends Vue {
-  private valido: boolean = false;
-  private viewPass: boolean = false;
-  private usuario: Usuario;
-  private usuarioForm: Usuario = {};
-  private logado!: boolean;
-  private criarUsuario!: (usuario: Usuario) => any;
-  private getUsuario!: (login: Login) => void;
-  private atualizarUsuario!: (usuario: Usuario) => void;
+  public valido: boolean = false;
+  public viewPass: boolean = false;
+  public usuario: Usuario;
+  public usuarioForm: Usuario = {};
+  public logado!: boolean;
+  public criarUsuario!: (usuario: Usuario) => any;
+  public getUsuario!: (login: Login) => void;
+  public atualizarUsuario!: (usuario: Usuario) => void;
 
-  private cep(): void {
+  public cep(): void {
     const cep = this.usuarioForm.cep.replace(/\D/g, '');
     if (cep.length === 8) {
       getCep(cep).then((response) => {
@@ -118,7 +118,7 @@ export default class UsuarioForm extends Vue {
     }
   }
 
-  private async submeter(): Promise<void> {
+  public async submeter(): Promise<void> {
     if (!this.logado) {
       const response = await this.criarUsuario(this.usuarioForm);
       if (response) {
@@ -130,7 +130,7 @@ export default class UsuarioForm extends Vue {
     }
   }
 
-  private created(): void {
+  public created(): void {
     this.usuarioForm = { ...this.usuario };
   }
 }
