@@ -5,7 +5,12 @@ import Home from '../views/Home.vue';
 import Produto from '../views/PaginaProduto.vue';
 import Categoria from '../views/PaginaCategoria.vue';
 import Login from '../views/Login.vue';
-import Usuario from '../views/Usuario.vue';
+import Usuario from '../views/Usuario/Usuario.vue';
+import UsuarioEditar from '../views/Usuario/UsuarioEditar.vue';
+import UsuarioFormasPagamento from '../views/Usuario/UsuarioFormasPagamento.vue';
+import UsuarioPedidos from '../views/Usuario/UsuarioPedidos.vue';
+import UsuarioHistoricoCompras from '../views/Usuario/UsuarioHistoricoCompras.vue';
+import UsuarioFalarComVendedor from '../views/Usuario/UsuarioFalarComVendedor.vue';
 
 Vue.use(VueRouter);
 
@@ -47,6 +52,33 @@ const routes: RouteConfig[] = [
     path: '/usuario',
     name: 'Usuario',
     component: Usuario,
+    children: [
+      {
+        path: 'editar',
+        name: 'UsuarioEditar',
+        component: UsuarioEditar,
+      },
+      {
+        path: 'formas-de-pagamento',
+        name: 'FormasDePagamento',
+        component: UsuarioFormasPagamento,
+      },
+      {
+        path: 'pedidos',
+        name: 'Pedidos',
+        component: UsuarioPedidos,
+      },
+      {
+        path: 'historico',
+        name: 'HistoricoCompras',
+        component: UsuarioHistoricoCompras,
+      },
+      {
+        path: 'falar-com-vendedor',
+        name: 'FalarComVendedor',
+        component: UsuarioFalarComVendedor,
+      },
+    ],
   },
 ];
 
