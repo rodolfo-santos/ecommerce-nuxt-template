@@ -3,7 +3,7 @@
     <div class="filtro-titulo mb-4">Refinar Busca</div>
 
     <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
-      <div class="opcao-titulo mb-2">Categoria</div>
+      <div class="opcao-titulo mb-2">Adicionar Sub-Categorias</div>
       <v-chip-group v-model="categoriasSelecionadas" active-class="primary" column multiple>
         <v-chip v-for="(categoria, index) in categorias" :key="index" @input="filtrarCategoria">{{ categoria.nome }}</v-chip>
       </v-chip-group>

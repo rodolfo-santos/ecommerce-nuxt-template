@@ -1,6 +1,6 @@
 <template>
   <v-main>
-    <SubHeader :titulo="titulo" :breadCrumbs="breadCrumbs" />
+    <SubHeader :titulo="titulo" :breadCrumbs="breadCrumbs" :background="categoria.banner" />
     <v-container>
       <v-row>
         <FiltrosCategoria class="d-none d-md-block col-md-3 mt-8" />
@@ -108,7 +108,7 @@ export default class PaginaCategoria extends Vue {
 
   get titulo(): string {
     if (!!this.id) {
-      return this.id;
+      return this.categoria.nome;
     }
     return 'Loja';
   }
@@ -138,6 +138,7 @@ export default class PaginaCategoria extends Vue {
 
   @Watch('id')
   public async mudarCategoria(): Promise<void> {
+    this.getCategoria();
     this.setBreadCrumb();
   }
 
@@ -191,14 +192,18 @@ export default class PaginaCategoria extends Vue {
     }
   }
 
+  public async getCategoria(): Promise<void> {
+    await CategoriasServ.categoria_unica(this.id).then((response) => {
+      this.categoria = response.data;
+    });
+  }
+
   public abrirFiltro(): void {
     this.filtro = true;
   }
 
   public async created(): Promise<void> {
-    await CategoriasServ.categoria_unica(this.id).then((response) => {
-      this.categoria = response.data;
-    });
+    this.getCategoria();
     this.setBreadCrumb();
   }
 }

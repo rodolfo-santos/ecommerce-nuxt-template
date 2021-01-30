@@ -1,11 +1,9 @@
 <template>
   <div>
-    <v-parallax src="@/assets/imagens/banner-subheader.jpg" height="150">
-      <div class="subheader">
-        <h1 class="text-capitalize">{{ titulo }}</h1>
-        <v-breadcrumbs :items="breadCrumbs" divider=">" class="pl-0"></v-breadcrumbs>
-      </div>
-    </v-parallax>
+    <div :style="`background-image: url(${background})`" class="banner-header">
+      <h1 class="text-capitalize">{{ titulo }}</h1>
+      <v-breadcrumbs :items="breadCrumbs" divider=">" class="pl-0"></v-breadcrumbs>
+    </div>
     <v-progress-linear :indeterminate="saving" color="primary"></v-progress-linear>
   </div>
 </template>
@@ -19,6 +17,7 @@ import { mapState } from 'vuex';
 })
 export default class SubHeader extends Vue {
   @Prop() public readonly titulo!: string;
+  @Prop() public readonly background!: string;
   @Prop() public readonly breadCrumbs!: object[];
 }
 </script>
@@ -26,7 +25,12 @@ export default class SubHeader extends Vue {
 <style lang="scss" scoped>
 @import '@/sass/custom.scss';
 
-.subheader {
+.banner-header {
+  height: 150px;
+  background-repeat: no-repeat;
+  background-position: 0% -20%;
+  background-attachment: fixed;
+
   display: flex;
   flex-flow: column;
   align-items: center;
