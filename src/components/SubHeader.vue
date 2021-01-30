@@ -28,7 +28,7 @@ export default class SubHeader extends Vue {
 .banner-header {
   height: 150px;
   background-repeat: no-repeat;
-  background-position: 0% -20%;
+  background-position: 0% 0%;
   background-attachment: fixed;
 
   display: flex;
