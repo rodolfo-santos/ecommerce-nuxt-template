@@ -855,7 +855,7 @@
       "id": "masculino",
       "nome": "Masculino",
       "imagem": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-imagens/categorias/categoria_homem.jpg",
-      "banner": "https://beckercalcados.vteximg.com.br/arquivos/ids/290039/Banner%20site%20Masculino%201920x600.png?v=636801337472300000",
+      "banner": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/imagens/banner_masculino.jpg",
       "descricao": ""
     },
     {
