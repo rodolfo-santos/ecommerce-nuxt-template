@@ -54,7 +54,7 @@ const routes: RouteConfig[] = [
     component: Usuario,
     children: [
       {
-        path: 'editar',
+        path: '/editar',
         name: 'UsuarioEditar',
         component: UsuarioEditar,
       },
@@ -82,13 +82,12 @@ const routes: RouteConfig[] = [
   },
 ];
 
-
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes,
   scrollBehavior(): void {
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   },
 });
 

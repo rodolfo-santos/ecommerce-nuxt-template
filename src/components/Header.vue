@@ -51,7 +51,7 @@
       </div>
 
       <div class="usuario d-none d-md-block">
-        <v-btn :to="{ name: 'Usuario' }" v-if="!!logado">
+        <v-btn :to="{ name: 'UsuarioEditar' }" v-if="!!logado">
           <v-icon left>mdi-account</v-icon>
           {{ usuario.nome }}
         </v-btn>

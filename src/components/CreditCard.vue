@@ -50,20 +50,20 @@
             </label>
             <div class="card-item__content">
               <label for="cardName" class="card-item__info" ref="cardName">
-                <div class="card-item__holder">Card Holder</div>
+                <div class="card-item__holder">Títular do Cartão</div>
                 <transition name="slide-fade-up">
                   <div class="card-item__name" v-if="cardName.length" key="1">
                     <transition-group name="slide-fade-right">
-                      <span class="card-item__nameItem" v-for="(n, $index) in cardName.replace(/\s\s+/g, ' ')" v-if="$index === $index" :key="$index + 1">{{
-                        n
-                      }}</span>
+                      <template v-for="(n, $index) in normalizedCardName">
+                        <span class="card-item__nameItem" v-if="$index === $index" :key="$index + 1">{{ n }}</span>
+                      </template>
                     </transition-group>
                   </div>
-                  <div class="card-item__name" v-else key="2">Full Name</div>
+                  <div class="card-item__name" v-else key="2">Nome Completo</div>
                 </transition>
               </label>
               <div class="card-item__date" ref="cardDate">
-                <label for="cardMonth" class="card-item__dateTitle">Expires</label>
+                <label for="cardMonth" class="card-item__dateTitle">Venc.</label>
                 <label for="cardMonth" class="card-item__dateItem">
                   <transition name="slide-fade-up">
                     <span v-if="cardMonth" :key="cardMonth">{{ cardMonth }}</span>
@@ -137,13 +137,13 @@
           <div class="card-form__group">
             <label for="cardMonth" class="card-input__label">Data de Vencimento</label>
             <select class="card-input__input -select" id="cardMonth" v-model="cardMonth" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardDate">
-              <option value="" disabled selected>Month</option>
+              <option value="" disabled selected>Mês</option>
               <option :value="n < 10 ? '0' + n : n" v-for="n in 12" :disabled="n < minCardMonth" :key="n">
-                {{ n < 10 ? '0' + n : n }}
+                {{ n &lt; 10 ? '0' + n : n }}
               </option>
             </select>
             <select class="card-input__input -select" id="cardYear" v-model="cardYear" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardDate">
-              <option value="" disabled selected>Year</option>
+              <option value="" disabled selected>Ano</option>
               <option :value="$index + minCardYear" v-for="(n, $index) in 12" :key="n">
                 {{ $index + minCardYear }}
               </option>
@@ -183,9 +183,9 @@ export default class CreditCard extends Vue {
   public currentCardBackground: string = require('@/assets/imagens/banner-subheader.jpg');
   public cardName: string = '';
   public cardNumber: string = '';
-  public cardMonth: number;
-  public cardYear: number;
-  public cardCVV: string = '';
+  public cardMonth: number = 0;
+  public cardYear: number = 0;
+  public cardCvv: string = '';
   public minCardYear: number = new Date().getFullYear();
   public amexCardMask: string = '#### ###### #####';
   public otherCardMask: string = '#### #### #### ####';
@@ -197,6 +197,10 @@ export default class CreditCard extends Vue {
   public mounted(): void {
     this.cardNumberTemp = this.otherCardMask;
     document.getElementById('cardNumber').focus();
+  }
+
+  get normalizedCardname(): string {
+    return this.cardName.replace(/\s\s+/g, ' ');
   }
 
   get getCardType(): string {
@@ -252,8 +256,8 @@ export default class CreditCard extends Vue {
 
   public focusInput(e): void {
     this.isInputFocused = true;
-    let targetRef = e.target.dataset.ref;
-    let target = this.$refs[targetRef] as HTMLElement;
+    const targetRef = e.target.dataset.ref;
+    const target = this.$refs[targetRef] as HTMLElement;
     this.focusElementStyle = {
       width: `${target.offsetWidth}px`,
       height: `${target.offsetHeight}px`,

@@ -15,6 +15,11 @@
         Não foi possível atualizar os dados.
       </v-alert>
     </transition>
+    <transition name="fade" mode="out-in">
+      <v-alert type="warning" class="custom-alert" v-show="loginError" key="1">
+        Não foi possível realizar o login. Verifique o usuário e senha.
+      </v-alert>
+    </transition>
   </div>
 </template>
 
@@ -25,7 +30,7 @@ import { mapState } from 'vuex';
 @Component({
   computed: {
     ...mapState('carrinho', { cartAdd: 'alert' }),
-    ...mapState('usuario', { userUpdate: 'alert', userUpdateError: 'alert_error' }),
+    ...mapState('usuario', { userUpdate: 'alert', userUpdateError: 'alert_error', loginError: 'alert_warning' }),
   },
 })
 export default class Alerts extends Vue {}

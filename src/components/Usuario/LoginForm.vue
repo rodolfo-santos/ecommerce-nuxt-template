@@ -45,16 +45,12 @@ export default class LoginForm extends Vue {
     manterConectado: false,
   };
   public recuperar: boolean = false;
-  public getUsuario!: (login: LoginModel) => void;
+  public getUsuario!: (login: LoginModel) => Promise<void>;
 
   public async logar(): Promise<void> {
-    try {
-      const response: any = await this.getUsuario(this.login);
-      if (response.status === 200) {
-        this.$router.push({ name: 'Usuario' });
-      }
-    } catch {
-      alert('Não foi possível logar!');
+    const response: any = await this.getUsuario(this.login);
+    if (response.status === 200) {
+      this.$router.push({ name: 'UsuarioEditar' });
     }
   }
 }

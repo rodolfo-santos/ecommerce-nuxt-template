@@ -12,6 +12,7 @@
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "register-service-worker": "^1.7.1",
+    "v-mask": "^2.2.4",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
     "vue-inner-image-zoom": "^1.0.0",
