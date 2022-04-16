@@ -61,7 +61,7 @@ Após a instalação execute os comandos:
 
 - Para rodar o server:
 > ```sh
-> json-server ./api/ranek.json
+> json-server ./api/bigstore.json
 > ```
 
 
