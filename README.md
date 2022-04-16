@@ -8,19 +8,19 @@
   <a href="https://vuejs.org/">
     <img alt="VueJS" src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D">
   </a>
-  <a href="https://www.mysql.com/">
-    <img alt="Javascript" src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E">
+  <a href="https://www.typescriptlang.org/">
+    <img alt="Typescript" src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white">
   </a>
-  <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML">
-    <img alt="HTML" src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white">
+  <a href="https://sass-lang.com/">
+    <img alt="SASS" src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white">
   </a>
 </div>
 <div align="center">
-  <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS">
-    <img alt="CSS" src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+  <a href="https://jestjs.io/pt-BR/">
+    <img alt="Jest" src="https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white">
   </a>
   <a href="https://www.docker.com/">
-    <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white">
+    <img alt="Docker" src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white">
   </a>
 </div>
 
@@ -28,9 +28,9 @@
 
 <br />
 
-# 💻 Ecommerce MVP (VUEJS)
+# 💻 Ecommerce SPA Typescript (VUEJS)
 
-CRUD de produtos em Vuejs e uma Fake API utilizando [json-server]('https://www.npmjs.com/package/json-server')
+Frontend SPA em Vuejs batendo uma Fake API utilizando [json-server]('https://www.npmjs.com/package/json-server')
 
 ## 🚀 Setup do Projeto
 
