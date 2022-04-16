@@ -30,7 +30,7 @@
 
 # 💻 Ecommerce SPA Typescript (VUEJS)
 
-Frontend SPA em Vuejs using a [Json-Server Fake API]('https://www.npmjs.com/package/json-server')
+SPA Vue Frontend using a [Json-Server Fake API]('https://www.npmjs.com/package/json-server')
 
 ## 🚀 Project Setup
 
