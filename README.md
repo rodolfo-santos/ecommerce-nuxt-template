@@ -30,36 +30,36 @@
 
 # 💻 Ecommerce SPA Typescript (VUEJS)
 
-Frontend SPA em Vuejs batendo uma Fake API utilizando [json-server]('https://www.npmjs.com/package/json-server')
+Frontend SPA em Vuejs using a [Json-Server Fake API]('https://www.npmjs.com/package/json-server')
 
-## 🚀 Setup do Projeto
+## 🚀 Project Setup
 
-### Configuração local com docker (Recomendado)
+### Local configuration with docker (recommended)
 
-- [Instale o Docker](https://docs.docker.com/get-docker/)
-- [Instale o docker-compose](https://docs.docker.com/compose/install/)
-- Abra a pasta raíz do projeto no terminal e execute o comando: 
+- [Install docker](https://docs.docker.com/get-docker/)
+- [Install docker-compose](https://docs.docker.com/compose/install/)
+- Open the root project folder at terminal and execute:
 > ```sh
 > docker-compose up
 > ```
-- Acesso a Aplicação: http://localhost:8080
-- Acesso a Fake API: http://localhost:3000
+- Application access: http://localhost:8080
+- Fake API access: http://localhost:3000
 
-### Configuração local sem docker
+### Local configuration without docker
 
-Requerimentos:
+Requirements:
 - NodeJS@14.17.0
 - Vue2
-- Pacotes NPM
+- NPM packages
   - [json-server]('https://www.npmjs.com/package/json-server')
 
-Após a instalação execute os comandos:
-- Para rodar o client:
+After installation, execute:
+- Run client:
 > ```sh
 > npm install && npm run dev
 > ```
 
-- Para rodar o server:
+- Run server📝:
 > ```sh
 > json-server ./api/bigstore.json
 > ```
