@@ -1,11 +1,11 @@
 <template>
-  <v-card class="lista-categorias">
+  <v-card class="lista-categories">
     <div class="filtro-titulo mb-4">Refinar Busca</div>
 
     <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
       <div class="opcao-titulo mb-2">Adicionar Sub-Categorias</div>
       <v-chip-group v-model="categoriasSelecionadas" active-class="primary" column multiple>
-        <v-chip v-for="(categoria, index) in categorias" :key="index" @input="filtrarCategoria">{{ categoria.nome }}</v-chip>
+        <v-chip v-for="(category, index) in categories" :key="index" @input="filtrarCategoria">{{ category.name }}</v-chip>
       </v-chip-group>
     </v-card>
 
@@ -15,7 +15,7 @@
         <div class="d-flex justify-space-between">
           <div class="align-end">Valor Máximo</div>
           <div>
-            <input v-model="valorMaximo" class="input-preco" type="number" @change="filtrarPreco" />
+            <input v-model="valorMaximo" class="input-price" type="number" @change="filtrarPreco" />
           </div>
         </div>
         <v-slider v-model="valorMaximo" :min="valorMinimo" :max="1000" class="align-center" @change="filtrarPreco"></v-slider>
@@ -23,7 +23,7 @@
         <div class="d-flex justify-space-between">
           <div>Valor Mínimo</div>
           <div>
-            <input v-model="valorMinimo" class="input-preco" type="number" @change="filtrarPreco" />
+            <input v-model="valorMinimo" class="input-price" type="number" @change="filtrarPreco" />
           </div>
         </div>
         <v-slider v-model="valorMinimo" :max="valorMaximo" :min="0" class="align-center" @change="filtrarPreco"></v-slider>
@@ -33,7 +33,7 @@
     <v-card class="filtro-opcao pa-4 mb-4" elevation="2">
       <div class="opcao-titulo mb-2">Cor</div>
       <v-chip-group v-model="coresSelecionadas" column multiple>
-        <v-chip v-for="cor in cores" :key="cor.nome" :active-class="cor.class">{{ cor.nome }}</v-chip>
+        <v-chip v-for="cor in cores" :key="cor.name" :active-class="cor.class">{{ cor.name }}</v-chip>
       </v-chip-group>
     </v-card>
   </v-card>
@@ -43,63 +43,63 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { serialize } from '@/helpers';
 
-import CategoriasServ from '@/services/categorias';
+import CategoriasServ from '@/services/categories';
 
-import Categoria from '@/models/Categoria';
+import Categoria from '@/models/ICategory';
 
 @Component
 export default class FiltrosCategorias extends Vue {
-  public categorias: Categoria[] = [];
+  public categories: Categoria[] = [];
   public categoriasSelecionadas: number[] = [];
   public valorMinimo: number = 0;
   public valorMaximo: number = 1000;
   public coresSelecionadas: number[] = [];
   public cores: object[] = [
     {
-      nome: 'Branco',
+      name: 'Branco',
       class: 'blue-grey',
     },
     {
-      nome: 'Preto',
+      name: 'Preto',
       class: 'blue-grey',
     },
     {
-      nome: 'Vermelho',
+      name: 'Vermelho',
       class: 'red',
     },
     {
-      nome: 'Verde',
+      name: 'Verde',
       class: 'green',
     },
     {
-      nome: 'Azul',
+      name: 'Azul',
       class: 'blue',
     },
     {
-      nome: 'Rosa',
+      name: 'Rosa',
       class: 'pink',
     },
     {
-      nome: 'Roxo',
+      name: 'Roxo',
       class: 'purple',
     },
     {
-      nome: 'Amarelo',
+      name: 'Amarelo',
       class: 'amber',
     },
     {
-      nome: 'Laranja',
+      name: 'Laranja',
       class: 'deep-orange',
     },
     {
-      nome: 'Marrom',
+      name: 'Marrom',
       class: 'brown',
     },
   ];
 
   public filtrarCategoria(): void {
-    const categorias = this.categoriasSelecionadas.map((i) => this.categorias[i].id);
-    const params = { categorias_like: categorias };
+    const categories = this.categoriasSelecionadas.map((i) => this.categories[i].id);
+    const params = { categorias_like: categories };
     this.filtrar(params, true);
   }
 
@@ -120,12 +120,12 @@ export default class FiltrosCategorias extends Vue {
 
   public async getCategorias(): Promise<void> {
     await CategoriasServ.listar(35).then((response) => {
-      this.categorias = response.data;
+      this.categories = response.data;
     });
   }
 
   public sortItems(): void {
-    this.categorias = this.categorias.sort((a, b) => (a.nome > b.nome ? 1 : -1));
+    this.categories = this.categories.sort((a, b) => (a.name > b.name ? 1 : -1));
   }
 
   public async created(): Promise<void> {
@@ -138,7 +138,7 @@ export default class FiltrosCategorias extends Vue {
 <style lang="scss" scoped>
 @import '@/sass/custom.scss';
 
-.lista-categorias {
+.lista-categories {
   background-color: $secondary;
 }
 
@@ -161,7 +161,7 @@ label {
   font-size: 0.9em;
 }
 
-.input-preco {
+.input-price {
   max-width: 80px;
   margin: 0;
   padding: 0;

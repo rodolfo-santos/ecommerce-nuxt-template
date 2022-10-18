@@ -5,6 +5,7 @@ import router from './router';
 import store from './store';
 import vuetify from './plugins/vuetify';
 import VueMask from 'v-mask';
+import '@/sass/custom.scss';
 
 Vue.use(VueMask);
 
@@ -26,7 +27,7 @@ new Vue({
   vuetify,
   render: (h) => h(App),
   beforeCreate(): void {
-    this.$store.dispatch('carrinho/carrinhoLocalStorage');
-    this.$store.dispatch('usuario/usuarioLocalStorage');
+    this.$store.dispatch('cart/carrinhoLocalStorage');
+    this.$store.dispatch('user/usuarioLocalStorage');
   },
 }).$mount('#app');

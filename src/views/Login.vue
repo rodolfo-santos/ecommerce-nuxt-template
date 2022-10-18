@@ -12,9 +12,7 @@
           <LoginForm />
         </div>
         <div v-show="criarConta">
-          <UsuarioForm>
-            Cadastrar
-          </UsuarioForm>
+          <UsuarioForm> Cadastrar </UsuarioForm>
         </div>
       </div>
     </v-container>

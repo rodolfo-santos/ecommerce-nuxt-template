@@ -2,8 +2,8 @@
   <v-form @submit.prevent="logar" v-model="valido">
     <v-text-field id="email" v-model="login.email" label="E-mail" ref="campoDeFoco" :rules="rules.email" required></v-text-field>
     <v-text-field
-      id="senha"
-      v-model="login.senha"
+      id="password"
+      v-model="login.password"
       label="Senha"
       :rules="rules.required"
       :append-icon="viewPass ? 'mdi-eye-off-outline' : 'mdi-eye'"
@@ -16,7 +16,7 @@
     <div class="flex-center mt-4">
       <v-btn class="btn-login pa-6" type="submit" :disabled="!valido"> Login </v-btn>
     </div>
-    <p class="text-center mt-4">Perdeu a senha? <a @click="recuperar = !recuperar">Clique aqui para recuperar.</a></p>
+    <p class="text-center mt-4">Perdeu a password? <a @click="recuperar = !recuperar">Clique aqui para recuperar.</a></p>
     <transition name="fade" mode="out-in">
       <RecuperarSenha v-show="recuperar" />
     </transition>
@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import LoginModel from '@/models/Login';
+import LoginModel from '@/models/data/ILogin';
 import RecuperarSenha from '@/components/Usuario/RecuperarSenha.vue';
 import { mapActions, mapState } from 'vuex';
 
@@ -34,14 +34,14 @@ import { mapActions, mapState } from 'vuex';
     RecuperarSenha,
   },
   computed: mapState('geral', ['rules']),
-  methods: mapActions('usuario', ['getUsuario']),
+  methods: mapActions('user', ['getUsuario']),
 })
 export default class LoginForm extends Vue {
   public valido: boolean = false;
   public viewPass: boolean = false;
   public login: LoginModel = {
     email: '',
-    senha: '',
+    password: '',
     manterConectado: false,
   };
   public recuperar: boolean = false;

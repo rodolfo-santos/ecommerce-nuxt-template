@@ -79,9 +79,7 @@
         </div>
       </div>
 
-      <button class="card-form__button primary">
-        Atualizar
-      </button>
+      <button class="card-form__button primary">Atualizar</button>
     </div>
   </div>
 </template>
@@ -96,7 +94,7 @@ import CreditCard from '@/components/Pagamento/CreditCard.vue';
   },
 })
 export default class CreditCardForm extends Vue {
-  public currentCardBackground: string = require('@/assets/imagens/banner-subheader.jpg');
+  public currentCardBackground: string = require('@/assets/images/banner-subheader.jpg');
   public cardName: string = '';
   public cardNumber: string = '';
   public cardMonth: number = 0;

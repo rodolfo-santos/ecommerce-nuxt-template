@@ -2,12 +2,12 @@
   <section>
     <Skeleton v-if="loading" :heading="true" :cols="4" :rows="1" />
     <div v-else class="pa-0 py-4">
-      <h2>Produtos Relacionados</h2>
+      <h2>products Relacionados</h2>
       <v-sheet class="bg-transparent">
         <v-slide-group center-active>
-          <v-slide-item v-for="n in produtos.length" :key="n" v-slot="{ toggle }">
+          <v-slide-item v-for="n in products.length" :key="n" v-slot="{ toggle }">
             <div @click="toggle">
-              <Produto :dados="produtos[n - 1]" width="300" class="mr-3 ml-3" v-if="produtos[n - 1]" />
+              <product :dados="products[n - 1]" width="300" class="mr-3 ml-3" v-if="products[n - 1]" />
             </div>
           </v-slide-item>
         </v-slide-group>
@@ -19,29 +19,29 @@
 <script lang="ts" scoped>
 import Titulo from '@/components/Titulo.vue';
 import { Component, Vue } from 'vue-property-decorator';
-import ProdutosServ from '@/services/produtos';
-import Produto from '@/components/Produto.vue';
-import Skeleton from '@/components/Skeleton/SkeletonProdutoList.vue';
+import productsServ from '@/services/products';
+import product from '@/components/product.vue';
+import Skeleton from '@/components/Skeleton/SkeletonproductList.vue';
 
 @Component({
   components: {
-    Produto,
+    product,
     Titulo,
     Skeleton,
   },
 })
-export default class ProdutosRelacionados extends Vue {
+export default class productsRelacionados extends Vue {
   public loading: boolean = true;
-  public produtos: object[] = [];
-  public getProdutos(): void {
-    ProdutosServ.listar(6, '', '').then((response) => {
-      this.produtos = response.data;
+  public products: object[] = [];
+  public getproducts(): void {
+    productsServ.listar(6, '', '').then((response) => {
+      this.products = response.data;
       this.loading = false;
     });
   }
 
   public async created(): Promise<void> {
-    await this.getProdutos();
+    await this.getproducts();
   }
 }
 </script>

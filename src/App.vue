@@ -1,33 +1,32 @@
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import { TheHeader, TheFooter, Alert } from '@/components';
+import { cart } from './store';
+import { ICartStore } from './models/store';
+
+@Component({ components: { TheHeader, TheFooter, Alert } })
+export default class App extends Vue {
+  @cart.Action public readonly getCartOfLocalStorage!: ICartStore['getCartOfLocalStorage'];
+
+  created() {
+    this.getCartOfLocalStorage();
+  }
+}
+</script>
+
 <template>
   <v-app>
-    <Header />
+    <TheHeader />
     <transition name="fade" mode="out-in" appear>
-      <router-view class="conteudo-view"></router-view>
+      <router-view class="content-view"></router-view>
     </transition>
-    <Footer />
-    <Alerts />
+    <TheFooter />
+    <Alert />
   </v-app>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import Header from '@/components/Header.vue';
-import Footer from '@/components/Footer.vue';
-import Alerts from '@/components/Alerts.vue';
-import { mapState } from 'vuex';
-
-@Component({
-  components: {
-    Header,
-    Footer,
-    Alerts,
-  },
-})
-export default class App extends Vue {}
-</script>
-
 <style lang="scss">
-@import '@/sass/custom.scss';
+@import './sass/custom.scss';
 
 a {
   text-decoration: none;
@@ -37,7 +36,7 @@ a {
   }
 }
 
-.conteudo-view {
+.content-view {
   margin-top: $header-margin;
   min-height: 88vh;
 }
@@ -79,7 +78,7 @@ input[type='number'] {
   }
 }
 
-.chip-produto .v-slide-group__content {
+.chip-product .v-slide-group__content {
   justify-content: center;
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
   <v-main>
-    <SubHeader :titulo="produto.nome" :breadCrumbs="breadCrumbs" />
-    <v-container class="produto-container">
-      <SkeletonProduto v-if="loading" />
+    <SubHeader :titulo="product.name" :breadCrumbs="breadCrumbs" />
+    <v-container class="product-container">
+      <Skeletonproduct v-if="loading" />
 
       <template v-else>
         <v-row>
@@ -10,7 +10,7 @@
             <div class="d-none d-md-block col-2">
               <v-img
                 :src="foto"
-                v-for="(foto, index) in produto.fotos"
+                v-for="(foto, index) in product.gallery"
                 class="mb-2 imagem_lateral"
                 :class="{ imagem_ativa: foto === imagemAtiva }"
                 :key="index"
@@ -21,20 +21,20 @@
               <InnerImageZoom :src="imagemAtiva" :zoomSrc="imagemAtiva" />
             </div>
             <div class="d-md-none col-12 row">
-              <div class="col-4" v-for="(foto, index) in produto.fotos" :key="index">
+              <div class="col-4" v-for="(foto, index) in product.gallery" :key="index">
                 <v-img :src="foto" :class="{ imagem_ativa: foto === imagemAtiva }" @click="mudarImagem(foto)"></v-img>
               </div>
             </div>
           </v-row>
           <v-col>
-            <h2>{{ produto.nome }}</h2>
-            <p>{{ produto.descricao_breve }}</p>
-            <p class="preco">{{ produto.preco | numeroPreco }}</p>
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.short_description }}</p>
+            <p class="price">{{ product.price | numeroPreco }}</p>
             <v-divider class="mb-4"></v-divider>
-            <div class="variacoes">
+            <div class="variations">
               <strong>Escolha a variação</strong>
               <v-chip-group v-model="selection" active-class="primary" mandatory>
-                <v-chip v-for="variacao in produto.variacoes" :key="variacao">{{ variacao }}</v-chip>
+                <v-chip v-for="variacao in product.variations" :key="variacao">{{ variacao }}</v-chip>
               </v-chip-group>
             </div>
             <v-divider class="my-4"></v-divider>
@@ -42,18 +42,18 @@
               <p>
                 Categorias:
                 <router-link
-                  v-for="categoria in produto.categorias"
-                  :key="categoria"
+                  v-for="category in product.categories"
+                  :key="category"
                   class="text-capitalize text-muted"
-                  :to="{ name: 'Categoria', params: { id: categoria } }"
+                  :to="{ name: 'Categoria', params: { id: category } }"
                 >
-                  {{ categoria }}
+                  {{ category }}
                 </router-link>
               </p>
               <v-text-field :counter="8" maxlength="6" label="Calcular Frete"></v-text-field>
               <v-row class="mt-5 pa-2">
                 <v-btn class="col-12 mb-2 pa-7" color="primary">Comprar Agora</v-btn>
-                <v-btn class="col-12 mb-2 pa-7" color="warning" :disabled="!btnAdd" @click="adicionarCarrinho(produto)">Adicionar ao Carrinho +</v-btn>
+                <v-btn class="col-12 mb-2 pa-7" color="warning" :disabled="!btnAdd" @click="adicionarCarrinho(product)">Adicionar ao Carrinho +</v-btn>
               </v-row>
             </div>
           </v-col>
@@ -61,18 +61,18 @@
 
         <section class="mt-15">
           <h2>Descrição</h2>
-          <p class="text-justify">{{ produto.descricao_completa }}</p>
+          <p class="text-justify">{{ product.full_description }}</p>
           <h4>Informações Complementares</h4>
           <p>
-            Peso Kg: {{ produto.peso_kg }} <br />
-            Altura Cm:{{ produto.altura_cm }} <br />
-            Largura Cm:{{ produto.largura_cm }} <br />
-            Comprimento Cm:{{ produto.comprimento_cm }} <br />
+            Peso Kg: {{ product.weight_kg }} <br />
+            Altura Cm:{{ product.height_cm }} <br />
+            Largura Cm:{{ product.width_cm }} <br />
+            Comprimento Cm:{{ product.length_cm }} <br />
           </p>
         </section>
         <v-divider></v-divider>
       </template>
-      <ProdutosRelacionados />
+      <productsRelacionados />
     </v-container>
   </v-main>
 </template>
@@ -80,43 +80,43 @@
 <script lang="ts">
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator';
 import InnerImageZoom from 'vue-inner-image-zoom';
-import ProdutosRelacionados from '@/components/PaginaProduto/ProdutosRelacionados.vue';
-import SkeletonProduto from '@/components/Skeleton/SkeletonPaginaProduto.vue';
+import productsRelacionados from '@/components/Paginaproduct/productsRelacionados.vue';
+import Skeletonproduct from '@/components/Skeleton/SkeletonPaginaproduct.vue';
 import SubHeader from '@/components/SubHeader.vue';
 import 'vue-inner-image-zoom/lib/vue-inner-image-zoom.css';
 
-import ProdutosServ from '@/services/produtos';
-import FreteServ from '@/services/calcularFrete';
+import productsServ from '@/services/products';
+import FreteServ from '@/services/utils/ShippingCalculatorService';
 
-import Produto from '@/models/Produto';
+import product from '@/models/product';
 import { mapActions } from 'vuex';
 
 @Component({
   components: {
     SubHeader,
     InnerImageZoom,
-    ProdutosRelacionados,
-    SkeletonProduto,
+    productsRelacionados,
+    Skeletonproduct,
   },
-  methods: mapActions('carrinho', ['addCarrinho']),
+  methods: mapActions('cart', ['addCarrinho']),
 })
-export default class PaginaProduto extends Vue {
+export default class Paginaproduct extends Vue {
   @Prop() public readonly id!: string;
   public breadCrumbs: object[] = [];
-  public produto: Produto = {
+  public product: product = {
     id: '',
-    nome: '',
-    preco: 0,
-    descricao_breve: '',
-    descricao_completa: '',
-    estoque: 0,
-    fotos: [''],
-    categorias: [],
-    variacoes: [],
-    peso_kg: 0,
-    altura_cm: 0,
-    largura_cm: 0,
-    comprimento_cm: 0,
+    name: '',
+    price: 0,
+    short_description: '',
+    full_description: '',
+    inventory: 0,
+    gallery: [''],
+    categories: [],
+    variations: [],
+    weight_kg: 0,
+    height_cm: 0,
+    width_cm: 0,
+    length_cm: 0,
   };
 
   public imagemAtiva: string = '';
@@ -124,18 +124,18 @@ export default class PaginaProduto extends Vue {
   public selection: string = '';
   public cep: string = '';
   public btnAdd = true;
-  public addCarrinho!: (produto: Produto) => void;
+  public addCarrinho!: (product: product) => void;
 
   @Watch('id')
-  public async mudarProduto(): Promise<void> {
-    await this.getProduto();
+  public async mudarproduct(): Promise<void> {
+    await this.getproduct();
     this.setBreadCrumb();
   }
 
-  public async getProduto(): Promise<void> {
-    await ProdutosServ.produto_unico(this.id).then((response) => {
-      this.produto = response.data;
-      this.imagemAtiva = this.produto.fotos[0];
+  public async getproduct(): Promise<void> {
+    await productsServ.product_unico(this.id).then((response) => {
+      this.product = response.data;
+      this.imagemAtiva = this.product.gallery[0];
     });
     this.setBreadCrumb();
   }
@@ -152,20 +152,20 @@ export default class PaginaProduto extends Vue {
         to: '/',
       },
       {
-        text: this.produto.categorias[0],
+        text: this.product.categories[0],
         disabled: false,
-        to: `/categoria/${this.produto.categorias[0]}`,
+        to: `/category/${this.product.categories[0]}`,
       },
       {
-        text: this.produto.nome,
+        text: this.product.name,
         disabled: true,
-        to: `/categoria/${this.produto.id}`,
+        to: `/category/${this.product.id}`,
       },
     ];
   }
 
-  public adicionarCarrinho(produto: object): void {
-    this.addCarrinho(produto);
+  public adicionarCarrinho(product: object): void {
+    this.addCarrinho(product);
     this.btnAdd = false;
     setTimeout(() => {
       this.btnAdd = true;
@@ -173,7 +173,7 @@ export default class PaginaProduto extends Vue {
   }
 
   public async created(): Promise<void> {
-    await this.getProduto();
+    await this.getproduct();
     this.loading = false;
   }
 }
@@ -191,15 +191,15 @@ export default class PaginaProduto extends Vue {
   opacity: 1;
 }
 
-.produto-container {
+.product-container {
   max-width: 1300px;
 }
 
-.variacoes {
+.variations {
   max-width: 300px;
 }
 
-.preco {
+.price {
   font-size: 1.3em;
   color: $primary;
 }
