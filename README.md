@@ -40,7 +40,7 @@ SPA Vue Frontend using a [Json-Server Fake API]('https://www.npmjs.com/package/j
 - [Install docker-compose](https://docs.docker.com/compose/install/)
 - Open the root project folder at terminal and execute:
 > ```sh
-> docker-compose up
+> npm run dev
 > ```
 - Application access: http://localhost:8080
 - Fake API access: http://localhost:3000
