@@ -1,7 +1,7 @@
 <template>
   <div>
     <div :style="`background-image: url(${urlBackground})`" class="banner-header">
-      <h1 class="text-capitalize">{{ titulo }}</h1>
+      <h1 class="text-capitalize">{{ title }}</h1>
       <v-breadcrumbs :items="breadCrumbs" divider=">" class="pl-0"></v-breadcrumbs>
     </div>
     <v-progress-linear :indeterminate="saving" color="primary"></v-progress-linear>
@@ -9,6 +9,7 @@
 </template>
 
 <script lang="ts">
+import { general } from '@/store';
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import { mapState } from 'vuex';
 
@@ -16,13 +17,14 @@ import { mapState } from 'vuex';
   computed: mapState('geral', ['saving']),
 })
 export default class SubHeader extends Vue {
-  @Prop() public readonly titulo!: string;
-  @Prop({ default: require('../assets/imagens/banner-subheader.jpg') }) public background: string;
+  @general.State saving!: boolean;
+  @Prop() public readonly title!: string;
+  @Prop({ default: require('@/assets/images/banner-subheader.jpg') }) public background: string;
   @Prop() public readonly breadCrumbs!: object[];
 
   get urlBackground(): string {
     if (this.background === '') {
-      return require('../assets/imagens/banner-subheader.jpg');
+      return require('@/assets/images/banner-subheader.jpg');
     }
     return this.background;
   }

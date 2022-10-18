@@ -1,81 +1,94 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
-import Page404 from '../views/Page404.vue';
-import { Home } from '@/views';
-// import product from '../views/Paginaproduct.vue';
-// import Categoria from '../views/PaginaCategoria.vue';
-// import Login from '../views/Login.vue';
-// import Usuario from '../views/Usuario/Usuario.vue';
-// import UsuarioEditar from '../views/Usuario/UsuarioEditar.vue';
-// import UsuarioFormasPagamento from '../views/Usuario/UsuarioFormasPagamento.vue';
-// import UsuarioPedidos from '../views/Usuario/UsuarioPedidos.vue';
-// import UsuarioHistoricoCompras from '../views/Usuario/UsuarioHistoricoCompras.vue';
-// import UsuarioFalarComseller from '../views/Usuario/UsuarioFalarComseller.vue';
+// import { Home, Category, Product, Cart, Payment, Login, User, NotFound } from '@/pages';
+import { Home, Category, NotFound } from '@/pages';
+// import { UserEdit, UserHistory, UserOrders, UserPayment, UserTalkToSeller } from '@/pages/user';
 
 Vue.use(VueRouter);
 
-const routes: RouteConfig[] = [
-  // {
-  //   path: '*',
-  //   component: Page404,
-  // },
+type Route = RouteConfig & { layout?: string };
+
+export const routes: Route[] = [
+  {
+    path: '*',
+    component: NotFound,
+    layout: 'blank',
+  },
   {
     path: '/',
     name: 'home',
     component: Home,
+    layout: 'marketplace',
+  },
+  {
+    path: '/store',
+    name: 'store',
+    component: Category,
+    props: true,
+    layout: 'marketplace',
+  },
+  {
+    path: '/category/:id',
+    name: 'category',
+    component: Category,
+    props: true,
+    layout: 'marketplace',
   },
   // {
   //   path: '/product/:id',
   //   name: 'product',
-  //   component: product,
+  //   component: Product,
   //   props: true,
+  //   layout: 'marketplace',
   // },
   // {
-  //   path: '/category/:id',
-  //   name: 'category',
-  //   component: Categoria,
-  //   props: true,
+  //   path: '/cart',
+  //   name: 'cart',
+  //   component: Cart,
+  //   layout: 'checkout',
   // },
   // {
-  //   path: '/store',
-  //   name: 'store',
-  //   component: Categoria,
-  //   props: true,
+  //   path: '/payment',
+  //   name: 'payment',
+  //   component: Payment,
+  //   layout: 'checkout',
   // },
   // {
   //   path: '/login',
   //   name: 'login',
   //   component: Login,
+  //   layout: 'marketplace',
   // },
   // {
   //   path: '/user',
   //   name: 'user',
-  //   component: Usuario,
+  //   component: User,
+  //   layout: 'checkout',
   //   children: [
   //     {
   //       path: 'edit',
   //       name: 'user-edit',
-  //       component: UsuarioEditar,
+  //       component: UserEdit,
   //     },
   //     {
   //       path: 'payment',
   //       name: 'user-payment',
-  //       component: UsuarioFormasPagamento,
+  //       component: UserPayment,
   //     },
   //     {
   //       path: 'orders',
   //       name: 'user-orders',
-  //       component: UsuarioPedidos,
+  //       component: UserOrders,
   //     },
   //     {
   //       path: 'history',
   //       name: 'user-history',
-  //       component: UsuarioHistoricoCompras,
+  //       component: UserHistory,
   //     },
   //     {
   //       path: 'talk-to-seller',
   //       name: 'user-talk-to-seller',
-  //       component: UsuarioFalarComseller,
+  //       component: UserTalkToSeller,
   //     },
   //   ],
   // },

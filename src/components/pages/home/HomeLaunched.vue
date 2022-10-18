@@ -2,9 +2,9 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { productService } from '@/services/api';
 
-import { ProductCard } from '@/components';
-import { TheTitle } from '@/components';
-import { SkeletonProductList } from '@/components/Skeleton';
+import { ProductCard } from '@/components/utils';
+import { TheTitle } from '@/components/utils';
+import { SkeletonProductList } from '@/components/utils';
 import { IProduct } from '@/models/data';
 
 @Component({ components: { ProductCard, TheTitle, SkeletonProductList } })

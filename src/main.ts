@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import App from './App.vue';
+import App from './app.vue';
 import './registerServiceWorker';
 import router from './router';
 import store from './store';
@@ -26,8 +26,4 @@ new Vue({
   store,
   vuetify,
   render: (h) => h(App),
-  beforeCreate(): void {
-    this.$store.dispatch('cart/carrinhoLocalStorage');
-    this.$store.dispatch('user/usuarioLocalStorage');
-  },
 }).$mount('#app');

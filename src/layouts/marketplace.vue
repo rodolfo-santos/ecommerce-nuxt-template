@@ -1,11 +1,12 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { TheHeader, TheFooter, Alert } from '@/components';
-import { cart } from './store';
-import { ICartStore } from './models/store';
+import { TheHeader, TheFooter } from '@/components/layouts/marketplace';
+import { Alert } from '@/components/utils';
+import { cart } from '@/store';
+import { ICartStore } from '@/models/store';
 
 @Component({ components: { TheHeader, TheFooter, Alert } })
-export default class App extends Vue {
+export default class extends Vue {
   @cart.Action public readonly getCartOfLocalStorage!: ICartStore['getCartOfLocalStorage'];
 
   created() {
@@ -26,7 +27,7 @@ export default class App extends Vue {
 </template>
 
 <style lang="scss">
-@import './sass/custom.scss';
+@import '@/sass/custom.scss';
 
 a {
   text-decoration: none;

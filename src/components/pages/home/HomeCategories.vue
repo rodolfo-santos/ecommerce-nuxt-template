@@ -1,7 +1,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { categoryService } from '@/services/api';
-import { SkeletonProductList } from '@/components/Skeleton/index';
+import { SkeletonProductList } from '@/components/utils';
 import { ICategory } from '@/models/data';
 
 @Component({ components: { SkeletonProductList } })

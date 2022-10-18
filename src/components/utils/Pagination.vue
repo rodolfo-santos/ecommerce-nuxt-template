@@ -8,11 +8,11 @@
 </template>
 
 <script lang="ts">
-import { serialize } from '@/helpers';
+import { objectToQuery } from '@/assets/ts';
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 
 @Component
-export default class Paginacao extends Vue {
+export default class extends Vue {
   @Prop() public readonly limit!: number;
   @Prop() public readonly total!: number;
   public page: number = 1;
@@ -43,7 +43,7 @@ export default class Paginacao extends Vue {
       filtro = Object.assign(filtro, { _page: 1 });
     }
     const novaQuery = Object.assign(query, filtro);
-    const url: string = serialize(novaQuery);
+    const url: string = objectToQuery(novaQuery);
     this.$router.push('?' + url).catch(() => {});
   }
 

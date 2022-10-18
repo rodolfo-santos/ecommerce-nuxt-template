@@ -3,7 +3,7 @@ import Vuetify from 'vuetify';
 Vue.use(Vuetify);
 
 import { shallowMount } from '@vue/test-utils';
-import Home from '@/views/Home.vue';
+import Home from '@/views/home.vue';
 import Banner from '@/components/Home/HomeBanner.vue';
 import Categorias from '@/components/Home/HomeCategories.vue';
 import DivImage from '@/components/Home/HomeDivImage.vue';

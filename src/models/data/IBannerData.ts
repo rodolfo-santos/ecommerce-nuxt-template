@@ -3,6 +3,6 @@ export interface IBannerData {
   content: {
     textOne: string;
     textTwo: string;
-    textoThree: string;
+    textThree: string;
   };
 }

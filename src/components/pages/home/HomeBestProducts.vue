@@ -1,9 +1,7 @@
 <script lang="ts" scoped>
-import { TheTitle } from '@/components';
 import { Component, Vue } from 'vue-property-decorator';
 import { productService } from '@/services/api';
-import { ProductCard } from '@/components';
-import { SkeletonProductList } from '@/components/Skeleton';
+import { TheTitle, ProductCard, SkeletonProductList } from '@/components/utils';
 import { IProduct } from '@/models/data';
 
 @Component({ components: { ProductCard, TheTitle, SkeletonProductList } })

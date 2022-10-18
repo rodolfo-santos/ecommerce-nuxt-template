@@ -1,3 +1,12 @@
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+
+@Component
+export default class extends Vue {
+  public img404: string = require('@/assets/images/404.svg');
+}
+</script>
+
 <template>
   <v-main>
     <v-container>
@@ -10,15 +19,6 @@
     </v-container>
   </v-main>
 </template>
-
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-
-@Component
-export default class Page404 extends Vue {
-  public img404: string = require('../assets/imagens/404.svg');
-}
-</script>
 
 <style lang="scss" scoped>
 @import '@/sass/custom.scss';

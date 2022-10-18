@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { HomeBanner, HomeBestProducts, HomeCategories, HomeDivImage, HomeLaunched } from '@/components/Home';
+import { HomeBanner, HomeBestProducts, HomeCategories, HomeDivImage, HomeLaunched } from '@/components/pages/home';
 
 @Component({
   components: {
@@ -11,7 +11,7 @@ import { HomeBanner, HomeBestProducts, HomeCategories, HomeDivImage, HomeLaunche
     HomeLaunched,
   },
 })
-export default class Home extends Vue {}
+export default class extends Vue {}
 </script>
 
 <template>

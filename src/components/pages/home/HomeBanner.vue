@@ -1,19 +1,3 @@
-<template>
-  <v-carousel class="banner-home">
-    <v-carousel-item class="banner" v-for="(item, i) in items" :key="i">
-      <v-parallax :src="item.src">
-        <v-container class="content">
-          <h5 class="display-1 text-upper pb-2">{{ item.content.textOne }}</h5>
-          <h4 class="display-2 text-upper">{{ item.content.textTwo }}</h4>
-          <h4 class="display-2 text-upper">{{ item.content.textoThree }}</h4>
-          <hr class="hr-base" />
-          <v-btn outlined color="white" class="btn-banner" link :to="{ name: 'Store' }"> Confira Agora</v-btn>
-        </v-container>
-      </v-parallax>
-    </v-carousel-item>
-  </v-carousel>
-</template>
-
 <script lang="ts">
 import { IBannerData } from '@/models/data';
 import { Component, Vue } from 'vue-property-decorator';
@@ -26,7 +10,7 @@ export default class extends Vue {
       content: {
         textOne: 'Desapegou!',
         textTwo: 'Roupas Sociais a',
-        textoThree: 'preços Incríveis',
+        textThree: 'preços Incríveis',
       },
     },
     {
@@ -34,12 +18,28 @@ export default class extends Vue {
       content: {
         textOne: 'Confira as Novidades',
         textTwo: 'fique ligado nos',
-        textoThree: 'Últimos Anúncios',
+        textThree: 'Últimos Anúncios',
       },
     },
   ];
 }
 </script>
+
+<template>
+  <v-carousel class="banner-home">
+    <v-carousel-item class="banner" v-for="(item, i) in items" :key="i">
+      <v-parallax :src="item.src">
+        <v-container class="content">
+          <h5 class="display-1 text-upper pb-2">{{ item.content.textOne }}</h5>
+          <h4 class="display-2 text-upper">{{ item.content.textTwo }}</h4>
+          <h4 class="display-2 text-upper">{{ item.content.textThree }}</h4>
+          <hr class="hr-base" />
+          <v-btn outlined color="white" class="btn-banner" link :to="{ name: 'Store' }"> Confira Agora</v-btn>
+        </v-container>
+      </v-parallax>
+    </v-carousel-item>
+  </v-carousel>
+</template>
 
 <style lang="scss">
 @import '@/sass/custom.scss';
