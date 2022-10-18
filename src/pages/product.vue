@@ -11,18 +11,18 @@
               <v-img
                 :src="foto"
                 v-for="(foto, index) in product.gallery"
-                class="mb-2 imagem_lateral"
-                :class="{ imagem_ativa: foto === imagemAtiva }"
+                class="mb-2 image_lateral"
+                :class="{ image_ativa: foto === activeImage }"
                 :key="index"
-                @click="mudarImagem(foto)"
+                @click="changeImage(foto)"
               ></v-img>
             </div>
             <div class="col-12 col-md-10">
-              <InnerImageZoom :src="imagemAtiva" :zoomSrc="imagemAtiva" />
+              <InnerImageZoom :src="activeImage" :zoomSrc="activeImage" />
             </div>
             <div class="d-md-none col-12 row">
               <div class="col-4" v-for="(foto, index) in product.gallery" :key="index">
-                <v-img :src="foto" :class="{ imagem_ativa: foto === imagemAtiva }" @click="mudarImagem(foto)"></v-img>
+                <v-img :src="foto" :class="{ image_ativa: foto === activeImage }" @click="changeImage(foto)"></v-img>
               </div>
             </div>
           </v-row>
@@ -85,10 +85,10 @@ import Skeletonproduct from '@/components/Skeleton/SkeletonPaginaproduct.vue';
 import SubHeader from '@/components/SubHeader.vue';
 import 'vue-inner-image-zoom/lib/vue-inner-image-zoom.css';
 
-import productsServ from '@/services/products';
-import FreteServ from '@/services/utils/ShippingCalculatorService';
+import { productService } from '@/services/api';
+import { shippingService } from '@/services/utils/';
 
-import product from '@/models/product';
+import { IProduct } from '@/models/data';
 import { mapActions } from 'vuex';
 
 @Component({
@@ -102,79 +102,71 @@ import { mapActions } from 'vuex';
 })
 export default class Paginaproduct extends Vue {
   @Prop() public readonly id!: string;
-  public breadCrumbs: object[] = [];
-  public product: product = {
+
+  public breadCrumbs: IProduct[] = [];
+  public product: IProduct = {
     id: '',
     name: '',
     price: 0,
     short_description: '',
     full_description: '',
     inventory: 0,
-    gallery: [''],
+    gallery: [],
     categories: [],
     variations: [],
     weight_kg: 0,
     height_cm: 0,
     width_cm: 0,
     length_cm: 0,
+    promotion: false,
+    promotional_price: 0,
+    publish: false,
   };
 
-  public imagemAtiva: string = '';
+  public activeImage: string = '';
   public loading: boolean = true;
   public selection: string = '';
   public cep: string = '';
   public btnAdd = true;
-  public addCarrinho!: (product: product) => void;
+  public addCarrinho!: (product: IProduct) => void;
 
   @Watch('id')
-  public async mudarproduct(): Promise<void> {
-    await this.getproduct();
+  async onIdChange(): Promise<void> {
+    await this.fetchProduct();
     this.setBreadCrumb();
   }
 
-  public async getproduct(): Promise<void> {
-    await productsServ.product_unico(this.id).then((response) => {
+  async created(): Promise<void> {
+    await this.fetchProduct();
+    this.loading = false;
+  }
+
+  public async fetchProduct(): Promise<void> {
+    await productService.getUnique(this.id).then((response) => {
       this.product = response.data;
-      this.imagemAtiva = this.product.gallery[0];
+      this.activeImage = this.product.gallery[0];
     });
     this.setBreadCrumb();
   }
 
-  public mudarImagem(imagem): void {
-    this.imagemAtiva = imagem;
+  public changeImage(image): void {
+    this.activeImage = image;
   }
 
   public setBreadCrumb(): void {
     this.breadCrumbs = [
-      {
-        text: 'Home',
-        disabled: false,
-        to: '/',
-      },
-      {
-        text: this.product.categories[0],
-        disabled: false,
-        to: `/category/${this.product.categories[0]}`,
-      },
-      {
-        text: this.product.name,
-        disabled: true,
-        to: `/category/${this.product.id}`,
-      },
+      { text: 'Home', disabled: false, to: '/' },
+      { text: this.product.categories[0], disabled: false, to: `/category/${this.product.categories[0]}` },
+      { text: this.product.name, disabled: true, to: `/category/${this.product.id}` },
     ];
   }
 
-  public adicionarCarrinho(product: object): void {
+  public adicionarCarrinho(product: IProduct): void {
     this.addCarrinho(product);
     this.btnAdd = false;
     setTimeout(() => {
       this.btnAdd = true;
     }, 2000);
-  }
-
-  public async created(): Promise<void> {
-    await this.getproduct();
-    this.loading = false;
   }
 }
 </script>
@@ -182,12 +174,12 @@ export default class Paginaproduct extends Vue {
 <style lang="scss" scoped>
 @import '@/sass/custom.scss';
 
-.imagem_lateral {
+.image_lateral {
   opacity: 0.5;
   transition: 0.25s;
 }
 
-.imagem_ativa {
+.image_ativa {
   opacity: 1;
 }
 
