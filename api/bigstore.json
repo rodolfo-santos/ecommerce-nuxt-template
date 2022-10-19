@@ -247,8 +247,8 @@
   ],
   "product": [
     {
-      "id": "sweatshirt-skull-azul",
-      "name": "Moletom Skull Azul",
+      "id": "moletom-caveira-azul",
+      "name": "Moletom Caveira Azul",
       "price": 299.99,
       "short_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
       "full_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -257,7 +257,7 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_1_front.jpg",
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_1_back.jpg"
       ],
-      "categories": ["bolsas", "masculino", "casaco"],
+      "categories": ["bolsas", "masculino", "blusas"],
       "variations": ["PP", "P", "M", "G", "GG", "GX"],
       "weight_kg": 0.8,
       "height_cm": 100,
@@ -268,7 +268,7 @@
       "publish": true
     },
     {
-      "id": "sweatshirt-ninja-red",
+      "id": "moletom-ninja-vermelho",
       "name": "Moletom Ninja Vermelho",
       "price": 299.99,
       "short_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
@@ -278,7 +278,7 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_2_front.jpg",
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_2_back.jpg"
       ],
-      "categories": ["bolsas", "feminino", "casaco"],
+      "categories": ["bolsas", "feminino", "blusas"],
       "variations": ["P", "M", "G", "GG"],
       "weight_kg": 0.8,
       "height_cm": 100,
@@ -289,7 +289,7 @@
       "publish": true
     },
     {
-      "id": "sweatshirt-ninja-marrom",
+      "id": "moletom-ninja-marrom",
       "name": "Moletom Ninja Marrom",
       "price": 299.99,
       "short_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
@@ -299,7 +299,7 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_3_front.jpg",
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_3_back.jpg"
       ],
-      "categories": ["feminino", "masculino", "casaco"],
+      "categories": ["feminino", "masculino", "blusas"],
       "variations": ["P", "GG", "GX"],
       "weight_kg": 0.8,
       "height_cm": 100,
@@ -310,7 +310,7 @@
       "publish": true
     },
     {
-      "id": "sweatshirt-ninja-branco",
+      "id": "moletom-ninja-branco",
       "name": "Moletom Ninja Branco",
       "price": 299.99,
       "short_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
@@ -320,7 +320,7 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_4_front.jpg",
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_4_back.jpg"
       ],
-      "categories": ["feminino", "masculino", "casaco"],
+      "categories": ["feminino", "masculino", "blusas"],
       "variations": ["P", "M", "G"],
       "weight_kg": 0.8,
       "height_cm": 100,
@@ -331,7 +331,7 @@
       "publish": true
     },
     {
-      "id": "sweatshirt-ninja-preto",
+      "id": "moletom-ninja-preto",
       "name": "Moletom Ninja Preto",
       "price": 299.99,
       "short_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
@@ -341,7 +341,7 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_front.jpg",
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_5_back.jpg"
       ],
-      "categories": ["feminino", "masculino", "casaco"],
+      "categories": ["feminino", "masculino", "blusas"],
       "variations": ["PP", "P", "M", "G", "GG", "GX"],
       "weight_kg": 0.8,
       "height_cm": 100,
@@ -352,7 +352,7 @@
       "publish": true
     },
     {
-      "id": "sweatshirt-ninja-woo",
+      "id": "moletom-ninja-woo",
       "name": "Moletom Ninja Woo",
       "price": 299.99,
       "short_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
@@ -362,7 +362,7 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_6_front.jpg",
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_6_back.jpg"
       ],
-      "categories": ["feminino", "masculino", "casaco"],
+      "categories": ["feminino", "masculino", "blusas"],
       "variations": ["P", "M", "G", "GG"],
       "weight_kg": 0.8,
       "height_cm": 100,
@@ -373,8 +373,8 @@
       "publish": true
     },
     {
-      "id": "sweatshirt-skull-preto",
-      "name": "Moletom Skull Preto",
+      "id": "moletom-caveira-preto",
+      "name": "Moletom Caveira Preto",
       "price": 299.99,
       "short_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type",
       "full_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -383,7 +383,7 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_7_front.jpg",
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/hoodie_7_back.jpg"
       ],
-      "categories": ["feminino", "masculino", "casaco"],
+      "categories": ["feminino", "masculino", "blusas"],
       "variations": ["P", "M", "G", "GG", "GX"],
       "weight_kg": 0.8,
       "height_cm": 100,
@@ -404,7 +404,7 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_1_front.jpg",
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_1_back.jpg"
       ],
-      "categories": ["camiseta", "feminino", "masculino", "regata"],
+      "categories": ["camiseta", "feminino", "masculino", "regatas"],
       "variations": ["P", "M", "G", "GG", "GX"],
       "weight_kg": 0.8,
       "height_cm": 100,
@@ -425,7 +425,7 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_front.jpg",
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_back.jpg"
       ],
-      "categories": ["camiseta", "feminino", "masculino", "regata"],
+      "categories": ["camiseta", "feminino", "masculino", "regatas"],
       "variations": ["P", "M", "G", "GG", "GX"],
       "weight_kg": 0.8,
       "height_cm": 100,
@@ -446,7 +446,7 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_3_front.jpg",
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_3_back.jpg"
       ],
-      "categories": ["camiseta", "feminino", "masculino", "regata"],
+      "categories": ["camiseta", "feminino", "masculino", "regatas"],
       "variations": ["P", "M", "G", "GG", "GX"],
       "weight_kg": 0.8,
       "height_cm": 100,
@@ -467,7 +467,7 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_4_front.jpg",
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_4_back.jpg"
       ],
-      "categories": ["camiseta", "feminino", "masculino", "regata"],
+      "categories": ["camiseta", "feminino", "masculino", "regatas"],
       "variations": ["P", "M", "G", "GG", "GX"],
       "weight_kg": 0.8,
       "height_cm": 100,
@@ -488,7 +488,7 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_5_front.jpg",
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_5_back.jpg"
       ],
-      "categories": ["camiseta", "feminino", "masculino", "regata", "menino"],
+      "categories": ["camiseta", "feminino", "masculino", "regatas", "menino"],
       "variations": ["P", "M", "G", "GG", "GX"],
       "weight_kg": 0.8,
       "height_cm": 100,
@@ -509,7 +509,7 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_6_front.jpg",
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_6_back.jpg"
       ],
-      "categories": ["camiseta", "feminino", "masculino", "regata", "menina"],
+      "categories": ["camiseta", "feminino", "masculino", "regatas", "menina"],
       "variations": ["P", "M", "G", "GG", "GX"],
       "weight_kg": 0.8,
       "height_cm": 100,
@@ -530,7 +530,7 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_7_front.jpg",
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_7_back.jpg"
       ],
-      "categories": ["camiseta", "feminino", "masculino", "regata"],
+      "categories": ["camiseta", "feminino", "masculino", "regatas"],
       "variations": ["P", "M", "G", "GG", "GX"],
       "weight_kg": 0.8,
       "height_cm": 100,
@@ -545,70 +545,70 @@
     {
       "id": "feminino",
       "name": "Feminino",
-      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-images/categorias/categoria_mulher.jpg",
-      "banner": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/images/banner_feminino.jpg",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_mulher.jpg",
+      "banner": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/images/banner_feminino.jpg",
       "description": "Routpas Femininas"
     },
     {
       "id": "masculino",
       "name": "Masculino",
-      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-images/categorias/categoria_homem.jpg",
-      "banner": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/images/banner_masculino.jpg",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_homem.jpg",
+      "banner": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/images/banner_masculino.jpg",
       "description": ""
     },
     {
       "id": "menina",
       "name": "Menina",
-      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-images/categorias/categoria_menina.jpg",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_menina.jpg",
       "banner": "",
       "description": ""
     },
     {
       "id": "menino",
       "name": "Menino",
-      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-images/categorias/categoria_menino.jpg",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_menino.jpg",
       "banner": "",
       "description": ""
     },
     {
       "id": "jeans",
       "name": "Jeans",
-      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-images/categorias/categoria_jeans.jpg",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_jeans.jpg",
       "banner": "",
       "description": ""
     },
     {
       "id": "basico",
       "name": "Básico",
-      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-images/categorias/categoria_basico.jpg",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_basico.jpg",
       "banner": "",
       "description": ""
     },
     {
-      "id": "regata",
+      "id": "regatas",
       "name": "Regatas",
-      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-images/categorias/categoria_regatas.jpg",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_regatas.jpg",
       "banner": "",
       "description": ""
     },
     {
-      "id": "casaco",
+      "id": "blusas",
       "name": "Blusas",
-      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-images/categorias/categoria_regatas.jpg",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_blusa.jpg",
       "banner": "",
       "description": ""
     },
     {
       "id": "bolsas",
       "name": "Bolsas",
-      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-images/categorias/categoria_bolsas.jpg",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_bolsas.jpg",
       "banner": "",
       "description": ""
     },
     {
-      "id": "camiseta",
+      "id": "camisetas",
       "name": "Camisetas",
-      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-images/categorias/categoria_bolsas.jpg",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_camisetas.jpg",
       "banner": "",
       "description": ""
     }
