@@ -9,7 +9,7 @@ export default class Login extends Vue {
   public isShowCreateAccount: boolean = false;
   public breadCrumbs: IBreadcrumb[] = [
     { text: 'Home', disabled: false, to: '/' },
-    { text: 'Login', disabled: true, to: '/login' },
+    { text: 'Login', disabled: true, to: '/login' }
   ];
 }
 </script>

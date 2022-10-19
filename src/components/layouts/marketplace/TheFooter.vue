@@ -34,7 +34,10 @@
               </div>
             </v-row>
             <v-row class="contato mt-4">
-              <div><span class="rotulo"> Endereço: </span> Av. Adhemar de Barros, 000, Vila Adyana, São José dos Campos/SP - 12241-040</div>
+              <div>
+                <span class="rotulo"> Endereço: </span> Av. Adhemar de Barros, 000, Vila Adyana, São José dos Campos/SP
+                - 12241-040
+              </div>
               <div><span class="rotulo">Contato: </span> (12) 98227-9588 / (12) 982050-5060</div>
               <div><span class="rotulo">E-mail: </span> contato@bigstore.com.br</div>
             </v-row>
@@ -75,9 +78,15 @@
     <div class="rodape-inferior">
       <v-container class="d-flex justify-space-between">
         <div class="redes-sociais">
-          <a href="https://www.instagram.com/rodolfo.d.santos/" target="_blank"><v-icon class="icon mr-4">mdi-instagram</v-icon></a>
-          <a href="https://www.facebook.com/Facemeu/" target="_blank"><v-icon class="icon mr-4">mdi-facebook</v-icon></a>
-          <a href="https://www.linkedin.com/in/rodolfosantos29/" target="_blank"><v-icon class="icon mr-4">mdi-linkedin</v-icon></a>
+          <a href="https://www.instagram.com/rodolfo.d.santos/" target="_blank"
+            ><v-icon class="icon mr-4">mdi-instagram</v-icon></a
+          >
+          <a href="https://www.facebook.com/Facemeu/" target="_blank"
+            ><v-icon class="icon mr-4">mdi-facebook</v-icon></a
+          >
+          <a href="https://www.linkedin.com/in/rodolfosantos29/" target="_blank"
+            ><v-icon class="icon mr-4">mdi-linkedin</v-icon></a
+          >
         </div>
         <div class="copyright">Copyright 2020 - Todos os Direitos Reservados</div>
         <div class="desenvolvedor">

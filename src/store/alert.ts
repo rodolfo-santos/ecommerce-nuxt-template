@@ -7,7 +7,7 @@ export default class Alert extends VuexModule implements IAlertStore {
   alert: IAlert = {
     variant: 'success',
     message: '',
-    isShow: false,
+    isShow: false
   };
 
   @Mutation
@@ -20,7 +20,7 @@ export default class Alert extends VuexModule implements IAlertStore {
     this.context.commit('setProperties', {
       variant: 'success',
       message,
-      isShow: true,
+      isShow: true
     });
 
     console.log('showSuccessAlert');
@@ -33,7 +33,7 @@ export default class Alert extends VuexModule implements IAlertStore {
     this.context.commit('setProperties', {
       variant: 'error',
       message,
-      isShow: true,
+      isShow: true
     });
 
     setTimeout(() => this.context.commit('setProperties', { isShowSuccessAlert: false }), 3000);
@@ -44,7 +44,7 @@ export default class Alert extends VuexModule implements IAlertStore {
     this.context.commit('setProperties', {
       variant: 'warning',
       message,
-      isShow: true,
+      isShow: true
     });
 
     setTimeout(() => this.context.commit('setProperties', { isShowSuccessAlert: false }), 3000);

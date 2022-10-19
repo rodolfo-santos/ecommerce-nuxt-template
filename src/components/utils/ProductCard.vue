@@ -31,7 +31,11 @@ export default class extends Vue {
     <v-card-text align="center">
       <div class="">
         <div class="d-flex justify-center">
-          <router-link :to="`/category/${product.categories[n]}`" class="ml-2 text-capitalize link-category text-muted" v-for="n in 3" :key="n">
+          <router-link
+            :to="`/category/${product.categories[n]}`"
+            class="ml-2 text-capitalize link-category text-muted"
+            v-for="n in 3"
+            :key="n">
             {{ product.categories[n] }}
           </router-link>
         </div>

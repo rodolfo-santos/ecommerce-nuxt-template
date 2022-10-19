@@ -1,16 +1,8 @@
 {
   "defaultSeverity": "warning",
-  "extends": [
-    "tslint:recommended",
-    "prettier"
-  ],
+  "extends": ["tslint:recommended", "prettier"],
   "linterOptions": {
-    "exclude": [
-      "node_modules/**",
-      "src/services/**",
-      "src/store/**",
-      "src/registerServiceWorker.ts"
-    ]
+    "exclude": ["node_modules/**", "src/services/**", "src/store/**", "src/registerServiceWorker.ts"]
   },
   "rules": {
     "indent": [true, "spaces", 2],
@@ -21,6 +13,6 @@
     "quotemark": [true, "single"],
     "no-empty": false,
     "promise-function-async": true,
-    "typedef": [true, "call-signature"]  
+    "typedef": [true, "call-signature"]
   }
 }

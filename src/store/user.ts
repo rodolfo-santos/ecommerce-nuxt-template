@@ -17,7 +17,7 @@ export default class User extends VuexModule implements IUserStore {
     neighborhood: '',
     city: '',
     state: '',
-    phone: '',
+    phone: ''
   };
 
   @Mutation

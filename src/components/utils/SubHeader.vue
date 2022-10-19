@@ -14,7 +14,7 @@ import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import { mapState } from 'vuex';
 
 @Component({
-  computed: mapState('geral', ['saving']),
+  computed: mapState('geral', ['saving'])
 })
 export default class SubHeader extends Vue {
   @general.State saving!: boolean;

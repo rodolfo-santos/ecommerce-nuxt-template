@@ -9,14 +9,14 @@ export default new Vuetify({
     themes: {
       light: {
         primary: '#25af6c',
-        secondary: '#222222',
+        secondary: '#222222'
       },
       dark: {
         primary: '#25af6c',
-        secondary: '#272727',
-      },
-    },
-  },
+        secondary: '#272727'
+      }
+    }
+  }
 });
 
 // Alterar também em ./sass/variaveis.scss

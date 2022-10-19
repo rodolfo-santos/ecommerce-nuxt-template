@@ -29,9 +29,15 @@ export default class TheHeaderInputSearch extends Vue {
       <div v-show="!isShowInputSearch">
         <div class="menu d-none d-md-flex">
           <ul>
-            <router-link tag="li" class="px-2" role="button" v-for="item in categories" :key="item.name" :to="{ name: 'category', params: { id: item.id } }">{{
-              item.name
-            }}</router-link>
+            <router-link
+              tag="li"
+              class="px-2"
+              role="button"
+              v-for="item in categories"
+              :key="item.name"
+              :to="{ name: 'category', params: { id: item.id } }"
+              >{{ item.name }}</router-link
+            >
           </ul>
         </div>
       </div>
@@ -46,8 +52,7 @@ export default class TheHeaderInputSearch extends Vue {
             ref="inputSearch"
             v-model="search"
             @blur="isShowInputSearch = false"
-            @keypress.enter="searchProduct"
-          ></v-text-field>
+            @keypress.enter="searchProduct"></v-text-field>
         </div>
       </transition>
 

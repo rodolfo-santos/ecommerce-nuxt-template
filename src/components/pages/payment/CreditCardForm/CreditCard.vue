@@ -2,22 +2,31 @@
   <div class="card-list">
     <div class="card-item" :class="{ '-active': isCardFlipped }">
       <div class="card-item__side -front">
-        <div class="card-item__focus" :class="{ '-active': focusElementStyle }" :style="focusElementStyle" ref="focusElement"></div>
+        <div
+          class="card-item__focus"
+          :class="{ '-active': focusElementStyle }"
+          :style="focusElementStyle"
+          ref="focusElement"></div>
         <div class="card-item__cover">
           <img :src="currentCardBackground" class="card-item__bg" />
         </div>
         <div class="card-item__wrapper">
           <div class="card-item__top">
-            <img src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png" class="card-item__chip" />
+            <img
+              src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png"
+              class="card-item__chip" />
             <div class="card-item__type">
               <transition name="slide-fade-up">
                 <img
-                  :src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'"
+                  :src="
+                    'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' +
+                    getCardType +
+                    '.png'
+                  "
                   v-if="getCardType"
                   :key="getCardType"
                   alt=""
-                  class="card-item__typeImg"
-                />
+                  class="card-item__typeImg" />
               </transition>
             </div>
           </div>
@@ -25,11 +34,21 @@
             <template>
               <span v-for="(n, $index) in otherCardMask" :key="$index">
                 <transition name="slide-fade-up">
-                  <div class="card-item__numberItem" v-if="$index > 4 && $index < 15 && cardNumber.length > $index && n.trim() !== ''">*</div>
-                  <div class="card-item__numberItem" :class="{ '-active': n.trim() === '' }" :key="$index" v-else-if="cardNumber.length > $index">
+                  <div
+                    class="card-item__numberItem"
+                    v-if="$index > 4 && $index < 15 && cardNumber.length > $index && n.trim() !== ''">
+                    *
+                  </div>
+                  <div
+                    class="card-item__numberItem"
+                    :class="{ '-active': n.trim() === '' }"
+                    :key="$index"
+                    v-else-if="cardNumber.length > $index">
                     {{ cardNumber[$index] }}
                   </div>
-                  <div class="card-item__numberItem" :class="{ '-active': n.trim() === '' }" v-else :key="$index + 1">{{ n }}</div>
+                  <div class="card-item__numberItem" :class="{ '-active': n.trim() === '' }" v-else :key="$index + 1">
+                    {{ n }}
+                  </div>
                 </transition>
               </span>
             </template>
@@ -79,10 +98,13 @@
           </div>
           <div class="card-item__type">
             <img
-              :src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'"
+              :src="
+                'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' +
+                getCardType +
+                '.png'
+              "
               v-if="getCardType"
-              class="card-item__typeImg"
-            />
+              class="card-item__typeImg" />
           </div>
         </div>
       </div>

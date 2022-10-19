@@ -6,7 +6,7 @@ import {
   TheHeaderMobileMenuContent,
   TheHeaderSideCart,
   TheHeaderCartButton,
-  TheHeaderUserButton,
+  TheHeaderUserButton
 } from './TheHeader/index';
 import { categoryService } from '@/services/api';
 import { ICategory } from '@/models/data';
@@ -18,8 +18,8 @@ import { ICategory } from '@/models/data';
     TheHeaderMobileMenuContent,
     TheHeaderSideCart,
     TheHeaderCartButton,
-    TheHeaderUserButton,
-  },
+    TheHeaderUserButton
+  }
 })
 export default class extends Vue {
   public categories: ICategory[] = [];

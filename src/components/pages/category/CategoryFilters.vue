@@ -23,7 +23,7 @@ export default class extends Vue {
     { name: 'Roxo', class: 'purple' },
     { name: 'Amarelo', class: 'amber' },
     { name: 'Laranja', class: 'deep-orange' },
-    { name: 'Marrom', class: 'brown' },
+    { name: 'Marrom', class: 'brown' }
   ];
 
   public filterCategory(): void {
@@ -69,7 +69,9 @@ export default class extends Vue {
     <v-card class="filter-option pa-4 mb-4" elevation="2">
       <div class="option-title mb-2">Adicionar Sub-Categorias</div>
       <v-chip-group v-model="selectedCategories" active-class="primary" column multiple>
-        <v-chip v-for="(category, index) in categories" :key="index" @input="filterCategory">{{ category.name }}</v-chip>
+        <v-chip v-for="(category, index) in categories" :key="index" @input="filterCategory">{{
+          category.name
+        }}</v-chip>
       </v-chip-group>
     </v-card>
 
@@ -82,7 +84,12 @@ export default class extends Vue {
             <input v-model="maxPrice" class="input-price" type="number" @change="filterByPrice" />
           </div>
         </div>
-        <v-slider v-model="maxPrice" :min="minPrice" :max="1000" class="align-center" @change="filterByPrice"></v-slider>
+        <v-slider
+          v-model="maxPrice"
+          :min="minPrice"
+          :max="1000"
+          class="align-center"
+          @change="filterByPrice"></v-slider>
 
         <div class="d-flex justify-space-between">
           <div>Valor Mínimo</div>

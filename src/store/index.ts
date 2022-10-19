@@ -16,8 +16,8 @@ export default new Vuex.Store({
     auth: Auth,
     cart: Cart,
     general: General,
-    user: User,
-  },
+    user: User
+  }
 });
 
 export const alert = namespace('alert');

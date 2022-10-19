@@ -22,7 +22,12 @@ export default class extends Vue {
         <router-link :to="{ name: 'store' }">Visite nossa loja</router-link>
       </div>
       <transition-group name="fade" mode="out-in">
-        <TheHeaderSideCartItem v-for="(product, index) in productList" :key="index + 1" :product="product" :index="index" class="mb-1" />
+        <TheHeaderSideCartItem
+          v-for="(product, index) in productList"
+          :key="index + 1"
+          :product="product"
+          :index="index"
+          class="mb-1" />
       </transition-group>
     </v-container>
 
