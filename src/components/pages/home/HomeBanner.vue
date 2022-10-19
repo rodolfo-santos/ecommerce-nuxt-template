@@ -1,40 +1,31 @@
 <script lang="ts">
-import { IBannerData } from '@/models/data';
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class extends Vue {
-  public items: IBannerData[] = [
+  public items = [
     {
       src: require('@/assets/images/banner_loja.jpg'),
-      content: {
-        textOne: 'Desapegou!',
-        textTwo: 'Roupas Sociais a',
-        textThree: 'preços Incríveis',
-      },
+      content: ['Desapegou!', 'Roupas Sociais a', 'preços Incríveis']
     },
     {
       src: require('@/assets/images/banner_loja.jpg'),
-      content: {
-        textOne: 'Confira as Novidades',
-        textTwo: 'fique ligado nos',
-        textThree: 'Últimos Anúncios',
-      },
-    },
+      content: ['Confira as Novidades', 'fique ligado nos', 'Últimos Anúncios']
+    }
   ];
 }
 </script>
 
 <template>
-  <v-carousel class="banner-home">
-    <v-carousel-item class="banner" v-for="(item, i) in items" :key="i">
+  <v-carousel class="home-banner">
+    <v-carousel-item v-for="(item, i) in items" :key="i">
       <v-parallax :src="item.src">
-        <v-container class="content">
-          <h5 class="display-1 text-upper pb-2">{{ item.content.textOne }}</h5>
-          <h4 class="display-2 text-upper">{{ item.content.textTwo }}</h4>
-          <h4 class="display-2 text-upper">{{ item.content.textThree }}</h4>
+        <v-container class="home-banner__content">
+          <p class="display-1 text-upper pb-2">{{ item.content[0] }}</p>
+          <p class="display-2 text-upper">{{ item.content[1] }}</p>
+          <p class="display-2 text-upper">{{ item.content[2] }}</p>
           <hr class="hr-base" />
-          <v-btn outlined color="white" class="btn-banner" link :to="{ name: 'Store' }"> Confira Agora</v-btn>
+          <v-btn outlined color="white" class="home-banner__cta" link :to="{ name: 'Store' }"> Confira Agora</v-btn>
         </v-container>
       </v-parallax>
     </v-carousel-item>
@@ -44,36 +35,35 @@ export default class extends Vue {
 <style lang="scss">
 @import '@/sass/custom.scss';
 
-.banner-home {
+.home-banner {
   height: 100vh;
+}
 
-  @media (max-width: 600px) {
+.home-banner__content {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  justify-content: center;
+  padding-bottom: 100px;
+}
+
+.home-banner__cta {
+  max-width: 250px;
+}
+
+.home-banner .v-carousel__item,
+.home-banner .v-parallax {
+  height: 100% !important;
+}
+
+@media (max-width: 600px) {
+  .home-banner {
     height: 85vh !important;
   }
 
-  .content {
-    display: flex;
-    flex-flow: column;
-    height: 100%;
-    justify-content: center;
-    padding-bottom: 100px;
-
-    h4 {
-      font-weight: bold;
-    }
-  }
-
-  .btn-banner {
-    max-width: 250px;
-    @media (max-width: 600px) {
-      padding: 30px !important;
-      background-color: rgba($secondary, 0.8);
-    }
-  }
-
-  .v-carousel__item,
-  .v-parallax {
-    height: 100% !important;
+  .home-banner__cta {
+    padding: 30px !important;
+    background-color: rgba($secondary, 0.8);
   }
 }
 </style>

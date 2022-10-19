@@ -14,8 +14,7 @@
                 class="mb-2 image_lateral"
                 :class="{ image_ativa: foto === activeImage }"
                 :key="index"
-                @click="changeImage(foto)"
-              ></v-img>
+                @click="changeImage(foto)"></v-img>
             </div>
             <div class="col-12 col-md-10">
               <InnerImageZoom :src="activeImage" :zoomSrc="activeImage" />
@@ -45,15 +44,16 @@
                   v-for="category in product.categories"
                   :key="category"
                   class="text-capitalize text-muted"
-                  :to="{ name: 'Categoria', params: { id: category } }"
-                >
+                  :to="{ name: 'category', params: { id: category } }">
                   {{ category }}
                 </router-link>
               </p>
               <v-text-field :counter="8" maxlength="6" label="Calcular Frete"></v-text-field>
               <v-row class="mt-5 pa-2">
                 <v-btn class="col-12 mb-2 pa-7" color="primary">Comprar Agora</v-btn>
-                <v-btn class="col-12 mb-2 pa-7" color="warning" :disabled="!btnAdd" @click="addProduct(product)">Adicionar ao Carrinho +</v-btn>
+                <v-btn class="col-12 mb-2 pa-7" color="warning" :disabled="!btnAdd" @click="addProduct(product)"
+                  >Adicionar ao Carrinho +</v-btn
+                >
               </v-row>
             </div>
           </v-col>
@@ -89,7 +89,7 @@ import { cart } from '@/store';
 import 'vue-inner-image-zoom/lib/vue-inner-image-zoom.css';
 
 @Component({
-  components: { SubHeader, InnerImageZoom, ProductRelatedProducts, ProductPageSkeleton },
+  components: { SubHeader, InnerImageZoom, ProductRelatedProducts, ProductPageSkeleton }
 })
 export default class extends Vue {
   @cart.Action private addToCart!: ICartStore['addToCart'];
@@ -112,7 +112,7 @@ export default class extends Vue {
     length_cm: 0,
     promotion: false,
     promotional_price: 0,
-    publish: false,
+    publish: false
   };
 
   public activeImage: string = '';
@@ -149,7 +149,7 @@ export default class extends Vue {
     this.breadCrumbs = [
       { text: 'Home', disabled: false, to: '/' },
       { text: this.product.categories[0], disabled: false, to: `/category/${this.product.categories[0]}` },
-      { text: this.product.name, disabled: true, to: `/category/${this.product.id}` },
+      { text: this.product.name, disabled: true, to: `/category/${this.product.id}` }
     ];
   }
 

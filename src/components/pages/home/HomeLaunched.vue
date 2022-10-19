@@ -9,18 +9,22 @@ import { IProduct } from '@/models/data';
 
 @Component({ components: { ProductCard, TheTitle, SkeletonProductList } })
 export default class extends Vue {
-  public loading: boolean = true;
+  public isLoading: boolean = true;
   public products: IProduct[] = [];
 
   created(): void {
     this.fetchProducts();
   }
 
-  private fetchProducts(): void {
-    productService.get(12, '', '').then((response) => {
-      this.products = response.data;
-      this.loading = false;
-    });
+  private async fetchProducts(): Promise<void> {
+    this.isLoading = true;
+    try {
+      const { data } = await productService.get(12, '', '');
+      this.products = data;
+    } catch (error) {
+      console.error(error);
+    }
+    this.isLoading = false;
   }
 }
 </script>
@@ -28,7 +32,7 @@ export default class extends Vue {
 <template>
   <v-container>
     <TheTitle title="Lançamentos que você vai Amar" subtitle="Confira abaixo as últimas novidades da loja!" />
-    <v-row v-if="loading">
+    <v-row v-if="isLoading">
       <v-col>
         <SkeletonProductList :cols="6" :rows="2" />
       </v-col>

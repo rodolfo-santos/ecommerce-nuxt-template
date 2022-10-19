@@ -15,13 +15,13 @@ export default class extends Vue {
     name: 'Loja',
     image: '',
     banner: '',
-    description: '',
+    description: ''
   };
 
-  public loading: boolean = true;
+  public isLoading: boolean = true;
+  public isShowFilter: boolean = false;
   public products: IProduct[] = [];
   public breadCrumbs: IBreadcrumb[] = [];
-  public isShowFilter: boolean = false;
 
   public productsTotal: number = 0;
   public orderTypeOptions: string[] = ['Crescente', 'Decrescente'];
@@ -44,7 +44,7 @@ export default class extends Vue {
   }
 
   @Watch('order')
-  public ordenar(): void {
+  onOrderChange(): void {
     let params: { _sort: string; _order: string } = null;
     if (this.order === 'Crescente') params = { _sort: 'name', _order: 'asc' };
     else params = { _sort: 'name', _order: 'desc' };
@@ -64,18 +64,16 @@ export default class extends Vue {
     this.setBreadCrumb();
   }
 
-  private setFilter(filtro, primeiraPagina: boolean) {
+  private setFilter(filter, firstPage: boolean) {
     const query = { ...this.$route.query };
-    if (primeiraPagina) {
-      filtro = Object.assign(filtro, { _page: 1 });
-    }
-    const novaQuery = Object.assign(query, filtro);
-    const url: string = objectToQuery(novaQuery);
+    if (firstPage) filter = Object.assign(filter, { _page: 1 });
+    const newQuery = Object.assign(query, filter);
+    const url: string = objectToQuery(newQuery);
     this.$router.push('?' + url).catch(() => {});
   }
 
   private async fetchProducts(): Promise<void> {
-    this.loading = true;
+    this.isLoading = true;
     if (!!this.id) {
       await productService.get(12, this.url, this.id).then((response) => {
         this.productsTotal = Number(response.headers['x-total-count']);
@@ -87,20 +85,20 @@ export default class extends Vue {
         this.products = response.data;
       });
     }
-    this.loading = false;
+    this.isLoading = false;
   }
 
   private setBreadCrumb(): void {
     this.breadCrumbs = [
       { text: 'Home', disabled: false, to: '/' },
-      { text: 'Store', disabled: false, to: '/loja' },
+      { text: 'Store', disabled: false, to: '/loja' }
     ];
 
     if (!!this.id) {
       const category: IBreadcrumb = {
         text: this.category.name,
         disabled: true,
-        href: `/category/${this.category.id}`,
+        href: `/category/${this.category.id}`
       };
       this.breadCrumbs.push(category);
     }
@@ -127,9 +125,11 @@ export default class extends Vue {
         <div class="col-12 col-md-9 pa-5">
           <div class="d-block d-md-flex justify-space-between align-center">
             <transition name="fade" mode="out-in" appear>
-              <div v-if="loading"><v-progress-circular indeterminate color="primary"></v-progress-circular></div>
+              <div v-if="isLoading"><v-progress-circular indeterminate color="primary"></v-progress-circular></div>
               <div v-else class="text-primary">
-                <div v-if="productsTotal === 0" class="text-center text-md-left">Sua pesquisa não encontrou resultados.</div>
+                <div v-if="productsTotal === 0" class="text-center text-md-left">
+                  Sua pesquisa não encontrou resultados.
+                </div>
                 <div v-else-if="productsTotal === 1">Sua pesquisa encontrou 1 resultado.</div>
                 <div v-else>Sua pesquisa encontrou {{ productsTotal }} resultados.</div>
               </div>
@@ -146,7 +146,7 @@ export default class extends Vue {
             </div>
           </div>
           <v-divider></v-divider>
-          <div v-if="loading" class="mt-5">
+          <div v-if="isLoading" class="mt-5">
             <transition name="slow" mode="out-in" appear>
               <SkeletonProductList :rows="5" :cols="4" />
             </transition>

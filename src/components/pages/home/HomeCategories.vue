@@ -5,25 +5,30 @@ import { SkeletonProductList } from '@/components/utils';
 import { ICategory } from '@/models/data';
 
 @Component({ components: { SkeletonProductList } })
-export default class Categorias extends Vue {
+export default class extends Vue {
   public categories: ICategory[] = [];
-  public overlay: boolean = false;
+  public isLoading: boolean = true;
 
-  public getCategorias(): void {
-    categoryService.get(6).then((response) => {
-      this.categories = response.data;
-    });
+  created(): void {
+    this.fetchCategories();
   }
 
-  public created(): void {
-    this.getCategorias();
+  private async fetchCategories(): Promise<void> {
+    this.isLoading = true;
+    try {
+      const { data } = await categoryService.get(6);
+      this.categories = data;
+    } catch (error) {
+      console.error(error);
+    }
+    this.isLoading = false;
   }
 }
 </script>
 
 <template>
   <v-container class="mt-10">
-    <v-row v-if="categories.length === 0">
+    <v-row v-if="isLoading">
       <v-col>
         <SkeletonProductList :cols="6" :rows="1" :size="1" />
       </v-col>
@@ -31,11 +36,15 @@ export default class Categorias extends Vue {
     <v-row v-else>
       <v-col class="m-auto col-6 col-md-3 col-lg-2" v-for="category in categories" :key="category.id">
         <v-hover>
-          <template v-slot:default="{ hover }">
-            <v-card class="category" :to="{ name: 'Categoria', params: { id: category.id } }" :style="`background: url(${category.image})`" hover>
-              <v-card-text class="texto">{{ category.name }}</v-card-text>
+          <template #default="{ hover }">
+            <v-card
+              class="home-categories__card"
+              :to="{ name: 'category', params: { id: category.id } }"
+              :style="`background: url(${category.image})`"
+              hover>
+              <v-card-text class="home-categories__card-text">{{ category.name }}</v-card-text>
               <v-fade-transition>
-                <v-overlay v-if="hover" absolute color="#16D17E" class="overlay-texto">
+                <v-overlay v-if="hover" absolute color="#16D17E" class="home-categories__card-text">
                   {{ category.name }}
                 </v-overlay>
               </v-fade-transition>
@@ -50,7 +59,7 @@ export default class Categorias extends Vue {
 <style lang="scss" scoped>
 @import '@/sass/custom.scss';
 
-.category {
+.home-categories__card {
   border: $primary 2px solid;
   min-height: 200px;
   background-position: center !important;
@@ -61,14 +70,13 @@ export default class Categorias extends Vue {
   display: flex;
   align-items: center;
   text-align: center;
+}
 
-  &:hover {
-    transform: scale(1.05);
-  }
+.home-categories__card:hover {
+  transform: scale(1.05);
+}
 
-  .texto,
-  .overlay-texto {
-    font-size: 1.5em !important;
-  }
+.home-categories__card-text {
+  font-size: 1.5em !important;
 }
 </style>

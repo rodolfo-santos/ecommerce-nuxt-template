@@ -545,70 +545,70 @@
     {
       "id": "feminino",
       "name": "Feminino",
-      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-imagens/categorias/categoria_mulher.jpg",
-      "banner": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/imagens/banner_feminino.jpg",
+      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-images/categorias/categoria_mulher.jpg",
+      "banner": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/images/banner_feminino.jpg",
       "description": "Routpas Femininas"
     },
     {
       "id": "masculino",
       "name": "Masculino",
-      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-imagens/categorias/categoria_homem.jpg",
-      "banner": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/imagens/banner_masculino.jpg",
+      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-images/categorias/categoria_homem.jpg",
+      "banner": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/images/banner_masculino.jpg",
       "description": ""
     },
     {
       "id": "menina",
       "name": "Menina",
-      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-imagens/categorias/categoria_menina.jpg",
+      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-images/categorias/categoria_menina.jpg",
       "banner": "",
       "description": ""
     },
     {
       "id": "menino",
       "name": "Menino",
-      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-imagens/categorias/categoria_menino.jpg",
+      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-images/categorias/categoria_menino.jpg",
       "banner": "",
       "description": ""
     },
     {
       "id": "jeans",
       "name": "Jeans",
-      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-imagens/categorias/categoria_jeans.jpg",
+      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-images/categorias/categoria_jeans.jpg",
       "banner": "",
       "description": ""
     },
     {
       "id": "basico",
       "name": "Básico",
-      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-imagens/categorias/categoria_basico.jpg",
+      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-images/categorias/categoria_basico.jpg",
       "banner": "",
       "description": ""
     },
     {
       "id": "regata",
       "name": "Regatas",
-      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-imagens/categorias/categoria_regatas.jpg",
+      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-images/categorias/categoria_regatas.jpg",
       "banner": "",
       "description": ""
     },
     {
       "id": "casaco",
       "name": "Blusas",
-      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-imagens/categorias/categoria_regatas.jpg",
+      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-images/categorias/categoria_regatas.jpg",
       "banner": "",
       "description": ""
     },
     {
       "id": "bolsas",
       "name": "Bolsas",
-      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-imagens/categorias/categoria_bolsas.jpg",
+      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-images/categorias/categoria_bolsas.jpg",
       "banner": "",
       "description": ""
     },
     {
       "id": "camiseta",
       "name": "Camisetas",
-      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-imagens/categorias/categoria_bolsas.jpg",
+      "image": "https://raw.githubusercontent.com/Rodolfo-Santos/Ecommerce-big-store/master/src/assets/api-images/categorias/categoria_bolsas.jpg",
       "banner": "",
       "description": ""
     }

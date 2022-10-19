@@ -1,15 +1,16 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { HomeBanner, HomeBestProducts, HomeCategories, HomeDivImage, HomeLaunched } from '@/components/pages/home';
+import {
+  HomeBanner,
+  HomeBestProducts,
+  HomeCategories,
+  HomeDivImage,
+  HomeLaunched,
+  HomeInstagramVisit
+} from '@/components/pages/home';
 
 @Component({
-  components: {
-    HomeBanner,
-    HomeBestProducts,
-    HomeCategories,
-    HomeDivImage,
-    HomeLaunched,
-  },
+  components: { HomeBanner, HomeBestProducts, HomeCategories, HomeDivImage, HomeLaunched, HomeInstagramVisit }
 })
 export default class extends Vue {}
 </script>
@@ -21,12 +22,6 @@ export default class extends Vue {}
     <HomeLaunched />
     <HomeDivImage />
     <HomeBestProducts />
-    <v-container class="flex-center">
-      <a href="https://www.instagram.com/rodolfo.d.santos/" target="_blank">
-        <v-btn large color="primary"> <v-icon left>mdi-instagram</v-icon> Visite nosso Instagram </v-btn>
-      </a>
-    </v-container>
+    <HomeInstagramVisit />
   </v-main>
 </template>
-
-<style lang="scss" scoped></style>
