@@ -1,98 +1,8 @@
-<template>
-  <div class="card-form mt-4">
-    <CreditCard
-      :currentCardBackground="currentCardBackground"
-      :cardName="cardName"
-      :cardNumber="cardNumber"
-      :cardMonth="cardMonth"
-      :cardYear="cardYear"
-      :cardCvv="cardCvv"
-      :minCardYear="minCardYear"
-      :otherCardMask="otherCardMask"
-      :cardNumberTemp="cardNumberTemp"
-      :isCardFlipped="isCardFlipped"
-      :focusElementStyle="focusElementStyle"
-      :isInputFocused="isInputFocused"
-    />
-
-    <div class="card-form__inner">
-      <div class="card-input">
-        <label for="cardNumber" class="card-input__label">Número do Cartão</label>
-        <input
-          type="text"
-          id="cardNumber"
-          class="card-input__input"
-          v-mask="generateCardNumberMask"
-          v-model="cardNumber"
-          v-on:focus="focusInput"
-          v-on:blur="blurInput"
-          data-ref="cardNumber"
-          autocomplete="off"
-        />
-      </div>
-      <div class="card-input">
-        <label for="cardName" class="card-input__label">Títular do Cartão</label>
-        <input
-          type="text"
-          id="cardName"
-          class="card-input__input"
-          v-model="cardName"
-          v-on:focus="focusInput"
-          v-on:blur="blurInput"
-          data-ref="cardName"
-          autocomplete="off"
-        />
-      </div>
-      <div class="card-form__row">
-        <div class="card-form__col">
-          <div class="card-form__group">
-            <label for="cardMonth" class="card-input__label">Data de Vencimento</label>
-            <select class="card-input__input -select" id="cardMonth" v-model="cardMonth" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardDate">
-              <option value="" disabled selected>Mês</option>
-              <option :value="n < 10 ? '0' + n : n" v-for="n in 12" :disabled="n < minCardMonth" :key="n">
-                {{ n &lt; 10 ? '0' + n : n }}
-              </option>
-            </select>
-            <select class="card-input__input -select" id="cardYear" v-model="cardYear" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardDate">
-              <option value="" disabled selected>Ano</option>
-              <option :value="$index + minCardYear" v-for="(n, $index) in 12" :key="n">
-                {{ $index + minCardYear }}
-              </option>
-            </select>
-          </div>
-        </div>
-        <div class="card-form__col -cvv">
-          <div class="card-input">
-            <label for="cardCvv" class="card-input__label">CVV</label>
-            <input
-              type="text"
-              class="card-input__input"
-              id="cardCvv"
-              v-mask="'####'"
-              maxlength="4"
-              v-model="cardCvv"
-              v-on:focus="flipCard(true)"
-              v-on:blur="flipCard(false)"
-              autocomplete="off"
-            />
-          </div>
-        </div>
-      </div>
-
-      <button class="card-form__button primary">Atualizar</button>
-    </div>
-  </div>
-</template>
-
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator';
-import CreditCard from '@/components/Pagamento/CreditCard.vue';
+import { CreditCard } from './CreditCardForm/index';
 
-@Component({
-  components: {
-    CreditCard,
-  },
-})
+@Component({ components: { CreditCard } })
 export default class CreditCardForm extends Vue {
   public currentCardBackground: string = require('@/assets/images/banner-subheader.jpg');
   public cardName: string = '';
@@ -147,6 +57,100 @@ export default class CreditCardForm extends Vue {
   }
 }
 </script>
+
+<template>
+  <div class="card-form mt-4">
+    <CreditCard
+      :currentCardBackground="currentCardBackground"
+      :cardName="cardName"
+      :cardNumber="cardNumber"
+      :cardMonth="cardMonth"
+      :cardYear="cardYear"
+      :cardCvv="cardCvv"
+      :minCardYear="minCardYear"
+      :otherCardMask="otherCardMask"
+      :cardNumberTemp="cardNumberTemp"
+      :isCardFlipped="isCardFlipped"
+      :focusElementStyle="focusElementStyle"
+      :isInputFocused="isInputFocused" />
+
+    <div class="card-form__inner">
+      <div class="card-input">
+        <label for="cardNumber" class="card-input__label">Número do Cartão</label>
+        <input
+          type="text"
+          id="cardNumber"
+          class="card-input__input"
+          v-mask="generateCardNumberMask"
+          v-model="cardNumber"
+          v-on:focus="focusInput"
+          v-on:blur="blurInput"
+          data-ref="cardNumber"
+          autocomplete="off" />
+      </div>
+      <div class="card-input">
+        <label for="cardName" class="card-input__label">Títular do Cartão</label>
+        <input
+          type="text"
+          id="cardName"
+          class="card-input__input"
+          v-model="cardName"
+          v-on:focus="focusInput"
+          v-on:blur="blurInput"
+          data-ref="cardName"
+          autocomplete="off" />
+      </div>
+      <div class="card-form__row">
+        <div class="card-form__col">
+          <div class="card-form__group">
+            <label for="cardMonth" class="card-input__label">Data de Vencimento</label>
+            <select
+              class="card-input__input -select"
+              id="cardMonth"
+              v-model="cardMonth"
+              v-on:focus="focusInput"
+              v-on:blur="blurInput"
+              data-ref="cardDate">
+              <option value="" disabled selected>Mês</option>
+              <option :value="n < 10 ? '0' + n : n" v-for="n in 12" :disabled="n < minCardMonth" :key="n">
+                {{ n &lt; 10 ? '0' + n : n }}
+              </option>
+            </select>
+            <select
+              class="card-input__input -select"
+              id="cardYear"
+              v-model="cardYear"
+              v-on:focus="focusInput"
+              v-on:blur="blurInput"
+              data-ref="cardDate">
+              <option value="" disabled selected>Ano</option>
+              <option :value="$index + minCardYear" v-for="(n, $index) in 12" :key="n">
+                {{ $index + minCardYear }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="card-form__col -cvv">
+          <div class="card-input">
+            <label for="cardCvv" class="card-input__label">CVV</label>
+            <input
+              type="text"
+              class="card-input__input"
+              id="cardCvv"
+              v-mask="'####'"
+              maxlength="4"
+              v-model="cardCvv"
+              v-on:focus="flipCard(true)"
+              v-on:blur="flipCard(false)"
+              autocomplete="off" />
+          </div>
+        </div>
+      </div>
+
+      <button class="card-form__button primary">Atualizar</button>
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700|Source+Sans+Pro:400,600,700&display=swap');

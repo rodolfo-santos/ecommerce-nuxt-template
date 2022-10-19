@@ -12,11 +12,11 @@ export default class extends Vue {
 
 <template>
   <div class="user d-none d-md-block">
-    <v-btn :to="{ name: 'usuario-editar' }" v-if="isLoggedIn">
+    <v-btn :to="{ name: 'user-edit' }" v-if="isLoggedIn">
       <v-icon left>mdi-account</v-icon>
       {{ user.name }}
     </v-btn>
-    <v-btn :to="{ name: 'Login' }" v-else>
+    <v-btn :to="{ name: 'login' }" v-else>
       <v-icon left>mdi-account</v-icon>
       Entrar / Cadastrar
     </v-btn>
