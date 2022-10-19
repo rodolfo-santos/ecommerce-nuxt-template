@@ -5,4 +5,4 @@ export { default as ProductCard } from './ProductCard.vue';
 export { default as SkeletonProductList } from './SkeletonProductList.vue';
 export { default as SubHeader } from './SubHeader.vue';
 export { default as TheTitle } from './TheTitle.vue';
-export { default as UsuarioForm } from './UsuarioForm.vue';
+export { default as UserForm } from './UserForm.vue';

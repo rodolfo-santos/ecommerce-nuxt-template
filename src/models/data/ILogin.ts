@@ -1,5 +1,5 @@
-export default interface Login {
+export interface ILogin {
   email: string;
   password: string;
-  manterConectado?: boolean;
+  keepConnected: boolean;
 }

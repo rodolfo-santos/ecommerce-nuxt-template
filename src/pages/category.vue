@@ -4,9 +4,7 @@ import { objectToQuery } from '@/assets/ts';
 import { ProductCard, SubHeader, Pagination, SkeletonProductList } from '@/components/utils';
 import { CategoryFilters } from '@/components/pages/category';
 import { categoryService, productService } from '@/services/api';
-import { ICategory, IProduct } from '@/models/data';
-
-type IBreadCrumb = { text: string; disabled: boolean; to?: string; href?: string };
+import { IBreadcrumb, ICategory, IProduct } from '@/models/data';
 
 @Component({ components: { SubHeader, ProductCard, Pagination, SkeletonProductList, CategoryFilters } })
 export default class extends Vue {
@@ -22,7 +20,7 @@ export default class extends Vue {
 
   public loading: boolean = true;
   public products: IProduct[] = [];
-  public breadCrumbs: IBreadCrumb[] = [];
+  public breadCrumbs: IBreadcrumb[] = [];
   public isShowFilter: boolean = false;
 
   public productsTotal: number = 0;
@@ -99,7 +97,7 @@ export default class extends Vue {
     ];
 
     if (!!this.id) {
-      const category: IBreadCrumb = {
+      const category: IBreadcrumb = {
         text: this.category.name,
         disabled: true,
         href: `/category/${this.category.id}`,

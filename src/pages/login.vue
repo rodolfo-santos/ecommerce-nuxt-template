@@ -1,55 +1,39 @@
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import { SubHeader, UserForm } from '@/components/utils';
+import { LoginForm } from '@/components/pages/login';
+import { IBreadcrumb } from '@/models/data';
+
+@Component({ components: { SubHeader, UserForm, LoginForm } })
+export default class Login extends Vue {
+  public isShowCreateAccount: boolean = false;
+  public breadCrumbs: IBreadcrumb[] = [
+    { text: 'Home', disabled: false, to: '/' },
+    { text: 'Login', disabled: true, to: '/login' },
+  ];
+}
+</script>
+
 <template>
   <v-main>
-    <SubHeader titulo="Login" :breadCrumbs="breadCrumbs" />
+    <SubHeader title="Login" :breadCrumbs="breadCrumbs" />
     <v-container>
       <div max-width="1000px" class="bloco-login mx-auto mt-16">
         <h1 class="mb-5 text-muted">
-          <span @click="criarConta = false" :class="{ active: !criarConta }"> Entrar </span>
+          <span @click="isShowCreateAccount = false" :class="{ active: !isShowCreateAccount }"> Entrar </span>
           <div class="mx-5">|</div>
-          <span @click="criarConta = true" :class="{ active: criarConta }"> Cadastrar </span>
+          <span @click="isShowCreateAccount = true" :class="{ active: isShowCreateAccount }"> Cadastrar </span>
         </h1>
-        <div v-show="!criarConta">
+        <div v-show="!isShowCreateAccount">
           <LoginForm />
         </div>
-        <div v-show="criarConta">
-          <UsuarioForm> Cadastrar </UsuarioForm>
+        <div v-show="isShowCreateAccount">
+          <UserForm> Cadastrar </UserForm>
         </div>
       </div>
     </v-container>
   </v-main>
 </template>
-
-<script lang="ts">
-import { Component, Vue, Watch } from 'vue-property-decorator';
-import { mapState } from 'vuex';
-
-import SubHeader from '@/components/SubHeader.vue';
-import UsuarioForm from '@/components/Usuario/UsuarioForm.vue';
-import LoginForm from '@/components/Usuario/LoginForm.vue';
-
-@Component({
-  components: {
-    SubHeader,
-    UsuarioForm,
-    LoginForm,
-  },
-})
-export default class Login extends Vue {
-  public criarConta: boolean = false;
-  public breadCrumbs: object = [
-    {
-      text: 'Home',
-      disabled: false,
-      to: '/',
-    },
-    {
-      text: 'Login',
-      disabled: true,
-      to: '/login',
-    },
-  ];
-}
-</script>
 
 <style lang="scss" scoped>
 @import '@/sass/custom.scss';

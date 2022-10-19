@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 // import { Home, Category, Product, Cart, Payment, Login, User, NotFound } from '@/pages';
-import { Home, Category, Product, NotFound } from '@/pages';
+import { Home, Category, Product, Login, NotFound } from '@/pages';
 // import { UserEdit, UserHistory, UserOrders, UserPayment, UserTalkToSeller } from '@/pages/user';
 
 Vue.use(VueRouter);
@@ -53,12 +53,12 @@ export const routes: Route[] = [
   //   component: Payment,
   //   layout: 'checkout',
   // },
-  // {
-  //   path: '/login',
-  //   name: 'login',
-  //   component: Login,
-  //   layout: 'marketplace',
-  // },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login,
+    layout: 'marketplace',
+  },
   // {
   //   path: '/user',
   //   name: 'user',

@@ -2,7 +2,7 @@
   <v-main>
     <SubHeader :titulo="product.name" :breadCrumbs="breadCrumbs" />
     <v-container class="product-container">
-      <Skeletonproduct v-if="loading" />
+      <ProductPageSkeleton v-if="loading" />
 
       <template v-else>
         <v-row>
@@ -53,7 +53,7 @@
               <v-text-field :counter="8" maxlength="6" label="Calcular Frete"></v-text-field>
               <v-row class="mt-5 pa-2">
                 <v-btn class="col-12 mb-2 pa-7" color="primary">Comprar Agora</v-btn>
-                <v-btn class="col-12 mb-2 pa-7" color="warning" :disabled="!btnAdd" @click="adicionarCarrinho(product)">Adicionar ao Carrinho +</v-btn>
+                <v-btn class="col-12 mb-2 pa-7" color="warning" :disabled="!btnAdd" @click="addProduct(product)">Adicionar ao Carrinho +</v-btn>
               </v-row>
             </div>
           </v-col>
@@ -72,7 +72,7 @@
         </section>
         <v-divider></v-divider>
       </template>
-      <productsRelacionados />
+      <ProductRelatedProducts />
     </v-container>
   </v-main>
 </template>
@@ -80,30 +80,22 @@
 <script lang="ts">
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator';
 import InnerImageZoom from 'vue-inner-image-zoom';
-import productsRelacionados from '@/components/Paginaproduct/productsRelacionados.vue';
-import Skeletonproduct from '@/components/Skeleton/SkeletonPaginaproduct.vue';
-import SubHeader from '@/components/SubHeader.vue';
+import { SubHeader } from '@/components/utils';
+import { ProductPageSkeleton, ProductRelatedProducts } from '@/components/pages/product';
+import { productService } from '@/services/api';
+import { IBreadcrumb, IProduct } from '@/models/data';
+import { ICartStore } from '@/models/store';
+import { cart } from '@/store';
 import 'vue-inner-image-zoom/lib/vue-inner-image-zoom.css';
 
-import { productService } from '@/services/api';
-import { shippingService } from '@/services/utils/';
-
-import { IProduct } from '@/models/data';
-import { mapActions } from 'vuex';
-
 @Component({
-  components: {
-    SubHeader,
-    InnerImageZoom,
-    productsRelacionados,
-    Skeletonproduct,
-  },
-  methods: mapActions('cart', ['addCarrinho']),
+  components: { SubHeader, InnerImageZoom, ProductRelatedProducts, ProductPageSkeleton },
 })
-export default class Paginaproduct extends Vue {
+export default class extends Vue {
+  @cart.Action private addToCart!: ICartStore['addToCart'];
   @Prop() public readonly id!: string;
 
-  public breadCrumbs: IProduct[] = [];
+  public breadCrumbs: IBreadcrumb[] = [];
   public product: IProduct = {
     id: '',
     name: '',
@@ -161,8 +153,8 @@ export default class Paginaproduct extends Vue {
     ];
   }
 
-  public adicionarCarrinho(product: IProduct): void {
-    this.addCarrinho(product);
+  public addProduct(product: IProduct): void {
+    this.addToCart(product);
     this.btnAdd = false;
     setTimeout(() => {
       this.btnAdd = true;

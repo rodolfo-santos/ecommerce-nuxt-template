@@ -1,1 +1,2 @@
-export { objectToQuery } from './object-to-query';
+export { formRules } from './formRules';
+export { objectToQuery } from './objectToQuery';

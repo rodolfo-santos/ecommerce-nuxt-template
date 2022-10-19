@@ -1,17 +1,11 @@
-<template>
-  <UsuarioForm class="form-user"> Salvar Alterações </UsuarioForm>
-</template>
-
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import UsuarioForm from '@/components/Usuario/UsuarioForm.vue';
+import { UserForm } from '@/components/utils';
 
-@Component({
-  components: {
-    UsuarioForm,
-  },
-})
-export default class UsuarioEditar extends Vue {}
+@Component({ components: { UserForm } })
+export default class extends Vue {}
 </script>
 
-<style></style>
+<template>
+  <UserForm class="form-user"> Salvar Alterações </UserForm>
+</template>
