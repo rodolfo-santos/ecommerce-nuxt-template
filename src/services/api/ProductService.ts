@@ -1,6 +1,6 @@
-import { $axios } from '~/assets/ts/nuxtInstance';
+import { $axios } from '~/assets/ts/utils/nuxtInstance';
 import { IProductQuery } from '~/models/data';
-import { objectToQuery } from '~/assets/ts';
+import { objectToQuery } from '~/assets/ts/utils';
 
 export class ProductService {
   public get(query: IProductQuery) {

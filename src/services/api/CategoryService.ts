@@ -1,4 +1,4 @@
-import { $axios } from '~/assets/ts/nuxtInstance';
+import { $axios } from '~/assets/ts/utils/nuxtInstance';
 
 export class CategoryService {
   public get(limit: number) {

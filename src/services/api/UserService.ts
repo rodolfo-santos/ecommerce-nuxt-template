@@ -1,5 +1,5 @@
 import { IUser } from '~/models/data';
-import { $axios } from '~/assets/ts/nuxtInstance';
+import { $axios } from '~/assets/ts/utils/nuxtInstance';
 
 export class UserService {
   public get(id: string) {
