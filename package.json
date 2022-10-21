@@ -22,7 +22,7 @@
     "vue-inner-image-zoom": "^1.1.1",
     "vuetify": "^2.5.5",
     "vuex-class": "^0.3.2",
-    "vuex-module-decorators": "^1.2.0"
+    "vuex-module-decorators": "^2.0.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",
