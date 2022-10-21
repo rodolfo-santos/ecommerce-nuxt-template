@@ -1,0 +1,17 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": ["@nuxtjs/eslint-config-typescript", "prettier"],
+  "plugins": ["vue", "prettier"],
+  "ignorePatterns": "*.d.ts",
+
+  "rules": {
+    "prettier/prettier": "error",
+    "vue/singleline-html-element-content-newline": "off",
+    "no-unused-vars": "off",
+    "space-before-function-paren": "off"
+  }
+}
