@@ -4,7 +4,7 @@ import { cepService } from '~/services/utils';
 import { IUser } from '~/models/data';
 import { user } from '~/store';
 import { IUserStore } from '~/models/store';
-import { formRules } from '~/assets/ts';
+import { formRules } from '~/assets/ts/utils';
 
 @Component
 export default class extends Vue {

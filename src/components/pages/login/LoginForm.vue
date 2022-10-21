@@ -1,7 +1,7 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
 import { ILogin } from '~/models/data';
-import { formRules } from '~/assets/ts';
+import { formRules } from '~/assets/ts/utils';
 import LoginPasswordRecovery from '~/components/pages/login/LoginPasswordRecovery.vue';
 
 @Component({ components: { LoginPasswordRecovery } })

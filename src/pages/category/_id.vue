@@ -1,6 +1,6 @@
 <script lang="ts">
 import { Component, Vue, Watch } from 'nuxt-property-decorator';
-import { objectToQuery } from '~/assets/ts';
+import { objectToQuery } from '~/assets/ts/utils';
 import { ProductCard, SubHeader, Pagination, SkeletonProductList } from '~/components/utils';
 import { CategoryFilters } from '~/components/pages/category';
 import { categoryService, productService } from '~/services/api';
@@ -37,7 +37,7 @@ export default class extends Vue {
 
   public orderTypeOptions: string[] = ['Crescente', 'Decrescente'];
   public order: string = 'Crescente';
-  public imgNotFound: string = require('~/assets/images/not_found.svg');
+  public imgNotFound: string = require('~/assets/images/site-images/not_found.svg');
 
   public get title(): string {
     if (this.$route.params.id) return this.category.name;

@@ -3,7 +3,7 @@ import { Component, Vue } from 'nuxt-property-decorator';
 
 @Component
 export default class TheHeaderLogo extends Vue {
-  public logo: string = require('~/assets/logo/logo.svg');
+  public logo: string = require('~/assets/images/logo/logo.svg');
 }
 </script>
 

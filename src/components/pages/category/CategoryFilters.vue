@@ -1,6 +1,6 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
-import { objectToQuery } from '~/assets/ts';
+import { objectToQuery } from '~/assets/ts/utils';
 import { categoryService } from '~/services/api';
 import { ICategory, IProductQuery } from '~/models/data';
 

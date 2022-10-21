@@ -4,7 +4,7 @@ import { CreditCard } from './CreditCardForm/index';
 
 @Component({ components: { CreditCard } })
 export default class CreditCardForm extends Vue {
-  public currentCardBackground: string = require('@/assets/images/banner-subheader.jpg');
+  public currentCardBackground: string = require('@/assets/images/site-images/banner__subheader.jpg');
   public cardName: string = '';
   public cardNumber: string = '';
   public cardMonth: number = 0;

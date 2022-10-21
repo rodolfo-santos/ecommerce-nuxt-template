@@ -1,6 +1,6 @@
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from 'nuxt-property-decorator';
-import { objectToQuery } from '~/assets/ts';
+import { objectToQuery } from '~/assets/ts/utils';
 import { IProductQuery } from '~/models/data';
 
 @Component

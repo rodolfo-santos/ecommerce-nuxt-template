@@ -117,7 +117,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 
 @Component
 export default class CreditCard extends Vue {
-  @Prop() public currentCardBackground: string = require('@/assets/images/banner-subheader.jpg');
+  @Prop() public currentCardBackground: string = require('@/assets/images/site-images/banner__subheader.jpg');
   @Prop() public cardName: string = '';
   @Prop() public cardNumber: string = '';
   @Prop() public cardMonth: number = 0;

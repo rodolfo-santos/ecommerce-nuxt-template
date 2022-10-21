@@ -545,70 +545,70 @@
     {
       "id": "feminino",
       "name": "Feminino",
-      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_mulher.webp",
-      "banner": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/images/banner_feminino.webp",
-      "description": "Routpas Femininas"
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/images/api-images/categories/category_mulher.webp",
+      "banner": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/images/site-images/banner_feminino.jpg",
+      "description": "Roupas Femininas"
     },
     {
       "id": "masculino",
       "name": "Masculino",
-      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_homem.webp",
-      "banner": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/images/banner_masculino.webp",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/images/api-images/categories/category_homem.webp",
+      "banner": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/images/site-images/banner_masculino.jpg",
       "description": ""
     },
     {
       "id": "menina",
       "name": "Menina",
-      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_menina.webp",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/images/api-images/categories/category_menina.webp",
       "banner": "",
       "description": ""
     },
     {
       "id": "menino",
       "name": "Menino",
-      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_menino.webp",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/images/api-images/categories/category_menino.webp",
       "banner": "",
       "description": ""
     },
     {
       "id": "jeans",
       "name": "Jeans",
-      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_jeans.webp",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/images/api-images/categories/category_jeans.webp",
       "banner": "",
       "description": ""
     },
     {
       "id": "basico",
       "name": "Básico",
-      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_basico.webp",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/images/api-images/categories/category_basico.webp",
       "banner": "",
       "description": ""
     },
     {
       "id": "regatas",
       "name": "Regatas",
-      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_regatas.webp",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/images/api-images/categories/category_regatas.webp",
       "banner": "",
       "description": ""
     },
     {
       "id": "blusas",
       "name": "Blusas",
-      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_blusa.webp",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/images/api-images/categories/category_blusa.webp",
       "banner": "",
       "description": ""
     },
     {
       "id": "bolsas",
       "name": "Bolsas",
-      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_bolsas.webp",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/images/api-images/categories/category_bolsas.webp",
       "banner": "",
       "description": ""
     },
     {
       "id": "camisetas",
       "name": "Camisetas",
-      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_camisetas.webp",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/images/api-images/categories/category_camisetas.webp",
       "banner": "",
       "description": ""
     }

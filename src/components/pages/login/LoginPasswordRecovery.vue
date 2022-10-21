@@ -1,6 +1,6 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
-import { formRules } from '~/assets/ts';
+import { formRules } from '~/assets/ts/utils';
 
 @Component
 export default class extends Vue {

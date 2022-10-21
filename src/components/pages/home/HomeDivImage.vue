@@ -1,5 +1,8 @@
 <template>
-  <v-parallax :src="require('~/assets/images/jeans_banner.jpg')" height="350" class="home-div-image | flex-center">
+  <v-parallax
+    :src="require('~/assets/images/site-images/jeans_banner.jpg')"
+    height="350"
+    class="home-div-image | flex-center">
     <div class="text-center">
       <span class="home-div-image__up-title | text-upper">Nova Coleção</span>
       <h2 class="home-div-image__title | text-upper">Moda Jeans Premium</h2>
