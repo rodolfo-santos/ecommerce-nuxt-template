@@ -72,7 +72,5 @@ export default {
 
   buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify', '@nuxtjs/style-resources', '@nuxt/image'],
 
-  build: {},
-
-  server: { port: 3000, host: '0.0.0.0' }
+  build: {}
 };
