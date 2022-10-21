@@ -404,7 +404,7 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_1_front.jpg",
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_1_back.jpg"
       ],
-      "categories": ["camiseta", "feminino", "masculino", "regatas"],
+      "categories": ["camisetas", "feminino", "masculino", "regatas"],
       "variations": ["P", "M", "G", "GG", "GX"],
       "weight_kg": 0.8,
       "height_cm": 100,
@@ -425,7 +425,7 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_front.jpg",
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_back.jpg"
       ],
-      "categories": ["camiseta", "feminino", "masculino", "regatas"],
+      "categories": ["camisetas", "feminino", "masculino", "regatas"],
       "variations": ["P", "M", "G", "GG", "GX"],
       "weight_kg": 0.8,
       "height_cm": 100,
@@ -446,7 +446,7 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_3_front.jpg",
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_3_back.jpg"
       ],
-      "categories": ["camiseta", "feminino", "masculino", "regatas"],
+      "categories": ["camisetas", "feminino", "masculino", "regatas"],
       "variations": ["P", "M", "G", "GG", "GX"],
       "weight_kg": 0.8,
       "height_cm": 100,
@@ -467,7 +467,7 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_4_front.jpg",
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_4_back.jpg"
       ],
-      "categories": ["camiseta", "feminino", "masculino", "regatas"],
+      "categories": ["camisetas", "feminino", "masculino", "regatas"],
       "variations": ["P", "M", "G", "GG", "GX"],
       "weight_kg": 0.8,
       "height_cm": 100,
@@ -488,7 +488,7 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_5_front.jpg",
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_5_back.jpg"
       ],
-      "categories": ["camiseta", "feminino", "masculino", "regatas", "menino"],
+      "categories": ["camisetas", "feminino", "masculino", "regatas", "menino"],
       "variations": ["P", "M", "G", "GG", "GX"],
       "weight_kg": 0.8,
       "height_cm": 100,
@@ -509,7 +509,7 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_6_front.jpg",
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_6_back.jpg"
       ],
-      "categories": ["camiseta", "feminino", "masculino", "regatas", "menina"],
+      "categories": ["camisetas", "feminino", "masculino", "regatas", "menina"],
       "variations": ["P", "M", "G", "GG", "GX"],
       "weight_kg": 0.8,
       "height_cm": 100,
@@ -530,7 +530,7 @@
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_7_front.jpg",
         "http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_7_back.jpg"
       ],
-      "categories": ["camiseta", "feminino", "masculino", "regatas"],
+      "categories": ["camisetas", "feminino", "masculino", "regatas"],
       "variations": ["P", "M", "G", "GG", "GX"],
       "weight_kg": 0.8,
       "height_cm": 100,
@@ -545,70 +545,70 @@
     {
       "id": "feminino",
       "name": "Feminino",
-      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_mulher.jpg",
-      "banner": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/images/banner_feminino.jpg",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_mulher.webp",
+      "banner": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/images/banner_feminino.webp",
       "description": "Routpas Femininas"
     },
     {
       "id": "masculino",
       "name": "Masculino",
-      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_homem.jpg",
-      "banner": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/images/banner_masculino.jpg",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_homem.webp",
+      "banner": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/images/banner_masculino.webp",
       "description": ""
     },
     {
       "id": "menina",
       "name": "Menina",
-      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_menina.jpg",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_menina.webp",
       "banner": "",
       "description": ""
     },
     {
       "id": "menino",
       "name": "Menino",
-      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_menino.jpg",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_menino.webp",
       "banner": "",
       "description": ""
     },
     {
       "id": "jeans",
       "name": "Jeans",
-      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_jeans.jpg",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_jeans.webp",
       "banner": "",
       "description": ""
     },
     {
       "id": "basico",
       "name": "Básico",
-      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_basico.jpg",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_basico.webp",
       "banner": "",
       "description": ""
     },
     {
       "id": "regatas",
       "name": "Regatas",
-      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_regatas.jpg",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_regatas.webp",
       "banner": "",
       "description": ""
     },
     {
       "id": "blusas",
       "name": "Blusas",
-      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_blusa.jpg",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_blusa.webp",
       "banner": "",
       "description": ""
     },
     {
       "id": "bolsas",
       "name": "Bolsas",
-      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_bolsas.jpg",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_bolsas.webp",
       "banner": "",
       "description": ""
     },
     {
       "id": "camisetas",
       "name": "Camisetas",
-      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_camisetas.jpg",
+      "image": "https://raw.githubusercontent.com/rodolfo-santos/ecommerce-vuejs2-typescript/master/src/assets/api-images/categories/category_camisetas.webp",
       "banner": "",
       "description": ""
     }

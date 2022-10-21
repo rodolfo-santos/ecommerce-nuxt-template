@@ -1,13 +1,13 @@
-import { http } from '../config';
+import { $axios } from '~/assets/ts/nuxtInstance';
 import { IProductQuery } from '~/models/data';
 import { objectToQuery } from '~/assets/ts';
 
 export class ProductService {
   public get(query: IProductQuery) {
-    return http.get(`product/${objectToQuery(query)}`);
+    return $axios.get(`product/${objectToQuery(query)}`);
   }
 
   public getUnique(id: string) {
-    return http.get(`/product/${id}`);
+    return $axios.get(`/product/${id}`);
   }
 }

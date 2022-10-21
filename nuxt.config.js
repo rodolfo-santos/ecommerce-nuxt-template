@@ -1,6 +1,8 @@
 export default {
   target: 'static',
   srcDir: 'src/',
+  components: false,
+
   head: {
     titleTemplate: '%s - app',
     title: 'app',
@@ -13,24 +15,23 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
-  css: ['~/sass/global.scss'],
-  styleResources: { scss: ['~/sass/global.scss'] },
-
-  plugins: ['~/plugins/filters', '~/plugins/v-mask'],
-
-  components: false,
-
-  buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify', '@nuxtjs/style-resources'],
-
-  modules: ['@nuxtjs/axios', '@nuxtjs/pwa'],
-
-  axios: {},
-
   pwa: {
     manifest: {
       lang: 'en'
     }
   },
+
+  axios: {
+    baseURL: process.env.API_BASE_URL,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': true
+    }
+  },
+
+  css: ['~/sass/global.scss'],
+
+  styleResources: { scss: ['~/sass/global.scss'] },
 
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
@@ -49,6 +50,13 @@ export default {
     }
   },
 
+  plugins: ['~/plugins/filters', '~/plugins/v-mask', '~/plugins/accessor'],
+
+  buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify', '@nuxtjs/style-resources'],
+
+  modules: ['@nuxtjs/axios', '@nuxtjs/pwa'],
+
   build: {},
-  server: { port: 3001 }
+
+  server: { port: 3001, host: '0.0.0.0' }
 };

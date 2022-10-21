@@ -1,15 +1,15 @@
-import { http } from '../config';
+import { $axios } from '~/assets/ts/nuxtInstance';
 
 export class CategoryService {
   public get(limit: number) {
-    return http.get(`/category/?_limit=${limit}`);
+    return $axios.get(`/category/?_limit=${limit}`);
   }
 
   public filter(filtro: string) {
-    return http.get(`/category/?q=${filtro}`);
+    return $axios.get(`/category/?q=${filtro}`);
   }
 
   public getUnique(id: string) {
-    return http.get(`/category/${id}`);
+    return $axios.get(`/category/${id}`);
   }
 }

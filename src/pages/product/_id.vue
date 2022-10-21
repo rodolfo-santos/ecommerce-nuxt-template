@@ -54,7 +54,6 @@ export default class extends Vue {
   public selection: string = '';
   public cep: string = '';
   public btnAdd = true;
-  public addCarrinho!: (product: IProduct) => void;
 
   public async fetchProduct(): Promise<void> {}
 

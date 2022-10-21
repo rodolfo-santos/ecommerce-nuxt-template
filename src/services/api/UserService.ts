@@ -1,16 +1,16 @@
 import { IUser } from '~/models/data';
-import { http } from '../config';
+import { $axios } from '~/assets/ts/nuxtInstance';
 
 export class UserService {
   public get(id: string) {
-    return http.get(`/user/${id}`);
+    return $axios.get(`/user/${id}`);
   }
 
   public create(user: IUser) {
-    return http.post(`/user`, user);
+    return $axios.post(`/user`, user);
   }
 
   public update(id: string, user: IUser) {
-    return http.put(`/user/${id}`, user);
+    return $axios.put(`/user/${id}`, user);
   }
 }
