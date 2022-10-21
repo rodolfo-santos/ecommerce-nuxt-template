@@ -6,12 +6,12 @@ import { general } from '~/store';
 export default class SubHeader extends Vue {
   @general.State saving!: boolean;
   @Prop() public readonly title!: string;
-  @Prop({ default: require('~/assets/images/site-images/banner_subheader.jpg') }) public background!: string;
+  @Prop({ default: require('~/static/images/site-images/banner_subheader.jpg') }) public background!: string;
   @Prop() public readonly breadcrumbs!: object[];
 
   get urlBackground(): string {
     if (this.background === '') {
-      return require('~/assets/images/site-images/banner_subheader.jpg');
+      return require('~/static/images/site-images/banner_subheader.jpg');
     }
     return this.background;
   }

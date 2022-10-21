@@ -21,6 +21,19 @@ export default {
     }
   },
 
+  image: {
+    domains: ['ecommerce-node-template.herokuapp.com'],
+    presets: {
+      category: {
+        modifiers: {
+          format: 'webp',
+          width: 100,
+          height: 100
+        }
+      }
+    }
+  },
+
   axios: {
     baseURL: process.env.API_BASE_URL,
     headers: {
@@ -51,9 +64,13 @@ export default {
 
   plugins: ['~/plugins/filters', '~/plugins/v-mask', '~/plugins/accessor'],
 
-  buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify', '@nuxtjs/style-resources'],
+  compilerOptions: {
+    types: ['@nuxt/types', '@nuxt/image']
+  },
 
   modules: ['@nuxtjs/axios', '@nuxtjs/pwa'],
+
+  buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify', '@nuxtjs/style-resources', '@nuxt/image'],
 
   build: {},
 

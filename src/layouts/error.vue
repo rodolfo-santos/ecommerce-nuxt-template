@@ -22,7 +22,7 @@ export default class extends Vue {
     };
   }
 
-  public img404: string = require('~/assets/images/site-images/404.svg');
+  public img404: string = require('~/static/images/site-images/404.svg');
 }
 </script>
 

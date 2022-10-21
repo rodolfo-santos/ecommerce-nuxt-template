@@ -3,23 +3,23 @@
     <div class="notas-site">
       <v-container class="d-none d-md-flex justify-space-between">
         <div class="bloco-notas localizacao justify-start">
-          <img src="~/assets/images/icons/localizacao.svg" alt="Ícone Localização" />
+          <nuxt-img src="~/static/images/icons/localizacao.svg" alt="Ícone Localização" />
           <span> São José dos Campos - SP</span>
         </div>
         <div class="bloco-notas entrega">
-          <img src="~/assets/images/icons/brasil.svg" alt="Ícone Brasil" />
+          <nuxt-img src="~/static/images/icons/brasil.svg" alt="Ícone Brasil" />
           <span> Entrega para todo o país </span>
         </div>
         <div class="bloco-notas pagamento">
-          <img src="~/assets/images/icons/mercado-pago.svg" alt="Ícone Mercado Pago" />
+          <nuxt-img src="~/static/images/icons/mercado-pago.svg" alt="Ícone Mercado Pago" />
           <span> Mercado Pago </span>
         </div>
         <div class="bloco-notas bandeiras justify-end">
-          <img src="~/assets/images/icons/visa.svg" alt="Ícone Mercado Pago" />
-          <img src="~/assets/images/icons/mastercard.svg" alt="Ícone Mercado Pago" />
-          <img src="~/assets/images/icons/hipercard.svg" alt="Ícone Mercado Pago" />
-          <img src="~/assets/images/icons/american-express.svg" alt="Ícone Mercado Pago" />
-          <img src="~/assets/images/icons/elo.svg" alt="Ícone Mercado Pago" />
+          <nuxt-img src="~/static/images/icons/visa.svg" alt="Ícone Mercado Pago" />
+          <nuxt-img src="~/static/images/icons/mastercard.svg" alt="Ícone Mercado Pago" />
+          <nuxt-img src="~/static/images/icons/hipercard.svg" alt="Ícone Mercado Pago" />
+          <nuxt-img src="~/static/images/icons/american-express.svg" alt="Ícone Mercado Pago" />
+          <nuxt-img src="~/static/images/icons/elo.svg" alt="Ícone Mercado Pago" />
         </div>
       </v-container>
     </div>
@@ -29,7 +29,7 @@
           <v-col class="col-12 col-md-6 pr-md-10">
             <v-row class="logo">
               <div>
-                <img src="~/assets/images/logo/logo.svg" alt="Logotipo Big Store" />
+                <nuxt-img src="~/static/images/logo/logo.svg" alt="Logotipo Big Store" />
                 <div class="bar-div"></div>
               </div>
             </v-row>

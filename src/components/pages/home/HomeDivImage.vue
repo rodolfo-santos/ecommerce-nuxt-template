@@ -1,6 +1,6 @@
 <template>
   <v-parallax
-    :src="require('~/assets/images/site-images/jeans_banner.jpg')"
+    :src="require('~/static/images/site-images/jeans_banner.jpg')"
     height="350"
     class="home-div-image | flex-center">
     <div class="text-center">

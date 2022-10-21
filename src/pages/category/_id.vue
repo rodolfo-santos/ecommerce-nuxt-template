@@ -37,7 +37,7 @@ export default class extends Vue {
 
   public orderTypeOptions: string[] = ['Crescente', 'Decrescente'];
   public order: string = 'Crescente';
-  public imgNotFound: string = require('~/assets/images/site-images/not_found.svg');
+  public imgNotFound: string = require('~/static/images/site-images/not_found.svg');
 
   public get title(): string {
     if (this.$route.params.id) return this.category.name;

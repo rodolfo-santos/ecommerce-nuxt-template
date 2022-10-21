@@ -5,11 +5,11 @@ import { Component, Vue } from 'nuxt-property-decorator';
 export default class extends Vue {
   public items = [
     {
-      src: require('~/assets/images/site-images/banner_loja.jpg'),
+      src: require('~/static/images/site-images/banner_loja.jpg'),
       content: ['Desapegou!', 'Roupas Sociais a', 'preços Incríveis']
     },
     {
-      src: require('~/assets/images/site-images/banner_loja.jpg'),
+      src: require('~/static/images/site-images/banner_loja.jpg'),
       content: ['Confira as Novidades', 'fique ligado nos', 'Últimos Anúncios']
     }
   ];

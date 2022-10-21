@@ -13,13 +13,13 @@
         <div class="card-item__wrapper">
           <div class="card-item__top">
             <img
-              src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png"
+              src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/static/images/chip.png"
               class="card-item__chip" />
             <div class="card-item__type">
               <transition name="slide-fade-up">
                 <img
                   :src="
-                    'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' +
+                    'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/static/images/' +
                     getCardType +
                     '.png'
                   "
@@ -99,7 +99,7 @@
           <div class="card-item__type">
             <img
               :src="
-                'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' +
+                'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/static/images/' +
                 getCardType +
                 '.png'
               "
@@ -117,7 +117,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 
 @Component
 export default class CreditCard extends Vue {
-  @Prop() public currentCardBackground: string = require('@/assets/images/site-images/banner_subheader.jpg');
+  @Prop() public currentCardBackground: string = require('@/static/images/site-images/banner_subheader.jpg');
   @Prop() public cardName: string = '';
   @Prop() public cardNumber: string = '';
   @Prop() public cardMonth: number = 0;
