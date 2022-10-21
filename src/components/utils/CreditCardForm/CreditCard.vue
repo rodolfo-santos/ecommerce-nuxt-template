@@ -13,13 +13,13 @@
         <div class="card-item__wrapper">
           <div class="card-item__top">
             <img
-              src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/static/images/chip.png"
+              src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png"
               class="card-item__chip" />
             <div class="card-item__type">
               <transition name="slide-fade-up">
                 <img
                   :src="
-                    'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/static/images/' +
+                    'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' +
                     getCardType +
                     '.png'
                   "
@@ -99,7 +99,7 @@
           <div class="card-item__type">
             <img
               :src="
-                'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/static/images/' +
+                'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' +
                 getCardType +
                 '.png'
               "
