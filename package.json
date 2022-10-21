@@ -1,7 +1,11 @@
 {
   "name": "app",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
+  "engines": {
+    "node": ">=16.16.0",
+    "npm": ">=8.0.0"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -26,6 +30,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",
+    "@nuxt/image": "^0.7.1",
     "@nuxt/types": "^2.15.7",
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/eslint-config-typescript": "^6.0.1",
