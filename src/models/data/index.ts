@@ -1,7 +1,10 @@
 export { IAlert } from './IAlert';
 export { IBreadcrumb } from './IBreadcrumb';
+export { IBreakpoints } from './IBreakpoints';
+export { IBreakpointsKeys } from './IBreakpointsKeys';
 export { ICategory } from './ICategory';
 export { IFilters } from './IFilters';
+export { IImageSize } from './IImageSize';
 export { ILogin } from './ILogin';
 export { IProduct } from './IProduct';
 export { IProductQuery } from './IProductQuery';
