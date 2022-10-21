@@ -34,7 +34,6 @@ export default {
   styleResources: { scss: ['~/sass/global.scss'] },
 
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
     theme: {
       dark: true,
       themes: {
