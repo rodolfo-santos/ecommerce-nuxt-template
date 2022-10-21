@@ -16,33 +16,28 @@ export default class extends Vue {
     keepConnected: false
   };
 
-  public async login(): Promise<void> {
-    // const response: any = await this.getUsuario(this.login);
-    // if (response.status === 200) {
-    //   this.$router.push({ name: 'UsuarioEditar' });
-    // }
-  }
+  public async login(): Promise<void> {}
 }
 </script>
 
 <template>
-  <v-form @submit.prevent="login" v-model="isValidForm">
+  <v-form v-model="isValidForm" @submit.prevent="login">
     <v-text-field
       id="email"
+      ref="campoDeFoco"
       v-model="loginForm.email"
       label="E-mail"
-      ref="campoDeFoco"
-      :rules="rules.email"
-      required></v-text-field>
+      required
+      :rules="rules.email"></v-text-field>
     <v-text-field
       id="password"
       v-model="loginForm.password"
       label="Senha"
+      required
       :rules="rules.required"
       :append-icon="isShowPassword ? 'mdi-eye-off-outline' : 'mdi-eye'"
       :type="isShowPassword ? 'text' : 'password'"
-      @click:append="() => (isShowPassword = !isShowPassword)"
-      required></v-text-field>
+      @click:append="() => (isShowPassword = !isShowPassword)"></v-text-field>
     <v-checkbox
       id="manter-conectado"
       v-model="loginForm.keepConnected"

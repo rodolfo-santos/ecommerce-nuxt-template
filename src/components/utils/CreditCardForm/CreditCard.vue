@@ -1,12 +1,43 @@
+<script lang="ts">
+import { Component, Vue, Prop } from 'vue-property-decorator';
+
+@Component
+export default class CreditCard extends Vue {
+  @Prop() public currentCardBackground: string = require('@/static/images/site-images/banner_subheader.jpg');
+  @Prop() public cardName: string = '';
+  @Prop() public cardNumber: string = '';
+  @Prop() public cardMonth: number = 0;
+  @Prop() public cardYear: number = 0;
+  @Prop() public cardCvv: string = '';
+  @Prop() public minCardYear: number = new Date().getFullYear();
+  @Prop() public otherCardMask: string = '#### #### #### ####';
+  @Prop() public cardNumberTemp: string = '';
+  @Prop() public isCardFlipped: boolean = false;
+  @Prop() public focusElementStyle: any = null;
+  @Prop() public isInputFocused: boolean = false;
+
+  get getCardType(): string {
+    const cardNumber = this.cardNumber;
+    if (cardNumber.match(/^4/) != null) return 'visa';
+    if (cardNumber.match(/^(34|37)/) != null) return 'amex';
+    if (cardNumber.match(/^5[1-5]/) != null) return 'mastercard';
+    if (cardNumber.match(/^6011/) != null) return 'discover';
+    if (cardNumber.match(/^9792/) != null) return 'troy';
+
+    return 'visa';
+  }
+}
+</script>
+
 <template>
   <div class="card-list">
     <div class="card-item" :class="{ '-active': isCardFlipped }">
       <div class="card-item__side -front">
         <div
+          ref="focusElement"
           class="card-item__focus"
           :class="{ '-active': focusElementStyle }"
-          :style="focusElementStyle"
-          ref="focusElement"></div>
+          :style="focusElementStyle"></div>
         <div class="card-item__cover">
           <img :src="currentCardBackground" class="card-item__bg" />
         </div>
@@ -18,56 +49,54 @@
             <div class="card-item__type">
               <transition name="slide-fade-up">
                 <img
+                  v-if="getCardType"
+                  :key="getCardType"
                   :src="
                     'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' +
                     getCardType +
                     '.png'
                   "
-                  v-if="getCardType"
-                  :key="getCardType"
                   alt=""
                   class="card-item__typeImg" />
               </transition>
             </div>
           </div>
-          <label for="cardNumber" class="card-item__number" ref="cardNumber">
-            <template>
-              <span v-for="(n, $index) in otherCardMask" :key="$index">
-                <transition name="slide-fade-up">
-                  <div
-                    class="card-item__numberItem"
-                    v-if="$index > 4 && $index < 15 && cardNumber.length > $index && n.trim() !== ''">
-                    *
-                  </div>
-                  <div
-                    class="card-item__numberItem"
-                    :class="{ '-active': n.trim() === '' }"
-                    :key="$index"
-                    v-else-if="cardNumber.length > $index">
-                    {{ cardNumber[$index] }}
-                  </div>
-                  <div class="card-item__numberItem" :class="{ '-active': n.trim() === '' }" v-else :key="$index + 1">
-                    {{ n }}
-                  </div>
-                </transition>
-              </span>
-            </template>
+          <label ref="cardNumber" for="cardNumber" class="card-item__number">
+            <span v-for="(n, index) in otherCardMask.split('')" :key="index">
+              <transition name="slide-fade-up">
+                <div
+                  v-if="index > 4 && index < 15 && cardNumber.length > index && n.trim() !== ''"
+                  class="card-item__numberItem">
+                  *
+                </div>
+                <div
+                  v-else-if="cardNumber.length > index"
+                  :key="index"
+                  :class="{ '-active': n.trim() === '' }"
+                  class="card-item__numberItem">
+                  {{ cardNumber[index] }}
+                </div>
+                <div v-else :key="index + 1" class="card-item__numberItem" :class="{ '-active': n.trim() === '' }">
+                  {{ n }}
+                </div>
+              </transition>
+            </span>
           </label>
           <div class="card-item__content">
-            <label for="cardName" class="card-item__info" ref="cardName">
-              <div class="card-item__holder">Títular do Cartão</div>
+            <label ref="cardName" for="cardName" class="card-item__info">
+              <div class="card-item__holder">Titular do Cartão</div>
               <transition name="slide-fade-up">
-                <div class="card-item__name" v-if="cardName.length" key="1">
+                <div v-if="cardName.length" key="1" class="card-item__name">
                   <transition-group name="slide-fade-right">
-                    <template v-for="(n, $index) in cardName.replace(/\s\s+/g, ' ')">
-                      <span class="card-item__nameItem" v-if="$index === $index" :key="$index + 1">{{ n }}</span>
+                    <template v-for="(n, index) in cardName.replace(/\s\s+/g, ' ').split('')">
+                      <span v-if="index === index" :key="index + 1" class="card-item__nameItem">{{ n }}</span>
                     </template>
                   </transition-group>
                 </div>
-                <div class="card-item__name" v-else key="2">Nome Completo</div>
+                <div v-else key="2" class="card-item__name">Nome Completo</div>
               </transition>
             </label>
-            <div class="card-item__date" ref="cardDate">
+            <div ref="cardDate" class="card-item__date">
               <label for="cardMonth" class="card-item__dateTitle">Venc.</label>
               <label for="cardMonth" class="card-item__dateItem">
                 <transition name="slide-fade-up">
@@ -94,16 +123,12 @@
         <div class="card-item__cvv">
           <div class="card-item__cvvTitle">CVV</div>
           <div class="card-item__cvvBand">
-            <span v-for="(n, $index) in cardCvv" :key="$index"> * </span>
+            <span v-for="(n, index) in cardCvv.split('')" :key="index"> * </span>
           </div>
           <div class="card-item__type">
             <img
-              :src="
-                'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' +
-                getCardType +
-                '.png'
-              "
               v-if="getCardType"
+              :src="`https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/${getCardType}.png`"
               class="card-item__typeImg" />
           </div>
         </div>
@@ -111,55 +136,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
-
-@Component
-export default class CreditCard extends Vue {
-  @Prop() public currentCardBackground: string = require('@/static/images/site-images/banner_subheader.jpg');
-  @Prop() public cardName: string = '';
-  @Prop() public cardNumber: string = '';
-  @Prop() public cardMonth: number = 0;
-  @Prop() public cardYear: number = 0;
-  @Prop() public cardCvv: string = '';
-  @Prop() public minCardYear: number = new Date().getFullYear();
-  @Prop() public otherCardMask: string = '#### #### #### ####';
-  @Prop() public cardNumberTemp: string = '';
-  @Prop() public isCardFlipped: boolean = false;
-  @Prop() public focusElementStyle: any = null;
-  @Prop() public isInputFocused: boolean = false;
-
-  get getCardType(): string {
-    const cardNumber = this.cardNumber;
-    let re = new RegExp('^4');
-    if (cardNumber.match(re) != null) {
-      return 'visa';
-    }
-
-    re = new RegExp('^(34|37)');
-    if (cardNumber.match(re) != null) {
-      return 'amex';
-    }
-
-    re = new RegExp('^5[1-5]');
-    if (cardNumber.match(re) != null) {
-      return 'mastercard';
-    }
-
-    re = new RegExp('^6011');
-    if (cardNumber.match(re) != null) {
-      return 'discover';
-    }
-    re = new RegExp('^9792');
-    if (cardNumber.match(re) != null) {
-      return 'troy';
-    }
-
-    return 'visa'; // default type
-  }
-}
-</script>
 
 <style lang="scss" scoped>
 .card-item {

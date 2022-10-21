@@ -11,7 +11,7 @@ export default class extends Vue {
 </script>
 
 <template>
-  <v-form @submit.prevent="" v-model="ifValidForm">
+  <v-form v-model="ifValidForm" @submit.prevent="">
     <v-text-field v-model="email" label="Insira seu e-mail" :rules="rules.email" required></v-text-field>
     <div class="flex-center mt-4">
       <v-btn class="btn-login pa-6" type="submit" :disabled="!ifValidForm"> Recuperar Senha </v-btn>

@@ -47,18 +47,18 @@ export default class TheHeaderInputSearch extends Vue {
       <transition name="fade">
         <div v-show="isShowInputSearch" class="div-search">
           <v-text-field
-            placeholder="Pesquisar"
-            class="input-search"
             ref="inputSearch"
             v-model="search"
+            placeholder="Pesquisar"
+            class="input-search"
             @blur="isShowInputSearch = false"
             @keypress.enter="searchProduct"></v-text-field>
         </div>
       </transition>
 
       <transition name="fade" mode="out-in">
-        <v-icon v-if="!isShowInputSearch" @click="showSearchInput" class="mx-5" key="icon-search">mdi-magnify</v-icon>
-        <v-icon v-else @click="isShowInputSearch = false" class="mx-5" key="icon-close">mdi-close</v-icon>
+        <v-icon v-if="!isShowInputSearch" key="icon-search" class="mx-5" @click="showSearchInput">mdi-magnify</v-icon>
+        <v-icon v-else key="icon-close" class="mx-5" @click="isShowInputSearch = false">mdi-close</v-icon>
       </transition>
     </div>
   </div>
