@@ -1,11 +1,17 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
-import { UserForm } from '~/components/utils';
+import { HistoryProductCard } from '~/components/pages/user/history';
 
-@Component({ components: { UserForm } })
+@Component({ components: { HistoryProductCard } })
 export default class extends Vue {}
 </script>
 
 <template>
-  <div></div>
+  <v-col cols="12" class="d-flex flex-column" style="gap: 16px">
+    <HistoryProductCard />
+    <HistoryProductCard />
+    <HistoryProductCard />
+    <HistoryProductCard />
+    <HistoryProductCard />
+  </v-col>
 </template>

@@ -58,23 +58,14 @@ export default class extends Vue {
       type="text"
       maxlength="80"
       :rules="rules.required"
-      :disabled="true"
       required />
-    <v-text-field
-      v-model="userForm.cpf"
-      label="CPF"
-      type="text"
-      maxlength="11"
-      :rules="rules.cpf"
-      :disabled="true"
-      required />
+    <v-text-field v-model="userForm.cpf" label="CPF" type="text" maxlength="11" :rules="rules.cpf" required />
     <v-text-field
       v-model="userForm.email"
       label="E-mail"
       type="email"
       maxlength="80"
       :rules="rules.required"
-      :disabled="true"
       required />
     <v-text-field
       v-model="userForm.password"
@@ -83,7 +74,6 @@ export default class extends Vue {
       :rules="rules.password"
       :append-icon="isShowPassword ? 'mdi-eye-off-outline' : 'mdi-eye'"
       :type="isShowPassword ? 'text' : 'password'"
-      :disabled="true"
       @click:append="() => (isShowPassword = !isShowPassword)" />
     <v-divider class="mt-4"></v-divider>
     <v-row>
@@ -95,17 +85,10 @@ export default class extends Vue {
           maxlength="8"
           required
           :rules="rules.required"
-          :disabled="true"
           @keyup="getAddressByCep()" />
       </v-col>
       <v-col class="col-12 col-md-9">
-        <v-text-field
-          v-model="userForm.street"
-          label="Rua"
-          type="text"
-          required
-          :rules="rules.required"
-          :disabled="true" />
+        <v-text-field v-model="userForm.street" label="Rua" type="text" required :rules="rules.required" />
       </v-col>
     </v-row>
     <v-row>
@@ -116,8 +99,7 @@ export default class extends Vue {
           type="text"
           required
           maxlength="6"
-          :rules="rules.required"
-          :disabled="true" />
+          :rules="rules.required" />
       </v-col>
       <v-col class="col-12 col-md-9">
         <v-text-field
@@ -126,37 +108,18 @@ export default class extends Vue {
           type="text"
           required
           maxlength="6"
-          :rules="rules.required"
-          :disabled="true" />
+          :rules="rules.required" />
       </v-col>
     </v-row>
     <v-row>
       <v-col class="col-12 col-md-9">
-        <v-text-field
-          v-model="userForm.city"
-          label="Cidade"
-          type="text"
-          required
-          :rules="rules.required"
-          :disabled="true" />
+        <v-text-field v-model="userForm.city" label="Cidade" type="text" required :rules="rules.required" />
       </v-col>
       <v-col class="col-12 col-md-3">
-        <v-text-field
-          v-model="userForm.state"
-          label="Estado"
-          type="text"
-          required
-          :rules="rules.required"
-          :disabled="true" />
+        <v-text-field v-model="userForm.state" label="Estado" type="text" required :rules="rules.required" />
       </v-col>
     </v-row>
-    <v-text-field
-      v-model="userForm.phone"
-      label="Telefone"
-      type="number"
-      required
-      :rules="rules.phone"
-      :disabled="true" />
+    <v-text-field v-model="userForm.phone" label="Telefone" type="number" required :rules="rules.phone" />
 
     <div class="flex-center mt-4">
       <v-btn class="btn-login pa-6" type="submit" :disabled="!isValidForm || true">

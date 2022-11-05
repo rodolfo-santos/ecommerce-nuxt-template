@@ -17,12 +17,7 @@ export default class extends Vue {
       icon: 'mdi-account',
       route: '/user/edit'
     },
-    {
-      text: 'Formas de Pagamento',
-      description: 'Atualize os dados do seu cartão de crédito',
-      icon: 'mdi-credit-card',
-      route: '/user/payment'
-    },
+
     {
       text: 'Pedidos em Andamento',
       description: 'Verifique o andamento dos seus pedidos',
@@ -34,12 +29,6 @@ export default class extends Vue {
       description: 'Verifique todas as compras feitas por você',
       icon: 'mdi-shopping',
       route: '/user/history'
-    },
-    {
-      text: 'Falar com um Vendedor',
-      description: 'Precisa de ajuda? Fale com um Vendedor',
-      icon: 'mdi-account-voice',
-      route: '/user/talk-to-seller'
     }
   ];
 
