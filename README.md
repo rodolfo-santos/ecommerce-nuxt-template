@@ -26,7 +26,7 @@
 
 <br />
 
-# 💻 Ecommerce SPA Typescript (VUEJS)
+# 💻 Ecommerce SPA Typescript (NUXTJS)
 
 SPA Vue Frontend using a [Json-Server Fake API]('https://www.npmjs.com/package/json-server')
 
