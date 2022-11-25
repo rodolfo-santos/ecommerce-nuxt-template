@@ -49,7 +49,7 @@ export default class extends Vue {
       <v-btn class="btn-login pa-6" type="submit" :disabled="!isValidForm"> Login </v-btn>
     </div>
     <p class="text-center mt-4">
-      Perdeu a password?
+      Perdeu a senha?
       <a @click="isShowRecoveryPassword = !isShowRecoveryPassword">Clique aqui para recuperar a senha.</a>
     </p>
     <transition name="fade" mode="out-in">
