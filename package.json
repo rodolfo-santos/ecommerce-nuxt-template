@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": false,
   "engines": {
-    "node": ">=16.16.0",
-    "npm": ">=8.0.0"
+    "node": "16.18.0",
+    "npm": "8.19.2"
   },
   "scripts": {
     "dev": "nuxt",
