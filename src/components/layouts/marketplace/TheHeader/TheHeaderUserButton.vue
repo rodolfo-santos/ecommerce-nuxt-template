@@ -16,7 +16,7 @@ export default class extends Vue {
       <v-icon left>mdi-account</v-icon>
       {{ user.name }}
     </v-btn>
-    <v-btn v-else to="/login">
+    <v-btn v-else to="/auth/login">
       <v-icon left>mdi-account</v-icon>
       Entrar / Cadastrar
     </v-btn>

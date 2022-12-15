@@ -1,15 +1,14 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
-import { SubHeader, UserForm } from '~/components/utils';
-import { LoginForm } from '~/components/pages/login';
+import { SubHeader } from '~/components/utils';
 import { IBreadcrumb } from '~/models/data';
 
-@Component({ components: { SubHeader, UserForm, LoginForm } })
+@Component({ components: { SubHeader } })
 export default class Login extends Vue {
   public isShowCreateAccount: boolean = false;
   public breadcrumbs: IBreadcrumb[] = [
     { text: 'Home', disabled: false, to: '/' },
-    { text: 'Login', disabled: true, to: '/login' }
+    { text: 'Login', disabled: true, to: '/auth/login' }
   ];
 }
 </script>
@@ -20,16 +19,11 @@ export default class Login extends Vue {
     <v-container>
       <div max-width="1000px" class="bloco-login mx-auto mt-16">
         <h1 class="mb-5 text-muted">
-          <span :class="{ active: !isShowCreateAccount }" @click="isShowCreateAccount = false"> Entrar </span>
+          <nuxt-link to="/auth/login" class="nuxt-link"> Entrar </nuxt-link>
           <div class="mx-5">|</div>
-          <span :class="{ active: isShowCreateAccount }" @click="isShowCreateAccount = true"> Cadastrar </span>
+          <nuxt-link to="/auth/register" class="nuxt-link"> Cadastrar </nuxt-link>
         </h1>
-        <div v-show="!isShowCreateAccount">
-          <LoginForm />
-        </div>
-        <div v-show="isShowCreateAccount">
-          <UserForm> Cadastrar </UserForm>
-        </div>
+        <nuxt-child></nuxt-child>
       </div>
     </v-container>
   </v-main>
@@ -68,7 +62,11 @@ h1 {
   }
 }
 
-.active {
-  color: $primary;
+a {
+  color: #666;
+}
+
+.nuxt-link-active {
+  color: $primary !important;
 }
 </style>

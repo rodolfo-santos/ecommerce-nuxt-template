@@ -15,7 +15,7 @@ import { IBreadcrumb, ICategory, IProduct, IProductQuery } from '~/models/data';
 
     const breadcrumbs: IBreadcrumb[] = [
       { text: 'Página Inicial', disabled: false, to: '/' },
-      { text: 'Categorias', disabled: false, to: '/category' }
+      { text: 'Categorias', disabled: false, to: '/category/masculino' }
     ];
 
     breadcrumbs.push({

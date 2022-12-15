@@ -16,7 +16,7 @@ export default class extends Vue {
 
 <template>
   <v-navigation-drawer v-model="show" fixed temporary app>
-    <v-list-item two-line link to="/login">
+    <v-list-item two-line link to="/auth/login">
       <v-list-item-avatar>
         <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
       </v-list-item-avatar>

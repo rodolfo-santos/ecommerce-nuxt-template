@@ -42,8 +42,7 @@ export default class extends Vue {
   }
 
   public exit(): void {
-    // this.logout();
-    this.$router.push({ name: 'Login' });
+    this.$router.push('/auth/login');
   }
 }
 </script>
@@ -66,7 +65,7 @@ export default class extends Vue {
                 </v-list-item-content>
               </v-list-item>
 
-              <v-list-item class="btn-opcao" @click="exit">
+              <v-list-item class="btn-opcao" @click="exit()">
                 <v-list-item-icon>
                   <v-icon>mdi-exit-run</v-icon>
                 </v-list-item-icon>

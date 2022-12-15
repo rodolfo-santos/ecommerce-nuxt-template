@@ -2,7 +2,7 @@
 import { Component, Vue } from 'nuxt-property-decorator';
 import { ILogin } from '~/models/data';
 import { formRules } from '~/assets/ts/utils';
-import LoginPasswordRecovery from '~/components/pages/login/LoginPasswordRecovery.vue';
+import LoginPasswordRecovery from '~/components/pages/auth/LoginPasswordRecovery.vue';
 
 @Component({ components: { LoginPasswordRecovery } })
 export default class extends Vue {
@@ -52,6 +52,7 @@ export default class extends Vue {
       Perdeu a senha?
       <a @click="isShowRecoveryPassword = !isShowRecoveryPassword">Clique aqui para recuperar a senha.</a>
     </p>
+
     <transition name="fade" mode="out-in">
       <LoginPasswordRecovery v-show="isShowRecoveryPassword" />
     </transition>

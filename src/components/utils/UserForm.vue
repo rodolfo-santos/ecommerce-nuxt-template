@@ -5,6 +5,7 @@ import { IUser } from '~/models/data';
 import { user } from '~/store';
 import { IUserStore } from '~/models/store';
 import { formRules } from '~/assets/ts/utils';
+import { userService } from '~/services/api';
 
 @Component
 export default class extends Vue {
@@ -37,7 +38,7 @@ export default class extends Vue {
     if (cep.length === 8) {
       cepService.get(cep).then((response) => {
         this.userForm.street = response.data.logradouro;
-        this.userForm.neighborhood = response.data.neighborhood;
+        this.userForm.neighborhood = response.data.bairro;
         this.userForm.city = response.data.localidade;
         this.userForm.state = response.data.uf;
       });
@@ -45,7 +46,9 @@ export default class extends Vue {
   }
 
   public submit(): void {
-    //
+    userService.create(this.userForm).then(() => {
+      this.$router.push('/auth/login');
+    });
   }
 }
 </script>
@@ -122,7 +125,7 @@ export default class extends Vue {
     <v-text-field v-model="userForm.phone" label="Telefone" type="number" required :rules="rules.phone" />
 
     <div class="flex-center mt-4">
-      <v-btn class="btn-login pa-6" type="submit" :disabled="!isValidForm || true">
+      <v-btn class="btn-login pa-6" type="submit" :disabled="!isValidForm">
         <slot></slot>
       </v-btn>
     </div>

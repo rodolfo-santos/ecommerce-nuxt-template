@@ -7,7 +7,7 @@
       <span class="home-div-image__up-title | text-upper">Nova Coleção</span>
       <h2 class="home-div-image__title | text-upper">Moda Jeans Premium</h2>
       <p>De uma olhada em nossas novidades, acesse nosso catálogo agora.</p>
-      <v-btn>Confira Agora</v-btn>
+      <v-btn link to="/category/jeans">Confira Agora</v-btn>
     </div>
   </v-parallax>
 </template>
