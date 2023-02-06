@@ -20,7 +20,7 @@
     "@nuxtjs/style-resources": "^1.2.1",
     "@types/jest": "^27.5.2",
     "core-js": "^3.27.0",
-    "nuxt": "^2.15.7",
+    "nuxt": "^3.1.2",
     "nuxt-property-decorator": "^2.9.1",
     "v-mask": "^2.3.0",
     "vue-inner-image-zoom": "^1.1.1",
