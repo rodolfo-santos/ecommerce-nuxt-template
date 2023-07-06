@@ -48,7 +48,7 @@
     "eslint-plugin-vue": "^9.0.1",
     "eslint-plugin-vuejs-accessibility": "^1.1.1",
     "jest": "^27.0.5",
-    "prettier": "^2.6.0",
+    "prettier": "^3.0.0",
     "ts-jest": "^27.0.3",
     "typescript": "^3.9.10",
     "vue-jest": "^3.0.4"
