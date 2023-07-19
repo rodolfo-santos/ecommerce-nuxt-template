@@ -24,7 +24,7 @@
     "nuxt-property-decorator": "^2.9.1",
     "v-mask": "^2.3.0",
     "vue-inner-image-zoom": "^2.0.0",
-    "vuetify": "^2.5.5",
+    "vuetify": "^3.3.9",
     "vuex-class": "^0.3.2",
     "vuex-module-decorators": "^1.2.0"
   },
