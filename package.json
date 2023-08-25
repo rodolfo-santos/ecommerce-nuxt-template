@@ -29,7 +29,7 @@
     "vuex-module-decorators": "^1.2.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.14.7",
+    "@babel/eslint-parser": "^7.22.11",
     "@nuxt/image": "^0.7.1",
     "@nuxt/types": "^2.15.7",
     "@nuxt/typescript-build": "^2.1.0",
